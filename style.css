@@ -1,0 +1,210 @@
+/* #### RESET CSS #### */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Noto Sans", sans-serif;
+}
+
+/* ####### GENERAL COMPONENTS ####### */
+#componentsPage {
+    height: 100vh;
+    background-image: url('Utilities/Images/bg2.png');
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+/* #### NAVBAR #### */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+    width: 90%;
+    margin: 0 auto;
+}
+#rightNav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#searchIconHover {
+    display: none;
+    cursor: pointer;
+}
+#searchIcon {
+    cursor: pointer;
+}
+#searchIcons:hover #searchIcon {
+    display: none;
+}
+#searchIcons:hover #searchIconHover {
+    display: inline-flex;
+}
+#barsIcon {
+    cursor: pointer;
+}
+
+/* ### BARRA DE PESQUISA ### */
+.barraPesquisa {
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    font-weight: 400;
+    min-width: 400px;
+    border-radius: 10px;
+    padding: 2px 6px;
+    display: none;
+}
+.barraPesquisa.active {
+    display: block;
+}
+
+/* ### SIDE MENU ### */
+.side-menu {
+    position: absolute;
+    margin-top: 10px;
+    top: 100%;
+    right: 0;
+    width: fit-content;
+    background-color: #050505; 
+    border: 1px solid white;
+    border-radius: 16px; 
+    padding: 35px;
+    z-index: 999;
+    text-wrap: nowrap;
+    display: none;
+}
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+.side-menu a {
+    text-decoration: none;
+    color: #d1d1d1;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    display: block;
+    transition: color 0.2s ease;
+}
+.side-menu a:hover {
+    color: #ffffff;
+}
+.side-menu.active {
+    display: block;
+}
+
+/* ### SIDE BUTTONS ### */
+#sideButtons {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    gap: 10px;
+    top: 35%;
+    right: 0;
+    height: fit-content;
+    width: fit-content;
+}
+#sideButtons a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #182439;
+    background-color: #83e1b2;
+    border: 1px solid transparent; 
+    border-radius: 0 10px 10px 0; 
+    padding: 10px 5px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transition: 0.4s;
+    box-shadow: 0 0 5px #83e1b2,
+                0 0 25px #83e1b2,
+                0 0 50px #83e1b2,
+                0 0 200px #83e1b2;
+    
+}
+#sideButtons a:hover {
+    background-color: #2CE387;
+}
+
+
+
+/* #### FOOTER #### */
+footer {
+    width: 90%;
+    padding: 50px;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+#topFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    width: 100%;
+}
+#logotiposFooter {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#logotiposRedes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#bottomFooter {
+    display: flex;
+    gap: 10px;
+    padding: 20px 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+#bottomFooter p {
+    font-weight: 500;
+    font-size: 14px;
+    color: white;
+}
+#line {
+    border: 1px solid white;
+    border-radius: 3em;
+}
+#bottomFooter a {
+    font-weight: 200;
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: 0.4s;
+}
+#bottomFooter a:hover {
+    color: lightgray;
+}
+#facebookIconHover,
+#instagramIconHover,
+#youtubeIconHover,
+#linkedinIconHover {
+    display: none;
+}
+a:hover #facebookIcon,
+a:hover #instagramIcon,
+a:hover #youtubeIcon,
+a:hover #linkedinIcon {
+    display: none;
+}
+a:hover #facebookIconHover,
+a:hover #instagramIconHover,
+a:hover #youtubeIconHover,
+a:hover #linkedinIconHover {
+    display: inline-flex;
+}
