@@ -14,15 +14,32 @@
     background-size: cover;
     background-position: center;
 }
-
+.scrollSnap {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollSnap::-webkit-scrollbar {
+  display: none;
+}
+.scrollSnap section {
+  scroll-snap-align: start;
+}
 /* #### NAVBAR #### */
 nav {
-    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
     justify-content: space-between;
     align-items: center;
     padding: 50px;
     width: 90%;
     margin: 0 auto;
+    z-index: 999;
 }
 #rightNav {
     position: relative;
@@ -104,14 +121,15 @@ nav {
 
 /* ### SIDE BUTTONS ### */
 #sideButtons {
-    display: flex;
-    position: absolute;
+    display: none;
+    position: fixed;
     flex-direction: column;
     gap: 10px;
     top: 35%;
     right: 0;
     height: fit-content;
     width: fit-content;
+    z-index: 999;
 }
 #sideButtons a {
     font-weight: 600;
@@ -132,16 +150,18 @@ nav {
 }
 #sideButtons a:hover {
     background-color: #2CE387;
+    box-shadow: 0 0 5px #2CE387,
+                0 0 25px #2CE387,
+                0 0 50px #2CE387,
+                0 0 200px #2CE387;
 }
-
-
 
 /* #### FOOTER #### */
 footer {
     width: 90%;
     padding: 50px;
     margin: 0 auto;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -207,4 +227,119 @@ a:hover #instagramIconHover,
 a:hover #youtubeIconHover,
 a:hover #linkedinIconHover {
     display: inline-flex;
+}
+
+/* ####### HOMEPAGE ####### */
+/* ##### SECTION 1 ##### */
+#homepageSection {
+    position: relative;
+    height: 100vh;
+    background-image: url('Utilities/Images/bg1.png');
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#homepageSection::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+#topHomepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+#topHomepage h1 {
+    font-size: 140px;
+    font-weight: 700;
+    background: #78849D;
+    background: linear-gradient(to right, #78849D 0%, #FFFFFF 100%);
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) 
+            drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#mergulhadorHomepage {
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    right: 0;
+    left: 0;
+    width: 560px;
+    z-index: 1;
+}
+#bottomHomepage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    z-index: 999;
+    width: 100%;
+    padding-bottom: 50px;
+}
+#bottomNav {
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+#bottomNav a{
+    text-decoration: none;
+    color: white;
+    transition: 0.4s;
+}
+#bottomNav a:hover {
+    color: grey;
+}
+#btnJuntate {
+    text-decoration: none;
+    color: #182439;
+    background-color: #83e1b2;
+    border: 1px solid transparent; 
+    box-shadow: 0 0 5px #83e1b2,
+                0 0 25px #83e1b2,
+                0 0 50px #83e1b2,
+                0 0 200px #83e1b2;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-weight: 600;
+    transition: 0.4s;
+}
+#btnJuntate:hover {
+    background-color: #2CE387;
+    box-shadow: 0 0 5px #2CE387,
+                0 0 25px #2CE387,
+                0 0 50px #2CE387,
+                0 0 200px #2CE387;
+}
+
+/* ####### SECTION 2 ####### */
+#destaquesSection {
+    height: 100vh;
+    background-image: url('Utilities/Images/bg2.png');
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+/* #### FOOTER SECTION #### */
+#footerSection {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('Utilities/Images/bg2.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
 }

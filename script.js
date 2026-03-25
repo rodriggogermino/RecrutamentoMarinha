@@ -25,3 +25,21 @@ document.addEventListener('click', function(event) {
         searchBar.classList.remove('active');
     }
 });
+
+/* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL #### */
+const nav = document.querySelector('nav');
+const sideButtons = document.getElementById('sideButtons');
+const scrollSnapArticle = document.querySelector('.scrollSnap');
+
+function updateNavVisibility() {
+    if (scrollSnapArticle.scrollTop >= window.innerHeight) {
+        nav.style.display = 'flex';
+        sideButtons.style.display = 'flex';
+    } else {
+        nav.style.display = 'none';
+        sideButtons.style.display = 'none';
+    }
+}
+
+scrollSnapArticle.addEventListener('scroll', updateNavVisibility);
+updateNavVisibility();
