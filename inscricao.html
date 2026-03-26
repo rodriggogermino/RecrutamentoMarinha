@@ -1,39 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="Utilities/Images/icone.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Recrutamento Marinha Portuguesa</title>
     <link rel="stylesheet" href="style.css">
-    <title>Marinha Recrutamento</title>
+    <link href="app.css" rel="stylesheet">
 </head>
-
 <body>
-    <article class="scrollSnap">
-        <section id="homepageSection">
-            <div id="topHomepage">
-                <img src="Utilities/Images/logoWhiteM.png" alt="">
-                <h1>RECRUTAMENTO</h1>
-            </div>
-            <img id="mergulhadorHomepage" src="Utilities/Images/mergulhadorHomepage.png" alt="Mergulhador da Marinha Portuguesa">
-            <div id="bottomHomepage">
-                <a href="" id="btnJuntate">JUNTA-TE A NÓS</a>
-                <div id="bottomNav">
-                    <a href="">Profissões</a>
-                    <a href="">Concursos</a>
-                    <a href="">Prepara-te</a>
-                    <a href="">A tua carreira</a>
-                    <a href="">Candidata-te</a>
-                </div>
-            </div>
-        </section>
+
+    
+
+    <main class="hero">
         <!--#### NAVBAR ####-->
         <nav>
-            <a href=""><img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+            <a href="" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+            <a href="" id="navLogoS"><img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
             <div id="rightNav">
                 <form action="/">
                     <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
@@ -78,15 +60,80 @@
                 </div>
             </div>
         </nav>
-        <!--#### SIDE BUTTONS ####-->
-        <div id="sideButtons">
-            <a href="index.html">CHAT</a>
-            <a href="components.html">JUNTA-TE A NÓS</a>
-        </div>
-        <section id="destaquesSection">
-
+        <div class="hero-overlay"></div>
+        
+        <section class="top-content">
+            <h1>RECRUTAMENTO <span>MARINHA</span></h1>
+            <p>Junta-te a nós e embarca numa carreira cheia de aventuras e desafios na Marinha!</p>
         </section>
-        <section id="footerSection">
+
+        <div class="main-grid">
+            <section class="form-panel">
+                <div class="hud-corners"></div>
+                <h2>JUNTA-TE A NÓS</h2>
+                <p class="form-desc">Preenche o formulário e fica a par das informações sobre os concursos da Marinha!</p>
+                
+                <form>
+                    <div class="input-row">
+                        <input type="text" placeholder="Nome*">
+                        <input type="email" placeholder="Email*">
+                        <input type="text" placeholder="Nº de telemovel/telefone">
+                        <select>
+                        <option>Habilitações Literárias*</option>
+                        <option>Ensino Superior</option>
+                        <option>Ensino Basico</option>
+                        <option>Ensino Profissional</option>
+                        <option>Ensino Regular</option>
+                    </select>
+                    </div>
+                    <div class="row">
+                    <input type="date">
+                    <select>
+                        <option>Género</option>
+                        <option>Masculino</option>
+                        <option>Feminino</option>
+                        <option>Não responder</option>
+                    </select>
+                </div>
+
+                    <div class="input-row">
+                        
+                        
+                        <input type="password" placeholder="Repetir Password*">
+                    </div>
+                    
+                    <label class="checkbox-label">
+                        <input type="checkbox"> Aceito receber e-mails sobre os novos concursos e política de informação (opcional)
+                    </label>
+
+                    <button type="submit" class="btn-submit">Enviar candidatura</button>
+                </form>
+                <p class="login-link">Já tens conta? <a href="#">Inicia sessão</a></p>
+            </section>
+
+            <section class="info-panel">
+                <h3>PORQUE ESCOLHER A <span>MARINHA</span> ?</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="icon">⚓</div>
+                        <h4>CARREIRA ESTÁVEL</h4>
+                        <p>Constrói uma carreira sólida e com progressão na Marinha.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">👥</div>
+                        <h4>FORMAÇÃO E TECNOLOGIA</h4>
+                        <p>Garantimos formação contínua e tecnologia de ponta.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="icon">💰</div>
+                        <h4>SALÁRIO E BENEFÍCIOS</h4>
+                        <p>-.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
     <!--#### FOOTER ####-->
     <footer>
         <div id="topFooter">
@@ -175,9 +222,7 @@
             <a href="">Mapas do Site</a>
             <a href="">Contactos</a>
         </div>
-        </section>
-    </article>
-    <script src="script.js"></script>
-</body>
+    </footer>
 
+</body>
 </html>
