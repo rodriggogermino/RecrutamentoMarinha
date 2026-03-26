@@ -1,0 +1,106 @@
+:root {
+    --cyan-glow: #00d4ff;
+    --dark-blue: #020b1a;
+    --navy-glass: rgba(5, 45, 85, 0.7);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--dark-blue);
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?q=80&w=1600');
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 5%; background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid var(--cyan-glow);
+}
+/* Ajuste do tamanho do logo */
+.logo-img {
+    height: 35px; /* Altura reduzida (ajuste conforme o seu gosto, ex: 30px ou 40px) */
+    width: auto;  /* Mantém a proporção da imagem */
+    display: block;
+    transition: transform 0.3s ease; /* Opcional: efeito suave */
+}
+
+/* Opcional: Ajuste do container para garantir alinhamento */
+.logo-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.logo-text { font-family: 'Orbitron'; font-size: 0.9rem; color: white; }
+.nav-links a { color: white; text-decoration: none; margin: 0 15px; font-size: 0.8rem; text-transform: uppercase; }
+
+/* Main Section */
+.hero { padding: 50px 5%; }
+.top-content h1 { font-family: 'Orbitron'; font-size: 2.5rem; text-align: center; margin-bottom: 40px; }
+.top-content span { color: var(--cyan-glow); }
+
+.main-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; max-width: 1200px; margin: auto; }
+
+/* Formulário com tudo a Branco */
+.form-panel {
+    background: var(--navy-glass);
+    padding: 40px;
+    border: 1px solid var(--cyan-glow);
+    backdrop-filter: blur(10px);
+}
+
+.form-panel h2 { color: var(--cyan-glow); font-family: 'Orbitron'; margin-bottom: 10px; }
+
+/* AQUI: Garantir que a descrição do form é branca */
+.form-desc { color: #ffffff !important; font-size: 0.9rem; margin-bottom: 25px; opacity: 1; }
+
+.input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+
+/* AQUI: Estilo dos inputs e selects */
+input, select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.5);
+    padding: 12px;
+    color: #ffffff !important; /* Texto que o utilizador escreve */
+    font-size: 0.9rem;
+}
+
+/* AQUI: Estilo do Placeholder (letras que aparecem antes de escrever) */
+input::placeholder {
+    color: #ffffff !important;
+    opacity: 1; /* Garante que não fica baço */
+}
+
+/* AQUI: Estilo do Select (opções) */
+select {
+    appearance: none;
+    color: #ffffff !important;
+}
+
+option {
+    background-color: var(--dark-blue);
+    color: #ffffff;
+}
+
+/* AQUI: Texto da Checkbox e do Link de Login */
+.checkbox-label { color: #ffffff !important; font-size: 0.8rem; display: block; margin: 15px 0; }
+.login-link { color: #ffffff !important; margin-top: 15px; text-align: center; }
+.login-link a { color: var(--cyan-glow); font-weight: bold; }
+
+.btn-submit {
+    width: 100%; padding: 15px;
+    background: linear-gradient(90deg, #800000, #ff0000);
+    border: none; color: white; font-weight: bold; cursor: pointer;
+    clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+}
+
+/* Benefícios Side */
+.info-panel h3 { font-family: 'Orbitron'; margin-bottom: 20px; color: white; }
+.benefit-card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 5px; margin-bottom: 15px; }
+.benefit-card h4 { color: var(--cyan-glow); margin-bottom: 5px; }
+.benefit-card p { color: #ffffff; font-size: 0.8rem; }
