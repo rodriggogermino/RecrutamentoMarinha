@@ -106,7 +106,7 @@ nav {
     border: 1px solid white;
     border-radius: 16px; 
     padding: 35px;
-    z-index: 997;
+    z-index: 999;
     text-wrap: nowrap;
     display: none;
 }
@@ -145,7 +145,7 @@ nav {
     right: 0;
     height: fit-content;
     width: fit-content;
-    z-index: 998;
+    z-index: 997;
 }
 #sideButtons a {
     font-weight: 600;
