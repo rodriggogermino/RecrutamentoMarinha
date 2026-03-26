@@ -7,6 +7,10 @@
 }
 
 /* ####### GENERAL COMPONENTS ####### */
+#searchMobile {
+    display: none;
+
+}
 #componentsPage {
     height: 100vh;
     background-image: url('Utilities/Images/bg2.png');
@@ -33,13 +37,16 @@ nav {
     top: 0;
     left: 0;
     right: 0;
-    display: none;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 50px;
     width: 90%;
     margin: 0 auto;
     z-index: 999;
+}
+#navLogoXS {
+    display: none;
 }
 #rightNav {
     position: relative;
@@ -121,7 +128,7 @@ nav {
 
 /* ### SIDE BUTTONS ### */
 #sideButtons {
-    display: none;
+    display: flex;
     position: fixed;
     flex-direction: column;
     gap: 10px;
@@ -259,6 +266,9 @@ a:hover #linkedinIconHover {
     align-items: center;
     padding-top: 50px;
 }
+#homepageLogoS {
+    display: none;
+}
 #topHomepage h1 {
     font-size: 140px;
     font-weight: 700;
@@ -285,7 +295,7 @@ a:hover #linkedinIconHover {
     gap: 50px;
     z-index: 999;
     width: 100%;
-    padding-bottom: 50px;
+    padding-bottom: 100px;
 }
 #bottomNav {
     z-index: 999;
@@ -337,9 +347,95 @@ a:hover #linkedinIconHover {
 #footerSection {
     position: relative;
     min-height: 100vh;
-    background-image: url('Utilities/Images/bg2.png');
-    background-size: cover;
+    background-color: black;
+    background-size: contain;
     background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#footerSection h1 {
+    font-size: 100px;
+    font-weight: 700;
+    background: #78849D;
+    background: linear-gradient(to right, #78849D 0%, #FFFFFF 100%);
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) 
+            drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 3;
+}
+#fuzileiroFooter {
+    position: absolute;
+    max-width: 700px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+
+}
+
+/* ###### RESPONSIVIDADE ###### */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+        
+        #searchMobile {
+            display: block;
+        }
+        /* ### NAVBAR ### */
+        nav {
+            padding: 35px 20px;
+        }
+        #navLogoXS {
+            display: flex;
+        }
+        #navLogoS {
+            display: none;
+        }
+        .barraPesquisa {
+            min-width: 200px;
+        }
+        /* ### SECTION 1 ### */
+        #homepageLogoM {
+            display: none;
+        }
+        #homepageLogoS {
+            display: flex;
+        }
+        #topHomepage{
+            padding-top: 50px;
+        }
+        #topHomepage h1 {
+            font-size: 45px;
+            font-weight: 800;
+        }
+        #mergulhadorHomepage{
+            width: 400px;
+            bottom: 50px;
+        }
+        #bottomNav{
+            gap: 30px;
+        }
+        #bottomNav{
+            font-size: 12px;
+        }
+        /* ### FOOTER ### */
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }
