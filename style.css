@@ -106,7 +106,7 @@ nav {
     border: 1px solid white;
     border-radius: 16px; 
     padding: 35px;
-    z-index: 999;
+    z-index: 997;
     text-wrap: nowrap;
     display: none;
 }
