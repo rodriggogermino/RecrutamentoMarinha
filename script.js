@@ -26,6 +26,14 @@ document.addEventListener('click', function(event) {
     }
 });
 
+/* ### MOBILE SEARCH BAR ### */
+function openNav() {
+  document.getElementById("searchMobile").style.width = "100%";
+}
+function closeNav() {
+  document.getElementById("searchMobile").style.width = "0";
+}
+
 /* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL #### */
 const nav = document.querySelector('nav');
 const sideButtons = document.getElementById('sideButtons');
