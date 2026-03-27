@@ -39,15 +39,22 @@ const nav = document.querySelector('nav');
 const sideButtons = document.getElementById('sideButtons');
 const scrollSnapArticle = document.querySelector('.scrollSnap');
 
+function isMobileDevice() {
+    return window.innerWidth <= 600;
+}
+
 function updateNavVisibility() {
-    if (scrollSnapArticle.scrollTop >= window.innerHeight) {
+    const isFirstPage = scrollSnapArticle.scrollTop < window.innerHeight;
+    
+    if (isMobileDevice()) {
         nav.style.display = 'flex';
-        sideButtons.style.display = 'flex';
+        sideButtons.style.display = isFirstPage ? 'none' : 'flex';
     } else {
-        nav.style.display = 'none';
-        sideButtons.style.display = 'none';
+        nav.style.display = isFirstPage ? 'none' : 'flex';
+        sideButtons.style.display = isFirstPage ? 'none' : 'flex';
     }
 }
 
 scrollSnapArticle.addEventListener('scroll', updateNavVisibility);
+window.addEventListener('resize', updateNavVisibility);
 updateNavVisibility();

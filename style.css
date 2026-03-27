@@ -429,14 +429,11 @@ a:hover #linkedinIconHover {
             font-size: 12px;
         }
         /* ### SECTION 1 ### */
-        #homepageLogoM {
-            display: none;
-        }
-        #homepageLogoS {
-            display: flex;
-        }
         #topHomepage{
             padding-top: 80px;
+        }
+        #topHomepage img{
+            display: none;
         }
         #topHomepage h1 {
             font-size: 45px;
@@ -452,12 +449,9 @@ a:hover #linkedinIconHover {
         #bottomNav{
             gap: 14px;
         }
-        #btnJuntate{
-            font-size: 10px;
-            padding: 7px 14px;
-        }
+        
         #bottomNav a {
-            font-size: 11px;
+            display: none;
         }
         .searchMobile {
             height: 100%;
