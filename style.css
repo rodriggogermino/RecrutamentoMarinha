@@ -12,9 +12,45 @@ html {
 }
 
 /* ####### GENERAL COMPONENTS ####### */
+ .titulo1 {
+    font-size: 5vh;
+    background: #78849D;
+    background: linear-gradient(to right, #78849D 0%, #FFFFFF 100%);
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) 
+            drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+ }
+/* #### BTNS PARA SLIDES #### */
+.buttonsSlides {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+}
+.btnPrevious {
+    display: flex;
+    align-items: center;
+    padding: 1.2vh;
+    border-radius: 50%;
+    background-color: #E9EAED;
+    transition: 0.4s;
+}
+.btnNext {
+    display: flex;
+    align-items: center;
+    padding: 1.2vh;
+    border-radius: 50%;
+    background-color: #E9EAED;  
+    transition: 0.4s
+}
+.btnPrevious:hover, .btnNext:hover {
+    cursor: pointer;
+    background-color: #838383; 
+}
 #searchMobile {
     display: none;
-
 }
 #componentsPage {
     height: 100vh;
@@ -22,6 +58,19 @@ html {
     margin: 0;
     background-size: cover;
     background-position: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+#utilitiesSection1 {
+    height: 60vh;
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 .scrollSnap {
   height: 100vh;
@@ -45,7 +94,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 50px;
+    padding: 5vh;
     width: 90%;
     margin: 0 auto;
     z-index: 998;
@@ -57,7 +106,7 @@ nav {
     position: relative;
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 2vh;
 }
 #searchIconMobile {
     display: none;
@@ -74,7 +123,7 @@ nav {
     display: none;
 }
 #searchIcons:hover #searchIconHover {
-    display: inline-flex;
+    display: block;
 }
 #barsIcon {
     cursor: pointer;
@@ -140,7 +189,7 @@ nav {
     display: flex;
     position: fixed;
     flex-direction: column;
-    gap: 10px;
+    gap: 1vh;
     top: 35%;
     right: 0;
     height: fit-content;
@@ -148,13 +197,14 @@ nav {
     z-index: 997;
 }
 #sideButtons a {
+    font-size: 1.6vh;
     font-weight: 600;
     text-decoration: none;
     color: #182439;
     background-color: #83e1b2;
     border: 1px solid transparent; 
-    border-radius: 0 10px 10px 0; 
-    padding: 10px 5px;
+    border-radius: 0 1vh 1vh 0; 
+    padding: 1.7vh 0.7vh;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     transition: 0.4s;
@@ -175,7 +225,7 @@ nav {
 /* #### FOOTER #### */
 footer {
     width: 90%;
-    padding: 50px;
+    padding: 5vh;
     margin: 0 auto;
     position: absolute;
     bottom: 0;
@@ -186,31 +236,35 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 2vh 0;
     width: 100%;
 }
 #logotiposFooter {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 2vh;
 }
 #logotiposRedes {
     display: flex;
     align-items: center;
     gap: 20px;
 }
+#logotiposRedes a img{
+    width: 40%;
+}
 #bottomFooter {
     display: flex;
-    gap: 10px;
-    padding: 20px 0;
+    gap: 1vh;
+    padding: 2vh 0;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
 #bottomFooter p {
     font-weight: 500;
-    font-size: 14px;
+    font-size: 1.5vh;
     color: white;
+    margin: 0;
 }
 #line {
     border: 1px solid white;
@@ -220,13 +274,13 @@ footer {
     font-weight: 200;
     text-decoration: none;
     color: white;
-    font-size: 14px;
+    font-size: 1.2vh;
     transition: 0.4s;
 }
 #copyrightFooter {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 1vh;
 }
 #linksFooter {
     display: flex;
@@ -283,7 +337,7 @@ a:hover #linkedinIconHover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
+    padding-top: 5vh;
 }
 #homepageLogoS {
     display: none;
@@ -312,17 +366,17 @@ a:hover #linkedinIconHover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 50px;
+    gap: 5vh;
     z-index: 999;
     width: 100%;
-    padding-bottom: 100px;
+    padding-bottom: 8vh;
 }
 #bottomNav {
     z-index: 999;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    gap: 7vh;
 }
 #bottomNav a{
     font-size: 2vh;
@@ -344,8 +398,8 @@ a:hover #linkedinIconHover {
                 0 0 25px #83e1b2,
                 0 0 50px #83e1b2,
                 0 0 200px #83e1b2;
-    border-radius: 10px;
-    padding: 8px 14px;
+    border-radius: 1vh;
+    padding: 0.7vh 1.7vh;
     font-weight: 600;
     transition: 0.4s;
 }
@@ -362,10 +416,97 @@ a:hover #linkedinIconHover {
     height: 100vh;
     background-image: url('Utilities/Images/bg2.png');
     margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     background-size: cover;
     background-position: center;
 }
-
+#destaquesContainer {
+    height: 60vh;
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+#destaquesSlideshow {
+    gap: 4vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+#destaquesBox {
+    position: relative; 
+    height: 40vh;
+    width: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.destaquesSlide {
+    position: absolute; 
+    border-radius: 5vh;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end; 
+    transition: all 0.5s ease-in-out;
+    overflow: hidden; 
+    opacity: 0;
+}
+.destaquesSlideContainer {
+    width: 100%;
+    height: 35%;
+    border-bottom-left-radius: 5vh;
+    border-bottom-right-radius: 5vh;
+    backdrop-filter: blur(1.3vh);
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 1vh;
+}
+.destaquesSlideContainer h3 {
+    font-size: 2vh;
+    font-weight: 600;
+    color: white;
+}
+.destaquesSlideContainer p {
+    font-size: 1.6vh;
+    font-weight: 200;
+    color: white;
+}
+#destaque1 {
+    background-image: url(Utilities/Images/destaque1.png);
+    background-position: center;
+    background-size: cover;
+}
+#destaque2 {
+    background-image: url(Utilities/Images/destaque2.png);
+    background-position: center;
+    background-size: cover;
+}
+#destaque3 {
+    background-image: url(Utilities/Images/destaque3.png);
+    background-position: center;
+    background-size: cover;
+}
+#destaque4 {
+    background-image: url(Utilities/Images/destaque4.png);
+    background-position: center;
+    background-size: cover;
+}
+#destaque5 {
+    background-image: url(Utilities/Images/destaque5.png);
+    background-position: center;
+    background-size: cover;
+}
 /* #### FOOTER SECTION #### */
 #footerSection {
     position: relative;
@@ -380,7 +521,7 @@ a:hover #linkedinIconHover {
     align-items: center;
 }
 #footerSection h1 {
-    font-size: 100px;
+    font-size: 10vh;
     font-weight: 700;
     background: #78849D;
     background: linear-gradient(to right, #78849D 0%, #FFFFFF 100%);
@@ -392,7 +533,8 @@ a:hover #linkedinIconHover {
 }
 #fuzileiroFooter {
     position: absolute;
-    max-width: 700px;
+    height: 90%;
+    width: auto;
     bottom: 0;
     left: 0;
     right: 0;
