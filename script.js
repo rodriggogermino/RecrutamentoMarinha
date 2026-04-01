@@ -111,3 +111,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateSlides();
 });
+
+document.getElementById('btnEnviar').addEventListener('click', function () {
+  const emailInput = document.getElementById('email');
+  const email = emailInput.value.trim();
+  const msg = document.getElementById('successMsg');
+
+  // Validate email
+  if (!email || !email.includes('@')) {
+    emailInput.style.borderColor = '#CC0000';
+    emailInput.focus();
+    return;
+  }
+
+  // Success state
+  emailInput.style.borderColor = '';
+  msg.style.display = 'block';
+  this.disabled = true;
+  this.style.opacity = '0.65';
+  this.textContent = 'Enviado ✓';
+});
+
+// Reset border on input
+document.getElementById('email').addEventListener('input', function () {
+  this.style.borderColor = '';
+});
