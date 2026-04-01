@@ -1,0 +1,192 @@
+/* Reset básico e fontes */
+body, h2, button {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Cabeçalho */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.logo span {
+    font-weight: bold;
+    margin-left: 5px;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Barra de ícones */
+.icon-bar {
+    padding: 10px 20px;
+    background: white;
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.icon-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+/* Botões de status */
+.status-buttons {
+    display: flex;
+    gap: 15px;
+    padding: 15px 20px;
+    background: #dee2e6;
+}
+
+.status-btn {
+    background: #ccd3d9;
+    border: none;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 220px;
+    color: #444;
+    transition: background 0.3s ease;
+}
+
+.status-btn:hover {
+    background: #b0bbc4;
+}
+
+.arrow {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+/* Conteúdo principal */
+main {
+    padding: 20px;
+    background: white;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #222;
+}
+
+/* Accordion */
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.accordion-item {
+    background: #dee2e6;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+.accordion-header {
+    width: 100%;
+    background: #dee2e6;
+    border: none;
+    text-align: left;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.accordion-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+/* Apartado chat */
+.chat-tab {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    background: #a0e8bd;
+    color: #111;
+    padding: 10px 15px;
+    border-radius: 8px 0 0 8px;
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+/* Rodapé */
+.footer {
+    background: #0c44d9;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    height: 30px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 24px;
+}
+
+.social-icons a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links small {
+    font-size: 0.75rem;
+}
+
+/* Ícones placeholders para apresentação */
+.icon-home::before { content: "🏠"; }
+.icon-user::before { content: "👤"; }
+.icon-envelope::before { content: "✉️"; }
+.icon-folder::before { content: "📁"; }
+.icon-list::before { content: "📋"; }
+.icon-sliders::before { content: "⚙️"; }
+.icon-pencil::before { content: "✏️"; }
+.icon-key::before { content: "🔑"; }
+.icon-people::before { content: "👥"; }
+.icon-link::before { content: "🔗"; }
+.icon-exit::before { content: "↪"; }
+
+.icon-whatsapp::before { content: "🟢"; }
+.icon-instagram::before { content: "📸"; }
+.icon-facebook::before { content: "📘"; }
+.icon-x::before { content: "❌"; }
+.icon-linkedin::before { content: "🔗"; }

@@ -136,3 +136,15 @@ document.getElementById('btnEnviar').addEventListener('click', function () {
 document.getElementById('email').addEventListener('input', function () {
   this.style.borderColor = '';
 });
+// Script para o comportamento da Accordion
+document.querySelectorAll('.accordion-header').forEach(button => {
+    button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        // Fecha todos
+        document.querySelectorAll('.accordion-header').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
+        // Abre o selecionado se estava fechado
+        if (!expanded) {
+            button.setAttribute('aria-expanded', 'true');
+        }
+    });
+});
