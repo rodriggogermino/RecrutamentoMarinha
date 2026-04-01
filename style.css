@@ -11,8 +11,28 @@ html {
     background-color: black;
 }
 
+html::selection {
+  background: #78849D;
+  color: white;
+  text-shadow: none;
+}
+
+html::-moz-selection {
+  background: #78849D;
+  color: white;
+}
 /* ####### GENERAL COMPONENTS ####### */
- .titulo1 {
+/* #### TITULOS #### */
+.titulo1 {
+    font-size: 7vh;
+    background: #78849D;
+    background: linear-gradient(to right, #78849D 0%, #FFFFFF 100%);
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) 
+            drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+ }
+ .titulo2 {
     font-size: 5vh;
     background: #78849D;
     background: linear-gradient(to right, #78849D 0%, #FFFFFF 100%);
@@ -507,6 +527,111 @@ a:hover #linkedinIconHover {
     background-position: center;
     background-size: cover;
 }
+
+/* ####### SECTION 3 ####### */
+
+
+/* ####### SECTION 4 ####### */
+#ondeEstamosSection {
+    height: 100vh;
+    background-image: url('Utilities/Images/bg2.png');
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+#ondeEstamosSectionContainer {
+    height: 60vh;
+    width: 85%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+}
+#ondeEstamosSectionContainer p {
+    font-size: 3vh;
+    font-weight: 200;
+    color: white;
+}
+#ondeEstamosSectionContainer span {
+    font-size: 4vh;
+    font-weight: 600;
+    background: #78849D;
+    background: linear-gradient(to right, #78849D 0%, #FFFFFF 100%);
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) 
+            drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#cardsOndeEstamos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6vh;
+}
+.cardOndeEstamos {
+    display: flex;
+    align-items: end;
+    background-size: cover; 
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 35vh;
+    width: 25vh;
+    border-radius: 2vh;
+    transition: 0.4s;
+}
+.cardOndeEstamos:nth-child(1) {
+    background-image: url(Utilities/Images/ondeEstamos1.png);
+}
+.cardOndeEstamos:nth-child(2) {
+    background-image: url(Utilities/Images/ondeEstamos2.png);
+}
+.cardOndeEstamos:nth-child(3) {
+    background-image: url(Utilities/Images/ondeEstamos3.png);
+}
+.cardOndeEstamos:nth-child(4) {
+    background-image: url(Utilities/Images/ondeEstamos4.png);
+}
+.cardContainer {
+    display: flex;
+    opacity: 0;
+    color: white;
+    width: 100%;
+    height: 25%;
+    backdrop-filter: blur(0.5vh);
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-bottom-left-radius: 2vh;
+    border-bottom-right-radius: 2vh;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+.cardOndeEstamos:nth-child(1):hover {
+    #cardContainer1 {
+        opacity: 1;
+    }
+}
+.cardOndeEstamos:nth-child(2):hover {
+    #cardContainer2 {
+        opacity: 1;
+    }
+}
+.cardOndeEstamos:nth-child(3):hover {
+    #cardContainer3 {
+        opacity: 1;
+    }
+}
+.cardOndeEstamos:nth-child(4):hover {
+    #cardContainer4 {
+        opacity: 1;
+    }
+}
 /* #### FOOTER SECTION #### */
 #footerSection {
     position: relative;
@@ -574,7 +699,7 @@ a:hover #linkedinIconHover {
         }
         /* ### SECTION 1 ### */
         #topHomepage{
-            padding-top: 80px;
+            padding-top: 14vh;
         }
         #topHomepage img{
             display: none;
@@ -584,7 +709,7 @@ a:hover #linkedinIconHover {
             font-weight: 800;
         }
         #mergulhadorHomepage{
-            width: 380px;
+            height: 70%;
             bottom: 50px;
         }
         #bottomHomepage{
