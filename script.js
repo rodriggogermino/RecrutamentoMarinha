@@ -2,36 +2,43 @@
 const barsIcon = document.getElementById('barsIcon');
 const sideMenu = document.getElementById('sideMenu');
 
-barsIcon.addEventListener('click', function() {
-    sideMenu.classList.toggle('active');
-});
+// Safety check: Only run if these elements exist on the page
+if (barsIcon && sideMenu) {
+    barsIcon.addEventListener('click', function() {
+        sideMenu.classList.toggle('active');
+    });
 
-document.addEventListener('click', function(event) {
-    if (!sideMenu.contains(event.target) && !barsIcon.contains(event.target)) {
-        sideMenu.classList.remove('active');
-    }
-});
+    document.addEventListener('click', function(event) {
+        if (!sideMenu.contains(event.target) && !barsIcon.contains(event.target)) {
+            sideMenu.classList.remove('active');
+        }
+    });
+}
 
 /* #### SEARCH BAR #### */
 const searchIconsWrapper = document.getElementById('searchIcons'); 
 const searchBar = document.getElementById('barraPesquisa');
 
-searchIconsWrapper.addEventListener('click', function() {
-    searchBar.classList.toggle('active');
-});
+if (searchIconsWrapper && searchBar) {
+    searchIconsWrapper.addEventListener('click', function() {
+        searchBar.classList.toggle('active');
+    });
 
-document.addEventListener('click', function(event) {
-    if (!searchBar.contains(event.target) && !searchIconsWrapper.contains(event.target)) {
-        searchBar.classList.remove('active');
-    }
-});
+    document.addEventListener('click', function(event) {
+        if (!searchBar.contains(event.target) && !searchIconsWrapper.contains(event.target)) {
+            searchBar.classList.remove('active');
+        }
+    });
+}
 
 /* ### MOBILE SEARCH BAR ### */
 function openNav() {
-  document.getElementById("searchMobile").style.width = "100%";
+  const nav = document.getElementById("searchMobile");
+  if (nav) nav.style.width = "100%";
 }
 function closeNav() {
-  document.getElementById("searchMobile").style.width = "0";
+  const nav = document.getElementById("searchMobile");
+  if (nav) nav.style.width = "0";
 }
 
 /* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL #### */
@@ -44,6 +51,8 @@ function isMobileDevice() {
 }
 
 function updateNavVisibility() {
+    if (!scrollSnapArticle || !nav || !sideButtons) return; // Safety check
+
     const isFirstPage = scrollSnapArticle.scrollTop < window.innerHeight;
     
     if (isMobileDevice()) {
@@ -55,15 +64,21 @@ function updateNavVisibility() {
     }
 }
 
-scrollSnapArticle.addEventListener('scroll', updateNavVisibility);
-window.addEventListener('resize', updateNavVisibility);
-updateNavVisibility();
+if (scrollSnapArticle) {
+    scrollSnapArticle.addEventListener('scroll', updateNavVisibility);
+    window.addEventListener('resize', updateNavVisibility);
+    updateNavVisibility();
+}
 
+/* #### CAROUSEL (Destaques) #### */
 document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.destaquesSlide');
     const btnNext = document.querySelector('.btnNext');
     const btnPrev = document.querySelector('.btnPrevious');
     
+    // Safety check: If there are no slides or buttons on this page, stop running
+    if (slides.length === 0 || !btnNext || !btnPrev) return;
+
     let currentIndex = 0;
     
     const maxVisible = 3;
@@ -112,27 +127,63 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlides();
 });
 
-document.getElementById('btnEnviar').addEventListener('click', function () {
-  const emailInput = document.getElementById('email');
-  const email = emailInput.value.trim();
-  const msg = document.getElementById('successMsg');
+/* #### DROPDOWN #### */
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdownBtn = document.querySelector(".dropdown-btn");
+  const dropdownOptions = document.querySelector(".dropdown-options");
+  const options = document.querySelectorAll(".option");
+  
+  if (!dropdownBtn || !dropdownOptions) return;
 
-  // Validate email
-  if (!email || !email.includes('@')) {
-    emailInput.style.borderColor = '#CC0000';
-    emailInput.focus();
-    return;
-  }
-
-  // Success state
-  emailInput.style.borderColor = '';
-  msg.style.display = 'block';
-  this.disabled = true;
-  this.style.opacity = '0.65';
-  this.textContent = 'Enviado ✓';
+  dropdownBtn.addEventListener("click", () => {
+    dropdownOptions.classList.toggle("show");
+  });
+  options.forEach(option => {
+    option.addEventListener("click", (e) => {
+      dropdownBtn.innerHTML = `${e.target.innerText} 
+        <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+      options.forEach(opt => opt.classList.remove("selected"));
+      e.target.classList.add("selected");
+      dropdownOptions.classList.remove("show");
+    });
+  });
+  window.addEventListener("click", (e) => {
+    if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-btn')) {
+      if (dropdownOptions.classList.contains('show')) {
+        dropdownOptions.classList.remove('show');
+      }
+    }
+  });
 });
 
-// Reset border on input
-document.getElementById('email').addEventListener('input', function () {
-  this.style.borderColor = '';
-});
+/* #### APP #### */
+const btnEnviar = document.getElementById('btnEnviar');
+const emailInput = document.getElementById('email');
+
+if (btnEnviar && emailInput) {
+    btnEnviar.addEventListener('click', function () {
+      const email = emailInput.value.trim();
+      const msg = document.getElementById('successMsg');
+
+      // Validate email
+      if (!email || !email.includes('@')) {
+        emailInput.style.borderColor = '#CC0000';
+        emailInput.focus();
+        return;
+      }
+
+      // Success state
+      emailInput.style.borderColor = '';
+      if (msg) msg.style.display = 'block';
+      this.disabled = true;
+      this.style.opacity = '0.65';
+      this.textContent = 'Enviado ✓';
+    });
+
+    // Reset border on input
+    emailInput.addEventListener('input', function () {
+      this.style.borderColor = '';
+    });
+}

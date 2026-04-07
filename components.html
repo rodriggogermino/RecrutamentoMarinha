@@ -16,7 +16,10 @@
 <body id="componentsPage">
     <!--#### NAVBAR ####-->
     <nav>
-        <a href=""><img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+        <a href="index.html" id="navLogoS"><img src="Utilities/Images/logoWhiteS.png"
+                alt="Logotipo Branco | Marinha Portuguesa"></a>
+        <a href="index.html" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png"
+                alt="Logotipo Branco | Marinha Portuguesa"></a>
         <div id="rightNav">
             <form action="/">
                 <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
@@ -63,7 +66,7 @@
                     <li><a href="#">Concursos</a></li>
                     <li><a href="#">Prepara-te</a></li>
                     <li><a href="#">A tua Carreira</a></li>
-                    <li><a href="#">Candidata-te</a></li>
+                    <li><a href="login.html">Candidata-te</a></li>
                 </ul>
             </div>
         </div>
@@ -84,9 +87,33 @@
         <!--#### TITULOS ####-->
         <div>
             <h1 class="titulo1">TITULO 1</h1>
-            <h1 class="titulo2">TITULO 2</h1> 
+            <h1 class="titulo2">TITULO 2</h1>
         </div>
-        
+        <!--#### DROPDOWN ####-->
+        <div style="display: flex; gap: 2vh; align-items: center; width: fit-content;">
+            <div class="custom-dropdown">
+                <button class="dropdown-btn">Item 2
+                    <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <ul class="dropdown-options">
+                    <li class="option selected">Item 1</li>
+                    <li class="option">Item 2</li>
+                    <li class="option">Item 3</li>
+                    <li class="option">Item 4</li>
+                </ul>
+            </div>
+            <!--#### DROPDOWN BTN PESQUISA ####-->
+            <button class="searchDropdownBtn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.7071 11.2929C16.0976 11.6834 16.0976 12.3166 15.7071 12.7071L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z"
+                        fill="#182439" />
+                </svg>
+            </button>
+        </div>
         <!--#### BOTÕES ####-->
         <div class="buttonsSlides">
             <span class="btnPrevious">
