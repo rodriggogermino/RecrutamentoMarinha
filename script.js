@@ -2,7 +2,6 @@
 const barsIcon = document.getElementById('barsIcon');
 const sideMenu = document.getElementById('sideMenu');
 
-// Safety check: Only run if these elements exist on the page
 if (barsIcon && sideMenu) {
     barsIcon.addEventListener('click', function() {
         sideMenu.classList.toggle('active');
@@ -34,14 +33,19 @@ if (searchIconsWrapper && searchBar) {
 /* ### MOBILE SEARCH BAR ### */
 function openNav() {
   const nav = document.getElementById("searchMobile");
-  if (nav) nav.style.width = "100%";
+  if (nav) {
+    nav.style.width = "100%"
+  }
 }
 function closeNav() {
   const nav = document.getElementById("searchMobile");
-  if (nav) nav.style.width = "0";
+  
+  if (nav) {
+    nav.style.width = "0%"
+  }
 }
 
-/* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL #### */
+/* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL / SCROLL IMEDIATO PARA SECÇÃO #### */
 const nav = document.querySelector('nav');
 const sideButtons = document.getElementById('sideButtons');
 const scrollSnapArticle = document.querySelector('.scrollSnap');
@@ -70,13 +74,30 @@ if (scrollSnapArticle) {
     updateNavVisibility();
 }
 
-/* #### CAROUSEL (Destaques) #### */
+/* #### CHATBOT #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const chatbotBtn = document.getElementById('chatbotBtn');
+    const chatbotCloseBtn = document.getElementById('minimizeIcon');
+    const chatbot = document.getElementById('chatbotDiv'); 
+
+    if (!chatbotBtn || !chatbot) return;
+    chatbotBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        chatbot.classList.toggle('show');
+    });
+    if (chatbotCloseBtn) {
+        chatbotCloseBtn.addEventListener('click', function() {
+            chatbot.classList.remove('show');
+        });
+    }
+});
+
+/* #### CARROSSEL (Destaques) #### */
 document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.destaquesSlide');
     const btnNext = document.querySelector('.btnNext');
     const btnPrev = document.querySelector('.btnPrevious');
     
-    // Safety check: If there are no slides or buttons on this page, stop running
     if (slides.length === 0 || !btnNext || !btnPrev) return;
 
     let currentIndex = 0;
@@ -129,31 +150,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* #### DROPDOWN #### */
 document.addEventListener("DOMContentLoaded", () => {
-  const dropdownBtn = document.querySelector(".dropdown-btn");
-  const dropdownOptions = document.querySelector(".dropdown-options");
-  const options = document.querySelectorAll(".option");
-  
-  if (!dropdownBtn || !dropdownOptions) return;
+  const dropdownContainers = document.querySelectorAll(".custom-dropdown");
+  if (dropdownContainers.length === 0) return;
+  dropdownContainers.forEach(container => {
+    const btn = container.querySelector(".dropdown-btn");
+    const optionsList = container.querySelector(".dropdown-options");
+    const options = container.querySelectorAll(".option");
+    btn.addEventListener("click", (e) => {
+      document.querySelectorAll(".dropdown-options").forEach(list => {
+        if (list !== optionsList) list.classList.remove("show");
+      });
+      
+      optionsList.classList.toggle("show");
+    });
 
-  dropdownBtn.addEventListener("click", () => {
-    dropdownOptions.classList.toggle("show");
-  });
-  options.forEach(option => {
-    option.addEventListener("click", (e) => {
-      dropdownBtn.innerHTML = `${e.target.innerText} 
-        <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+    options.forEach(option => {
+      option.addEventListener("click", (e) => {
+        btn.innerHTML = `${e.target.innerText} 
+          <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>`;
-      options.forEach(opt => opt.classList.remove("selected"));
-      e.target.classList.add("selected");
-      dropdownOptions.classList.remove("show");
+          </svg>`;
+        options.forEach(opt => opt.classList.remove("selected"));
+        e.target.classList.add("selected");
+        optionsList.classList.remove("show");
+      });
     });
   });
   window.addEventListener("click", (e) => {
     if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-btn')) {
-      if (dropdownOptions.classList.contains('show')) {
-        dropdownOptions.classList.remove('show');
-      }
+      document.querySelectorAll('.dropdown-options').forEach(list => {
+        list.classList.remove('show');
+      });
     }
   });
 });

@@ -79,10 +79,49 @@
     </div>
     <!--#### SIDE BUTTONS ####-->
     <div id="sideButtons">
-        <a href="index.html">CHAT</a>
+        <span id="chatbotBtn">CHAT</span>
         <a href="components.html">JUNTA-TE A NÓS</a>
     </div>
+    <!--#### CHATBOT ####-->
+    <div id="chatbotDiv">
+        <div id="chatbotTop">
+            <div id="chatbotTopLeft">
+                <div id="logoChatbot"></div>
+                <div id="chatbotTopLeftContainer">
+                    <h1>Marujo</h1>
+                    <div id="chatbotStatus">
+                        <div id="statusIcon"></div>
+                        <p>Online</p>
+                    </div>
+                </div>
+            </div>
+            <div id="chatbotTopRight">
+                <span id="minimizeIcon">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.33317 15.8332L4.1665 14.6665L8.83317 9.99984L4.1665 5.33317L5.33317 4.1665L9.99984 8.83317L14.6665 4.1665L15.8332 5.33317L11.1665 9.99984L15.8332 14.6665L14.6665 15.8332L9.99984 11.1665L5.33317 15.8332Z" fill="#FEF7FF"/>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div id="chatbotOutput">
+            <div id="chatbotOutputContainer">
+                <p id="welcomingChatBot">Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.</p>
+            </div>
+            <div class="msgBot">
 
+            </div>
+            <div class="msgPessoa">
+
+            </div>
+        </div>
+        <div id="chatbotPrompt">
+            <p>*O Marujo pode conter erros. Considere verificar informações importantes.</p>
+            <form action="">
+                <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot">
+                <input type="submit" id="enviarPergunta" value="Enviar">
+            </form>
+        </div>
+    </div>
     <section id="utilitiesSection1">
         <!--#### TITULOS ####-->
         <div>
