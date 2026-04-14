@@ -2,39 +2,50 @@
 const barsIcon = document.getElementById('barsIcon');
 const sideMenu = document.getElementById('sideMenu');
 
-barsIcon.addEventListener('click', function() {
-    sideMenu.classList.toggle('active');
-});
+if (barsIcon && sideMenu) {
+    barsIcon.addEventListener('click', function() {
+        sideMenu.classList.toggle('active');
+    });
 
-document.addEventListener('click', function(event) {
-    if (!sideMenu.contains(event.target) && !barsIcon.contains(event.target)) {
-        sideMenu.classList.remove('active');
-    }
-});
+    document.addEventListener('click', function(event) {
+        if (!sideMenu.contains(event.target) && !barsIcon.contains(event.target)) {
+            sideMenu.classList.remove('active');
+        }
+    });
+}
 
 /* #### SEARCH BAR #### */
 const searchIconsWrapper = document.getElementById('searchIcons'); 
 const searchBar = document.getElementById('barraPesquisa');
 
-searchIconsWrapper.addEventListener('click', function() {
-    searchBar.classList.toggle('active');
-});
+if (searchIconsWrapper && searchBar) {
+    searchIconsWrapper.addEventListener('click', function() {
+        searchBar.classList.toggle('active');
+    });
 
-document.addEventListener('click', function(event) {
-    if (!searchBar.contains(event.target) && !searchIconsWrapper.contains(event.target)) {
-        searchBar.classList.remove('active');
-    }
-});
+    document.addEventListener('click', function(event) {
+        if (!searchBar.contains(event.target) && !searchIconsWrapper.contains(event.target)) {
+            searchBar.classList.remove('active');
+        }
+    });
+}
 
 /* ### MOBILE SEARCH BAR ### */
 function openNav() {
-  document.getElementById("searchMobile").style.width = "100%";
+  const nav = document.getElementById("searchMobile");
+  if (nav) {
+    nav.style.width = "100%"
+  }
 }
 function closeNav() {
-  document.getElementById("searchMobile").style.width = "0";
+  const nav = document.getElementById("searchMobile");
+  
+  if (nav) {
+    nav.style.width = "0%"
+  }
 }
 
-/* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL #### */
+/* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL / SCROLL IMEDIATO PARA SECÇÃO #### */
 const nav = document.querySelector('nav');
 const sideButtons = document.getElementById('sideButtons');
 const scrollSnapArticle = document.querySelector('.scrollSnap');
@@ -44,6 +55,8 @@ function isMobileDevice() {
 }
 
 function updateNavVisibility() {
+    if (!scrollSnapArticle || !nav || !sideButtons) return; // Safety check
+
     const isFirstPage = scrollSnapArticle.scrollTop < window.innerHeight;
     
     if (isMobileDevice()) {
@@ -55,15 +68,38 @@ function updateNavVisibility() {
     }
 }
 
-scrollSnapArticle.addEventListener('scroll', updateNavVisibility);
-window.addEventListener('resize', updateNavVisibility);
-updateNavVisibility();
+if (scrollSnapArticle) {
+    scrollSnapArticle.addEventListener('scroll', updateNavVisibility);
+    window.addEventListener('resize', updateNavVisibility);
+    updateNavVisibility();
+}
 
+/* #### CHATBOT #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const chatbotBtn = document.getElementById('chatbotBtn');
+    const chatbotCloseBtn = document.getElementById('minimizeIcon');
+    const chatbot = document.getElementById('chatbotDiv'); 
+
+    if (!chatbotBtn || !chatbot) return;
+    chatbotBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        chatbot.classList.toggle('show');
+    });
+    if (chatbotCloseBtn) {
+        chatbotCloseBtn.addEventListener('click', function() {
+            chatbot.classList.remove('show');
+        });
+    }
+});
+
+/* #### CARROSSEL (Destaques) #### */
 document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.destaquesSlide');
     const btnNext = document.querySelector('.btnNext');
     const btnPrev = document.querySelector('.btnPrevious');
     
+    if (slides.length === 0 || !btnNext || !btnPrev) return;
+
     let currentIndex = 0;
     
     const maxVisible = 3;
@@ -112,27 +148,69 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlides();
 });
 
-document.getElementById('btnEnviar').addEventListener('click', function () {
-  const emailInput = document.getElementById('email');
-  const email = emailInput.value.trim();
-  const msg = document.getElementById('successMsg');
+/* #### DROPDOWN #### */
+document.addEventListener("DOMContentLoaded", () => {
+  const dropdownContainers = document.querySelectorAll(".custom-dropdown");
+  if (dropdownContainers.length === 0) return;
+  dropdownContainers.forEach(container => {
+    const btn = container.querySelector(".dropdown-btn");
+    const optionsList = container.querySelector(".dropdown-options");
+    const options = container.querySelectorAll(".option");
+    btn.addEventListener("click", (e) => {
+      document.querySelectorAll(".dropdown-options").forEach(list => {
+        if (list !== optionsList) list.classList.remove("show");
+      });
+      
+      optionsList.classList.toggle("show");
+    });
 
-  // Validate email
-  if (!email || !email.includes('@')) {
-    emailInput.style.borderColor = '#CC0000';
-    emailInput.focus();
-    return;
-  }
-
-  // Success state
-  emailInput.style.borderColor = '';
-  msg.style.display = 'block';
-  this.disabled = true;
-  this.style.opacity = '0.65';
-  this.textContent = 'Enviado ✓';
+    options.forEach(option => {
+      option.addEventListener("click", (e) => {
+        btn.innerHTML = `${e.target.innerText} 
+          <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>`;
+        options.forEach(opt => opt.classList.remove("selected"));
+        e.target.classList.add("selected");
+        optionsList.classList.remove("show");
+      });
+    });
+  });
+  window.addEventListener("click", (e) => {
+    if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-btn')) {
+      document.querySelectorAll('.dropdown-options').forEach(list => {
+        list.classList.remove('show');
+      });
+    }
+  });
 });
 
-// Reset border on input
-document.getElementById('email').addEventListener('input', function () {
-  this.style.borderColor = '';
-});
+/* #### APP #### */
+const btnEnviar = document.getElementById('btnEnviar');
+const emailInput = document.getElementById('email');
+
+if (btnEnviar && emailInput) {
+    btnEnviar.addEventListener('click', function () {
+      const email = emailInput.value.trim();
+      const msg = document.getElementById('successMsg');
+
+      // Validate email
+      if (!email || !email.includes('@')) {
+        emailInput.style.borderColor = '#CC0000';
+        emailInput.focus();
+        return;
+      }
+
+      // Success state
+      emailInput.style.borderColor = '';
+      if (msg) msg.style.display = 'block';
+      this.disabled = true;
+      this.style.opacity = '0.65';
+      this.textContent = 'Enviado ✓';
+    });
+
+    // Reset border on input
+    emailInput.addEventListener('input', function () {
+      this.style.borderColor = '';
+    });
+}
