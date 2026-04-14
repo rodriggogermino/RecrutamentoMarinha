@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
 /* #### CARROSSEL (Destaques) #### */
 document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.destaquesSlide');
-    const btnNext = document.querySelector('.btnNext');
-    const btnPrev = document.querySelector('.btnPrevious');
-    
+    const btnNext = document.getElementById('destaquesBtnNext');
+    const btnPrev = document.getElementById('destaquesBtnPrev');
+
     if (slides.length === 0 || !btnNext || !btnPrev) return;
 
     let currentIndex = 0;
@@ -185,6 +185,97 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/* #### SLIDES ONDE ESTAMOS #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.getElementById('slideshow-OndeEstamos');
+    const track = document.getElementById('cardsOndeEstamos');
+    const nav = document.getElementById('nav-OndeEstamos');
+    const btnPrev = document.getElementById('btnPrev-OndeEstamos');
+    const btnNext = document.getElementById('btnNext-OndeEstamos');
+
+    let currentIndex = 0;
+    let visibleCardsCount = 1;
+
+    function updateSlider() {
+        if (!track || !wrapper) return;
+
+        wrapper.style.width = '100%';
+        wrapper.style.maxWidth = '100%';
+
+        const cards = document.querySelectorAll('.cardOndeEstamos');
+        if (cards.length === 0) return;
+
+        const availableWidth = wrapper.parentElement.clientWidth; 
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+
+        visibleCardsCount = Math.floor((availableWidth + gap) / (cardWidth + gap));
+        
+        if (visibleCardsCount < 1) visibleCardsCount = 1;
+        if (visibleCardsCount > cards.length) visibleCardsCount = cards.length;
+
+        if (visibleCardsCount === cards.length) {
+            if (nav) nav.style.display = 'none';
+            track.style.justifyContent = 'center';
+        } else {
+            if (nav) nav.style.display = 'flex';
+            track.style.justifyContent = 'flex-start';
+        }
+
+        const exactWidth = (visibleCardsCount * cardWidth) + ((visibleCardsCount - 1) * gap) - 2;
+        wrapper.style.width = `${exactWidth}px`;
+        wrapper.style.maxWidth = `${exactWidth}px`;
+
+        moveTrack();
+    }
+
+    function moveTrack() {
+        const cards = document.querySelectorAll('.cardOndeEstamos');
+        if (cards.length === 0) return;
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+
+        const maxIndex = cards.length - visibleCardsCount;
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
+
+        const moveAmount = (cardWidth + gap) * currentIndex;
+        track.style.transform = `translateX(-${moveAmount}px)`;
+    }
+
+    function slide(direction) {
+        const cards = document.querySelectorAll('.cardOndeEstamos');
+        const maxIndex = cards.length - visibleCardsCount;
+
+        if (maxIndex <= 0) return; 
+
+        currentIndex += direction;
+
+        if (currentIndex > maxIndex) {
+            currentIndex = 0; 
+        } else if (currentIndex < 0) {
+            currentIndex = maxIndex; 
+        }
+
+        moveTrack();
+    }
+
+    if (btnNext) btnNext.addEventListener('click', () => slide(1));
+    if (btnPrev) btnPrev.addEventListener('click', () => slide(-1));
+
+    window.addEventListener('resize', updateSlider);
+    setTimeout(updateSlider, 150);
+});
+
+/* # */
+/* # */
+/* # */
+/* # */
+/* # */
+/* # */
+/* # */
+/* # */
 /* #### APP #### */
 const btnEnviar = document.getElementById('btnEnviar');
 const emailInput = document.getElementById('email');

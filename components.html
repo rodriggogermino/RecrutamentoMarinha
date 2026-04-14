@@ -98,25 +98,44 @@
             <div id="chatbotTopRight">
                 <span id="minimizeIcon">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5.33317 15.8332L4.1665 14.6665L8.83317 9.99984L4.1665 5.33317L5.33317 4.1665L9.99984 8.83317L14.6665 4.1665L15.8332 5.33317L11.1665 9.99984L15.8332 14.6665L14.6665 15.8332L9.99984 11.1665L5.33317 15.8332Z" fill="#FEF7FF"/>
+                        <path
+                            d="M5.33317 15.8332L4.1665 14.6665L8.83317 9.99984L4.1665 5.33317L5.33317 4.1665L9.99984 8.83317L14.6665 4.1665L15.8332 5.33317L11.1665 9.99984L15.8332 14.6665L14.6665 15.8332L9.99984 11.1665L5.33317 15.8332Z"
+                            fill="#FEF7FF" />
                     </svg>
                 </span>
             </div>
         </div>
         <div id="chatbotOutput">
-            <div id="chatbotOutputContainer">
-                <p id="welcomingChatBot">Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.</p>
+            <div class="msgIntro">
+                <p>Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.
+                </p>
             </div>
+
             <div class="msgBot">
-
+                <p>Em que posso ajudar hoje?</p>
+                <span class="timestamp">Agora</span>
             </div>
-            <div class="msgPessoa">
 
+            <div class="msgPessoa">
+                <p>Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso seguir como militar, na categoria
+                    dos Oficiais, na Marinha?</p>
+                <span class="timestamp">09:43</span>
+            </div>
+
+            <div class="msgBot">
+                <p>Rodrigo, com essas características podes concorrer na categoria dos Oficiais para:</p>
+                <ul>
+                    <li>TSN, TN & TS (Regime de Contrato);</li>
+                    <li>Fuzileiros (Regime de Contrato);</li>
+                    <li>Médico Naval (Quadros Permanentes).</li>
+                </ul>
+                <span class="timestamp">Agora</span>
             </div>
         </div>
+
         <div id="chatbotPrompt">
             <p>*O Marujo pode conter erros. Considere verificar informações importantes.</p>
-            <form action="">
+            <form action="" onsubmit="event.preventDefault();">
                 <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot">
                 <input type="submit" id="enviarPergunta" value="Enviar">
             </form>
