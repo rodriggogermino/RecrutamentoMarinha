@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="color-scheme" content="dark"> 
-    <meta name="theme-color" content="#4C5A65"> 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" type="image/x-icon" href="Utilities/Images/icone.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,6 +104,65 @@
             <span id="chatbotBtn">CHAT</span>
             <a href="inscricao.html">JUNTA-TE A NÓS</a>
         </div>
+        <!--#### CHATBOT ####-->
+        <div id="chatbotDiv">
+            <div id="chatbotTop">
+                <div id="chatbotTopLeft">
+                    <div id="logoChatbot"></div>
+                    <div id="chatbotTopLeftContainer">
+                        <h1>Marujo</h1>
+                        <div id="chatbotStatus">
+                            <div id="statusIcon"></div>
+                            <p>Online</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="chatbotTopRight">
+                    <span id="minimizeIcon">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M5.33317 15.8332L4.1665 14.6665L8.83317 9.99984L4.1665 5.33317L5.33317 4.1665L9.99984 8.83317L14.6665 4.1665L15.8332 5.33317L11.1665 9.99984L15.8332 14.6665L14.6665 15.8332L9.99984 11.1665L5.33317 15.8332Z"
+                                fill="#FEF7FF" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div id="chatbotOutput">
+                <div class="msgIntro">
+                    <p>Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e
+                        candidatura.</p>
+                </div>
+
+                <div class="msgBot">
+                    <p>Em que posso ajudar hoje?</p>
+                    <span class="timestamp">Agora</span>
+                </div>
+
+                <div class="msgPessoa">
+                    <p>Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso seguir como militar, na
+                        categoria dos Oficiais, na Marinha?</p>
+                    <span class="timestamp">09:43</span>
+                </div>
+
+                <div class="msgBot">
+                    <p>Rodrigo, com essas características podes concorrer na categoria dos Oficiais para:</p>
+                    <ul>
+                        <li>TSN, TN & TS (Regime de Contrato);</li>
+                        <li>Fuzileiros (Regime de Contrato);</li>
+                        <li>Médico Naval (Quadros Permanentes).</li>
+                    </ul>
+                    <span class="timestamp">Agora</span>
+                </div>
+            </div>
+
+            <div id="chatbotPrompt">
+                <p>*O Marujo pode conter erros. Considere verificar informações importantes.</p>
+                <form action="" onsubmit="event.preventDefault();">
+                    <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot">
+                    <input type="submit" id="enviarPergunta" value="Enviar">
+                </form>
+            </div>
+        </div>
         <!--#### SECTION 2 ####-->
         <section id="destaquesSection">
             <div id="destaquesContainer">
@@ -120,13 +179,15 @@
                         <div class="destaquesSlide slide-next" id="destaque2">
                             <div class="destaquesSlideContainer">
                                 <h3>Concurso Aberto - Troço do Mar</h3>
-                                <p>Ingressa no Quadro do Pessoal Militarizado da Marinha, na categoria de Troço do Mar - Manobra, Máquinas ou Eletricidade.</p>
+                                <p>Ingressa no Quadro do Pessoal Militarizado da Marinha, na categoria de Troço do Mar -
+                                    Manobra, Máquinas ou Eletricidade.</p>
                             </div>
                         </div>
                         <div class="destaquesSlide slide-hidden" id="destaque3">
                             <div class="destaquesSlideContainer">
                                 <h3>Concurso Aberto - Praças</h3>
-                                <p>Concurso aberto para a categoria de Praças, para as especialidades de Fuzileiro, Mergulhador e Serviço Naval</p>
+                                <p>Concurso aberto para a categoria de Praças, para as especialidades de Fuzileiro,
+                                    Mergulhador e Serviço Naval</p>
                             </div>
                         </div>
                         <div class="destaquesSlide slide-hidden" id="destaque4">
@@ -143,7 +204,7 @@
                         </div>
                     </div>
                     <div class="buttonsSlides">
-                        <span class="btnPrevious" style="cursor: pointer;">
+                        <span class="btnPrevious" id="destaquesBtnPrev" style="cursor: pointer;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -151,7 +212,7 @@
                                     fill="#182439" />
                             </svg>
                         </span>
-                        <span class="btnNext" style="cursor: pointer;">
+                        <span class="btnNext" id="destaquesBtnNext" style="cursor: pointer;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -167,11 +228,13 @@
         <section id="pesquisaCarreiraSection">
             <div id="pesquisaCarreiraContainer">
                 <div id="pesquisaCarreiraLeft">
-                    <p>Na Marinha podes ser <span>MILITAR</span> <br> <span>MILITARIZADO</span> ou <span>CÍVIL</span></p>
+                    <p>Na Marinha podes ser <span>MILITAR</span> <br> <span>MILITARIZADO</span> ou <span>CÍVIL</span>
+                    </p>
                     <div id="pesquisaCarreiraLeftDropdown">
                         <div class="custom-dropdown">
                             <button class="dropdown-btn">Habilitações
-                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                 </svg>
@@ -184,7 +247,8 @@
                         </div>
                         <div class="custom-dropdown">
                             <button class="dropdown-btn">Idade
-                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                 </svg>
@@ -205,7 +269,8 @@
                         </div>
                         <!--#### DROPDOWN BTN PESQUISA ####-->
                         <button class="searchDropdownBtn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.7071 11.2929C16.0976 11.6834 16.0976 12.3166 15.7071 12.7071L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z"
                                     fill="#182439" />
@@ -218,40 +283,42 @@
                         <img src="Utilities/Images/pesquisa1.png" id="imgPesquisaCarreira1" alt="Cívil">
                         <img src="Utilities/Images/pesquisa3.png" id="imgPesquisaCarreira3" alt="Militarizado">
                     </div>
-                    <img src="Utilities/Images/pesquisa2.png" id="imgPesquisaCarreira2" alt="Militar">     
+                    <img src="Utilities/Images/pesquisa2.png" id="imgPesquisaCarreira2" alt="Militar">
                 </div>
             </div>
         </section>
         <!--#### SECTION 4 ####-->
         <section id="ondeEstamosSection">
             <div id="ondeEstamosSectionContainer">
-                <p>Estamos no <span>MAR</span>, em <span>TERRA</span>, no <span>AR</span> e no <span>CIBERESPAÇO</span></p>
-                <div id="cardsOndeEstamos">
-                    <div class="cardOndeEstamos">
-                        <div class="cardContainer" id="cardContainer1">
-                            <h3>MAR</h3>
+                <p>Estamos no <span>MAR</span>, em <span>TERRA</span>, no <span>AR</span> e no <span>CIBERESPAÇO</span>
+                </p>
+                    <div id="cardsOndeEstamos">
+                        <div class="cardOndeEstamos">
+                            <div class="cardContainer">
+                                <h3>MAR</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardOndeEstamos">
-                        <div class="cardContainer" id="cardContainer2">
-                            <h3>TERRA</h3>
+                        <div class="cardOndeEstamos">
+                            <div class="cardContainer">
+                                <h3>TERRA</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardOndeEstamos">
-                        <div class="cardContainer" id="cardContainer3">
-                            <h3>AR</h3>
+                        <div class="cardOndeEstamos">
+                            <div class="cardContainer">
+                                <h3>AR</h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardOndeEstamos">
-                        <div class="cardContainer" id="cardContainer4">
-                            <h3>CIBERESPAÇO</h3>
+                        <div class="cardOndeEstamos">
+                            <div class="cardContainer">
+                                <h3>CIBERESPAÇO</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <section id="footerSection">
-            <h1>JUNTA-TE A NÓS</h1>
+            <h1 class="titulo1">JUNTA-TE A NÓS</h1>
             <img id="fuzileiroFooter" src="Utilities/Images/fuzileiroHomepage.png"
                 alt="Fuzileiro da Marinha Portuguesa">
             <!--#### FOOTER ####-->

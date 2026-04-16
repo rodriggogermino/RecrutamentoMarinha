@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
 /* #### CARROSSEL (Destaques) #### */
 document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelectorAll('.destaquesSlide');
-    const btnNext = document.querySelector('.btnNext');
-    const btnPrev = document.querySelector('.btnPrevious');
-    
+    const btnNext = document.getElementById('destaquesBtnNext');
+    const btnPrev = document.getElementById('destaquesBtnPrev');
+
     if (slides.length === 0 || !btnNext || !btnPrev) return;
 
     let currentIndex = 0;
@@ -185,6 +185,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+/* # */
+/* # */
+/* # */
+/* # */
+/* # */
+/* # */
+/* # */
+/* # */
 /* #### APP #### */
 const btnEnviar = document.getElementById('btnEnviar');
 const emailInput = document.getElementById('email');
