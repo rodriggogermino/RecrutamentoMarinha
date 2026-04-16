@@ -1,0 +1,71 @@
+/* Estilos Gerais de Contentor */
+.signup-section {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
+.signup-section h2 {
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.signup-section p {
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* Grelha do Formulário */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas */
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+/* Estilização dos Inputs e Selects */
+.form-grid input, 
+.form-grid select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho final */
+}
+
+/* Ajuste específico para o seletor de data */
+input[type="date"] {
+    text-transform: uppercase;
+}
+
+/* Botão de Submissão */
+.btn-submit {
+    background-color: #ff4d4d; /* Tom de vermelho da imagem */
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #e63939;
+}
+
+/* Responsividade para ecrãs pequenos */
+@media (max-width: 600px) {
+    .form-grid {
+        grid-template-columns: 1fr; /* Passa para uma coluna em mobile */
+    }
+}

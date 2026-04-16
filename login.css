@@ -79,8 +79,9 @@ nav {
     top: 100%;
     right: 0;
     width: fit-content;
-    background-color: #050505; 
-    border: 1px solid white;
+    backdrop-filter: blur(10px);
+    
+    border: 1px solid black;
     border-radius: 16px; 
     padding: 35px;
     z-index: 999;
@@ -98,7 +99,7 @@ nav {
 }
 .side-menu a {
     text-decoration: none;
-    color: #d1d1d1;
+    color: black;
     font-size: 14px;
     font-weight: 600;
     text-align: right;
@@ -106,7 +107,7 @@ nav {
     transition: color 0.2s ease;
 }
 .side-menu a:hover {
-    color: #ffffff;
+    color: darkgray;
 }
 .side-menu.active {
     display: block;
