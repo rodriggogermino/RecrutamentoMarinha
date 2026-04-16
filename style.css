@@ -622,6 +622,7 @@ nav {
 } 
 .cardPostos .cardContainer {
     background-color: black;
+    text-align: center;
     height: 100%;
     width: 100%;
     border: inherit solid black;
@@ -644,6 +645,9 @@ nav {
 .cardPostos:nth-child(1) {
     background-image: url(Utilities/Images/passadeiraALM.png);
 }
+.cardPostos:nth-child(2) {
+    background-image: url(Utilities/Images/passadeira1FZ.png);
+}
 /* #### CARDS RESULTADOS PESQUISA CARREIRA #### */
 .cardPesquisaCarreira {
     display: flex;
@@ -652,7 +656,8 @@ nav {
     border: 1px solid none;
     overflow: hidden;
     transform: translateZ(0);
-    height: 22vh;
+    min-height: 22vh;
+    height: auto; 
     width: 15vh;
     border-radius: 2vh;
     border: 2px solid transparent;
@@ -660,8 +665,9 @@ nav {
     transition: 0.4s;
     flex-shrink: 0;
 } 
+
 .ImgCardPesquisaCarreira {
-    height: 60%;
+    height: 13.2vh; 
     width: 100%;
     padding: 0.3vh;
     background-size: cover; 
@@ -671,10 +677,14 @@ nav {
     border-bottom-left-radius: none;
     border-bottom-right-radius: none;
     transition: 0.4s;
+    flex-shrink: 0; 
 }
+
 .cardPesquisaCarreira .cardContainer {
     background-color: transparent;
-    height: 40%;
+    height: auto; 
+    min-height: 8.8vh;
+    flex-grow: 1;
     align-items: flex-start;
     width: 100%;
     border-top-left-radius: none;
@@ -686,8 +696,11 @@ nav {
     padding: 0.3em;
     gap: 0.2em;
 }
-.ImgCardPesquisaCarreira:nth-child(1) {
+.cardPesquisaCarreira:nth-child(1) .ImgCardPesquisaCarreira {
     background-image: url(Utilities/Images/Oficial_TSN_TN_TS.png);
+}
+.cardPesquisaCarreira:nth-child(2) .ImgCardPesquisaCarreira {
+    background-image: url(Utilities/Images/Sargentos_EM.png);
 }
 .classePesquisaCarreira, .contratoPesquisaCarreira, .funcaoPesquisaCarreira {
     font-size: 1em;
@@ -696,6 +709,7 @@ nav {
 .cardPesquisaCarreira:hover {
     filter: brightness(0.8);
 }
+
 /* #### FOOTER #### */
 footer {
     width: 90%;
