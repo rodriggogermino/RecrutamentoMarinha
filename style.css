@@ -522,6 +522,180 @@ nav {
     background-color: #2CE387;
 }
 
+/* #### CARDS ONDE ESTAMOS / PREPARA-TE / POSTOS / RESULTADOS PESQUISA CARREIRA #### */
+#cardsOndeEstamos, #cardsPreparate, #cardsPostos, #cardsPesquisaCarreira {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6vh;
+    margin-bottom: 4vh;
+    transition: transform 0.4s ease-in-out;
+}
+.cardOndeEstamos, .cardPreparate {
+    display: flex;
+    align-items: end;
+    background-size: cover; 
+    background-position: top;
+    background-repeat: no-repeat;
+    height: 35vh;
+    width: 25vh;
+    border-radius: 2vh;
+    transition: 0.4s;
+    flex-shrink: 0;
+} 
+
+/* #### CARDS ONDE ESTAMOS BG / HOVER CONTAINER #### */
+.cardOndeEstamos:nth-child(1) {
+    background-image: url(Utilities/Images/ondeEstamos1.png);
+}
+.cardOndeEstamos:nth-child(2) {
+    background-image: url(Utilities/Images/ondeEstamos2.png);
+}
+.cardOndeEstamos:nth-child(3) {
+    background-image: url(Utilities/Images/ondeEstamos3.png);
+}
+.cardOndeEstamos:nth-child(4) {
+    background-image: url(Utilities/Images/ondeEstamos4.png);
+}
+.cardContainer {
+    display: flex;
+    opacity: 0;
+    color: white;
+    width: 100%;
+    height: 25%;
+    font-size: 1em;
+    backdrop-filter: blur(0.5vh);
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-bottom-left-radius: 2vh;
+    border-bottom-right-radius: 2vh;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+.cardOndeEstamos:hover .cardContainer { 
+    opacity: 1; 
+}
+.cardOndeEstamos:nth-child(1):hover {
+    #cardContainer1 {
+        opacity: 1;
+    }
+}
+.cardOndeEstamos:nth-child(2):hover {
+    #cardContainer2 {
+        opacity: 1;
+    }
+}
+.cardOndeEstamos:nth-child(3):hover {
+    #cardContainer3 {
+        opacity: 1;
+    }
+}
+.cardOndeEstamos:nth-child(4):hover {
+    #cardContainer4 {
+        opacity: 1;
+    }
+}
+/* #### CARDS PREPARA-TE #### */
+.cardPreparate .cardContainer {
+    opacity: 1;
+}
+.cardPreparate:nth-child(1) {
+    background-image: url(Utilities/Images/documentacao.png);
+}
+.cardPreparate:hover {
+    filter: brightness(1.2);
+}
+/* #### CARDS POSTOS #### */
+.cardPostos {
+    display: flex;
+    align-items: end;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    overflow: hidden;
+    transform: translateZ(0);
+    height: 20vh;
+    width: 13vh;
+    border-radius: 2vh;
+    transition: 0.4s;
+    flex-shrink: 0;
+} 
+.cardPostos .cardContainer {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    border: inherit solid black;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    flex-direction: column;
+    opacity: 0;
+}
+.cardPostos span {
+    border: 0.1em solid white;
+    width: 30%;
+    border-radius: 1em;
+    margin: 0.5em 0;
+}
+.cardPostos .cardContainer:hover {
+    opacity: 1;
+}
+.cardPostos:nth-child(1) {
+    background-image: url(Utilities/Images/passadeiraALM.png);
+}
+/* #### CARDS RESULTADOS PESQUISA CARREIRA #### */
+.cardPesquisaCarreira {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    border: 1px solid none;
+    overflow: hidden;
+    transform: translateZ(0);
+    height: 22vh;
+    width: 15vh;
+    border-radius: 2vh;
+    border: 2px solid transparent;
+    box-shadow: transparent 0px 0px 0px 0px;
+    transition: 0.4s;
+    flex-shrink: 0;
+} 
+.ImgCardPesquisaCarreira {
+    height: 60%;
+    width: 100%;
+    padding: 0.3vh;
+    background-size: cover; 
+    background-position: top;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    border-bottom-left-radius: none;
+    border-bottom-right-radius: none;
+    transition: 0.4s;
+}
+.cardPesquisaCarreira .cardContainer {
+    background-color: transparent;
+    height: 40%;
+    align-items: flex-start;
+    width: 100%;
+    border-top-left-radius: none;
+    border-top-right-radius: none;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    flex-direction: column;
+    opacity: 1;
+    padding: 0.3em;
+    gap: 0.2em;
+}
+.ImgCardPesquisaCarreira:nth-child(1) {
+    background-image: url(Utilities/Images/Oficial_TSN_TN_TS.png);
+}
+.classePesquisaCarreira, .contratoPesquisaCarreira, .funcaoPesquisaCarreira {
+    font-size: 1em;
+    font-weight: 100;
+}
+.cardPesquisaCarreira:hover {
+    filter: brightness(0.8);
+}
 /* #### FOOTER #### */
 footer {
     width: 90%;
@@ -959,73 +1133,6 @@ a:hover #linkedinIconHover {
     display: none; 
 }
 
-#cardsOndeEstamos {
-    display: flex;
-    gap: 6vh;
-    margin-bottom: 4vh;
-    transition: transform 0.4s ease-in-out;
-}
-.cardOndeEstamos {
-    display: flex;
-    align-items: end;
-    background-size: cover; 
-    background-position: top;
-    background-repeat: no-repeat;
-    height: 35vh;
-    width: 25vh;
-    border-radius: 2vh;
-    transition: 0.4s;
-    flex-shrink: 0; /* Prevents cards from squeezing */
-}
-.cardOndeEstamos:nth-child(1) {
-    background-image: url(Utilities/Images/ondeEstamos1.png);
-}
-.cardOndeEstamos:nth-child(2) {
-    background-image: url(Utilities/Images/ondeEstamos2.png);
-}
-.cardOndeEstamos:nth-child(3) {
-    background-image: url(Utilities/Images/ondeEstamos3.png);
-}
-.cardOndeEstamos:nth-child(4) {
-    background-image: url(Utilities/Images/ondeEstamos4.png);
-}
-.cardContainer {
-    display: flex;
-    opacity: 0;
-    color: white;
-    width: 100%;
-    height: 25%;
-    backdrop-filter: blur(0.5vh);
-    background-color: rgba(0, 0, 0, 0.5); 
-    border-bottom-left-radius: 2vh;
-    border-bottom-right-radius: 2vh;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-}
-.cardOndeEstamos:hover .cardContainer { 
-    opacity: 1; 
-}
-.cardOndeEstamos:nth-child(1):hover {
-    #cardContainer1 {
-        opacity: 1;
-    }
-}
-.cardOndeEstamos:nth-child(2):hover {
-    #cardContainer2 {
-        opacity: 1;
-    }
-}
-.cardOndeEstamos:nth-child(3):hover {
-    #cardContainer3 {
-        opacity: 1;
-    }
-}
-.cardOndeEstamos:nth-child(4):hover {
-    #cardContainer4 {
-        opacity: 1;
-    }
-}
 /* #### FOOTER SECTION #### */
 #footerSection {
     position: relative;
@@ -1193,9 +1300,8 @@ a:hover #linkedinIconHover {
         }
 
         /* ####### SECTION 4 ####### */
-        .cardOndeEstamos {
-            width: 100%;
-             
+        .cardContainer {
+            font-size: 0.7em;
         }
         /* ### FOOTER SECTION ### */
         #footerSection {
