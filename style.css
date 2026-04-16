@@ -679,12 +679,10 @@ nav {
     transition: 0.4s;
     flex-shrink: 0; 
 }
-
 .cardPesquisaCarreira .cardContainer {
     background-color: transparent;
     height: auto; 
     min-height: 8.8vh;
-    flex-grow: 1;
     align-items: flex-start;
     width: 100%;
     border-top-left-radius: none;
