@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="Utilities/Images/icone.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Design System</title>
@@ -241,6 +241,14 @@
                     <div class="ds-color-box" style="background-color: #AEAEAE;"></div>
                     <p>Hover btns/dropdowns<br><small>#AEAEAE</small></p>
                 </div>
+                <div>
+                    <div class="ds-color-box" style="background-color: #232426;"></div>
+                    <p>Fundo das Caixas da Documentação / Admissão / Provas Físicas / Cards da Página "A Tua Carreira" <br><small>#232426</small></p>
+                </div>
+                <div>
+                    <div class="ds-color-box" style="background-color: #78849D;"></div>
+                    <p>Border das Caixas da Documentação / Admissão / Provas Físicas / Cards da Página "A Tua Carreira" e Btn Consultar Parâmetros <br><small>#78849D</small></p>
+                </div>
             </div>
         </section>
         <!--#### SIDE BUTTONS ####-->
@@ -301,6 +309,10 @@
                             <li class="option">Opção 2</li>
                         </ul>
                     </div>
+                </div>
+                <div>
+                    <span class="ds-label">Botão de Consultar Parâmetros (.consultarParamBtn)</span>
+                    <span id="consultarBtn" class="consultarParamBtn">Consultar Parâmetros</span>
                 </div>
             </div>
         </section>
@@ -489,10 +501,20 @@
                         (Utilities/Images/govLogo.png)</span>
                     <img src="Utilities/Images/govLogo.png" alt="govLogo.png" height="100%">
                 </div>
+                <div style="text-align: center; width: 20em;">
+                    <span class="ds-label" style="margin-bottom: 10px;">Logotipo Marinha (Escuro)
+                        (Utilities/Images/LogoBlackM.png)</span>
+                    <img src="Utilities/Images/LogoBlackM.png" alt="LogoBlackM.png" height="100%">
+                </div>
+                <div style="text-align: center; width: 20em;">
+                    <span class="ds-label" style="margin-bottom: 10px;">Logotipo Marinha (Claro)
+                        (Utilities/Images/logoWhiteS.png)</span>
+                    <img src="Utilities/Images/logoWhiteS.png" alt="logoWhiteS.png" height="100%">
+                </div>
             </div>
         </section>
         <section class="ds-section">
-            <h2 class="ds-title">7. Cards / Caixas</h2>
+            <h2 class="ds-title">7. Cards </h2>
             <div class="ds-grid">
                 <div>
                     <span class="ds-label">Cards Onde Estamos (.cardOndeEstamos)</span>
@@ -553,10 +575,78 @@
                             <div class="cardContainer">
                                 <h3 class="classePesquisaCarreira">Sargentos</h3>
                                 <p class="contratoPesquisaCarreira">Quadros Permanentes</p>
-                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Eletrotécnicos e Maquinistas Navais</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Eletrotécnicos e Maquinistas
+                                    Navais</p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section class="ds-section">
+            <h2 class="ds-title">8. Caixas </h2>
+            <div class="ds-grid">
+                <div>
+                <span class="ds-label">Caixas da Documentação / Admissão (.caixaDocumentacao)</span>
+                <!--#### CAIXAS DOCUMENTAÇÃO / ADMISSÃO ####-->
+                <div class="caixaDocumentacao">
+                    <h3>Para concorreres (Militar):</h3>
+                    <div class="documentacaoContainer">
+                        <ul>
+                            <li><b>Certificado de habilitações literárias</b> passado por estabelecimento de ensino
+                                oficial
+                                nacional. Caso o documento não seja emitido por estabelecimento de ensino oficial
+                                nacional, deve ser acompanhado por um certificado de equivalência do Ministério da
+                                Educação;</li>
+                            <li><b>Certidão de Registo Criminal</b>, emitido nos 90 dias anteriores à data de
+                                encerramento do
+                                concurso;</li>
+                            <li><b>Carta de condução da categoria B</b>, para candidatos à classe de Condutores
+                                mecânicos
+                                de automóveis;</li>
+                            <li><b>Fotocópia da cédula militar ou declaração de situação militar regularizada</b> -
+                                <a href="https://ddn.dgrdn.gov.pt/cedula_bud.aspx">Emitir aqui</a>;
+                            </li>
+                            <li><b>Curriculum Vitae</b>, para os Candidatos ao Concurso para Oficiais TSN/TN/TS;</li>
+                            <li><b>Folha de matrícula ou nota de assentos</b>, respetivamente, para os cidadãos na
+                                situação de
+                                regime de contrato (RC) ou reserva de disponibilidade (RD) que prestem ou tenham
+                                prestado serviço no Exército ou na Força Aérea e informação que ateste a titularidade de
+                                avaliação de mérito favorável, relativamente ao período de serviço militar eventualmente
+                                prestado no respetivo Ramo;</li>
+                            <li><b>Autorização do Chefe do Estado-Maior</b>, do respetivo ramo, para os candidatos
+                                militares a
+                                prestarem serviço em regime de voluntariado (RV) ou regime de contrato (RC);</li>
+                            <li><b>Raio-x</b> ao Tórax*;</li>
+                            <li><b>Eletrocardiograma</b> com respetivo relatório*;</li>
+                            <li><b>Análises clínicas</b>, efetuadas até 180 dias antes da data de encerramento do
+                                concurso, com
+                                os seguintes parâmetros*:
+                        </ul>
+                        <span id="consultarBtn" class="consultarParamBtn">Consultar Parâmetros</span>
+                    </div>
+                    <div id="parametrosDiv" class="parametrosDiv">
+                        <ol>
+                            <li>Hemograma completo com plaquetas;</li>
+                            <li>Tempo de Protrombina;</li>
+                            <li>Tempo de Tromboplastina parcial ativada (P.T.T.);</li>
+                            <li>Grupo Sanguíneo (Sistema ABO e RH);</li>
+                            <li>Glicose em Jejum;</li>
+                            <li>Ureia;</li>
+                            <li>Creatinina;</li>
+                            <li>Ionograma;</li>
+                            <li>Asparto Aminotransferase (AST ou GOT);</li>
+                            <li>Creatino-Quinase (CK);</li>
+                            <li>Anticorpos Anti HV1+ HV2;</li>
+                            <li>Urina II.</li>
+                        </ol>
+                        <p>
+                            *Existe possibilidade de realizar as análises clínicas e eletrocardiograma na Marinha.
+                            Para tal deverá comunicar a sua intenção para o email recrutamento@marinha.pt ,ou clicar
+                            aqui, quando realizar a candidatura.
+                        </p>
+                    </div>
+                </div>
                 </div>
             </div>
         </section>

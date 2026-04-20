@@ -185,6 +185,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/* #### CONSULTAR PARAMETROS DOCUMENTAÇÃO #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const consultarBtn = document.getElementById('consultarBtn');
+    const parametrosDiv = document.getElementById('parametrosDiv'); 
+
+    if (!consultarBtn || !parametrosDiv) return;
+    consultarBtn.addEventListener('click', function(event) {
+        event.preventDefault();
+        parametrosDiv.classList.toggle('show');
+    });
+    document.addEventListener('click', function(event) {
+        if (!parametrosDiv.contains(event.target) && !consultarBtn.contains(event.target)) {
+            parametrosDiv.classList.remove('show');
+        }
+    });
+});
 
 /* # */
 /* # */
