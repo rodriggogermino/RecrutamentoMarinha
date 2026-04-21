@@ -230,16 +230,24 @@ nav {
 
 /* ### BARRA DE PESQUISA ### */
 .barraPesquisa {
-    border: 1px solid rgb(255, 255, 255);
+    border: 3px solid rgb(255, 255, 255);
     background-color: transparent;
     color: white;
     font-weight: 400;
     min-width: 400px;
-    border-radius: 10px;
+    border-radius: 2em;
     outline: none;
     transition: opacity 0.15s ease;
-    padding: 2px 6px;
+    padding: 0.5em 1.4em;
     display: none;
+}
+
+.barraPesquisa::-webkit-search-cancel-button {
+    display: none;
+}
+
+.barraPesquisa::placeholder {
+    color: rgb(211, 209, 209);
 }
 .barraPesquisa.active {
     display: block;
@@ -284,6 +292,30 @@ nav {
 }
 .side-menu.active {
     display: block;
+}
+
+/* #### BTN JUNTA-TE #### */
+.btnJuntate {
+    font-size: 1.7vh;
+    text-decoration: none;
+    color: #182439;
+    background-color: #83e1b2;
+    border: 1px solid transparent; 
+    box-shadow: 0 0 5px #83e1b2,
+                0 0 25px #83e1b2,
+                0 0 50px #83e1b2,
+                0 0 200px #83e1b2;
+    border-radius: 1vh;
+    padding: 0.7vh 1.7vh;
+    font-weight: 600;
+    transition: 0.4s;
+}
+.btnJuntate:hover {
+    background-color: #2CE387;
+    box-shadow: 0 0 5px #2CE387,
+                0 0 25px #2CE387,
+                0 0 50px #2CE387,
+                0 0 200px #2CE387;
 }
 
 /* ### SIDE BUTTONS ### */
@@ -787,6 +819,97 @@ nav {
     color: #A3B2FF;
 }
 
+/* #### CAIXAS PAG. A TUA CARREIRA #### */
+#caixasCarreira {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+    min-height: 60vh;
+    box-sizing: border-box;
+}
+
+#carreiraTop {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+#carreiraBottom {
+    width: 100%;
+    padding-top: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caixaCarreira {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 1 300px; 
+    max-width: 350px;
+    background-color: #232426;
+    border: 4px solid #78849D;
+    border-radius: 2em;
+    padding: 2em;
+    box-sizing: border-box;
+}
+.caixaCarreira h3 {
+    padding-bottom: 0.3em;
+}
+.caixaCarreira div p {
+    padding: 0.5em 0;
+}
+.caixaCarreira div ul {
+    padding: 0.5em 2em;
+}
+.btnCarreira {
+    border: 2px solid white;
+    color: white;
+    width: fit-content;
+    padding: 0.4em 1.5em;
+    border-radius: 2em;
+    font-size: 0.8em;
+    transition: 0.2s;
+    text-decoration: none;
+    font-weight: 400;
+}
+.btnCarreira:hover {
+    background-color: white;
+    color: #000000;
+}
+
+@keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+}
+
+/* #### MEDIA QUERY MOBILE #### */
+@media (max-width: 950px) {
+    #carreiraTop {
+        flex-direction: column;
+        align-items: center;
+    }
+    .caixaCarreira {
+        width: 100%;
+        max-width: 450px;
+    }
+}
 /* #### FOOTER #### */
 footer {
     width: 90%;
@@ -902,7 +1025,7 @@ a:hover #linkedinIconHover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5vh;
+    padding-top: 12vh;
 }
 #homepageLogoS {
     display: none;
@@ -926,6 +1049,7 @@ a:hover #linkedinIconHover {
     height: 90%;
     width: auto;    
     z-index: 1;
+    animation: float 6s ease-in-out infinite;
 }
 #bottomHomepage {
     display: flex;
@@ -952,28 +1076,6 @@ a:hover #linkedinIconHover {
 }
 #bottomNav a:hover {
     color: grey;
-}
-#btnJuntate {
-    font-size: 1.7vh;
-    text-decoration: none;
-    color: #182439;
-    background-color: #83e1b2;
-    border: 1px solid transparent; 
-    box-shadow: 0 0 5px #83e1b2,
-                0 0 25px #83e1b2,
-                0 0 50px #83e1b2,
-                0 0 200px #83e1b2;
-    border-radius: 1vh;
-    padding: 0.7vh 1.7vh;
-    font-weight: 600;
-    transition: 0.4s;
-}
-#btnJuntate:hover {
-    background-color: #2CE387;
-    box-shadow: 0 0 5px #2CE387,
-                0 0 25px #2CE387,
-                0 0 50px #2CE387,
-                0 0 200px #2CE387;
 }
 
 /* ####### SECTION 2 ####### */

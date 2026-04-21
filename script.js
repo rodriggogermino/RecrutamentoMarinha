@@ -46,7 +46,6 @@ function closeNav() {
 }
 
 /* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL / SCROLL IMEDIATO PARA SECÇÃO #### */
-const nav = document.querySelector('nav');
 const sideButtons = document.getElementById('sideButtons');
 const scrollSnapArticle = document.querySelector('.scrollSnap');
 
@@ -55,15 +54,13 @@ function isMobileDevice() {
 }
 
 function updateNavVisibility() {
-    if (!scrollSnapArticle || !nav || !sideButtons) return; // Safety check
+    if (!scrollSnapArticle || !sideButtons) return;
 
     const isFirstPage = scrollSnapArticle.scrollTop < window.innerHeight;
     
     if (isMobileDevice()) {
-        nav.style.display = 'flex';
         sideButtons.style.display = isFirstPage ? 'none' : 'flex';
     } else {
-        nav.style.display = isFirstPage ? 'none' : 'flex';
         sideButtons.style.display = isFirstPage ? 'none' : 'flex';
     }
 }
