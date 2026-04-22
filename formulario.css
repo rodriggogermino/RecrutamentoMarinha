@@ -1,0 +1,239 @@
+/* =========================================
+   Marinha Recrutamento – formulario.css
+   ========================================= */
+ 
+
+ 
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ 
+:root {
+  --navy:       #1a2b45;
+  --red:        #d0021b;
+  --red-hover:  #a80016;
+  --light-bg:   #f4f4f4;
+  --white:      #ffffff;
+  --border:     #cccccc;
+  --text:       #222222;
+  --label:      #444444;
+  --valid:      #2e9e4f;
+  --radius:     6px;
+  --font-body:  'Noto Sans', sans-serif;
+  --font-title: 'Noto Sans', sans-serif;
+}
+ 
+body {
+  font-family: var(--font-body);
+  background: var(--light-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px 16px;
+}
+ 
+/* ── Wrapper ── */
+.form-wrapper {
+  background: var(--white);
+  border-radius: 10px;
+  max-width: 720px;
+  width: 100%;
+  padding: 40px 44px 36px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+ 
+/* ── Header ── */
+.form-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+ 
+.form-header h1 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+ 
+.form-header p {
+  font-size: 0.92rem;
+  color: var(--label);
+  line-height: 1.5;
+  max-width: 380px;
+  margin: 0 auto;
+}
+ 
+/* ── Two-column layout ── */
+.form-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 40px;
+  margin-bottom: 32px;
+}
+ 
+@media (max-width: 600px) {
+  .form-body {
+    grid-template-columns: 1fr;
+  }
+  .form-wrapper {
+    padding: 28px 20px 24px;
+  }
+}
+ 
+/* ── Column title ── */
+.col-title {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--light-bg);
+}
+ 
+/* ── Field group ── */
+.field-group {
+  margin-bottom: 16px;
+}
+ 
+.field-group:last-child {
+  margin-bottom: 0;
+}
+ 
+label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--label);
+  margin-bottom: 5px;
+}
+ 
+/* ── Inputs ── */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+ 
+input:focus,
+select:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26,43,69,0.12);
+}
+ 
+input.valid {
+  border-color: var(--valid);
+}
+ 
+/* ── Input with icon ── */
+.input-icon {
+  position: relative;
+}
+ 
+.input-icon input {
+  padding-right: 36px;
+}
+ 
+.input-icon .icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--label);
+  pointer-events: none;
+  line-height: 1;
+}
+ 
+.input-icon .valid-icon {
+  color: var(--valid);
+  font-weight: 700;
+}
+ 
+.input-icon .toggle-pw {
+  cursor: pointer;
+  pointer-events: all;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+ 
+.input-icon .toggle-pw:hover {
+  opacity: 1;
+}
+ 
+/* ── Select wrapper ── */
+.select-wrapper {
+  position: relative;
+}
+ 
+.select-wrapper::after {
+  content: '▼';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.65rem;
+  color: var(--label);
+  pointer-events: none;
+}
+ 
+/* ── Date input – hide native calendar icon on Chrome ── */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 36px;
+  cursor: pointer;
+}
+ 
+/* ── Submit button ── */
+.form-footer {
+  display: flex;
+  justify-content: center;
+}
+ 
+.btn-submit {
+  background: var(--red);
+  color: var(--white);
+  border: none;
+  border-radius: 30px;
+  padding: 14px 52px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 4px 14px rgba(208,2,27,0.30);
+}
+ 
+.btn-submit:hover {
+  background: var(--red-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(208,2,27,0.38);
+}
+ 
+.btn-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(208,2,27,0.25);
+}
