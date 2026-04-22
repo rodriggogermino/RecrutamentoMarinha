@@ -1299,6 +1299,7 @@ a:hover #linkedinIconHover {
     align-items: center;
     justify-content: center;
     gap: 5vh;
+    overflow: hidden;
 }
 #ondeEstamosSectionContainer p {
     font-size: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
@@ -1324,6 +1325,131 @@ a:hover #linkedinIconHover {
 }
 .slide-btn {
     display: none; 
+}
+
+/* #### SECTION 5 #### */
+#testemunhosSection {
+    height: 100vh;
+    background-image: url('Utilities/Images/bg2.png');
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+#testemunhosSectionContainer {
+    height: 60vh;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5vh;
+}
+#testemunhosSectionContainer h1 {
+    margin-bottom: 1em;
+}
+#slideshowTestemunhos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 65%;
+}
+#cardsTestemunhos {
+    width: 100%;
+    height: 35vh;
+    display: flex;
+    justify-content: flex-start;
+    gap: 2%;
+    transition: transform 0.5s ease-in-out;
+}
+.cardTestemunhos {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 1.5em;
+    width: 49%; 
+    flex-shrink: 0;
+    height: 100%;
+}
+.bgTestemunhoCard {
+    position: absolute;
+    right: 17vh;
+    width: 400px;
+    height: 400px;
+    background-image: url(Utilities/Images/bgTestemunhoCard.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    z-index: -1;
+}
+.cardTestemunhosLeft {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+.videoTestemunhoThumb {
+    position: relative;
+    width: 80%;
+    height: auto;
+    padding: 0;
+    transition: 0.4s;
+    filter: brightness(0.8);
+}
+.videoTestemunhoThumb:hover {
+    filter: brightness(1);
+}
+.videoTestemunhoThumb a{
+    position: absolute;
+    place-self: center;
+    inset: 0;
+}
+.cardTestemunhosLeft img{
+    width: 100%;
+    height: auto;
+    border-radius: 2em;
+}
+.cardTestemunhosRight span {
+    height: 3px;
+    width: 10%;
+    border-radius: 3em;
+    background: #78849D;
+    background: linear-gradient(to bottom, #78849D 0%, #FFFFFF 100%);
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) 
+            drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
+}
+.cardTestemunhosRight {
+    width: 60%;
+    height: 100%;
+    color: white;
+    font-weight: 100;
+    font-size: 0.9em;
+    border-radius: 2em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: left;
+    gap: 0.7em;
+}
+.cardTestemunhosRightBottom {
+    width: 80%;
+    text-align: left;
+    color: white;
+    font-size: 0.9em;
+    font-weight: 100;
+}
+.cardTestemunhosRight p {
+    width: 60%;
+}
+#btnSlidesTestemunhos {
+    margin-top: 5em;
 }
 
 /* #### FOOTER SECTION #### */
@@ -1507,6 +1633,10 @@ a:hover #linkedinIconHover {
         #fuzileiroFooter {
             width: 100%;
             height: auto;
+        }
+        
+        .cardTestemunhos {
+            width: 100%;
         }
 
         /* ### FOOTER ### */

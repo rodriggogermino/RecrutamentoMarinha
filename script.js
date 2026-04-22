@@ -182,6 +182,54 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/* #### CARROSSEL TESTEMUNHOS #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const slideshowContainer = document.getElementById('slideshowTestemunhos');
+    const track = document.getElementById('cardsTestemunhos');
+    
+    if (!slideshowContainer || !track) return;
+
+    const btnPrev = slideshowContainer.querySelector('.btnPrevious');
+    const btnNext = slideshowContainer.querySelector('.btnNext');
+    const slides = track.querySelectorAll('.cardTestemunhos');
+
+    if (slides.length === 0 || !btnPrev || !btnNext) return;
+
+    let currentIndex = 0;
+    const cardsVisiveis = 2;
+
+    function updateTestemunhosSlide() {
+        const cardWidth = slides[0].getBoundingClientRect().width;
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+
+        const moveAmount = (cardWidth + gap) * currentIndex;
+        track.style.transform = `translateX(-${moveAmount}px)`;
+    }
+
+    function slideTestemunho(direction) {
+        const maxIndex = slides.length - cardsVisiveis;
+
+        if (maxIndex <= 0) return;
+
+        currentIndex += direction;
+
+        if (currentIndex > maxIndex) {
+            currentIndex = 0;
+        } else if (currentIndex < 0) {
+            currentIndex = maxIndex;
+        }
+
+        updateTestemunhosSlide();
+    }
+
+    btnNext.addEventListener('click', () => slideTestemunho(1));
+    btnPrev.addEventListener('click', () => slideTestemunho(-1));
+
+    window.addEventListener('resize', updateTestemunhosSlide);
+    
+    setTimeout(updateTestemunhosSlide, 150);
+});
+
 /* #### CONSULTAR PARAMETROS DOCUMENTAÇÃO #### */
 document.addEventListener("DOMContentLoaded", () => {
     const consultarBtn = document.getElementById('consultarBtn');
