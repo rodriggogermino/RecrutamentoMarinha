@@ -7,7 +7,6 @@
 }
 
 html, body {
-
   margin: 0;
   padding: 0;
   background-image: url(Utilities/Images/bg2.png);
@@ -186,7 +185,7 @@ html::-moz-selection {
 }
 /* #### NAVBAR #### */
 nav {
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -567,13 +566,18 @@ nav {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    justify-content: space-between;
+    gap: 5em;
+    justify-content: center;
     align-items: center;
     max-width: 70%;
     margin: 0 auto;
     padding: 2em;
-    min-height: 60vh;
+    min-height: 53vh;
     box-sizing: border-box;
+}
+#preparateSection {
+    background-image: none;
+    background-color: none;
 }
 
 .cardOndeEstamos, .cardPreparate {
@@ -588,7 +592,6 @@ nav {
     transition: 0.4s;
     flex-shrink: 0;
 } 
-
 
 /* #### CARDS ONDE ESTAMOS BG / HOVER CONTAINER #### */
 .cardOndeEstamos:nth-child(1) {
@@ -642,6 +645,20 @@ nav {
     }
 }
 /* #### CARDS PREPARA-TE #### */
+#tituloPreparate {
+    text-align: center;
+    color: white;
+}
+
+#tituloPreparate h1 {
+    font-size: 2.5em;
+    font-weight: 500;
+}
+#tituloPreparate p {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
 .cardPreparate .cardContainer {
     opacity: 1;
 }
@@ -659,7 +676,7 @@ nav {
 .cardPreparate:nth-child(4) {
     background-image: url(Utilities/Images/admissao.png);
     filter: brightness(0.8);
-    background-position: right;
+    background-position: -40em;
 }
 .cardPreparate:hover {
     filter: brightness(1.1);
@@ -1516,6 +1533,30 @@ a:hover #linkedinIconHover {
     left: 0;
     right: 0;
     margin: 0 auto;
+}
+
+/* #### PREPARA-TE SECTION #### */
+#preparateSection {
+    height: 100vh;
+    background-image: url('Utilities/Images/bg1.png');
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#preparateSectionContainer {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 /* #### MEDIA QUERY MOBILE #### */
