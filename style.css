@@ -555,13 +555,27 @@ nav {
 }
 
 /* #### CARDS ONDE ESTAMOS / PREPARA-TE / POSTOS / RESULTADOS PESQUISA CARREIRA #### */
-#cardsOndeEstamos, #cardsPreparate, #cardsPostos, #cardsPesquisaCarreira {
+#cardsOndeEstamos, #cardsPostos, #cardsPesquisaCarreira {
     display: flex;
     flex-wrap: wrap;
     gap: 6vh;
     margin-bottom: 4vh;
     transition: transform 0.4s ease-in-out;
 }
+
+#cardsPreparate {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 70%;
+    margin: 0 auto;
+    padding: 2em;
+    min-height: 60vh;
+    box-sizing: border-box;
+}
+
 .cardOndeEstamos, .cardPreparate {
     display: flex;
     align-items: end;
@@ -574,6 +588,7 @@ nav {
     transition: 0.4s;
     flex-shrink: 0;
 } 
+
 
 /* #### CARDS ONDE ESTAMOS BG / HOVER CONTAINER #### */
 .cardOndeEstamos:nth-child(1) {
@@ -633,8 +648,21 @@ nav {
 .cardPreparate:nth-child(1) {
     background-image: url(Utilities/Images/documentacao.png);
 }
+.cardPreparate:nth-child(2) {
+    background-image: url(Utilities/Images/provasFisicas.png);
+    filter: brightness(0.8);
+}
+.cardPreparate:nth-child(3) {
+    background-image: url(Utilities/Images/testesPsicologicos.png);
+    filter: brightness(0.8);
+}
+.cardPreparate:nth-child(4) {
+    background-image: url(Utilities/Images/admissao.png);
+    filter: brightness(0.8);
+    background-position: right;
+}
 .cardPreparate:hover {
-    filter: brightness(1.2);
+    filter: brightness(1.1);
 }
 /* #### CARDS POSTOS #### */
 .cardPostos {
@@ -854,9 +882,10 @@ nav {
     justify-content: space-between;
     flex: 1 1 300px; 
     max-width: 350px;
-    background-color: #232426;
+    backdrop-filter: blur(30px);
     border: 4px solid #78849D;
     border-radius: 2em;
+    color: white;
     padding: 2em;
     box-sizing: border-box;
 }
@@ -899,17 +928,7 @@ nav {
             }
 }
 
-/* #### MEDIA QUERY MOBILE #### */
-@media (max-width: 950px) {
-    #carreiraTop {
-        flex-direction: column;
-        align-items: center;
-    }
-    .caixaCarreira {
-        width: 100%;
-        max-width: 450px;
-    }
-}
+
 /* #### FOOTER #### */
 footer {
     width: 90%;
@@ -1295,7 +1314,7 @@ a:hover #linkedinIconHover {
     height: 60vh;
     width: 85%;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 5vh;
@@ -1333,8 +1352,7 @@ a:hover #linkedinIconHover {
     background-image: url('Utilities/Images/bg2.png');
     margin: 0;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-size: cover;
@@ -1359,14 +1377,102 @@ a:hover #linkedinIconHover {
     justify-content: space-between;
     width: 100%;
     height: 65%;
+    overflow: hidden;
+    margin: 0 auto;
 }
+
 #cardsTestemunhos {
     width: 100%;
     height: 35vh;
     display: flex;
     justify-content: flex-start;
-    gap: 2%;
+    flex-wrap: nowrap;
+    gap: 140px;
     transition: transform 0.5s ease-in-out;
+    padding-left: 110px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.figureTestemunhos {
+    background-image: url(Utilities/Images/bgTestemunhoCard.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    padding: 2rem;
+    padding-left: 7rem;
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    color: white;
+}
+.figureTestemunhos h3 {
+  font-size: 1.1rem;
+  text-wrap-style: pretty;
+  margin-bottom: 1rem;
+  padding: 0 1em;
+  font-weight: 600;
+}
+
+.figureTestemunhos p {
+    font-size: 0.8rem;
+    font-weight: 100;
+    line-height: 1.4;
+    padding: 0 1.4em;
+    overflow-x: hidden;
+    padding-left: 1.4em; 
+    margin-right: 1.4em; 
+    overflow-x: hidden;
+    overflow-y: auto; 
+    max-height: 150px;
+}
+
+.figureTestemunhos p::-webkit-scrollbar {
+    width: 5px;
+    z-index: -1;
+}
+.figureTestemunhos p::-webkit-scrollbar-track { 
+    background-color: transparent;
+}
+.figureTestemunhos p::-webkit-scrollbar-thumb { 
+    background: #78849D;
+    background: linear-gradient(to right, #78849D 0%, #FFFFFF 100%);
+    border-radius: 1em;
+    filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) 
+            drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
+}
+
+.videoTestemunhoThumbFigure {
+    position: absolute;
+    left: -105px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 210px;
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.videoTestemunhoThumbFigure a {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    z-index: 2;
+}
+.videoTestemunhoThumbFigure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 .cardTestemunhos {
     display: flex;
@@ -1376,80 +1482,6 @@ a:hover #linkedinIconHover {
     width: 49%; 
     flex-shrink: 0;
     height: 100%;
-}
-.bgTestemunhoCard {
-    position: absolute;
-    right: 17vh;
-    width: 400px;
-    height: 400px;
-    background-image: url(Utilities/Images/bgTestemunhoCard.png);
-    background-position: center;
-    background-size: cover;
-    border-radius: 50%;
-    z-index: -1;
-}
-.cardTestemunhosLeft {
-    width: 40%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: right;
-}
-.videoTestemunhoThumb {
-    position: relative;
-    width: 80%;
-    height: auto;
-    padding: 0;
-    transition: 0.4s;
-    filter: brightness(0.8);
-}
-.videoTestemunhoThumb:hover {
-    filter: brightness(1);
-}
-.videoTestemunhoThumb a{
-    position: absolute;
-    place-self: center;
-    inset: 0;
-}
-.cardTestemunhosLeft img{
-    width: 100%;
-    height: auto;
-    border-radius: 2em;
-}
-.cardTestemunhosRight span {
-    height: 3px;
-    width: 10%;
-    border-radius: 3em;
-    background: #78849D;
-    background: linear-gradient(to bottom, #78849D 0%, #FFFFFF 100%);
-    filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) 
-            drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
-}
-.cardTestemunhosRight {
-    width: 60%;
-    height: 100%;
-    color: white;
-    font-weight: 100;
-    font-size: 0.9em;
-    border-radius: 2em;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: left;
-    gap: 0.7em;
-}
-.cardTestemunhosRightBottom {
-    width: 80%;
-    text-align: left;
-    color: white;
-    font-size: 0.9em;
-    font-weight: 100;
-}
-.cardTestemunhosRight p {
-    width: 60%;
-}
-#btnSlidesTestemunhos {
-    margin-top: 5em;
 }
 
 /* #### FOOTER SECTION #### */
@@ -1484,6 +1516,18 @@ a:hover #linkedinIconHover {
     left: 0;
     right: 0;
     margin: 0 auto;
+}
+
+/* #### MEDIA QUERY MOBILE #### */
+@media (max-width: 950px) {
+    #carreiraTop {
+        flex-direction: column;
+        align-items: center;
+    }
+    .caixaCarreira {
+        width: 100%;
+        max-width: 450px;
+    }
 }
 
 /* ###### RESPONSIVIDADE ###### */
@@ -1622,6 +1666,30 @@ a:hover #linkedinIconHover {
         .cardContainer {
             font-size: 0.7em;
         }
+
+        /* ####### SECTION 5 ####### */
+        #cardsTestemunhos {
+        padding-left: 0;
+        gap: 5%;
+    }
+    
+
+    .videoTestemunhoThumbFigure {
+        position: relative;
+        left: 0;
+        top: 0;
+        transform: none;
+        margin-bottom: 1.5rem;
+        width: 80%;
+        height: auto;
+        aspect-ratio: 16/9;
+    }
+
+    .figureTestemunhos p {
+        padding: 0;
+        margin: 0;
+    }
+
         /* ### FOOTER SECTION ### */
         #footerSection {
             padding-top: 170px;
@@ -1633,10 +1701,6 @@ a:hover #linkedinIconHover {
         #fuzileiroFooter {
             width: 100%;
             height: auto;
-        }
-        
-        .cardTestemunhos {
-            width: 100%;
         }
 
         /* ### FOOTER ### */

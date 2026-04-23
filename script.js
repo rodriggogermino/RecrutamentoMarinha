@@ -182,53 +182,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-/* #### CARROSSEL TESTEMUNHOS #### */
-document.addEventListener("DOMContentLoaded", () => {
-    const slideshowContainer = document.getElementById('slideshowTestemunhos');
-    const track = document.getElementById('cardsTestemunhos');
-    
-    if (!slideshowContainer || !track) return;
-
-    const btnPrev = slideshowContainer.querySelector('.btnPrevious');
-    const btnNext = slideshowContainer.querySelector('.btnNext');
-    const slides = track.querySelectorAll('.cardTestemunhos');
-
-    if (slides.length === 0 || !btnPrev || !btnNext) return;
-
-    let currentIndex = 0;
-    const cardsVisiveis = 2;
-
-    function updateTestemunhosSlide() {
-        const cardWidth = slides[0].getBoundingClientRect().width;
-        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-
-        const moveAmount = (cardWidth + gap) * currentIndex;
-        track.style.transform = `translateX(-${moveAmount}px)`;
-    }
-
-    function slideTestemunho(direction) {
-        const maxIndex = slides.length - cardsVisiveis;
-
-        if (maxIndex <= 0) return;
-
-        currentIndex += direction;
-
-        if (currentIndex > maxIndex) {
-            currentIndex = 0;
-        } else if (currentIndex < 0) {
-            currentIndex = maxIndex;
-        }
-
-        updateTestemunhosSlide();
-    }
-
-    btnNext.addEventListener('click', () => slideTestemunho(1));
-    btnPrev.addEventListener('click', () => slideTestemunho(-1));
-
-    window.addEventListener('resize', updateTestemunhosSlide);
-    
-    setTimeout(updateTestemunhosSlide, 150);
-});
 
 /* #### CONSULTAR PARAMETROS DOCUMENTAÇÃO #### */
 document.addEventListener("DOMContentLoaded", () => {
@@ -245,6 +198,74 @@ document.addEventListener("DOMContentLoaded", () => {
             parametrosDiv.classList.remove('show');
         }
     });
+});
+
+/* #### CARROSSEL TESTEMUNHOS #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const slideshowContainer = document.getElementById('slideshowTestemunhos');
+    const track = document.getElementById('cardsTestemunhos');
+    const btnPrev = document.querySelector('#btnSlidesTestemunhos .btnPrevious');
+    const btnNext = document.querySelector('#btnSlidesTestemunhos .btnNext');
+    
+    if (!slideshowContainer || !track || !btnPrev || !btnNext) return;
+
+    let currentIndex = 0;
+    let visibleCardsCount = 1;
+
+    function updateTestemunhosSlide() {
+        const slides = track.querySelectorAll('.figureTestemunhos');
+        if (slides.length === 0) return;
+
+        slideshowContainer.style.width = '100%';
+        slideshowContainer.style.maxWidth = '100%';
+
+        const availableWidth = slideshowContainer.parentElement.clientWidth;
+        const cardWidth = slides[0].getBoundingClientRect().width;
+        
+        const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+        const paddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
+
+        visibleCardsCount = Math.floor((availableWidth - paddingLeft + gap) / (cardWidth + gap));
+
+        if (visibleCardsCount < 1) visibleCardsCount = 1;
+        if (visibleCardsCount > 3) visibleCardsCount = 3;
+        if (visibleCardsCount > slides.length) visibleCardsCount = slides.length;
+
+        const exactWidth = paddingLeft + (visibleCardsCount * cardWidth) + ((visibleCardsCount - 1) * gap) - 2;
+
+        slideshowContainer.style.width = `${exactWidth}px`;
+        slideshowContainer.style.maxWidth = `${exactWidth}px`;
+
+        const maxIndex = slides.length - visibleCardsCount;
+        if (currentIndex > maxIndex) currentIndex = Math.max(0, maxIndex);
+        if (currentIndex < 0) currentIndex = 0;
+
+        const moveAmount = (cardWidth + gap) * currentIndex;
+        track.style.transform = `translateX(-${moveAmount}px)`;
+    }
+
+    function slideTestemunho(direction) {
+        const slides = track.querySelectorAll('.figureTestemunhos');
+        const maxIndex = slides.length - visibleCardsCount;
+
+        if (maxIndex <= 0) return;
+
+        currentIndex += direction;
+
+        if (currentIndex > maxIndex) {
+            currentIndex = 0; 
+        } else if (currentIndex < 0) {
+            currentIndex = maxIndex; 
+        }
+
+        updateTestemunhosSlide();
+    }
+
+    btnNext.addEventListener('click', () => slideTestemunho(1));
+    btnPrev.addEventListener('click', () => slideTestemunho(-1));
+
+    window.addEventListener('resize', updateTestemunhosSlide);
+    setTimeout(updateTestemunhosSlide, 150);
 });
 
 /* # */
