@@ -200,6 +200,77 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+
+/* #### LÓGICA DE SLIDESHOW RESPONSIVO DINÂMICO #### */
+function setupDynamicSlider(wrapperId, trackId, buttonsId, prevBtnId, nextBtnId) {
+    const wrapper = document.getElementById(wrapperId);
+    const track = document.getElementById(trackId);
+    const buttonsContainer = document.getElementById(buttonsId);
+    const btnPrev = document.getElementById(prevBtnId);
+    const btnNext = document.getElementById(nextBtnId);
+
+    if (!wrapper || !track || !btnPrev || !btnNext || !buttonsContainer) return;
+
+    const slides = track.children;
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+    let visibleCardsCount = 1;
+
+    function updateSlider() {
+        const availableWidth = wrapper.parentElement.clientWidth;
+        const cardWidth = slides[0].getBoundingClientRect().width;
+        const gapStr = window.getComputedStyle(track).gap;
+        const gap = gapStr !== 'normal' ? parseFloat(gapStr) : 0;
+
+        // Calcula quantos cabem
+        visibleCardsCount = Math.floor((availableWidth + gap) / (cardWidth + gap));
+        if (visibleCardsCount < 1) visibleCardsCount = 1;
+        if (visibleCardsCount > slides.length) visibleCardsCount = slides.length;
+
+        // Ajusta largura do contentor para centrar
+        const exactWidth = (visibleCardsCount * cardWidth) + ((visibleCardsCount - 1) * gap);
+        wrapper.style.width = `${exactWidth}px`;
+
+        // Ativa/Desativa botões
+        if (visibleCardsCount >= slides.length) {
+            buttonsContainer.style.display = 'none';
+            currentIndex = 0;
+        } else {
+            buttonsContainer.style.display = 'flex';
+            const maxIndex = slides.length - visibleCardsCount;
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+        }
+
+        const moveAmount = (cardWidth + gap) * currentIndex;
+        track.style.transform = `translateX(-${moveAmount}px)`;
+    }
+
+    btnNext.addEventListener('click', () => {
+        const maxIndex = slides.length - visibleCardsCount;
+        if (currentIndex < maxIndex) { currentIndex++; updateSlider(); }
+    });
+
+    btnPrev.addEventListener('click', () => {
+        if (currentIndex > 0) { currentIndex--; updateSlider(); }
+    });
+
+    window.addEventListener('resize', updateSlider);
+    setTimeout(updateSlider, 200);
+}
+
+// INICIALIZAR TODOS OS SLIDERS
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Onde Estamos (index.html)
+    setupDynamicSlider('slideshowOndeEstamos', 'cardsOndeEstamos', 'buttonsOndeEstamos', 'btnPrevOnde', 'btnNextOnde');
+    
+    // 2. A Tua Carreira (atuacarreira.html)
+    setupDynamicSlider('slideshowCarreira', 'carreiraTop', 'buttonsCarreira', 'btnPrevCarreira', 'btnNextCarreira');
+    
+    // 3. Prepara-te (preparate.html)
+    setupDynamicSlider('slideshowPreparate', 'cardsPreparate', 'buttonsPreparate', 'btnPrevPrep', 'btnNextPrep');
+});
+
 /* #### CARROSSEL TESTEMUNHOS #### */
 document.addEventListener("DOMContentLoaded", () => {
     const slideshowContainer = document.getElementById('slideshowTestemunhos');
