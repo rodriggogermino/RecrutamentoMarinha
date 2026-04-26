@@ -15,7 +15,7 @@ if (barsIcon && sideMenu) {
 }
 
 /* #### SEARCH BAR #### */
-const searchIconsWrapper = document.getElementById('searchIcons'); 
+const searchIconsWrapper = document.getElementById('searchIcons');
 const searchBar = document.getElementById('barraPesquisa');
 
 if (searchIconsWrapper && searchBar) {
@@ -32,17 +32,18 @@ if (searchIconsWrapper && searchBar) {
 
 /* ### MOBILE SEARCH BAR ### */
 function openNav() {
-  const nav = document.getElementById("searchMobile");
-  if (nav) {
-    nav.style.width = "100%"
-  }
+    const nav = document.getElementById("searchMobile");
+    if (nav) {
+        nav.style.width = "100%"
+    }
 }
+
 function closeNav() {
-  const nav = document.getElementById("searchMobile");
-  
-  if (nav) {
-    nav.style.width = "0%"
-  }
+    const nav = document.getElementById("searchMobile");
+
+    if (nav) {
+        nav.style.width = "0%"
+    }
 }
 
 /* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL / SCROLL IMEDIATO PARA SECÇÃO #### */
@@ -57,7 +58,7 @@ function updateNavVisibility() {
     if (!scrollSnapArticle || !sideButtons) return;
 
     const isFirstPage = scrollSnapArticle.scrollTop < window.innerHeight;
-    
+
     if (isMobileDevice()) {
         sideButtons.style.display = isFirstPage ? 'none' : 'flex';
     } else {
@@ -75,7 +76,7 @@ if (scrollSnapArticle) {
 document.addEventListener("DOMContentLoaded", () => {
     const chatbotBtn = document.getElementById('chatbotBtn');
     const chatbotCloseBtn = document.getElementById('minimizeIcon');
-    const chatbot = document.getElementById('chatbotDiv'); 
+    const chatbot = document.getElementById('chatbotDiv');
 
     if (!chatbotBtn || !chatbot) return;
     chatbotBtn.addEventListener('click', function(event) {
@@ -98,17 +99,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (slides.length === 0 || !btnNext || !btnPrev) return;
 
     let currentIndex = 0;
-    
+
     const maxVisible = 3;
     const translateStep = 15;
     const scaleStep = 0.15;
-    const brightnessStep = 0.3; 
+    const brightnessStep = 0.3;
 
     function updateSlides() {
         slides.forEach((slide, index) => {
             let offset = index - currentIndex;
             if (offset < 0) {
-                offset += slides.length; 
+                offset += slides.length;
             }
             slide.style.pointerEvents = offset === 0 ? 'auto' : 'none';
 
@@ -117,13 +118,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 slide.style.zIndex = 100;
                 slide.style.filter = `brightness(1)`;
                 slide.style.opacity = 1;
-                
+
             } else if (offset <= maxVisible) {
                 slide.style.transform = `translateX(-${offset * translateStep}%) scale(${1 - (offset * scaleStep)})`;
                 slide.style.zIndex = 100 - offset;
                 slide.style.filter = `brightness(${1 - (offset * brightnessStep)})`;
                 slide.style.opacity = 1;
-                
+
             } else {
                 slide.style.transform = `translateX(-${(maxVisible + 1) * translateStep}%) scale(${1 - ((maxVisible + 1) * scaleStep)})`;
                 slide.style.zIndex = 0;
@@ -147,46 +148,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* #### DROPDOWN #### */
 document.addEventListener("DOMContentLoaded", () => {
-  const dropdownContainers = document.querySelectorAll(".custom-dropdown");
-  if (dropdownContainers.length === 0) return;
-  dropdownContainers.forEach(container => {
-    const btn = container.querySelector(".dropdown-btn");
-    const optionsList = container.querySelector(".dropdown-options");
-    const options = container.querySelectorAll(".option");
-    btn.addEventListener("click", (e) => {
-      document.querySelectorAll(".dropdown-options").forEach(list => {
-        if (list !== optionsList) list.classList.remove("show");
-      });
-      
-      optionsList.classList.toggle("show");
-    });
+    const dropdownContainers = document.querySelectorAll(".custom-dropdown");
+    if (dropdownContainers.length === 0) return;
+    dropdownContainers.forEach(container => {
+        const btn = container.querySelector(".dropdown-btn");
+        const optionsList = container.querySelector(".dropdown-options");
+        const options = container.querySelectorAll(".option");
+        btn.addEventListener("click", (e) => {
+            document.querySelectorAll(".dropdown-options").forEach(list => {
+                if (list !== optionsList) list.classList.remove("show");
+            });
 
-    options.forEach(option => {
-      option.addEventListener("click", (e) => {
-        btn.innerHTML = `${e.target.innerText} 
+            optionsList.classList.toggle("show");
+        });
+
+        options.forEach(option => {
+            option.addEventListener("click", (e) => {
+                btn.innerHTML = `${e.target.innerText} 
           <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>`;
-        options.forEach(opt => opt.classList.remove("selected"));
-        e.target.classList.add("selected");
-        optionsList.classList.remove("show");
-      });
+                options.forEach(opt => opt.classList.remove("selected"));
+                e.target.classList.add("selected");
+                optionsList.classList.remove("show");
+            });
+        });
     });
-  });
-  window.addEventListener("click", (e) => {
-    if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-btn')) {
-      document.querySelectorAll('.dropdown-options').forEach(list => {
-        list.classList.remove('show');
-      });
-    }
-  });
+    window.addEventListener("click", (e) => {
+        if (!e.target.matches('.dropdown-btn') && !e.target.closest('.dropdown-btn')) {
+            document.querySelectorAll('.dropdown-options').forEach(list => {
+                list.classList.remove('show');
+            });
+        }
+    });
 });
 
 
 /* #### CONSULTAR PARAMETROS DOCUMENTAÇÃO #### */
 document.addEventListener("DOMContentLoaded", () => {
     const consultarBtn = document.getElementById('consultarBtn');
-    const parametrosDiv = document.getElementById('parametrosDiv'); 
+    const parametrosDiv = document.getElementById('parametrosDiv');
 
     if (!consultarBtn || !parametrosDiv) return;
     consultarBtn.addEventListener('click', function(event) {
@@ -201,74 +202,62 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-/* #### LÓGICA DE SLIDESHOW RESPONSIVO DINÂMICO #### */
-function setupDynamicSlider(wrapperId, trackId, buttonsId, prevBtnId, nextBtnId) {
-    const wrapper = document.getElementById(wrapperId);
-    const track = document.getElementById(trackId);
-    const buttonsContainer = document.getElementById(buttonsId);
-    const btnPrev = document.getElementById(prevBtnId);
-    const btnNext = document.getElementById(nextBtnId);
+/* #### CARROSSEL ONDE ESTAMOS #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.getElementById('slideshowOndeEstamos');
+    const track = document.getElementById('cardsOndeEstamos');
+    const btnPrev = document.getElementById('btnPrevOnde');
+    const btnNext = document.getElementById('btnNextOnde');
+    const buttonsContainer = document.getElementById('buttonsOndeEstamos');
 
     if (!wrapper || !track || !btnPrev || !btnNext || !buttonsContainer) return;
 
-    const slides = track.children;
+    const slides = track.querySelectorAll('.cardOndeEstamos');
     if (slides.length === 0) return;
 
     let currentIndex = 0;
-    let visibleCardsCount = 1;
+    let visibleCardsCount = 4;
 
-    function updateSlider() {
+    function updateOndeEstamosSlider() {
         const availableWidth = wrapper.parentElement.clientWidth;
         const cardWidth = slides[0].getBoundingClientRect().width;
         const gapStr = window.getComputedStyle(track).gap;
         const gap = gapStr !== 'normal' ? parseFloat(gapStr) : 0;
 
-        // Calcula quantos cabem
         visibleCardsCount = Math.floor((availableWidth + gap) / (cardWidth + gap));
         if (visibleCardsCount < 1) visibleCardsCount = 1;
         if (visibleCardsCount > slides.length) visibleCardsCount = slides.length;
 
-        // Ajusta largura do contentor para centrar
         const exactWidth = (visibleCardsCount * cardWidth) + ((visibleCardsCount - 1) * gap);
         wrapper.style.width = `${exactWidth}px`;
-
-        // Ativa/Desativa botões
+        track.style.justifyContent = 'flex-start';
         if (visibleCardsCount >= slides.length) {
             buttonsContainer.style.display = 'none';
             currentIndex = 0;
         } else {
             buttonsContainer.style.display = 'flex';
             const maxIndex = slides.length - visibleCardsCount;
-            if (currentIndex > maxIndex) currentIndex = maxIndex;
+            if (currentIndex > maxIndex) currentIndex = Math.max(0, maxIndex);
+            if (currentIndex < 0) currentIndex = 0;
         }
-
         const moveAmount = (cardWidth + gap) * currentIndex;
         track.style.transform = `translateX(-${moveAmount}px)`;
     }
-
     btnNext.addEventListener('click', () => {
         const maxIndex = slides.length - visibleCardsCount;
-        if (currentIndex < maxIndex) { currentIndex++; updateSlider(); }
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateOndeEstamosSlider();
+        }
     });
-
     btnPrev.addEventListener('click', () => {
-        if (currentIndex > 0) { currentIndex--; updateSlider(); }
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateOndeEstamosSlider();
+        }
     });
-
-    window.addEventListener('resize', updateSlider);
-    setTimeout(updateSlider, 200);
-}
-
-// INICIALIZAR TODOS OS SLIDERS
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Onde Estamos (index.html)
-    setupDynamicSlider('slideshowOndeEstamos', 'cardsOndeEstamos', 'buttonsOndeEstamos', 'btnPrevOnde', 'btnNextOnde');
-    
-    // 2. A Tua Carreira (atuacarreira.html)
-    setupDynamicSlider('slideshowCarreira', 'carreiraTop', 'buttonsCarreira', 'btnPrevCarreira', 'btnNextCarreira');
-    
-    // 3. Prepara-te (preparate.html)
-    setupDynamicSlider('slideshowPreparate', 'cardsPreparate', 'buttonsPreparate', 'btnPrevPrep', 'btnNextPrep');
+    window.addEventListener('resize', updateOndeEstamosSlider);
+    setTimeout(updateOndeEstamosSlider, 150);
 });
 
 /* #### CARROSSEL TESTEMUNHOS #### */
@@ -277,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const track = document.getElementById('cardsTestemunhos');
     const btnPrev = document.querySelector('#btnSlidesTestemunhos .btnPrevious');
     const btnNext = document.querySelector('#btnSlidesTestemunhos .btnNext');
-    
+
     if (!slideshowContainer || !track || !btnPrev || !btnNext) return;
 
     let currentIndex = 0;
@@ -292,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const availableWidth = slideshowContainer.parentElement.clientWidth;
         const cardWidth = slides[0].getBoundingClientRect().width;
-        
+
         const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
         const paddingLeft = parseFloat(window.getComputedStyle(track).paddingLeft) || 0;
 
@@ -324,9 +313,9 @@ document.addEventListener("DOMContentLoaded", () => {
         currentIndex += direction;
 
         if (currentIndex > maxIndex) {
-            currentIndex = 0; 
+            currentIndex = 0;
         } else if (currentIndex < 0) {
-            currentIndex = maxIndex; 
+            currentIndex = maxIndex;
         }
 
         updateTestemunhosSlide();
@@ -352,27 +341,27 @@ const btnEnviar = document.getElementById('btnEnviar');
 const emailInput = document.getElementById('email');
 
 if (btnEnviar && emailInput) {
-    btnEnviar.addEventListener('click', function () {
-      const email = emailInput.value.trim();
-      const msg = document.getElementById('successMsg');
+    btnEnviar.addEventListener('click', function() {
+        const email = emailInput.value.trim();
+        const msg = document.getElementById('successMsg');
 
-      // Validate email
-      if (!email || !email.includes('@')) {
-        emailInput.style.borderColor = '#CC0000';
-        emailInput.focus();
-        return;
-      }
+        // Validate email
+        if (!email || !email.includes('@')) {
+            emailInput.style.borderColor = '#CC0000';
+            emailInput.focus();
+            return;
+        }
 
-      // Success state
-      emailInput.style.borderColor = '';
-      if (msg) msg.style.display = 'block';
-      this.disabled = true;
-      this.style.opacity = '0.65';
-      this.textContent = 'Enviado ✓';
+        // Success state
+        emailInput.style.borderColor = '';
+        if (msg) msg.style.display = 'block';
+        this.disabled = true;
+        this.style.opacity = '0.65';
+        this.textContent = 'Enviado ✓';
     });
 
     // Reset border on input
-    emailInput.addEventListener('input', function () {
-      this.style.borderColor = '';
+    emailInput.addEventListener('input', function() {
+        this.style.borderColor = '';
     });
 }
