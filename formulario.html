@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscrição | Marinha Portuguesa</title>
+    <title>Formulário | Marinha Portuguesa</title>
+    <link rel="stylesheet" href="formulario.css">
     <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="inscricao.css">
     
     
 </head>
@@ -50,20 +50,21 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.33333C0 0.596954 0.614318 0 1.37212 0H26.0702C26.828 0 27.4423 0.596954 27.4423 1.33333C27.4423 2.06971 26.828 2.66667 26.0702 2.66667H1.37212C0.614318 2.66667 0 2.06971 0 1.33333Z" fill="black"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 17.3333C0 16.597 0.614318 16 1.37212 16H26.0702C26.828 16 27.4423 16.597 27.4423 17.3333C27.4423 18.0697 26.828 18.6667 26.0702 18.6667H1.37212C0.614318 18.6667 0 18.0697 0 17.3333Z" fill="black"/>
 </svg>
-<div id="sideMenu" class="side-menu"> <!--#### SIDE MENU ####-->
+
+                </span>
+                <div id="sideMenu" class="side-menu"> <!--#### SIDE MENU ####-->
                     <ul>
                         <li><a href="#">Profissões</a></li>
                         <li><a href="#">Concursos</a></li>
                         <li><a href="#">Prepara-te</a></li>
                         <li><a href="#">A tua Carreira</a></li>
-                        <li><a href="inscricao.html">Candidata-te</a></li>
+                        <li><a href="login.html">Candidata-te</a></li>
                     </ul>
                 </div>
-                </span>
-               
             </div>
         </nav>
-        <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
+        
+                <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
             </form>
         </div>
         
@@ -73,40 +74,113 @@
             
         </div>
 
-        <section class="signup-section">
-    <h2>JUNTA-TE A NÓS</h2>
-    <p>Preenche o formulário e fica a par das informações sobre os concursos da Marinha!</p>
-
-    <form class="recruitment-form">
-        <div class="form-grid">
-            <input type="text" placeholder="Nome" required>
-            <input type="email" placeholder="email" required>
-            
-            <input type="tel" placeholder="nº de telefone/ telemovel">
-            <select>
-                <option value="" disabled selected>Habilitações</option>
-                <option value="Ensino Superior">Ensino Superior</option>
-                <option value="Ensino Secundario">Ensino Secundario</option>
-                <option value="Ensino Profissional">Ensino Profissional</option>
-                <option value="Ensino Básico">Ensino Básico</option>
-            </select>
-
-            <input type="date" placeholder="DD/MM/AAAA">
-            <select>
-                <option value="" disabled selected>Género</option>
-                <option value="masculino">Masculino</option>
-                <option value="feminino">Feminino</option>
-                <option value="outro">Outro</option>
-            </select>
-            
-            <input type="password" placeholder="Palavra pass">
-            <input type="password" placeholder="confirmação da pass">
+<div class="form-wrapper">
+    <div class="form-header">
+      <h1>JUNTA-TE A NÓS</h1>
+      <p>Preenche o formulário e fica a par das informações sobre os concursos da Marinha!</p>
+    </div>
+ 
+    <div class="form-body">
+      <!-- Coluna esquerda -->
+      <div class="form-col">
+        <h2 class="col-title">Dados Pessoais</h2>
+ 
+        <div class="field-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" placeholder="Primeiro e Ultimo Nome" />
         </div>
-
-        <a href="login.html" id="btnSubmit">Submeter Formulario</a>
-    </form>
-</section>
-<!--#### FOOTER ####-->
+ 
+        <div class="field-group">
+          <label for="telefone">Nº de telemóvel / Telefone</label>
+          <input type="tel" id="telefone" placeholder="" />
+        </div>
+ 
+        <div class="field-group">
+          <label for="nascimento">Data de Nascimento</label>
+          <div class="input-icon">
+            <input type="date" id="nascimento" value="" />
+            <span class="icon"><svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M15.5911 0.929688C15.5911 0.416235 15.1258 0 14.5517 0C13.9777 0 13.5123 0.416235 13.5123 0.929688V1.85938H7.27586V0.929688C7.27586 0.416235 6.8105 0 6.23645 0C5.6624 0 5.19704 0.416235 5.19704 0.929688V1.85938H3.11823C1.39608 1.85938 0 3.10808 0 4.64844V17.6641C0 19.2044 1.39608 20.4531 3.11823 20.4531H17.67C19.3921 20.4531 20.7882 19.2044 20.7882 17.6641V4.64844C20.7882 3.10808 19.3921 1.85938 17.67 1.85938H15.5911V0.929688ZM5.19704 4.64844V3.71875H3.11823C2.54418 3.71875 2.07882 4.13499 2.07882 4.64844V7.4375H18.7094V4.64844C18.7094 4.13499 18.244 3.71875 17.67 3.71875H15.5911V4.64844C15.5911 5.16189 15.1258 5.57812 14.5517 5.57812C13.9777 5.57812 13.5123 5.16189 13.5123 4.64844V3.71875H7.27586V4.64844C7.27586 5.16189 6.8105 5.57812 6.23645 5.57812C5.6624 5.57812 5.19704 5.16189 5.19704 4.64844ZM18.7094 9.29688H2.07882V17.6641C2.07882 18.1775 2.54418 18.5938 3.11823 18.5938H17.67C18.244 18.5938 18.7094 18.1775 18.7094 17.6641V9.29688Z" fill="black"/>
+</svg>
+</span>
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Coluna direita -->
+      <div class="form-col">
+        <h2 class="col-title">Habilitações e Segurança</h2>
+ 
+        <div class="field-group">
+          <label for="email">Endereço de Email</label>
+          <div class="input-icon">
+            <input type="email" id="email" placeholder="ex@email.com"  />
+            
+          </div>
+        </div>
+ 
+        <div class="field-group">
+          <label for="habilitacoes">Habilitações Literárias</label>
+          <div class="select-wrapper">
+            <select id="habilitacoes">
+              <option>Mestrado</option>
+              <option>Licenciatura</option>
+              <option>Ensino Secundário</option>
+              <option>Ensino Profissional</option>
+              <option>Ensino Básico</option>
+            </select>
+          </div>
+        </div>
+ 
+        <div class="field-group">
+          <label for="genero">Género</label>
+          <div class="select-wrapper">
+            <select id="genero">
+              <option>Masculino</option>
+              <option>Feminino</option>
+              <option>Outro</option>
+              <option>Prefiro não dizer</option>
+            </select>
+          </div>
+        </div>
+ 
+        <div class="field-group">
+          <label for="password">Palavra-passe</label>
+          <div class="input-icon">
+            <input type="password" id="password" value="password" />
+            <span class="icon toggle-pw" onclick="togglePassword('password', this)">&#128065;</span>
+          </div>
+        </div>
+ 
+        <div class="field-group">
+          <label for="confirm-password">Confirmar Palavra-passe</label>
+          <div class="input-icon">
+            <input type="password" id="confirm-password" value="password123"  />
+             <span class="icon toggle-pw" onclick="togglePassword('confirm-password', this)">&#128065;</span>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <div class="form-footer">
+      <button type="submit" class="btn-submit">submit formulário</button>
+    </div>
+  </div>
+ 
+  <script>
+    function togglePassword(id, icon) {
+      const input = document.getElementById(id);
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.style.opacity = '1';
+      } else {
+        input.type = 'password';
+        icon.style.opacity = '0.5';
+      }
+    }
+    </script>
+    <!--#### FOOTER ####-->
             <footer>
                 <div id="topFooter">
                     <div id="logotiposFooter">
@@ -244,6 +318,6 @@
                     </div>
                 </div>
             </footer>
-<script src="script.js"></script>
+        <script src="script.js"></script>
 </body>
-<html>
+</html> 

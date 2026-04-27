@@ -3,6 +3,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
+     --font-body:  'Noto Sans', sans-serif;
+  --font-title: 'Noto Sans', sans-serif;
 }
 
 body {
@@ -13,40 +15,141 @@ body {
 }
 
 /* Navbar */
-.login-nav {
-    padding: 20px 50px;
-}
 
-.nav-container {
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1400px;
+    padding: 5vh;
+    width: 100%;
     margin: 0 auto;
+    z-index: 998;
 }
-
-.logo-group {
+#navLogoXS {
+    display: none;
+}
+#rightNav {
+    position: relative;
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    font-size: 1.2rem;
+    gap: 2vh;
 }
-
-.logo-group img { height: 40px; }
-
-.menu-icon {
-    width: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+#searchIconMobile {
+    display: none;
+    cursor: pointer;
+}
+#searchIconHover {
+    display: none;
+    cursor: pointer;
+}
+#searchIcon {
+    cursor: pointer;
+}
+#searchIcons:hover #searchIcon {
+    display: none;
+}
+#searchIcons:hover #searchIconHover {
+    display: block;
+}
+#barsIcon {
     cursor: pointer;
 }
 
-.menu-icon span {
-    height: 3px;
-    background: #333;
+/* ### BARRA DE PESQUISA ### */
+.barraPesquisa {
+    border: 1px solid rgb(255, 255, 255);
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+    font-weight: 400;
+    min-width: 400px;
+    border-radius: 10px;
+    padding: 2px 6px;
+    display: none;
+}
+.barraPesquisa.active {
+    display: block;
+}
+
+/* ### SIDE MENU ### */
+.side-menu {
+    position: absolute;
+    margin-top: 10px;
+    top: 100%;
+    right: 0;
+    width: fit-content;
+    backdrop-filter: blur(10px);
+    
+    border: 1px solid black;
+    border-radius: 16px; 
+    padding: 35px;
+    z-index: 999;
+    text-wrap: nowrap;
+    display: none;
+}
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     width: 100%;
+}
+.side-menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    display: block;
+    transition: color 0.2s ease;
+}
+.side-menu a:hover {
+    color: darkgray;
+}
+.side-menu.active {
+    display: block;
+}
+/* ### SIDE BUTTONS ### */
+#sideButtons {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    gap: 1vh;
+    top: 35%;
+    right: 0;
+    height: fit-content;
+    width: fit-content;
+    z-index: 997;
+}
+#sideButtons a {
+    font-size: 1.6vh;
+    font-weight: 600;
+    text-decoration: none;
+    color: #182439;
+    background-color: #83e1b2;
+    border: 1px solid transparent; 
+    border-radius: 0 1vh 1vh 0; 
+    padding: 1.7vh 0.7vh;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transition: 0.4s;
+    box-shadow: 0 0 5px #83e1b2,
+                0 0 25px #83e1b2,
+                0 0 50px #83e1b2,
+                0 0 200px #83e1b2;
+    
+}
+#sideButtons a:hover {
+    background-color: #2CE387;
+    box-shadow: 0 0 5px #2CE387,
+                0 0 25px #2CE387,
+                0 0 50px #2CE387,
+                0 0 200px #2CE387;
 }
 
 /* Container de Login */
@@ -126,34 +229,90 @@ body {
     box-shadow: -2px 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Footer */
-.login-footer {
-    background-color: #0d47a1; /* Azul Marinha */
-    color: white;
-    padding: 20px 0;
+/* #### FOOTER #### */
+footer {
+    width: 100%;
+    padding: 0vh;
+    margin: 0 auto;
+    position: absolute;
+    background-color: #182439;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
-
-.footer-top {
+#topFooter {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding: 2vh 0;
+    width: 100%;
 }
-
-.footer-logo { height: 40px; }
-
-.social-icons {
+#logotiposFooter {
     display: flex;
-    gap: 20px;
-    font-size: 1.5rem;
+    align-items: center;
+    gap: 2vh;
 }
-
-.social-icons a { color: white; text-decoration: none; }
-
-.footer-bottom {
-    text-align: center;
-    padding: 15px;
-    font-size: 0.75rem;
-    background-color: #0a3d8d;
+#logotiposRedes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+#logotiposRedes a img{
+    width: 40%;
+}
+#bottomFooter {
+    display: flex;
+    gap: 1vh;
+    padding: 2vh 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+#bottomFooter p {
+    font-weight: 500;
+    font-size: 1.5vh;
+    color: white;
+    margin: 0;
+}
+#line {
+    border: 1px solid white;
+    border-radius: 3em;
+}
+#bottomFooter a {
+    font-weight: 200;
+    text-decoration: none;
+    color: white;
+    font-size: 1.2vh;
+    transition: 0.4s;
+}
+#copyrightFooter {
+    display: flex;
+    align-items: center;
+    gap: 1vh;
+}
+#linksFooter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+#bottomFooter a:hover {
+    color: lightgray;
+}
+#facebookIconHover,
+#instagramIconHover,
+#youtubeIconHover,
+#linkedinIconHover {
+    display: none;
+}
+a:hover #facebookIcon,
+a:hover #instagramIcon,
+a:hover #youtubeIcon,
+a:hover #linkedinIcon {
+    display: none;
+}
+a:hover #facebookIconHover,
+a:hover #instagramIconHover,
+a:hover #youtubeIconHover,
+a:hover #linkedinIconHover {
+    display: inline-flex;
 }
