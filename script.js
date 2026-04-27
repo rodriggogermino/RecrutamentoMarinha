@@ -200,21 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
-<<<<<<< HEAD
-// Script para o comportamento da Accordion
-document.querySelectorAll('.accordion-header').forEach(button => {
-    button.addEventListener('click', () => {
-        const expanded = button.getAttribute('aria-expanded') === 'true';
-        // Fecha todos
-        document.querySelectorAll('.accordion-header').forEach(btn => btn.setAttribute('aria-expanded', 'false'));
-        // Abre o selecionado se estava fechado
-        if (!expanded) {
-            button.setAttribute('aria-expanded', 'true');
-        }
-    });
-});
-=======
-
 
 /* #### CARROSSEL ONDE ESTAMOS #### */
 document.addEventListener("DOMContentLoaded", () => {
@@ -342,6 +327,131 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(updateTestemunhosSlide, 150);
 });
 
+/* #### CARROSSEL PREPARA-TE #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.getElementById('slideshowPreparate');
+    const track = document.getElementById('cardsPreparate');
+    const btnPrev = document.getElementById('btnPrevPrep');
+    const btnNext = document.getElementById('btnNextPrep');
+    const buttonsContainer = document.getElementById('buttonsPreparate');
+
+    if (!wrapper || !track || !btnPrev || !btnNext || !buttonsContainer) return;
+
+    const slides = track.querySelectorAll('.cardPreparate');
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+    let visibleCardsCount = 4;
+
+    function updatePreparateSlider() {
+        const availableWidth = wrapper.parentElement.clientWidth;
+        const cardWidth = slides[0].getBoundingClientRect().width;
+        const gapStr = window.getComputedStyle(track).gap;
+        const gap = gapStr !== 'normal' ? parseFloat(gapStr) : 0;
+
+        visibleCardsCount = Math.floor((availableWidth + gap) / (cardWidth + gap));
+        if (visibleCardsCount < 1) visibleCardsCount = 1;
+        if (visibleCardsCount > slides.length) visibleCardsCount = slides.length;
+
+        const exactWidth = (visibleCardsCount * cardWidth) + ((visibleCardsCount - 1) * gap);
+        wrapper.style.width = `${exactWidth}px`;
+        track.style.justifyContent = 'flex-start';
+
+        if (visibleCardsCount >= slides.length) {
+            buttonsContainer.style.display = 'none';
+            currentIndex = 0;
+        } else {
+            buttonsContainer.style.display = 'flex';
+            const maxIndex = slides.length - visibleCardsCount;
+            if (currentIndex > maxIndex) currentIndex = Math.max(0, maxIndex);
+            if (currentIndex < 0) currentIndex = 0;
+        }
+
+        const moveAmount = (cardWidth + gap) * currentIndex;
+        track.style.transform = `translateX(-${moveAmount}px)`;
+    }
+
+    btnNext.addEventListener('click', () => {
+        const maxIndex = slides.length - visibleCardsCount;
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updatePreparateSlider();
+        }
+    });
+
+    btnPrev.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updatePreparateSlider();
+        }
+    });
+
+    window.addEventListener('resize', updatePreparateSlider);
+    setTimeout(updatePreparateSlider, 150);
+});
+
+/* #### CARROSSEL A TUA CARREIRA #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const wrapper = document.getElementById('slideshowCarreira');
+    const track = document.getElementById('caixasCarreira');
+    const btnPrev = document.getElementById('btnPrevCarreira');
+    const btnNext = document.getElementById('btnNextCarreira');
+    const buttonsContainer = document.getElementById('buttonsCarreira');
+
+    if (!wrapper || !track || !btnPrev || !btnNext || !buttonsContainer) return;
+
+    const slides = track.querySelectorAll('.caixaCarreira');
+    if (slides.length === 0) return;
+
+    let currentIndex = 0;
+    let visibleCardsCount = 3;
+
+    function updateCarreiraSlider() {
+        const availableWidth = wrapper.parentElement.clientWidth;
+        const cardWidth = slides[0].getBoundingClientRect().width;
+        const gapStr = window.getComputedStyle(track).gap;
+        const gap = gapStr !== 'normal' ? parseFloat(gapStr) : 0;
+
+        visibleCardsCount = Math.floor((availableWidth + gap) / (cardWidth + gap));
+        if (visibleCardsCount < 1) visibleCardsCount = 1;
+        if (visibleCardsCount > slides.length) visibleCardsCount = slides.length;
+
+        const exactWidth = (visibleCardsCount * cardWidth) + ((visibleCardsCount - 1) * gap);
+        wrapper.style.width = `${exactWidth}px`;
+        track.style.justifyContent = 'flex-start';
+
+        if (visibleCardsCount >= slides.length) {
+            buttonsContainer.style.display = 'none';
+            currentIndex = 0;
+        } else {
+            buttonsContainer.style.display = 'flex';
+            const maxIndex = slides.length - visibleCardsCount;
+            if (currentIndex > maxIndex) currentIndex = Math.max(0, maxIndex);
+            if (currentIndex < 0) currentIndex = 0;
+        }
+
+        const moveAmount = (cardWidth + gap) * currentIndex;
+        track.style.transform = `translateX(-${moveAmount}px)`;
+    }
+
+    btnNext.addEventListener('click', () => {
+        const maxIndex = slides.length - visibleCardsCount;
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+            updateCarreiraSlider();
+        }
+    });
+
+    btnPrev.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarreiraSlider();
+        }
+    });
+
+    window.addEventListener('resize', updateCarreiraSlider);
+    setTimeout(updateCarreiraSlider, 150);
+});
 /* # */
 /* # */
 /* # */
@@ -379,4 +489,3 @@ if (btnEnviar && emailInput) {
         this.style.borderColor = '';
     });
 }
->>>>>>> cd9cac4e518542e7aaa049046aad2d13f7c7b16e
