@@ -1541,7 +1541,7 @@
     }
     
     #testemunhosSectionContainer {
-        height: 60vh;
+        height: 65vh;
         width: 85%;
         display: flex;
         flex-direction: column;
@@ -1593,7 +1593,6 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
         color: white;
     }
     
@@ -1754,6 +1753,112 @@
         align-items: center;
         justify-content: center;
         overflow: hidden;
+    }
+    /* #### SECTION PROFISSOES #### */
+    
+    #slideshowProfissoes {
+        margin: 0 auto;
+        overflow: hidden;
+        transition: width 0.3s ease;
+        padding: 2vh 0;
+    }
+    
+    #profissoesSection {
+        height: 100vh;
+        background-image: url('Utilities/Images/bg1.png');
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    #profissoesSectionContainer {
+        height: 60vh;
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5vh;
+    }
+    
+    .cardProfissoes {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .profissoesLeft {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 30vw;
+        justify-content: center;
+        gap: 5vh;
+        align-items: start;
+        color: white;
+    }
+    
+    .profissoesLeft h1 {
+        font-weight: 700;
+        font-size: 3rem;
+    }
+    
+    .profissoesLeft p {
+        font-size: 1rem;
+        font-weight: 200;
+        line-height: 1.5em;
+        overflow: auto;
+        width: 80%;
+    }
+    
+    .profissoesLeft a {
+        font-weight: 400;
+        line-height: 1.5em;
+        text-decoration: none;
+        padding: 0.3em 1.2em;
+        font-size: 1rem;
+        color: white;
+        border: 2px solid white;
+        border-radius: 2em;
+        transition: 0.4s;
+    }
+    
+    .profissoesLeft a:hover {
+        background-color: white;
+        color: black;
+    }
+    
+    .profissoesRight {
+        display: flex;
+        align-items: end;
+        justify-content: right;
+        width: 50vw;
+        height: 100%;
+        gap: 2em;
+    }
+    
+    .profissoesRight img:nth-child(1) {
+        border: 5px solid white;
+        border-radius: 3em;
+        height: 100%;
+        width: auto;
+        transition: 0.4s;
+    }
+    
+    .profissoesRight img:nth-child(2) {
+        border-radius: 3em;
+        height: 80%;
+        width: auto;
+        transition: 0.4s;
+    }
+    
+    .profissoesRight img:hover {
+        filter: brightness(0.8);
     }
     /* #### MEDIA QUERY MOBILE #### */
     
