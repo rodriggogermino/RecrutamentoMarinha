@@ -327,6 +327,62 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(updateTestemunhosSlide, 150);
 });
 
+/* #### CARROSSEL PROFISSÕES (DRAG TO SCROLL) #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.getElementById('slideshowProfissoes');
+
+    if (!slider) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let isDragging = false;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        isDragging = false; 
+        slider.style.cursor = 'grabbing';
+        
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+
+        slider.style.scrollBehavior = 'auto'; 
+        slider.style.scrollSnapType = 'none'; 
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        if (!isDown) return;
+        isDown = false;
+        slider.style.cursor = 'grab';     
+        slider.style.scrollBehavior = 'smooth';
+        slider.style.scrollSnapType = 'x mandatory';
+    });
+
+    slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+        slider.style.scrollBehavior = 'smooth';
+        slider.style.scrollSnapType = 'x mandatory';
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        
+        isDragging = true;
+        e.preventDefault();
+        
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+    });
+
+    slider.addEventListener('click', (e) => {
+        if (isDragging) {
+            e.preventDefault();
+        }
+    });
+});
+
 /* #### CARROSSEL PREPARA-TE #### */
 document.addEventListener("DOMContentLoaded", () => {
     const wrapper = document.getElementById('slideshowPreparate');
