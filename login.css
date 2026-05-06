@@ -153,6 +153,7 @@ nav {
 }
 
 /* Container de Login */
+
 .login-container {
     flex: 1;
     display: flex;
@@ -186,30 +187,76 @@ nav {
     font-size: 1.1rem;
     outline: none;
 }
-
-.btn-entrar {
-    width: 50%;
-    padding: 15px;
-    background-color: #d9d9d9;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    margin: 20px 0;
-    transition: background 0.3s;
+/* Botões para entrar e submeter formulario  */
+button{
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  font: inherit;
 }
 
-.btn-entrar:hover { background-color: #bcbcbc; }
+/* BOTÃO UNIVERSAL */
+.btn-submit.small{
+  width:100%;
+  margin:0;
+  padding:13px;
+  font-size:0.9rem;
+}
+.btn-row{
+  display:flex;
+  gap:14px;
+  margin-top:10px;
+}
+.btn-submit{
+  display: block;              /* ocupa a linha */
+  width: 70%;                  /* largura igual à imagem */
+  margin: 14px auto;           /* centra horizontalmente */
 
+  background: #381dcf;
+  color: #ffffff;
+  border: none;
+  border-radius: 0;            /* retangular */
+
+  padding: 15px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgb(0, 0, 0);
+}
+
+/* hover */
+.btn-submit:hover{
+  background: #382d99;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.986);
+}
+
+/* clique */
+.btn-submit:active{
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* para links parecerem botões */
+a.btn-submit{
+  text-decoration: none;
+}
 .login-links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
+   
 }
 
 .login-links a {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
     font-size: 1.1rem;
 }
 
@@ -232,8 +279,8 @@ nav {
 /* #### FOOTER #### */
 footer {
     width: 100%;
-    padding: 0vh;
-    margin: 0 auto;
+    padding: 5vh;
+    margin: 0  auto;
     position: absolute;
     background-color: #182439;
     bottom: 0;
@@ -244,7 +291,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2vh 0;
+    padding: vh 0;
     width: 100%;
 }
 #logotiposFooter {
@@ -263,7 +310,7 @@ footer {
 #bottomFooter {
     display: flex;
     gap: 1vh;
-    padding: 2vh 0;
+    padding: vh 0;
     align-items: center;
     justify-content: center;
     width: 100%;
