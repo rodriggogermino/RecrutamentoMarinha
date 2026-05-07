@@ -228,14 +228,12 @@ button{
 
   cursor: pointer;
   transition: all 0.25s ease;
-  box-shadow: 0 6px 20px rgb(0, 0, 0);
 }
 
 /* hover */
 .btn-submit:hover{
   background: #382d99;
   transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.986);
 }
 
 /* clique */
@@ -279,7 +277,7 @@ a.btn-submit{
 /* #### FOOTER #### */
 footer {
     width: 100%;
-    padding: 5vh;
+    padding: 15px 40px; 
     margin: 0  auto;
     position: absolute;
     background-color: #182439;
