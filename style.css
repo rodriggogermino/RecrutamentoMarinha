@@ -1108,6 +1108,20 @@ nav {
 #diaProvaDocumentacaoContainer {
   font-size: 0.8em;
 }
+
+#admissaoMilitar, #admissaoMilitarizado {
+  justify-content: start;
+}
+
+#admissaoMilitar ul li, #admissaoMilitarizado ul li, #diaProvaDocumentacao p{
+  font-size: 1.3em;
+  line-height: 1.5em;
+}
+
+#admissaoMilitarizado p {
+  font-size: 1.2em;
+}
+
 /* #### CAIXAS PAG. A TUA CARREIRA #### */
 
 #caixasCarreira {
