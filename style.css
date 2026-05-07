@@ -1,24 +1,3 @@
-/* #### ANIMAÇÕES #### */
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@keyframes UpDown {
-    0%, 100% {
-      bottom: 0;
-    }
-    50% {
-      bottom: 100px;
-    }
-}
-
 /* #### RESET CSS #### */
 
 * {
@@ -47,6 +26,65 @@ html::-moz-selection {
   background: #78849d;
   color: white;
 }
+
+/* #### ANIMAÇÕES #### */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes deslizar {
+    0% {
+        left: -50%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* #### FUNDO DE CARREGAMENTO #### */
+#loader{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+}
+.barraLoader {
+    width: 60%;
+    max-width: 250px;
+    height: 4px;
+    background-color: #333333;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+.barraLoader::before {
+    content: '';
+    position: absolute;
+    left: -50%;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    background-color: #ffffff;
+    border-radius: 4px;
+    animation: deslizar 1.5s infinite ease-in-out; 
+}
+
 /* ####### GENERAL COMPONENTS ####### */
 /* #### TITULOS #### */
 
@@ -767,7 +805,7 @@ nav {
   color: white;
   width: 100%;
   height: 25%;
-  font-size: 1em;
+  font-size: 0.7em;
   backdrop-filter: blur(0.5vh);
   background-color: rgba(0, 0, 0, 0.5);
   border-bottom-left-radius: 2vh;
@@ -823,27 +861,28 @@ nav {
   font-weight: 300;
 }
 
+#cardsPreparate a {
+  text-decoration: none;
+}
+
 .cardPreparate .cardContainer {
   opacity: 1;
 }
 
-.cardPreparate:nth-child(1) {
+#docPreparate {
   background-image: url(Utilities/Images/documentacao.png);
 }
 
-.cardPreparate:nth-child(2) {
+#provasFisicasPreparate {
   background-image: url(Utilities/Images/provasFisicas.png);
-  filter: brightness(0.8);
 }
 
-.cardPreparate:nth-child(3) {
+#testesPsicologicosPreparate {
   background-image: url(Utilities/Images/testesPsicologicos.png);
-  filter: brightness(0.8);
 }
 
-.cardPreparate:nth-child(4) {
+#admissaoPreparate {
   background-image: url(Utilities/Images/admissao.png);
-  filter: brightness(0.8);
 }
 
 .cardPreparate:hover {
@@ -969,26 +1008,38 @@ nav {
 /* #### CAIXAS DOCUMENTAÇÃO / ADMISSÃO #### */
 
 .caixaDocumentacao {
-  position: relative;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+  transform-origin: center; 
+  cursor: default;
   width: 57vw;
   height: 53vh;
   background-color: #232426;
   border: 4px #78849d solid;
   border-radius: 2em;
-  padding: 2.5em;
-  overflow: scroll;
+  padding: 2em 3em;
+  overflow-y: auto; 
   overflow-x: hidden;
   scrollbar-width: none;
-  -ms-overflow-style: none;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+#caixasDocumentacao {
+  position: relative;
+  width: 100%;
+  height: 53vh;
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
 
 .parametrosDiv {
   background-color: #232426;
   border: 4px solid #78849d;
   border-radius: inherit;
+  color: white;
   padding: 1.5em 3em;
   width: 50%;
   line-height: 1.5em;
@@ -1009,10 +1060,11 @@ nav {
 }
 
 .caixaDocumentacao h3 {
-  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-size: 2em;
   font-weight: 300;
   color: white;
   text-align: left;
+  margin: 0;
 }
 
 .documentacaoContainer {
@@ -1021,20 +1073,23 @@ nav {
   font-weight: 100;
   min-height: 70%;
   height: auto;
-  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  font-size: 0.7em;
   display: flex;
+  gap: 1em;
   flex-direction: column;
+  color: white;
 }
 
 .consultarParamBtn {
   font-weight: 300;
   border: 4px #78849d solid;
+  color: white;
   border-radius: 2em;
   padding: 0.5em 1em;
   font-size: clamp(0.7rem, 1vw, 0.3rem);
   width: fit-content;
   transition: 0.3s;
-  margin: 1.5em 0;
+  
 }
 
 .consultarParamBtn:hover {
@@ -1044,6 +1099,14 @@ nav {
 
 .documentacaoContainer ul li a {
   color: #a3b2ff;
+}
+
+#diaProvaDocumentacao {
+  justify-content: start;
+}
+
+#diaProvaDocumentacaoContainer {
+  font-size: 0.8em;
 }
 /* #### CAIXAS PAG. A TUA CARREIRA #### */
 
@@ -2242,6 +2305,51 @@ a:hover #linkedinIconHover {
 .btnSaberMaisConcurso:hover {
   background-color: #2ce387;
 }
+
+/* #### DOCUMENTACAO SECTION #### */
+#documentacaoSectionPreparate {
+  height: 100vh;
+  background-image: url("Utilities/Images/bg2.png");
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#documentacaoSectionPreparateContainer {
+  height: 65vh;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#documentacaoTop {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+#slideshowDocumentacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
 /* #### MEDIA QUERY MOBILE #### */
 
 @media (max-width: 950px) {
