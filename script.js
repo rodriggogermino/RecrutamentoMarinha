@@ -1,8 +1,16 @@
 /* #### GIF PÁGINA A CARREGAR #### */
-$(window).on('load', function() {
-    $('#loader').fadeOut(500); 
-});
+const loader = document.getElementById('loader');
 
+if (loader) {
+    window.addEventListener('load', function() {
+        if (!sessionStorage.getItem('loaderVisto')) {
+            $('#loader').fadeOut(500);
+            sessionStorage.setItem('loaderVisto', 'sim');
+        } else {
+            loader.style.display = 'none';
+        }
+    });
+}
 /* #### SIDE MENU #### */
 const barsIcon = document.getElementById('barsIcon');
 const sideMenu = document.getElementById('sideMenu');
