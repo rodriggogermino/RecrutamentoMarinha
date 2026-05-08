@@ -1,3 +1,24 @@
+/* #### ANIMAÇÕES #### */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes UpDown {
+    0%, 100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 100px;
+    }
+}
+
 /* #### RESET CSS #### */
 
 * {
@@ -295,7 +316,8 @@ nav {
   top: 100%;
   right: 0;
   width: fit-content;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0.5vh);
+  background-color: rgba(0, 0, 0, 0.5);
   transition: opacity 0.15s ease;
   border: 1px solid white;
   border-radius: 16px;
@@ -1080,17 +1102,6 @@ nav {
   color: #000000;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
 /* #### FOOTER #### */
 
 footer {
@@ -1196,6 +1207,9 @@ a:hover #linkedinIconHover {
 /* ##### SECTION 1 ##### */
 
 #homepageSection {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
   position: relative;
   height: 100dvh;
   background-image: url("Utilities/Images/bg1.png");
@@ -1257,31 +1271,36 @@ a:hover #linkedinIconHover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5vh;
+  justify-content: center;
+  position: relative;
+  gap: 2vh;
   z-index: 999;
   width: 100%;
-  padding-bottom: 8vh;
+  padding-bottom: 10vh;
+  margin-bottom: 8vh;
 }
 
-#bottomNav {
-  z-index: 999;
+#bottomHomepage div {
   display: flex;
+  flex-direction: column;
+  font-size: 1.5vh;
+  position: absolute;
+  gap: 1vh;
   align-items: center;
-  justify-content: center;
-  gap: 7vh;
-}
-
-#bottomNav a {
-  font-size: 2vh;
-  line-height: 1;
-  text-decoration: none;
   color: white;
-  transition: 0.4s;
+  animation: float 2s ease-out infinite;
+  cursor: default;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  bottom: 0;
 }
 
-#bottomNav a:hover {
-  color: grey;
+#bottomHomepage div svg {
+  width: 2vh;
+  height: auto;
 }
+
 /* ####### SECTION 2 ####### */
 
 #destaquesSection {
@@ -1454,6 +1473,7 @@ a:hover #linkedinIconHover {
 
 #pesquisaCarreiraRight {
   height: 80%;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1791,11 +1811,13 @@ a:hover #linkedinIconHover {
 }
 
 .cardProfissoes {
-    flex: 0 0 100%; 
-    scroll-snap-align: center; 
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
+  flex: 0 0 100%; 
+  scroll-snap-align: center; 
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .profissoesLeft {
@@ -1840,30 +1862,93 @@ a:hover #linkedinIconHover {
 }
 
 .profissoesRight {
-  display: flex;
-  align-items: end;
-  justify-content: right;
-  width: 50vw;
-  height: 100%;
-  gap: 2em;
-}
-
-.profissoesRight img:nth-child(1) {
   border: 5px solid white;
   border-radius: 3em;
-  height: 100%;
-  width: auto;
+  height: 400px;
+  width: 80vh;
+  transition: 0.4s;
+  background-position: center;
+  background-size: cover;
   transition: 0.4s;
 }
 
-.profissoesRight img:nth-child(2) {
-  border-radius: 3em;
-  height: 80%;
-  width: auto;
-  transition: 0.4s;
+/* IMG PROFISSÕES */
+
+#militarProfissao {
+  background-image: url(Utilities/Images/militarProfissoes.png);
 }
 
-.profissoesRight img:hover {
+#militarizadoProfissao {
+  background-image: url(Utilities/Images/militarizadoProfissoes.png);
+}
+
+#civilProfissao {
+  background-image: url(Utilities/Images/civilProfissoes.png);
+}
+
+/* IMG PROFISSÕES - MILITAR */
+
+#pracaMilitar {
+  background-image: url(Utilities/Images/pracasMilitares.png);
+}
+
+#sargentoMilitar {
+  background-image: url(Utilities/Images/sargentoMilitar.png);
+}
+
+#oficialMilitar {
+  background-image: url(Utilities/Images/oficialMarinha.png);
+}
+
+/* IMG PROFISSÕES - MILITARIZADO */
+
+#policiamaritimaMilitarizado {
+  background-image: url(Utilities/Images/policiaMaritima.png);
+}
+
+#policiaEstabelecimentosMilitarizado {
+  background-image: url(Utilities/Images/militarizadoProfissoes.png);
+}
+
+#cabosMarMilitarizado {
+  background-image: url(Utilities/Images/cabosMar.png);
+}
+
+#trocoMarMilitarizado {
+  background-image: url(Utilities/Images/trocosMar.png);
+}
+
+#praticosAlgarveMilitarizado {
+  background-image: url(Utilities/Images/praticosAlgarve.png);
+}
+
+#faroleirosMilitarizado {
+  background-image: url(Utilities/Images/faroleira.png);
+}
+
+/* IMG PROFISSÕES - CIVIL */
+#assistenteOperacionalProfissao {
+  background-image: url(Utilities/Images/assistenteOperacional.png);
+}
+
+#assistenteTecnicoProfissao {
+  background-image: url(Utilities/Images/assistenteTecnico.png);
+}
+
+#tecnicoSuperiorProfissao {
+  background-image: url(Utilities/Images/tecnicoSuperior.png);
+}
+
+#tecnicoDeInformaticaProfissao {
+  background-image: url(Utilities/Images/tecnicoInformatica.png);
+}
+
+#tecnicoDeDiagnosticoETerapeuticaProfissao {
+  background-image: url(Utilities/Images/tecnicoDiagnosticoTerapeutica.png);
+}
+/* --- */
+
+.profissoesRight:hover {
   filter: brightness(0.8);
 }
 
