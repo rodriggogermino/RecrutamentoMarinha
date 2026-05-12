@@ -37,7 +37,7 @@ body {
  
 /* ── Wrapper ── */
 .form-wrapper {
-  background: var(--white);
+  background-color: #f3f6fc;
   border-radius: 10px;
   max-width: 720px;
   width: 100%;
@@ -128,7 +128,7 @@ select {
   font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--text);
-  background: var(--white);
+  background-color:  var(--white);
   transition: border-color 0.2s, box-shadow 0.2s;
   outline: none;
   appearance: none;
