@@ -1,3 +1,16 @@
+/* #### GIF PÁGINA A CARREGAR #### */
+const loader = document.getElementById('loader');
+
+if (loader) {
+    window.addEventListener('load', function() {
+        if (!sessionStorage.getItem('loaderVisto')) {
+            $('#loader').fadeOut(500);
+            sessionStorage.setItem('loaderVisto', 'sim');
+        } else {
+            loader.style.display = 'none';
+        }
+    });
+}
 /* #### SIDE MENU #### */
 const barsIcon = document.getElementById('barsIcon');
 const sideMenu = document.getElementById('sideMenu');
@@ -183,24 +196,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-/* #### CONSULTAR PARAMETROS DOCUMENTAÇÃO #### */
-document.addEventListener("DOMContentLoaded", () => {
-    const consultarBtn = document.getElementById('consultarBtn');
-    const parametrosDiv = document.getElementById('parametrosDiv');
-
-    if (!consultarBtn || !parametrosDiv) return;
-    consultarBtn.addEventListener('click', function(event) {
-        event.preventDefault();
-        parametrosDiv.classList.toggle('show');
-    });
-    document.addEventListener('click', function(event) {
-        if (!parametrosDiv.contains(event.target) && !consultarBtn.contains(event.target)) {
-            parametrosDiv.classList.remove('show');
-        }
-    });
-});
-
 /* #### CARROSSEL ONDE ESTAMOS #### */
 document.addEventListener("DOMContentLoaded", () => {
     const wrapper = document.getElementById('slideshowOndeEstamos');
@@ -327,7 +322,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(updateTestemunhosSlide, 150);
 });
 
-/* #### CARROSSEL PROFISSÕES (DRAG TO SCROLL) #### */
+/* #### CARROSSEL PROFISSÕES SCROLL #### */
 document.addEventListener("DOMContentLoaded", () => {
     const slider = document.getElementById('slideshowProfissoes');
 
@@ -508,6 +503,90 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('resize', updateCarreiraSlider);
     setTimeout(updateCarreiraSlider, 150);
 });
+
+/* #### CARROSSEL DOCUMENTAÇÃO #### */
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.caixaDocumentacao');
+    const btnNext = document.getElementById('btnNextCarreira');
+    const btnPrev = document.getElementById('btnPrevCarreira');
+
+    if (slides.length === 0 || !btnNext || !btnPrev) return;
+
+    let currentIndex = 0;
+
+    const maxVisible = 2;
+    const translateStep = 12;
+    const scaleStep = 0.12;
+    const brightnessStep = 0.4;
+
+    function updateSlides() {
+        slides.forEach((slide, index) => {
+            let offset = index - currentIndex;
+            
+            if (offset < 0) {
+                offset += slides.length;
+            }
+            slide.style.pointerEvents = offset === 0 ? 'auto' : 'none';
+
+            if (offset === 0) {
+                slide.style.transform = `translateX(0) scale(1)`;
+                slide.style.zIndex = 100;
+                slide.style.filter = `brightness(1)`;
+                slide.style.opacity = 1;
+
+            } else if (offset <= maxVisible) {
+                slide.style.transform = `translateX(${offset * translateStep}%) scale(${1 - (offset * scaleStep)})`;
+                slide.style.zIndex = 100 - offset;
+                slide.style.filter = `brightness(${1 - (offset * brightnessStep)})`;
+                slide.style.opacity = 1;
+
+            } else {
+                slide.style.transform = `translateX(${(maxVisible + 1) * translateStep}%) scale(0.5)`;
+                slide.style.zIndex = 0;
+                slide.style.opacity = 0;
+            }
+        });
+    }
+    btnNext.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlides();
+    });
+    btnPrev.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlides();
+    });
+
+    updateSlides();
+});
+/* #### CONSULTAR PARAMETROS DOCUMENTAÇÃO #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const consultarBtns = document.querySelectorAll('.consultarParamBtn');
+
+    consultarBtns.forEach(btn => {
+        btn.addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            const caixaPai = btn.closest('.caixaDocumentacao');
+            const parametrosDiv = caixaPai.querySelector('.parametrosDiv');
+            
+            if (parametrosDiv) {
+                parametrosDiv.classList.toggle('show');
+            }
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        consultarBtns.forEach(btn => {
+            const caixaPai = btn.closest('.caixaDocumentacao');
+            const parametrosDiv = caixaPai.querySelector('.parametrosDiv');
+
+            if (parametrosDiv && !parametrosDiv.contains(event.target) && !btn.contains(event.target)) {
+                parametrosDiv.classList.remove('show');
+            }
+        });
+    });
+});
+
 /* # */
 /* # */
 /* # */
