@@ -4,8 +4,9 @@
     box-sizing: border-box;
     font-family: 'Noto Sans', Arial, sans-serif;
     --font-body: 'Noto Sans', sans-serif;
+    font-size: small;
     --font-title: 'Noto Sans', sans-serif;
-    --navy: #1a3a5c;
+    
     --navy-hover: #153050;
     --border: #cdd1d6;
 }
@@ -256,13 +257,13 @@ button {
     margin: 14px auto;
     background: var(--navy);
     color: #ffffff;
-    background-color: #1a3a5c;
+    background-color: #004ecc;
     border: none;
     border-radius: 3px;
     padding: 11px 15px;
     font-family: var(--font-body);
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 0.04em;
     text-align: center;
     cursor: pointer;
@@ -292,6 +293,12 @@ button {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s ease;
+}
+.login-form .link-text:first-of-type {
+    display: block;
+    width: 70%;
+    margin: 8px auto;
+    text-align: right;
 }
 
 .link-text:hover {
