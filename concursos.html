@@ -201,11 +201,19 @@
                 </svg>
             </span>
             <div id="listaConcursos">
-                <div id="abertos" class="cardConcurso">
+                <div id="mensagemVazia" class="cardConcurso" style="display: none; text-align: center;">
+                    <h2>Sem concursos de momento</h2>
+                    <p>Não existem concursos disponíveis nesta categoria.</p>
+                </div>
+                <div data-status="abertos" class="cardConcurso">
                     <h2>Abertos</h2>
                     <p>Todos os concursos abertos de momento.</p>
                 </div>
-                <div id="abertos" class="cardConcurso">
+                <div data-status="terminados" class="cardConcurso">
+                    <h2>Terminados</h2>
+                    <p>Todos os concursos terminados.</p>
+                </div>
+                <div data-status="abertos" class="cardConcurso">
                     <h2>Oficiais - TSN / TS / TN</h2>
                     <p>Admissão ao Curso de Formação de Oficiais. 12.º ano ou equivalente e provas específicas.</p>
                     <div class="btnsConcursos">
@@ -213,7 +221,7 @@
                         <a href="concursoInfo.html" class="btnSaberMaisConcurso">Saber Mais</a>
                     </div>
                 </div>
-                <div id="abertos" class="cardConcurso">
+                <div data-status="abertos" class="cardConcurso">
                     <h2>Praças da Classe de Músicos (B) dos Quadros Permanentes </h2>
                     <p>Concurso de Admissão de Voluntários para Ingresso na Categoria de Praças da Classe de Músicos (B) dos Quadros Permanentes (QP) - Saxofone; Trompa de Harmonia; Trombone Tenor</p>
                     <div class="btnsConcursos">
@@ -221,7 +229,7 @@
                         <a href="concursoInfo.html" class="btnSaberMaisConcurso">Saber Mais</a>
                     </div>
                 </div>
-                <div id="abertos" class="cardConcurso">
+                <div data-status="terminados" class="cardConcurso">
                     <h2>Cursos de Formação de Sargentos (CFS) para Ingresso na Categoria de Sargento do Quadro Permanente das Classes Eletrotécnicos (ET) e Maquinistas Navais (MQ)</h2>
                     <p>Concurso de Admissão de Voluntários para Ingresso na Categoria de Praças da Classe de Músicos (B) dos Quadros Permanentes (QP) - Saxofone; Trompa de Harmonia; Trombone Tenor</p>
                     <div class="btnsConcursos">

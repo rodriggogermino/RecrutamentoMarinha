@@ -335,20 +335,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     slider.addEventListener('mousedown', (e) => {
         isDown = true;
-        isDragging = false; 
+        isDragging = false;
         slider.style.cursor = 'grabbing';
-        
+
         startX = e.pageX - slider.offsetLeft;
         scrollLeft = slider.scrollLeft;
 
-        slider.style.scrollBehavior = 'auto'; 
-        slider.style.scrollSnapType = 'none'; 
+        slider.style.scrollBehavior = 'auto';
+        slider.style.scrollSnapType = 'none';
     });
 
     slider.addEventListener('mouseleave', () => {
         if (!isDown) return;
         isDown = false;
-        slider.style.cursor = 'grab';     
+        slider.style.cursor = 'grab';
         slider.style.scrollBehavior = 'smooth';
         slider.style.scrollSnapType = 'x mandatory';
     });
@@ -362,10 +362,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     slider.addEventListener('mousemove', (e) => {
         if (!isDown) return;
-        
+
         isDragging = true;
         e.preventDefault();
-        
+
         const x = e.pageX - slider.offsetLeft;
         const walk = (x - startX) * 2;
         slider.scrollLeft = scrollLeft - walk;
@@ -522,7 +522,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateSlides() {
         slides.forEach((slide, index) => {
             let offset = index - currentIndex;
-            
+
             if (offset < 0) {
                 offset += slides.length;
             }
@@ -565,10 +565,10 @@ document.addEventListener("DOMContentLoaded", () => {
     consultarBtns.forEach(btn => {
         btn.addEventListener('click', function(event) {
             event.preventDefault();
-            
+
             const caixaPai = btn.closest('.caixaDocumentacao');
             const parametrosDiv = caixaPai.querySelector('.parametrosDiv');
-            
+
             if (parametrosDiv) {
                 parametrosDiv.classList.toggle('show');
             }
@@ -585,6 +585,51 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+});
+
+/* #### FILTRO DE CONCURSOS #### */
+document.addEventListener("DOMContentLoaded", () => {
+    const btnAbertos = document.getElementById('concursosAbertos');
+    const btnTerminados = document.getElementById('concursosTerminados');
+    const btnFuturos = document.getElementById('concursosFuturos');
+    const cartoes = document.querySelectorAll('.cardConcurso');
+    const mensagemVazia = document.getElementById('mensagemVazia');
+
+    if (!btnAbertos || !btnTerminados || !btnFuturos) return;
+
+    function filtrarConcursos(status) {
+        let contador = 0;
+
+        cartoes.forEach(cartao => {
+            if (cartao.id === 'mensagemVazia') return;
+
+            if (cartao.getAttribute('data-status') === status) {
+                cartao.style.display = 'block';
+                contador++;
+            } else {
+                cartao.style.display = 'none';
+            }
+        });
+        if (mensagemVazia) {
+            if (contador === 0) {
+                mensagemVazia.style.display = 'block';
+            } else {
+                mensagemVazia.style.display = 'none';
+            }
+        }
+
+        [btnAbertos, btnTerminados, btnFuturos].forEach(btn => btn.classList.remove('ativo'));
+
+        if (status === 'abertos') btnAbertos.classList.add('ativo');
+        if (status === 'terminados') btnTerminados.classList.add('ativo');
+        if (status === 'futuros') btnFuturos.classList.add('ativo');
+    }
+
+    btnAbertos.addEventListener('click', () => filtrarConcursos('abertos'));
+    btnTerminados.addEventListener('click', () => filtrarConcursos('terminados'));
+    btnFuturos.addEventListener('click', () => filtrarConcursos('futuros'));
+
+    filtrarConcursos('abertos');
 });
 
 /* # */
