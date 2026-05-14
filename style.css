@@ -2386,26 +2386,34 @@ a:hover #linkedinIconHover {
   font-size: clamp(0.7rem, 1vw, 1rem);
 }
 
-#listaConcursosInfo {
-  width: 700px;
-  height: 500px;
+#outrosConcursos {
+  width: 500px;
   max-width: 90%;
-  overflow: auto;
-  font-size: clamp(0.7rem, 1vw, 1rem);
+  height: 400px;
+  border: 3px solid white;
+  border-radius: 2em;
   text-overflow:ellipsis;
   scroll-snap-type: y var(--tw-scroll-snap-strictness);
+  overflow: auto;
+  padding: 2em;
 }
 
-#listaConcursosInfo::-webkit-scrollbar {
+#listaConcursosInfo {
+  width: 100%;
+  height: 100%;
+  font-size: clamp(0.7rem, 1vw, 1rem);
+}
+
+#outrosConcursos::-webkit-scrollbar {
   width: 5px;
   z-index: -1;
 }
 
-#listaConcursosInfo::-webkit-scrollbar-track {
+#outrosConcursos::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-#listaConcursosInfo::-webkit-scrollbar-thumb {
+#outrosConcursos::-webkit-scrollbar-thumb {
   background: #78849d;
   background: linear-gradient(to right, #78849d 0%, #ffffff 100%);
   border-radius: 1em;
