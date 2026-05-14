@@ -2,9 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
-     --font-body:  'Noto Sans', sans-serif;
-  --font-title: 'Noto Sans', sans-serif;
+    font-family: 'Noto Sans', Arial, sans-serif;
+    --font-body: 'Noto Sans', sans-serif;
+    font-size: small;
+    --font-title: 'Noto Sans', sans-serif;
+    
+    --navy-hover: #153050;
+    --border: #cdd1d6;
 }
 
 body {
@@ -14,8 +18,18 @@ body {
     background-color: #ffffff;
 }
 
-/* Navbar */
+/* #### LOGIN CARD #### */
+.login-card {
+    background: #ffffff;
+    border-radius: 4px;
+    padding: 2rem 2.5rem;
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+}
 
+/* #### NAVBAR #### */
 nav {
     position: fixed;
     top: 0;
@@ -29,67 +43,77 @@ nav {
     margin: 0 auto;
     z-index: 998;
 }
+
 #navLogoXS {
     display: none;
 }
+
 #rightNav {
     position: relative;
     display: flex;
     align-items: center;
     gap: 2vh;
 }
+
 #searchIconMobile {
     display: none;
     cursor: pointer;
 }
+
 #searchIconHover {
     display: none;
     cursor: pointer;
 }
+
 #searchIcon {
     cursor: pointer;
 }
+
 #searchIcons:hover #searchIcon {
     display: none;
 }
+
 #searchIcons:hover #searchIconHover {
     display: block;
 }
+
 #barsIcon {
     cursor: pointer;
 }
 
-/* ### BARRA DE PESQUISA ### */
+/* #### BARRA DE PESQUISA #### */
 .barraPesquisa {
-    border: 1px solid rgb(255, 255, 255);
-    background-color: transparent;
-    color: rgb(0, 0, 0);
+    border: 1px solid var(--border);
+    background-color: #f8f9fa;
+    color: #1a1a1a;
     font-weight: 400;
     min-width: 400px;
-    border-radius: 10px;
-    padding: 2px 6px;
+    border-radius: 3px;
+    padding: 6px 10px;
     display: none;
 }
+
 .barraPesquisa.active {
     display: block;
 }
 
-/* ### SIDE MENU ### */
+/* #### SIDE MENU #### */
 .side-menu {
     position: absolute;
     margin-top: 10px;
     top: 100%;
     right: 0;
     width: fit-content;
-    backdrop-filter: blur(10px);
-    
-    border: 1px solid black;
-    border-radius: 16px; 
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
     padding: 35px;
     z-index: 999;
     text-wrap: nowrap;
     display: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
+
 .side-menu ul {
     list-style: none;
     padding: 0;
@@ -99,22 +123,26 @@ nav {
     gap: 15px;
     width: 100%;
 }
+
 .side-menu a {
     text-decoration: none;
-    color: black;
+    color: var(--navy);
     font-size: 14px;
     font-weight: 600;
     text-align: right;
     display: block;
     transition: color 0.2s ease;
 }
+
 .side-menu a:hover {
-    color: darkgray;
+    color: #888;
 }
+
 .side-menu.active {
     display: block;
 }
-/* ### SIDE BUTTONS ### */
+
+/* #### SIDE BUTTONS #### */
 #sideButtons {
     display: flex;
     position: fixed;
@@ -126,14 +154,15 @@ nav {
     width: fit-content;
     z-index: 997;
 }
+
 #sideButtons a {
     font-size: 1.6vh;
     font-weight: 600;
     text-decoration: none;
     color: #182439;
     background-color: #83e1b2;
-    border: 1px solid transparent; 
-    border-radius: 0 1vh 1vh 0; 
+    border: 1px solid transparent;
+    border-radius: 0 1vh 1vh 0;
     padding: 1.7vh 0.7vh;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
@@ -142,8 +171,8 @@ nav {
                 0 0 25px #83e1b2,
                 0 0 50px #83e1b2,
                 0 0 200px #83e1b2;
-    
 }
+
 #sideButtons a:hover {
     background-color: #2CE387;
     box-shadow: 0 0 5px #2CE387,
@@ -152,7 +181,7 @@ nav {
                 0 0 200px #2CE387;
 }
 
-/* Container de Login */
+/* #### LOGIN CONTAINER #### */
 .login-container {
     flex: 1;
     display: flex;
@@ -161,11 +190,20 @@ nav {
     justify-content: center;
     padding: 40px;
     position: relative;
+    background-color: #f3f6fc
 }
 
 .login-container h1 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 24px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--navy);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    letter-spacing: 0.02em;
 }
 
 .login-form {
@@ -174,48 +212,117 @@ nav {
     text-align: center;
 }
 
+/* #### INPUTS #### */
 .input-box {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+    text-align: left;
 }
 
 .input-box input {
     width: 100%;
-    padding: 25px;
-    background-color: #d9d9d9;
-    border: none;
-    font-size: 1.1rem;
+    padding: 10px 14px;
+    background-color: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    color: #1a1a1a;
     outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-entrar {
-    width: 50%;
-    padding: 15px;
-    background-color: #d9d9d9;
+.input-box input::placeholder {
+    font-size: 0.9rem;
+}
+
+.input-box input:focus {
+    border-color: var(--navy);
+    box-shadow: 0 0 0 2px rgba(26, 58, 92, 0.12);
+    background-color: #ffffff;
+}
+
+/* #### BOTÕES #### */
+button {
+    appearance: none;
+    -webkit-appearance: none;
     border: none;
-    cursor: pointer;
-    font-size: 1rem;
-    margin: 20px 0;
-    transition: background 0.3s;
+    outline: none;
+    background: none;
+    font: inherit;
 }
 
-.btn-entrar:hover { background-color: #bcbcbc; }
+.btn-submit {
+    display: block;
+    width: 70%;
+    margin: 14px auto;
+    background: var(--navy);
+    color: #ffffff;
+    background-color: #004ecc;
+    border: none;
+    border-radius: 3px;
+    padding: 11px 15px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.15s ease;
+}
 
+.btn-submit:hover {
+    background: var(--navy-hover);
+    transform: translateY(-1px);
+}
+
+.btn-submit:active {
+    transform: translateY(1px);
+}
+
+/* #### LINKS DE RECUPERAR PASSWORD E REGISTAR #### */
+.login-links-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 14px;
+    padding: 0 4px;
+}
+
+.link-text {
+    font-size: 0.85rem;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+.login-form .link-text:first-of-type {
+    display: block;
+    width: 70%;
+    margin: 8px auto;
+    text-align: right;
+}
+
+.link-text:hover {
+    color: #888;
+    text-decoration: underline;
+}
+
+/* #### LOGIN LINKS #### */
 .login-links {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
 }
 
 .login-links a {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
     font-size: 1.1rem;
 }
 
-.login-links .bold { font-weight: bold; }
+.login-links .bold {
+    font-weight: bold;
+}
 
-/* Botão Chat Lateral */
+/* #### SIDE CHAT #### */
 .side-chat {
     position: fixed;
     right: 0;
@@ -226,13 +333,13 @@ nav {
     border-radius: 15px 0 0 15px;
     writing-mode: vertical-rl;
     font-weight: bold;
-    box-shadow: -2px 2px 10px rgba(0,0,0,0.1);
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* #### FOOTER #### */
 footer {
     width: 100%;
-    padding: 0vh;
+    padding: 15px 40px;
     margin: 0 auto;
     position: absolute;
     background-color: #182439;
@@ -240,44 +347,52 @@ footer {
     left: 0;
     right: 0;
 }
+
 #topFooter {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2vh 0;
+    padding: 1vh 0;
     width: 100%;
 }
+
 #logotiposFooter {
     display: flex;
     align-items: center;
     gap: 2vh;
 }
+
 #logotiposRedes {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-#logotiposRedes a img{
+
+#logotiposRedes a img {
     width: 40%;
 }
+
 #bottomFooter {
     display: flex;
     gap: 1vh;
-    padding: 2vh 0;
+    padding: 1vh 0;
     align-items: center;
     justify-content: center;
     width: 100%;
 }
+
 #bottomFooter p {
     font-weight: 500;
     font-size: 1.5vh;
     color: white;
     margin: 0;
 }
+
 #line {
     border: 1px solid white;
     border-radius: 3em;
 }
+
 #bottomFooter a {
     font-weight: 200;
     text-decoration: none;
@@ -285,31 +400,37 @@ footer {
     font-size: 1.2vh;
     transition: 0.4s;
 }
+
 #copyrightFooter {
     display: flex;
     align-items: center;
     gap: 1vh;
 }
+
 #linksFooter {
     display: flex;
     align-items: center;
     gap: 10px;
 }
+
 #bottomFooter a:hover {
     color: lightgray;
 }
+
 #facebookIconHover,
 #instagramIconHover,
 #youtubeIconHover,
 #linkedinIconHover {
     display: none;
 }
+
 a:hover #facebookIcon,
 a:hover #instagramIcon,
 a:hover #youtubeIcon,
 a:hover #linkedinIcon {
     display: none;
 }
+
 a:hover #facebookIconHover,
 a:hover #instagramIconHover,
 a:hover #youtubeIconHover,
