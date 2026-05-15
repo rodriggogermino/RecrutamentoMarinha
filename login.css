@@ -302,7 +302,7 @@ button {
 }
 
 .link-text:hover {
-    color: #888;
+    color: #000000;
     text-decoration: underline;
 }
 
