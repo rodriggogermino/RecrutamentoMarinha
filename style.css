@@ -127,7 +127,7 @@ html::-moz-selection {
     padding: 0.7vh 2vh;
     border-radius: 1.3vh;
     background-color: #e9eaed;
-    font-size: 1.5vh;
+    font-size: 1.7vh;
     color: #182439;
     border: none;
     cursor: pointer;
@@ -696,13 +696,24 @@ nav {
     background-color: #2ce387;
 }
 
-#cardsPostos,
 #cardsPesquisaCarreira {
     display: flex;
     flex-wrap: wrap;
     gap: 6vh;
     margin-bottom: 4vh;
     transition: transform 0.4s ease-in-out;
+}
+
+.cardsPostos, .cardsPostosMilitarizados {
+    display: none;
+    overflow: auto;
+    gap: 6vh;
+    margin-bottom: 4vh;
+    transition: transform 0.4s ease-in-out;
+}
+
+.cardsPostos.active {
+    display: flex; 
 }
 
 #preparateSection {
@@ -912,7 +923,6 @@ nav {
     height: 20vh;
     width: 13vh;
     border-radius: 2vh;
-    transition: 0.4s;
     flex-shrink: 0;
 }
 
@@ -921,13 +931,12 @@ nav {
     text-align: center;
     height: 100%;
     width: 100%;
-    border: inherit solid black;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
-    border-bottom-left-radius: inherit;
-    border-bottom-right-radius: inherit;
+    display: flex;
+    border: 1px solid black;
+    border-radius: inherit;
     flex-direction: column;
     opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .cardPostos span {
@@ -939,16 +948,104 @@ nav {
 
 .cardPostos .cardContainer:hover {
     opacity: 1;
+    border-color: white;
 }
 
-.cardPostos:nth-child(1) {
+#almirantePosto {
     background-image: url(Utilities/Images/passadeiraALM.png);
 }
 
-.cardPostos:nth-child(2) {
-    background-image: url(Utilities/Images/passadeira1FZ.png);
+#viceAlmirantePosto {
+    background-image: url(Utilities/Images/passadeiraVALM.png);
 }
 
+#contraAlmirantePosto {
+    background-image: url(Utilities/Images/passadeiraCALM.png);
+}
+
+#comodoroPosto {
+    background-image: url(Utilities/Images/passadeiraCOM.png);
+}
+
+/* ######## */
+
+#cmgPosto {
+    background-image: url(Utilities/Images/passadeiraCMG.png);
+}
+
+#cfrPosto {
+    background-image: url(Utilities/Images/passadeiraCFR.png);
+}
+
+#ctenPosto {
+    background-image: url(Utilities/Images/passadeiraCTEN.png);
+}
+
+/* ######## */
+
+#primeiroTenPosto {
+    background-image: url(Utilities/Images/passadeira1TEN.png);
+}
+
+#segundoTenPosto {
+    background-image: url(Utilities/Images/passadeira2TEN.png);
+}
+
+#stenPosto {
+    background-image: url(Utilities/Images/passadeiraSTEN.png);
+}
+
+#aspofPosto {
+    background-image: url(Utilities/Images/passadeiraASPOF.png);
+}
+
+/* ######## */
+
+#smorPosto {
+    background-image: url(Utilities/Images/passadeiraSMOR.png);
+}
+
+#schPosto {
+    background-image: url(Utilities/Images/passadeiraSCH.png);
+}
+
+#sajPosto {
+    background-image: url(Utilities/Images/passadeiraSAJ.png);
+}
+
+#primeiroSarPosto {
+    background-image: url(Utilities/Images/passadeira1SAR.png);
+}
+
+#segundoSarPosto {
+    background-image: url(Utilities/Images/passadeira2SAR.png);
+}
+
+/* ######## */
+
+#cmorPosto {
+    background-image: url(Utilities/Images/passadeiraCMOR.png);
+}
+
+#cabPosto {
+    background-image: url(Utilities/Images/passadeiraCAB.png);
+}
+
+#primeiroMarPosto {
+    background-image: url(Utilities/Images/passadeira1MAR.png);
+}
+
+#segundoMarPosto {
+    background-image: url(Utilities/Images/passadeira2MAR.png);
+}
+
+#primeiroGrumetePosto {
+    background-image: url(Utilities/Images/passadeira1GR.png);
+}
+
+#segundoGrumetePosto {
+    background-image: url(Utilities/Images/passadeira2GR.png);
+}
 
 /* #### CARDS RESULTADOS PESQUISA CARREIRA #### */
 
@@ -1037,7 +1134,6 @@ nav {
     scrollbar-width: none;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 #caixasDocumentacao {
@@ -1158,12 +1254,18 @@ nav {
     justify-content: space-between;
     flex-shrink: 0;
     width: 350px;
-    backdrop-filter: blur(30px);
+    backdrop-filter: blur(20px);
     border: 4px solid #78849d;
     border-radius: 2em;
     color: white;
     padding: 2em;
     box-sizing: border-box;
+    transition: 0.4s;
+}
+
+.caixaCarreira:hover {
+    border-color: white;
+    backdrop-filter: blur(30px);
 }
 
 .caixaCarreira h3 {
@@ -2544,8 +2646,131 @@ a:hover #linkedinIconHover {
     margin: 0 auto;
 }
 
+/* #### POSTOS SECTION #### */
 
-/* #### MEDIA QUERY MOBILE #### */
+#postosSection {
+    height: 100vh;
+    background-image: url("Utilities/Images/bg2.png");
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+#postosSectionContainer {
+    height: fit-content;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    overflow: hidden;
+    gap: 2em;
+}
+
+#postosMilitares, #postosMilitarizados {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 100%;
+}
+
+#postosMilitaresTop, #postosMilitarizadosTop {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+#postosMilitaresTop p, #postosMilitarizadosTop p {
+    font-size: clamp(1rem, 1vw + 0.5rem, 1.5rem);
+}
+
+/* #### INSTRUÇÕES SECTION #### */
+
+#instrucoesSection {
+    height: 100vh;
+    background-image: url("Utilities/Images/bg2.png");
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+#instrucoesSectionContainer {
+    height: fit-content;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    overflow: hidden;
+    gap: 2em;
+}
+
+#instrucoesBasicas, #instrucoesComplementares {
+    width: 100%;
+}
+
+.instrucoesTop {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    text-align: center;
+    gap: 1em;
+    margin-bottom: 1.5em;
+}
+
+.instrucoesBottom {
+    display: none;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    gap: 2vh;
+    color: white;
+}
+
+.instrucoesBottom.active {
+    display: flex;
+}
+
+.instrucoesBottom h3{
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.instrucoesBottom p{
+    font-size: 1.3em;
+}
+
+.notasInstrucao ul{
+    list-style-type: disc !important; 
+    padding: 0.5em 2.5em;
+    font-weight: 100;
+    font-size: 0.8em;
+}
+
+.notasInstrucao p{
+    font-size: 1em;
+    font-weight: 300;
+}
+
+/* ###### RESPONSIVIDADE ###### */
 
 @media (max-width: 950px) {
     #carreiraTop {
@@ -2557,10 +2782,6 @@ a:hover #linkedinIconHover {
         max-width: 450px;
     }
 }
-
-
-/* ###### RESPONSIVIDADE ###### */
-
 
 /* Extra small devices (phones, 600px and down) */
 

@@ -632,6 +632,119 @@ document.addEventListener("DOMContentLoaded", () => {
     filtrarConcursos('abertos');
 });
 
+/* #### MILITARES POSTOS CARDS #### */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const options = document.querySelectorAll("#postosMilitares .option");
+    const cardsGroups = document.querySelectorAll(".cardsPostos");
+
+    const statusMap = {
+        "Oficiais Generais": "oficiaisGenerais",
+        "Oficiais Superiores": "oficiaisSuperiores",
+        "Oficiais Subalternos": "oficiaisSubalternos",
+        "Sargentos": "sargentos",
+        "Praças": "pracas"
+    };
+
+    function updateCards(selectedText) {
+        const targetStatus = statusMap[selectedText.trim()];
+        
+        cardsGroups.forEach(group => {
+            if (group.getAttribute("data-status") === targetStatus) {
+                group.style.display = "flex";
+            } else {
+                group.style.display = "none";
+            }
+        });
+    }
+
+    const initialSelected = document.querySelector("#postosMilitares .option.selected");
+    if (initialSelected) {
+        updateCards(initialSelected.innerText);
+    }
+
+    options.forEach(option => {
+        option.addEventListener("click", (e) => {
+            updateCards(e.target.innerText);
+        });
+    });
+});
+
+/* #### MILITARIZADOS POSTOS CARDS #### */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const options = document.querySelectorAll("#postosMilitarizados .option");
+    const cardsGroups = document.querySelectorAll(".cardsPostosMilitarizados");
+
+    const statusMap = {
+        "Oficiais Generais": "oficiaisGeneraisMilitarizados",
+        "Oficiais Superiores": "oficiaisSuperioresMilitarizados",
+        "Oficiais Subalternos": "oficiaisSubalternosMilitarizados",
+        "Sargentos": "sargentosMilitarizados",
+        "Praças": "pracasMilitarizados"
+    };
+
+    function updateCards(selectedText) {
+        const targetStatus = statusMap[selectedText.trim()];
+        
+        cardsGroups.forEach(group => {
+            if (group.getAttribute("data-status") === targetStatus) {
+                group.style.display = "flex";
+            } else {
+                group.style.display = "none";
+            }
+        });
+    }
+
+    const initialSelected = document.querySelector(".option.selected");
+    if (initialSelected) {
+        updateCards(initialSelected.innerText);
+    }
+
+    options.forEach(option => {
+        option.addEventListener("click", (e) => {
+            updateCards(e.target.innerText);
+        });
+    });
+});
+
+/* #### INSTRUÇÕES BÁSICAS CARDS #### */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const options = document.querySelectorAll("#instrucoesSection .option");
+    const instrucoesGroups = document.querySelectorAll("#instrucoesSection .instrucoesBottom");
+
+    const statusMap = {
+        "Praças": "basicaPraca",
+        "Oficiais (TSN, TN & TS)": "basicaTSNTNTS",
+        "Oficiais (Fuzileiros)": "basicaFuzileirosOficiais"
+    };
+
+    function updateInstrucoes(selectedText) {
+        const targetStatus = statusMap[selectedText.trim()];
+        
+        instrucoesGroups.forEach(group => {
+            if (group.getAttribute("data-status") === targetStatus) {
+                group.classList.add("active"); 
+            } else {
+                group.classList.remove("active"); 
+            }
+        });
+    }
+
+    const initialSelected = document.querySelector("#instrucoesSection .option.selected");
+    if (initialSelected) {
+        updateInstrucoes(initialSelected.innerText);
+    }
+
+    options.forEach(option => {
+        option.addEventListener("click", (e) => {
+            updateInstrucoes(e.target.innerText);
+        });
+    });
+});
+
 /* # */
 /* # */
 /* # */
@@ -640,6 +753,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* # */
 /* # */
 /* # */
+
 /* #### APP #### */
 const btnEnviar = document.getElementById('btnEnviar');
 const emailInput = document.getElementById('email');
