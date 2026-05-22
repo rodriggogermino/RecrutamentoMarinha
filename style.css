@@ -721,6 +721,7 @@ nav {
     background-color: none;
 }
 
+#footerInstrucoesSectionPreparate,
 #footerSectionPreparate,
 #carreiraSectionPreparate {
     background-color: #000000;
@@ -2697,7 +2698,7 @@ a:hover #linkedinIconHover {
 /* #### INSTRUÇÕES SECTION #### */
 
 #instrucoesSection {
-    height: 100vh;
+    height: 110vh;
     background-image: url("Utilities/Images/bg2.png");
     margin: 0;
     background-size: cover;

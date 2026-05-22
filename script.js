@@ -711,9 +711,10 @@ document.addEventListener("DOMContentLoaded", () => {
 /* #### INSTRUÇÕES BÁSICAS CARDS #### */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    const options = document.querySelectorAll("#instrucoesSection .option");
-    const instrucoesGroups = document.querySelectorAll("#instrucoesSection .instrucoesBottom");
+    const allOptions = Array.from(document.querySelectorAll("#instrucoesSection .option"));
+    const allGroups = Array.from(document.querySelectorAll("#instrucoesSection .instrucoesBottom"));
+    const basicOptions = allOptions.filter(el => !el.closest("#instrucoesComplementares"));
+    const basicGroups = allGroups.filter(el => !el.closest("#instrucoesComplementares"));
 
     const statusMap = {
         "Praças": "basicaPraca",
@@ -724,6 +725,48 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateInstrucoes(selectedText) {
         const targetStatus = statusMap[selectedText.trim()];
         
+        if (!targetStatus) return;
+        
+        basicGroups.forEach(group => {
+            if (group.getAttribute("data-status") === targetStatus) {
+                group.classList.add("active"); 
+            } else {
+                group.classList.remove("active"); 
+            }
+        });
+    }
+
+    const initialSelected = basicOptions.find(opt => opt.classList.contains("selected"));
+    if (initialSelected) {
+        updateInstrucoes(initialSelected.innerText);
+    }
+    basicOptions.forEach(option => {
+        option.addEventListener("click", (e) => {
+            updateInstrucoes(e.target.innerText);
+        });
+    });
+});
+
+/* #### INSTRUÇÕES COMPLEMENTARES CARDS #### */
+
+document.addEventListener("DOMContentLoaded", () => {
+    const options = document.querySelectorAll("#instrucoesComplementares .option");
+    const instrucoesGroups = document.querySelectorAll("#instrucoesComplementares .instrucoesBottom");
+
+    const statusMap = {
+        "Praças (Fuzileiros)": "complementarPracasFuzileiros",
+        "Praças (Mergulhadores)": "complementarPracasMergulhadores",
+        "Praças (Músicos)": "complementarPracasMúsicos",
+        "Praças (Outras Classes)": "complementarPracasOutras",
+        "Oficiais (TSN, TN & TS)": "complementarTSNTNTS",
+        "Oficiais (Fuzileiros)": "complementarOficiaisFuzileiros"
+    };
+
+    function updateInstrucoes(selectedText) {
+        const targetStatus = statusMap[selectedText.trim()];
+        
+        if (!targetStatus) return;
+        
         instrucoesGroups.forEach(group => {
             if (group.getAttribute("data-status") === targetStatus) {
                 group.classList.add("active"); 
@@ -733,7 +776,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const initialSelected = document.querySelector("#instrucoesSection .option.selected");
+    const initialSelected = document.querySelector("#instrucoesComplementares .option.selected");
     if (initialSelected) {
         updateInstrucoes(initialSelected.innerText);
     }
