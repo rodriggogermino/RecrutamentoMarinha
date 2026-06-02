@@ -1,0 +1,3 @@
+- [x] Ajustar CSS para garantir que a imagem "Navio Marinha.png" não apareça dentro/por cima do header/nav.
+- [x] Validar que a secção hero começa abaixo da navegação.
+- [x] Confirmar mudança aplicada.

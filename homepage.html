@@ -7,6 +7,7 @@
     <title>Homepage Recrutamento</title>
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
@@ -19,30 +20,6 @@
                 
 
                 </a>
-                <form action="/">
-                    <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
-                </form>
-                <span id="searchIconMobile" onclick="openNav()"> <!--#### SEARCH ICON MOBILE ####-->
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z"
-                            fill="white" />
-                    </svg>
-                </span>
-                <div id="searchIcons"> <!--#### SEARCH ICONS ####-->
-                    <span id="searchIcon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z" fill="black"/>
-                        </svg>
-                    </span>
-                    <span id="searchIconHover">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0977 20.6834 22.0977 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11Z"
-                                fill="white" />
-                        </svg>
-                    </span>
-                </div>
                 <span id="barsIcon"> <!--#### BARS ICON ####-->
                     <svg width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9.33333C0 8.59695 0.614318 8 1.37212 8H26.0702C26.828 8 27.4423 8.59695 27.4423 9.33333C27.4423 10.0697 26.828 10.6667 26.0702 10.6667H1.37212C0.614318 10.6667 0 10.0697 0 9.33333Z" fill="black"/>
@@ -76,53 +53,55 @@
             <img src="Utilities/Images/Navio Marinha.png" alt="Navio da Marinha" class="hero-img">
         </section>
 
-        <nav class="icon-nav">
-            <i class="fa-solid fa-house"></i>
-            <i class="fa-solid fa-user"></i>
-            <i class="fa-solid fa-envelope"></i>
-            <i class="fa-solid fa-list-ul"></i>
-            <i class="fa-solid fa-sliders"></i>
-            <i class="fa-solid fa-pen"></i>
-            <i class="fa-solid fa-anchor"></i>
-            <i class="fa-solid fa-users"></i>
-            <i class="fa-solid fa-phone"></i>
-            <i class="fa-solid fa-right-from-bracket"></i>
-        </nav>
 
         <section class="status-grid">
-            <div class="status-card">
+            <a class="status-card" href="documentos.html">
                 <span>TENS 0 DOCUMENTOS PARA ENTREGAR</span>
                 <i class="fa-solid fa-arrow-right"></i>
-            </div>
-            <div class="status-card">
+            </a>
+            <a class="status-card" href="mensagens.html">
                 <span>TENS 0 MENSAGENS PARA LER</span>
                 <i class="fa-solid fa-arrow-right"></i>
-            </div>
-            <div class="status-card">
+            </a>
+            <a class="status-card" href="candidaturas.html">
                 <span>TENS 0 CANDIDATURAS SUBMETIDAS</span>
                 <i class="fa-solid fa-arrow-right"></i>
-            </div>
+            </a>
         </section>
 
-        <section class="concursos">
-            <h2>Concursos abertos</h2>
-            
-            <div class="accordion-item">
-                <p>Concurso de Admissão de Voluntários para Ingresso na Categoria de Praças da Classe de Músicos (B) dos Quadros Permanentes (QP) – Saxofone; Trompa de Harmonia; Trombone Tenor</p>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
+       <section class="concursos">
+    <h2>Concursos abertos</h2>
 
-            <div class="accordion-item">
-                <p>Concurso de Admissão de Voluntários para Prestação de Serviço em Regime de Contrato (RC) ou Regime de Voluntariado (RV) na categoria de Praças para a classe de Serviço Naval (SN) 2026 – 2.ª edição</p>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <p>Concurso de Admissão de Voluntários para Ingresso na Categoria de Praças da Classe de Músicos (B) dos Quadros Permanentes (QP) – Saxofone; Trompa de Harmonia; Trombone Tenor</p>
+            <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+        </div>
+        <div class="accordion-body">
+            <p>Informação detalhada sobre este concurso.</p>
+        </div>
+    </div>
 
-            <div class="accordion-item">
-                <p>Concurso de Admissão aos Cursos de Formação de Sargentos (CFS) para Ingresso na Categoria de Sargento do Quadro Permanente das Classes Eletrotécnicos (ET) e Maquinistas Navais (MQ) — 2026</p>
-                <i class="fa-solid fa-chevron-down"></i>
-            </div>
-        </section>
-    </main>
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <p>Concurso de Admissão de Voluntários para Prestação de Serviço em Regime de Contrato (RC) ou Regime de Voluntariado (RV) na categoria de Praças para a classe de Serviço Naval (SN) 2026 – 2.ª edição</p>
+            <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+        </div>
+        <div class="accordion-body">
+            <p>Informação detalhada sobre este concurso.</p>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <div class="accordion-header" onclick="toggleAccordion(this)">
+            <p>Concurso de Admissão aos Cursos de Formação de Sargentos (CFS) para Ingresso na Categoria de Sargento do Quadro Permanente das Classes Eletrotécnicos (ET) e Maquinistas Navais (MQ) — 2026</p>
+            <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+        </div>
+        <div class="accordion-body">
+            <p>Informação detalhada sobre este concurso.</p>
+        </div>
+    </div>
+</section>
 
     <!--#### FOOTER ####-->
             <footer>

@@ -826,3 +826,7 @@ if (btnEnviar && emailInput) {
         this.style.borderColor = '';
     });
 }
+function toggleAccordion(header) {
+    const item = header.closest('.accordion-item');
+    item.classList.toggle('open');
+}

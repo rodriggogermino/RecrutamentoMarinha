@@ -209,6 +209,11 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
+    padding-top: 90px;
+}
+
+.hero {
+    margin-top: 0;
 }
 
 /* Hero Section */
@@ -221,11 +226,25 @@ body {
 /* Icon Navigation */
 .icon-nav {
     display: flex;
-    gap: 20px;
-    padding: 20px 0;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    margin: 20px 0 8px;
     font-size: 1.2rem;
     color: #666;
+}
 
+.icon-nav i {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+}
+
+.status-grid {
+    margin-top: 10px;
 }
 
 /* Status Cards */
@@ -245,6 +264,13 @@ body {
     font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color 0.2s ease;
+}
+
+.status-card:hover {
+    background-color: #d8dde2;
 }
 
 /* Concursos Section */
@@ -314,4 +340,47 @@ body {
     font-weight: bold;
     border-radius: 10px 0 0 10px;
     box-shadow: -2px 2px 5px rgba(0,0,0,0.1);
+}
+/* Accordion abrir/fechar */
+.accordion-item {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.accordion-header p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.accordion-arrow {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+}
+
+.accordion-item.open .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 20px;
+    font-size: 0.9rem;
+}
+
+.accordion-item.open .accordion-body {
+    max-height: 500px;
+    padding: 10px 20px 15px;
 }
