@@ -788,6 +788,145 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
+/* #### PROVAS FISICAS CARDS #### */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const options = document.querySelectorAll("#provasFisicasSection .option");
+    const provasGroups = document.querySelectorAll("#provasFisicasSection .provas-group");
+
+    const statusMap = {
+        "Candidatos a Oficiais (Médicos e TSN/TN/TS) / Sargentos (ET/MQ) / Praças (Serviço Naval e Músicos)": "provasOficias",
+        "Candidatos a Oficiais / Praças (Classe de Fuzileiros)": "provasFuzileiros",
+        "Provas de aptidão física específica para Fuzileiros": "provasEspecificaFuzileiros",
+        "Candidatos a Praças (Classe de Mergulhadores)": "provasMergulhadores",
+        "Aptidão Física Específica para Mergulhadores": "provasEspecificaMergulhadores",
+        "Aptidão Física Técnica para Mergulhadores": "provasTecnicaMergulhadores"
+    };
+
+    function updateProvas(selectedText) {
+        const targetStatus = statusMap[selectedText.trim()];
+        
+        if (!targetStatus) return;
+        
+        provasGroups.forEach(group => {
+            if (group.getAttribute("data-status") === targetStatus) {
+                group.classList.add("active"); 
+            } else {
+                group.classList.remove("active"); 
+            }
+        });
+    }
+
+    const initialSelected = document.querySelector("#provasFisicasSection .option.selected");
+    if (initialSelected) {
+        updateProvas(initialSelected.innerText);
+    }
+
+    options.forEach(option => {
+        option.addEventListener("click", (e) => {
+            updateProvas(e.target.innerText);
+        });
+    });
+});
+
+/* #### PESQUISA CARREIRA #### */
+document.addEventListener("DOMContentLoaded", () => {
+    
+    const searchBtns = document.querySelectorAll('.searchDropdownBtn');
+    if (searchBtns.length > 0) {
+        searchBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const container = btn.closest('#pesquisaCarreiraLeftDropdown');
+                const dropdowns = container.querySelectorAll('.custom-dropdown');
+                if (dropdowns.length >= 2) {
+                    const hab = dropdowns[0].querySelector('.option.selected').innerText.trim();
+                    const idade = dropdowns[1].querySelector('.option.selected').innerText.trim();
+                    window.location.href = `carreiraPesquisa.html?hab=${encodeURIComponent(hab)}&idade=${encodeURIComponent(idade)}`;
+                }
+            });
+        });
+    }
+
+    const cartoes = document.querySelectorAll('.cardPesquisaCarreira');
+    if (cartoes.length > 0) {
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const userHab = urlParams.get('hab');
+        const userIdadeParams = urlParams.get('idade');
+
+        if (userHab && userIdadeParams) {
+            const page2Dropdowns = document.querySelectorAll('#pesquisaCarreiraLeftDropdown .custom-dropdown');
+            if (page2Dropdowns.length >= 2) {
+                atualizarDropdownVisuais(page2Dropdowns[0], userHab);
+                atualizarDropdownVisuais(page2Dropdowns[1], userIdadeParams);
+            }
+        }
+
+        function atualizarFiltrosTotais() {
+            const tabAtiva = document.querySelector('#pesquisaCarreiraRightTop p.ativo');
+            const categoriaAtiva = tabAtiva ? tabAtiva.innerText.trim().toLowerCase() : 'militares';
+
+            const page2Dropdowns = document.querySelectorAll('#pesquisaCarreiraLeftDropdown .custom-dropdown');
+            let atualHab = userHab || "Ensino Básico"; 
+            let atualIdadeParams = userIdadeParams || "18"; 
+
+            if (page2Dropdowns.length >= 2) {
+                atualHab = page2Dropdowns[0].querySelector('.option.selected').innerText.trim();
+                atualIdadeParams = page2Dropdowns[1].querySelector('.option.selected').innerText.trim();
+            }
+
+            const atualIdade = atualIdadeParams === '+27' ? 99 : parseInt(atualIdadeParams);
+
+            // C. Filtrar cada cartão
+            cartoes.forEach(cartao => {
+                const regrasHab = cartao.getAttribute('data-hab') || "";
+                const regraIdadeMax = parseInt(cartao.getAttribute('data-idade-max')) || 0;
+                const categoriaCartao = cartao.getAttribute('data-categoria') ? cartao.getAttribute('data-categoria').toLowerCase() : '';
+
+                const passaCategoria = (categoriaCartao === categoriaAtiva);
+                const passaHab = regrasHab.includes(atualHab);
+                const passaIdade = (atualIdade <= regraIdadeMax);
+
+                if (passaCategoria && passaHab && passaIdade) {
+                    cartao.style.display = 'flex';
+                } else {
+                    cartao.style.display = 'none';
+                }
+            });
+        }
+
+        const tabsCategoria = document.querySelectorAll('#pesquisaCarreiraRightTop p');
+        tabsCategoria.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabsCategoria.forEach(t => t.classList.remove('ativo'));
+                tab.classList.add('ativo');
+                atualizarFiltrosTotais();
+            });
+        });
+
+        if (!document.querySelector('#pesquisaCarreiraRightTop p.ativo') && tabsCategoria.length > 0) {
+            tabsCategoria[0].classList.add('ativo');
+        }
+        atualizarFiltrosTotais();
+    }
+});
+
+function atualizarDropdownVisuais(dropdownContainer, valorParaSelecionar) {
+    const btn = dropdownContainer.querySelector('.dropdown-btn');
+    const options = dropdownContainer.querySelectorAll('.option');
+    options.forEach(opt => {
+        opt.classList.remove('selected');
+        if (opt.innerText.trim() === valorParaSelecionar) {
+            opt.classList.add('selected');
+            btn.innerHTML = `${valorParaSelecionar} 
+            <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>`;
+        }
+    });
+}
+
 /* # */
 /* # */
 /* # */

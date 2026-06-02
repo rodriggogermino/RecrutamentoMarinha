@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <link rel="icon" type="image/x-icon" href="Utilities/Images/icone.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Marinha - Pesquisa Carreira</title>
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html" id="navLogoS">
+        <img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa" />
+      </a>
+      <a href="index.html" id="navLogoXS">
+        <img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" />
+      </a>
+      <div id="rightNav">
+        <form action="/">
+          <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui" />
+        </form>
+        <span id="searchIconMobile" onclick="openNav()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z" fill="white" />
+          </svg>
+        </span>
+        <div id="searchIcons">
+          <span id="searchIcon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z" fill="white" />
+            </svg>
+          </span>
+          <span id="searchIconHover">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0977 20.6834 22.0977 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11Z" fill="white" />
+            </svg>
+          </span>
+        </div>
+        <span id="barsIcon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="white" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z" fill="white" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M2 18C2 17.4477 2.44772 17 3 17H21C21.5523 17 22 17.4477 22 18C22 18.5523 21.5523 19 21 19H3C2.44772 19 2 18.5523 2 18Z" fill="white" />
+          </svg>
+        </span>
+        <div id="sideMenu" class="side-menu">
+          <ul>
+            <li><a href="profissoes.html">Profissões</a></li>
+            <li><a href="concursos.html">Concursos</a></li>
+            <li><a href="preparate.html">Prepara-te</a></li>
+            <li><a href="atuacarreira.html">A tua Carreira</a></li>
+            <li><a href="inscricao.html">Candidata-te</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="searchMobile" class="searchMobile">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <form action="/">
+        <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui" />
+      </form>
+    </div>
+
+    <div id="sideButtons">
+      <span id="chatbotBtn">CHAT</span>
+      <a href="inscricao.html">JUNTA-TE A NÓS</a>
+    </div>
+
+    <div id="chatbotDiv">
+      <div id="chatbotTop">
+        <div id="chatbotTopLeft">
+          <div id="logoChatbot"></div>
+          <div id="chatbotTopLeftContainer">
+            <h1>Marujo</h1>
+            <div id="chatbotStatus">
+              <div id="statusIcon"></div>
+              <p>Online</p>
+            </div>
+          </div>
+        </div>
+        <div id="chatbotTopRight">
+          <span id="minimizeIcon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5.33317 15.8332L4.1665 14.6665L8.83317 9.99984L4.1665 5.33317L5.33317 4.1665L9.99984 8.83317L14.6665 4.1665L15.8332 5.33317L11.1665 9.99984L15.8332 14.6665L14.6665 15.8332L9.99984 11.1665L5.33317 15.8332Z" fill="#FEF7FF" />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div id="chatbotOutput">
+        <div class="msgIntro">
+          <p>Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.</p>
+        </div>
+        <div class="msgBot">
+          <p>Em que posso ajudar hoje?</p>
+          <span class="timestamp">Agora</span>
+        </div>
+        <div class="msgPessoa">
+          <p>Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso seguir como militar, na categoria dos Oficiais, na Marinha?</p>
+          <span class="timestamp">09:43</span>
+        </div>
+        <div class="msgBot">
+          <p>Rodrigo, com essas características podes concorrer na categoria dos Oficiais para:</p>
+          <ul>
+            <li>TSN, TN & TS (Regime de Contrato);</li>
+            <li>Fuzileiros (Regime de Contrato);</li>
+            <li>Médico Naval (Quadros Permanentes).</li>
+          </ul>
+          <span class="timestamp">Agora</span>
+        </div>
+      </div>
+      <div id="chatbotPrompt">
+        <p>*O Marujo pode conter erros. Considere verificar informações importantes.</p>
+        <form action onsubmit="event.preventDefault()">
+          <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot" />
+          <input type="submit" id="enviarPergunta" value="Enviar" />
+        </form>
+      </div>
+    </div>
+    <!--#### SECTION 3 ####-->
+        <section id="pesquisaCarreiraSection">
+            <div id="pesquisaCarreiraContainer">
+                <div id="pesquisaCarreiraLeft">
+                    <p>Na Marinha podes ser <span>MILITAR</span> <br> <span>MILITARIZADO</span> ou <span>CIVIL</span>
+                    </p>
+                    <div id="pesquisaCarreiraLeftDropdown">
+                        <div class="custom-dropdown">
+                            <button class="dropdown-btn">Habilitações
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <ul class="dropdown-options">
+                                <li class="option selected">Ensino Básico</li>
+                                <li class="option">Ensino Secundário</li>
+                                <li class="option">Ensino Superior</li>
+                            </ul>
+                        </div>
+                        <div class="custom-dropdown">
+                            <button class="dropdown-btn">Idade
+                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <ul class="dropdown-options">
+                                <li class="option selected">18</li>
+                                <li class="option">19</li>
+                                <li class="option">20</li>
+                                <li class="option">21</li>
+                                <li class="option">22</li>
+                                <li class="option">23</li>
+                                <li class="option">24</li>
+                                <li class="option">25</li>
+                                <li class="option">26</li>
+                                <li class="option">27</li>
+                                <li class="option">+27</li>
+                            </ul>
+                        </div>
+                        <!--#### DROPDOWN BTN PESQUISA ####-->
+                        <button class="searchDropdownBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.7071 11.2929C16.0976 11.6834 16.0976 12.3166 15.7071 12.7071L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z"
+                                    fill="#182439" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="pesquisaCarreiraResultadoRight">
+                    <div id="pesquisaCarreiraRightTop">
+                        <p>Militares</p>
+                        <p>Militarizados</p>
+                        <p>Civis</p>
+                    </div>
+                    <!--#### CARDS PESQUISA CARREIRA ####-->
+                    <div id="cardsPesquisaCarreira">
+                        <!--#### MILITARES ####-->
+                        <!--### OFICIAIS ###-->
+                        <div class="cardPesquisaCarreira" data-categoria="militares" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="21">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <h3 class="classePesquisaCarreira">Oficiais</h3>
+                                <p class="contratoPesquisaCarreira">Quadro Permanentes</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Escola Naval</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militares" data-hab="Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <h3 class="classePesquisaCarreira">Oficiais</h3>
+                                <p class="contratoPesquisaCarreira">Quadro Permanentes</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Médico Naval</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militares" data-hab="Ensino Superior" data-idade-max="27">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <h3 class="classePesquisaCarreira">Oficiais</h3>
+                                <p class="contratoPesquisaCarreira">Regime de Contrato</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">TSN, TN & TS</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militares" data-hab="Ensino Superior" data-idade-max="27">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <h3 class="classePesquisaCarreira">Oficiais</h3>
+                                <p class="contratoPesquisaCarreira">Quadro Permanentes</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Fuzileiros</p>
+                            </div>
+                        </div>
+                        <!--### SARGENTOS ###-->
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militares" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="26">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <h3 class="classePesquisaCarreira">Sargentos</h3>
+                                <p class="contratoPesquisaCarreira">Quadros Permanentes</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Eletrotécnicos e Maquinistas
+                                    Navais</p>
+                            </div>
+                        </div>
+                        <!--### PRAÇAS ###-->
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militares" data-hab="Ensino Básico, Ensino Secundário, Ensino Superior" data-idade-max="24">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <h3 class="classePesquisaCarreira">Praças</h3>
+                                <p class="contratoPesquisaCarreira">Regime de Contrato</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Fuzileiros</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militares" data-hab="Ensino Básico, Ensino Secundário, Ensino Superior" data-idade-max="24">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <h3 class="classePesquisaCarreira">Praças</h3>
+                                <p class="contratoPesquisaCarreira">Regime de Contrato</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Mergulhadores</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militares" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="24">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <h3 class="classePesquisaCarreira">Praças</h3>
+                                <p class="contratoPesquisaCarreira">Regime de Contrato</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Músicos</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militares" data-hab="Ensino Básico, Ensino Secundário, Ensino Superior" data-idade-max="24">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <h3 class="classePesquisaCarreira">Praças</h3>
+                                <p class="contratoPesquisaCarreira">Regime de Contrato</p>
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Serviço Naval</p>
+                            </div>
+                        </div>
+                        <!--#### MILITARIZADOS ####-->
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militarizados" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Polícia Marítima</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militarizados" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Polícia de Estabelecimentos de Marinha</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militarizados" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Cabos-de-Mar</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militarizados" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Troço do Mar</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militarizados" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Práticas da Costa do Algarve</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="militarizados" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Faroleiros</p>
+                            </div>
+                        </div>
+                        <!--#### CIVIS ####-->
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="civis" data-hab="Ensino Básico, Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Assistente Operacional</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="civis" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Assistente Técnico</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="civis" data-hab="Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Técnico Superior</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="civis" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Técnicos de Informática</p>
+                            </div>
+                        </div>
+                        <!--########-->
+                        <div class="cardPesquisaCarreira" data-categoria="civis" data-hab="Ensino Secundário, Ensino Superior" data-idade-max="99">
+                            <div class="ImgCardPesquisaCarreira"></div>
+                            <div class="cardContainer">
+                                <p class="funcaoPesquisaCarreira" style="font-weight: 600;">Técnicos de Diagnóstico e Terapêutica</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <section id="footerSectionPreparate">
+      <footer>
+        <div id="topFooter">
+          <div id="logotiposFooter">
+            <a href><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" /></a>
+            <a href><img src="Utilities/Images/govLogo.png" alt="Logotipo Républica Portuguesa" /></a>
+          </div>
+          <div id="logotiposRedes">
+            </div>
+        </div>
+        <div id="line"></div>
+        <div id="bottomFooter">
+          <div id="copyrightFooter">
+            <p>© 2026, MARINHA RECRUTAMENTO</p>
+            <p id="barraFooter">|</p>
+          </div>
+          <div id="linksFooter">
+            <a href>Acessibilidade</a>
+            <a href>Glossário</a>
+            <a href>Cookies</a>
+            <a href>Avisos Legais</a>
+            <a href>Links Úteis</a>
+            <a href>Mapas do Site</a>
+            <a href>Contactos</a>
+          </div>
+        </div>
+      </footer>
+    </section>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
