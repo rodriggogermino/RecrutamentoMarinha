@@ -1,3 +1,6 @@
+<?php 
+    require_once 'ligacao_bd.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +71,7 @@
                     <!--#### SIDE MENU ####-->
                     <ul>
                         <li><a href="profissoes.html">Profissões</a></li>
-                        <li><a href="concursos.html">Concursos</a></li>
+                        <li><a href="concursos.php">Concursos</a></li>
                         <li><a href="preparate.html">Prepara-te</a></li>
                         <li><a href="atuacarreira.html">A tua Carreira</a></li>
                         <li><a href="formulario.html">Candidata-te</a></li>
@@ -103,7 +106,7 @@
         <!--#### SIDE BUTTONS ####-->
         <div id="sideButtons">
             <span id="chatbotBtn">CHAT</span>
-            <a href="formulario.html">JUNTA-TE A NÓS</a>
+            <a href="login.html">JUNTA-TE A NÓS</a>
         </div>
         <!--#### CHATBOT ####-->
         <div id="chatbotDiv">
@@ -170,37 +173,38 @@
                 <h1 class="titulo1">DESTAQUES</h1>
                 <div id="destaquesSlideshow">
                     <div id="destaquesBox">
-                        <div class="destaquesSlide slide-active" id="destaque1">
+                        <?php
+                        $sql = "SELECT titulo, descricao, imagem_url FROM destaques WHERE ativo = 1 ORDER BY data_criacao DESC LIMIT 5";
+                        $stmt = $pdo->prepare($sql);
+                        $stmt->execute();
+                        $destaques = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                        if (count($destaques) > 0):
+                            foreach ($destaques as $index => $destaque):
+                                $classeSlide = 'slide-hidden';
+                                if ($index === 0) {
+                                    $classeSlide = 'slide-active';
+                                } elseif ($index === 1) {
+                                    $classeSlide = 'slide-next';
+                                }
+                                $idDestaque = "destaque" . ($index + 1);
+                        ?>
+                        
+                        <div class="destaquesSlide <?= $classeSlide ?>" id="<?= $idDestaque ?>" style="background-image: url('<?= htmlspecialchars($destaque['imagem_url']) ?>'); background-size: cover; background-position: center;">
                             <div class="destaquesSlideContainer">
-                                <h3>Concurso Aberto - Escola Naval</h3>
-                                <p>Os cursos da Escola Naval são as carreiras que procuras.</p>
+                                <h3><?= htmlspecialchars($destaque['titulo']) ?></h3>
+                                <p><?= htmlspecialchars($destaque['descricao']) ?></p>
                             </div>
                         </div>
-                        <div class="destaquesSlide slide-next" id="destaque2">
-                            <div class="destaquesSlideContainer">
-                                <h3>Concurso Aberto - Troço do Mar</h3>
-                                <p>Ingressa no Quadro do Pessoal Militarizado da Marinha, na categoria de Troço do Mar - Manobra, Máquinas ou Eletricidade.</p>
-                            </div>
-                        </div>
-                        <div class="destaquesSlide slide-hidden" id="destaque3">
-                            <div class="destaquesSlideContainer">
-                                <h3>Concurso Aberto - Praças</h3>
-                                <p>Concurso aberto para a categoria de Praças, para as especialidades de Fuzileiro, Mergulhador e Serviço Naval</p>
-                            </div>
-                        </div>
-                        <div class="destaquesSlide slide-hidden" id="destaque4">
-                            <div class="destaquesSlideContainer">
-                                <h3>Concurso Aberto - Civil</h3>
-                                <p>Concurso aberto para a civis de diversas áreas.</p>
-                            </div>
-                        </div>
-                        <div class="destaquesSlide slide-hidden" id="destaque5">
-                            <div class="destaquesSlideContainer">
-                                <h3>Concurso Aberto - TESV</h3>
-                                <p>Os cursos da Escola Naval são as carreiras que procuras.</p>
-                            </div>
-                        </div>
+
+                        <?php 
+                            endforeach; 
+                        else: 
+                        ?>
+                            <p style="color: white; text-align: center; padding: 20px;">Sem destaques de momento.</p>
+                        <?php endif; ?>
                     </div>
+
                     <div class="buttonsSlides">
                         <span class="btnPrevious" id="destaquesBtnPrev" style="cursor: pointer;">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"

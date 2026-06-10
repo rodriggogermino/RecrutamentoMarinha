@@ -1,41 +1,29 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style"content="black-translucent"/>
-    <meta name="viewport"content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/x-icon" href="Utilities/Images/icone.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title>A Tua Carreira - Instruções</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <!--#### NAVBAR ####-->
     <nav style="position: sticky;">
-      <a href="index.html" id="navLogoS"
-        ><img
-          src="Utilities/Images/logoWhiteS.png"
-          alt="Logotipo Branco | Marinha Portuguesa"
-      /></a>
-      <a href="index.html" id="navLogoXS"
-        ><img
-          src="Utilities/Images/logoWhiteXS.png"
-          alt="Logotipo Branco | Marinha Portuguesa"
-      /></a>
-      <div id="rightNav">
-        <form action="/">
-          <input
-            id="barraPesquisa"
-            class="barraPesquisa"
-            type="search"
-            placeholder="Pesquise Aqui"
-          />
-        </form>
-        <span id="searchIconMobile" onclick="openNav()">
+        <a href="index.php" id="navLogoS"><img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa" /></a>
+        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" /></a>
+        <div id="rightNav">
+            <form action="/">
+                <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui" />
+            </form>
+            <span id="searchIconMobile" onclick="openNav()">
           <!--#### SEARCH ICON MOBILE ####-->
           <svg
             width="24"
@@ -52,9 +40,9 @@
             />
           </svg>
         </span>
-        <div id="searchIcons">
-          <!--#### SEARCH ICONS ####-->
-          <span id="searchIcon">
+            <div id="searchIcons">
+                <!--#### SEARCH ICONS ####-->
+                <span id="searchIcon">
             <svg
               width="24"
               height="24"
@@ -70,7 +58,7 @@
               />
             </svg>
           </span>
-          <span id="searchIconHover">
+                <span id="searchIconHover">
             <svg
               width="24"
               height="24"
@@ -84,8 +72,8 @@
               />
             </svg>
           </span>
-        </div>
-        <span id="barsIcon">
+            </div>
+            <span id="barsIcon">
           <!--#### BARS ICON ####-->
           <svg
             width="24"
@@ -114,22 +102,21 @@
             />
           </svg>
         </span>
-        <div id="sideMenu" class="side-menu">
-          <!--#### SIDE MENU ####-->
-          <ul>
-            <li><a href="profissoes.html">Profissões</a></li>
-            <li><a href="concursos.html">Concursos</a></li>
-            <li><a href="preparate.html">Prepara-te</a></li>
-            <li><a href="atuacarreira.html">A tua Carreira</a></li>
-            <li><a href="inscricao.html">Candidata-te</a></li>
-          </ul>
+            <div id="sideMenu" class="side-menu">
+                <!--#### SIDE MENU ####-->
+                <ul>
+                    <li><a href="profissoes.html">Profissões</a></li>
+                    <li><a href="concursos.php">Concursos</a></li>
+                    <li><a href="preparate.html">Prepara-te</a></li>
+                    <li><a href="atuacarreira.html">A tua Carreira</a></li>
+                    <li><a href="inscricao.html">Candidata-te</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
     <!--#### BARRA PESQUISA ####-->
     <div id="searchMobile" class="searchMobile">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a
       >
       <form action="/">
         <input
@@ -147,19 +134,19 @@
     </div>
     <!--#### CHATBOT ####-->
     <div id="chatbotDiv">
-      <div id="chatbotTop">
-        <div id="chatbotTopLeft">
-          <div id="logoChatbot"></div>
-          <div id="chatbotTopLeftContainer">
-            <h1>Marujo</h1>
-            <div id="chatbotStatus">
-              <div id="statusIcon"></div>
-              <p>Online</p>
+        <div id="chatbotTop">
+            <div id="chatbotTopLeft">
+                <div id="logoChatbot"></div>
+                <div id="chatbotTopLeftContainer">
+                    <h1>Marujo</h1>
+                    <div id="chatbotStatus">
+                        <div id="statusIcon"></div>
+                        <p>Online</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div id="chatbotTopRight">
-          <span id="minimizeIcon">
+            <div id="chatbotTopRight">
+                <span id="minimizeIcon">
             <svg
               width="20"
               height="20"
@@ -173,238 +160,219 @@
               />
             </svg>
           </span>
+            </div>
         </div>
-      </div>
-      <div id="chatbotOutput">
-        <div class="msgIntro">
-          <p>
-            Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre
-            concursos, requisitos e candidatura.
-          </p>
+        <div id="chatbotOutput">
+            <div class="msgIntro">
+                <p>
+                    Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.
+                </p>
+            </div>
+
+            <div class="msgBot">
+                <p>Em que posso ajudar hoje?</p>
+                <span class="timestamp">Agora</span>
+            </div>
+
+            <div class="msgPessoa">
+                <p>
+                    Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso seguir como militar, na categoria dos Oficiais, na Marinha?
+                </p>
+                <span class="timestamp">09:43</span>
+            </div>
+
+            <div class="msgBot">
+                <p>
+                    Rodrigo, com essas características podes concorrer na categoria dos Oficiais para:
+                </p>
+                <ul>
+                    <li>TSN, TN & TS (Regime de Contrato);</li>
+                    <li>Fuzileiros (Regime de Contrato);</li>
+                    <li>Médico Naval (Quadros Permanentes).</li>
+                </ul>
+                <span class="timestamp">Agora</span>
+            </div>
         </div>
 
-        <div class="msgBot">
-          <p>Em que posso ajudar hoje?</p>
-          <span class="timestamp">Agora</span>
+        <div id="chatbotPrompt">
+            <p>
+                *O Marujo pode conter erros. Considere verificar informações importantes.
+            </p>
+            <form action onsubmit="event.preventDefault()">
+                <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot" />
+                <input type="submit" id="enviarPergunta" value="Enviar" />
+            </form>
         </div>
-
-        <div class="msgPessoa">
-          <p>
-            Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso
-            seguir como militar, na categoria dos Oficiais, na Marinha?
-          </p>
-          <span class="timestamp">09:43</span>
-        </div>
-
-        <div class="msgBot">
-          <p>
-            Rodrigo, com essas características podes concorrer na categoria dos
-            Oficiais para:
-          </p>
-          <ul>
-            <li>TSN, TN & TS (Regime de Contrato);</li>
-            <li>Fuzileiros (Regime de Contrato);</li>
-            <li>Médico Naval (Quadros Permanentes).</li>
-          </ul>
-          <span class="timestamp">Agora</span>
-        </div>
-      </div>
-
-      <div id="chatbotPrompt">
-        <p>
-          *O Marujo pode conter erros. Considere verificar informações
-          importantes.
-        </p>
-        <form action onsubmit="event.preventDefault()">
-          <input
-            type="text"
-            placeholder="Escreve a tua pergunta..."
-            id="perguntaChatbot"
-          />
-          <input type="submit" id="enviarPergunta" value="Enviar" />
-        </form>
-      </div>
     </div>
     <section id="instrucoesSection">
-      <div id="instrucoesSectionContainer">
-        <div id="instrucoesBasicas">
-            <div class="instrucoesTop">
-                <h1 class="titulo2">INSTRUÇÃO BÁSICA</h1>
-                <div class="custom-dropdown">
-                    <button class="dropdown-btn">Praças
+        <div id="instrucoesSectionContainer">
+            <div id="instrucoesBasicas">
+                <div class="instrucoesTop">
+                    <h1 class="titulo2">INSTRUÇÃO BÁSICA</h1>
+                    <div class="custom-dropdown">
+                        <button class="dropdown-btn">Praças
                         <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
                             <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" />
                         </svg>
                     </button>
-                    <ul class="dropdown-options">
-                        <li class="option selected">Praças</li>
-                        <li class="option">Oficiais (TSN, TN & TS)</li>
-                        <li class="option">Oficiais (Fuzileiros)</li>
-                    </ul>
+                        <ul class="dropdown-options">
+                            <li class="option selected">Praças</li>
+                            <li class="option">Oficiais (TSN, TN & TS)</li>
+                            <li class="option">Oficiais (Fuzileiros)</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ######## -->
+                <div class="instrucoesBottom" data-status="basicaPraca">
+                    <h3>Praças - Segundo-Grumete (Recruta)</h3>
+                    <p><b>Local: </b>Escola de Fuzileiros, em Vale de Zebro (Barreiro)</p>
+                    <p><b>Duração: </b>25 dias úteis</p>
+                    <p><b>Vencimento: </b>926,42 €</p>
+                    <div class="notasInstrucao">
+                        <p><b>Notas:</b></p>
+                        <ul>
+                            <li><span>Durante a formação básica o contrato pode ser rescindido por iniciativa de ambas as partes sem haver lugar a indemnização.</span></li>
+                            <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="instrucoesBottom" data-status="basicaTSNTNTS">
+                    <h3>Oficiais (TSN, TN & TS) - Cadete</h3>
+                    <p><b>Local: </b>Escola Naval, no Alfeite (Almada)</p>
+                    <p><b>Duração: </b>25 dias úteis</p>
+                    <p><b>Vencimento: </b>926,42 €</p>
+                    <div class="notasInstrucao">
+                        <p><b>Notas:</b></p>
+                        <ul>
+                            <li><span>Durante a formação básica o contrato pode ser rescindido por iniciativa de ambas as partes sem haver lugar a indemnização.</span></li>
+                            <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ######## -->
+                <div class="instrucoesBottom" data-status="basicaFuzileirosOficiais">
+                    <h3>Oficiais (Fuzileiros) - Cadete</h3>
+                    <p><b>Local: </b>Escola Naval, no Alfeite (Almada)</p>
+                    <p><b>Duração: </b>25 dias úteis</p>
+                    <p><b>Vencimento: </b>926,42 €</p>
+                    <div class="notasInstrucao">
+                        <p><b>Notas:</b></p>
+                        <ul>
+                            <li><span>Durante a formação básica o contrato pode ser rescindido por iniciativa de ambas as partes sem haver lugar a indemnização.</span></li>
+                            <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025.</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <!-- ######## -->
-            <div class="instrucoesBottom" data-status="basicaPraca">
-                <h3>Praças - Segundo-Grumete (Recruta)</h3>
-                <p><b>Local: </b>Escola de Fuzileiros, em Vale de Zebro (Barreiro)</p>
-                <p><b>Duração: </b>25 dias úteis</p>
-                <p><b>Vencimento: </b>926,42 €</p>
-                <div class="notasInstrucao">
-                    <p><b>Notas:</b></p>
-                    <ul>
-                        <li><span>Durante a formação básica o contrato pode ser rescindido por iniciativa de ambas as partes sem haver lugar a indemnização.</span></li>
-                        <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025.</span></li>
-                    </ul>
+            <div id="instrucoesComplementares">
+                <div class="instrucoesTop">
+                    <h1 class="titulo2">INSTRUÇÃO COMPLEMENTAR</h1>
+                    <div class="custom-dropdown">
+                        <button class="dropdown-btn">Praças (Fuzileiros)
+                        <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
+                            <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                        <ul class="dropdown-options">
+                            <li class="option selected">Praças (Fuzileiros)</li>
+                            <li class="option">Praças (Mergulhadores)</li>
+                            <li class="option">Praças (Músicos)</li>
+                            <li class="option">Praças (Outras Classes)</li>
+                            <li class="option">Oficiais (TSN, TN & TS)</li>
+                            <li class="option">Oficiais (Fuzileiros)</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="instrucoesBottom" data-status="basicaTSNTNTS">
-                <h3>Oficiais (TSN, TN & TS) - Cadete</h3>
-                <p><b>Local: </b>Escola Naval, no Alfeite (Almada)</p>
-                <p><b>Duração: </b>25 dias úteis</p>
-                <p><b>Vencimento: </b>926,42 €</p>
-                <div class="notasInstrucao">
-                    <p><b>Notas:</b></p>
-                    <ul>
-                        <li><span>Durante a formação básica o contrato pode ser rescindido por iniciativa de ambas as partes sem haver lugar a indemnização.</span></li>
-                        <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025.</span></li>
-                    </ul>
+                <!-- ######## -->
+                <div class="instrucoesBottom" data-status="complementarPracasFuzileiros">
+                    <h3>Praças (Fuzileiros) - Primeiro-Grumete (Graduado)</h3>
+                    <p><b>Local: </b>Escola de Fuzileiros, em Vale de Zebro (Barreiro)</p>
+                    <p><b>Duração: </b>160 dias úteis</p>
+                    <p><b>Vencimento: </b>1531,86 €</p>
+                    <div class="notasInstrucao">
+                        <p><b>Notas:</b></p>
+                        <ul>
+                            <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <!-- ######## -->
-            <div class="instrucoesBottom" data-status="basicaFuzileirosOficiais">
-                <h3>Oficiais (Fuzileiros) - Cadete</h3>
-                <p><b>Local: </b>Escola Naval, no Alfeite (Almada)</p>
-                <p><b>Duração: </b>25 dias úteis</p>
-                <p><b>Vencimento: </b>926,42 €</p>
-                <div class="notasInstrucao">
-                    <p><b>Notas:</b></p>
-                    <ul>
-                        <li><span>Durante a formação básica o contrato pode ser rescindido por iniciativa de ambas as partes sem haver lugar a indemnização.</span></li>
-                        <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025.</span></li>
-                    </ul>
+                <div class="instrucoesBottom" data-status="complementarPracasMergulhadores">
+                    <h3>Praças (Mergulhadores) - Primeiro-Grumete (Graduado)</h3>
+                    <p><b>Local: </b>Escola de Mergulhadores, na Base Naval de Lisboa (Alfeite, Almada)</p>
+                    <p><b>Duração: </b>160 dias úteis</p>
+                    <p><b>Vencimento: </b>1531,86 €</p>
+                    <div class="notasInstrucao">
+                        <p><b>Notas:</b></p>
+                        <ul>
+                            <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="instrucoesBottom" data-status="complementarPracasMúsicos">
+                    <h3>Praças (Músicos) - Primeiro-Marinheiro</h3>
+                    <p><b>Vencimento: </b>1709,12 €</p>
+                    <p>As praças da classe de músicos destacam para a Banda da Armada (em Alcântara) após terminarem a sua instrução básica e o Curso de Promoção a Marinheiro.</p>
+                    <div class="notasInstrucao">
+                        <p><b>Notas:</b></p>
+                        <ul>
+                            <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ######## -->
+                <div class="instrucoesBottom" data-status="complementarPracasOutras">
+                    <h3>Praças (Outras Classes) - Primeiro-Grumete (Graduado)</h3>
+                    <p><b>Local: </b>Escola de Mergulhadores, na Base Naval de Lisboa (Alfeite, Almada)</p>
+                    <p><b>Duração: </b>160 dias úteis</p>
+                    <p><b>Vencimento: </b>1531,86 €</p>
+                    <div class="notasInstrucao">
+                        <p><b>Notas:</b></p>
+                        <ul>
+                            <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ######## -->
+                <div class="instrucoesBottom" data-status="complementarTSNTNTS">
+                    <h3>Oficiais (TSN, TN & TS) - Aspirante</h3>
+                    <p><b>Vencimento: </b>1645,97 €</p>
+                    <p>Os oficiais destacam para as diversas unidades onde vão desempenhar funções após terminarem a sua instrução básica.</p>
+                    <div class="notasInstrucao">
+                        <p><b>Notas:</b></p>
+                        <ul>
+                            <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- ######## -->
+                <div class="instrucoesBottom" data-status="complementarOficiaisFuzileiros">
+                    <h3>Oficiais (Fuzileiros) - Aspirante</h3>
+                    <p><b>Local: </b>Escola de Fuzileiros, em Vale de Zebro (Barreiro)</p>
+                    <p><b>Duração: </b>160 dias úteis</p>
+                    <p><b>Vencimento: </b>1645,97 €</p>
+                    <div class="notasInstrucao">
+                        <p><b>Notas:</b></p>
+                        <ul>
+                            <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <div id="instrucoesComplementares">
-            <div class="instrucoesTop">
-                <h1 class="titulo2">INSTRUÇÃO COMPLEMENTAR</h1>
-                <div class="custom-dropdown">
-                    <button class="dropdown-btn">Praças (Fuzileiros)
-                        <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
-                            <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
-                    </button>
-                    <ul class="dropdown-options">
-                        <li class="option selected">Praças (Fuzileiros)</li>
-                        <li class="option">Praças (Mergulhadores)</li>
-                        <li class="option">Praças (Músicos)</li>
-                        <li class="option">Praças (Outras Classes)</li>
-                        <li class="option">Oficiais (TSN, TN & TS)</li>
-                        <li class="option">Oficiais (Fuzileiros)</li>
-                    </ul>
-                </div>
-            </div>
-            <!-- ######## -->
-            <div class="instrucoesBottom" data-status="complementarPracasFuzileiros">
-                <h3>Praças (Fuzileiros) - Primeiro-Grumete (Graduado)</h3>
-                <p><b>Local: </b>Escola de Fuzileiros, em Vale de Zebro (Barreiro)</p>
-                <p><b>Duração: </b>160 dias úteis</p>
-                <p><b>Vencimento: </b>1531,86 €</p>
-                <div class="notasInstrucao">
-                    <p><b>Notas:</b></p>
-                    <ul>
-                        <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="instrucoesBottom" data-status="complementarPracasMergulhadores">
-                <h3>Praças (Mergulhadores) - Primeiro-Grumete (Graduado)</h3>
-                <p><b>Local: </b>Escola de Mergulhadores, na Base Naval de Lisboa (Alfeite, Almada)</p>
-                <p><b>Duração: </b>160 dias úteis</p>
-                <p><b>Vencimento: </b>1531,86 €</p>
-                <div class="notasInstrucao">
-                    <p><b>Notas:</b></p>
-                    <ul>
-                        <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="instrucoesBottom" data-status="complementarPracasMúsicos">
-                <h3>Praças (Músicos) - Primeiro-Marinheiro</h3>
-                <p><b>Vencimento: </b>1709,12 €</p>
-                <p>As praças da classe de músicos destacam para a Banda da Armada (em Alcântara) após terminarem a sua instrução básica e o Curso de Promoção a Marinheiro.</p>
-                <div class="notasInstrucao">
-                    <p><b>Notas:</b></p>
-                    <ul>
-                        <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- ######## -->
-            <div class="instrucoesBottom" data-status="complementarPracasOutras">
-                <h3>Praças (Outras Classes) - Primeiro-Grumete (Graduado)</h3>
-                <p><b>Local: </b>Escola de Mergulhadores, na Base Naval de Lisboa (Alfeite, Almada)</p>
-                <p><b>Duração: </b>160 dias úteis</p>
-                <p><b>Vencimento: </b>1531,86 €</p>
-                <div class="notasInstrucao">
-                    <p><b>Notas:</b></p>
-                    <ul>
-                        <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- ######## -->
-            <div class="instrucoesBottom" data-status="complementarTSNTNTS">
-                <h3>Oficiais (TSN, TN & TS) - Aspirante</h3>
-                <p><b>Vencimento: </b>1645,97 €</p>
-                <p>Os oficiais destacam para as diversas unidades onde vão desempenhar funções após terminarem a sua instrução básica.</p>
-                <div class="notasInstrucao">
-                    <p><b>Notas:</b></p>
-                    <ul>
-                        <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- ######## -->
-            <div class="instrucoesBottom" data-status="complementarOficiaisFuzileiros">
-                <h3>Oficiais (Fuzileiros) - Aspirante</h3>
-                <p><b>Local: </b>Escola de Fuzileiros, em Vale de Zebro (Barreiro)</p>
-                <p><b>Duração: </b>160 dias úteis</p>
-                <p><b>Vencimento: </b>1645,97 €</p>
-                <div class="notasInstrucao">
-                    <p><b>Notas:</b></p>
-                    <ul>
-                        <li><span>Os valores de vencimento apresentados são iliquidos, referentes a janeiro de 2025, onde está incluído o Suplemente de Condição Militar.</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>                  
-      </div>
     </section>
     <section id="footerInstrucoesSectionPreparate">
-      <!--#### FOOTER ####-->
-      <footer style="position: static">
-        <div id="topFooter">
-          <div id="logotiposFooter">
-            <a href
-              ><img
-                src="Utilities/Images/logoWhiteXS.png"
-                alt="Logotipo Branco | Marinha Portuguesa"
-            /></a>
-            <a href
-              ><img
-                src="Utilities/Images/govLogo.png"
-                alt="Logotipo Républica Portuguesa"
-            /></a>
-          </div>
-          <div id="logotiposRedes">
-            <a
-              href="https://www.facebook.com/@marinharecrutamento"
-              target="_blank"
-            >
-              <span id="facebookIcon">
+        <!--#### FOOTER ####-->
+        <footer style="position: static">
+            <div id="topFooter">
+                <div id="logotiposFooter">
+                    <a href><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" /></a>
+                    <a href><img src="Utilities/Images/govLogo.png" alt="Logotipo Républica Portuguesa" /></a>
+                </div>
+                <div id="logotiposRedes">
+                    <a href="https://www.facebook.com/@marinharecrutamento" target="_blank">
+                        <span id="facebookIcon">
                 <svg
                   width="24"
                   height="24"
@@ -420,7 +388,7 @@
                   />
                 </svg>
               </span>
-              <span id="facebookIconHover">
+                        <span id="facebookIconHover">
                 <svg
                   width="24"
                   height="24"
@@ -434,12 +402,9 @@
                   />
                 </svg>
               </span>
-            </a>
-            <a
-              href="https://www.instagram.com/marinharecrutamento"
-              target="_blank"
-            >
-              <span id="instagramIcon">
+                    </a>
+                    <a href="https://www.instagram.com/marinharecrutamento" target="_blank">
+                        <span id="instagramIcon">
                 <svg
                   width="24"
                   height="24"
@@ -465,7 +430,7 @@
                   />
                 </svg>
               </span>
-              <span id="instagramIconHover">
+                        <span id="instagramIconHover">
                 <svg
                   width="24"
                   height="24"
@@ -481,9 +446,9 @@
                   />
                 </svg>
               </span>
-            </a>
-            <a href="https://x.com/marinhapt" target="_blank">
-              <span id="xIcon">
+                    </a>
+                    <a href="https://x.com/marinhapt" target="_blank">
+                        <span id="xIcon">
                 <svg
                   width="24"
                   height="24"
@@ -507,12 +472,9 @@
                   />
                 </svg>
               </span>
-            </a>
-            <a
-              href="https://www.youtube.com/@MarinhaPortuguesa"
-              target="_blank"
-            >
-              <span id="youtubeIcon">
+                    </a>
+                    <a href="https://www.youtube.com/@MarinhaPortuguesa" target="_blank">
+                        <span id="youtubeIcon">
                 <svg
                   width="24"
                   height="24"
@@ -534,7 +496,7 @@
                   />
                 </svg>
               </span>
-              <span id="youtubeIconHover">
+                        <span id="youtubeIconHover">
                 <svg
                   width="24"
                   height="24"
@@ -550,12 +512,9 @@
                   />
                 </svg>
               </span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/marinha-portuguesa"
-              target="_blank"
-            >
-              <span id="linkedinIcon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/marinha-portuguesa" target="_blank">
+                        <span id="linkedinIcon">
                 <svg
                   width="24"
                   height="24"
@@ -583,7 +542,7 @@
                   />
                 </svg>
               </span>
-              <span id="linkedinIconHover" target="_blank">
+                        <span id="linkedinIconHover" target="_blank">
                 <svg
                   width="24"
                   height="24"
@@ -605,27 +564,28 @@
                   />
                 </svg>
               </span>
-            </a>
-          </div>
-        </div>
-        <div id="line"></div>
-        <div id="bottomFooter">
-          <div id="copyrightFooter">
-            <p>© 2026, MARINHA RECRUTAMENTO</p>
-            <p id="barraFooter">|</p>
-          </div>
-          <div id="linksFooter">
-            <a href>Acessibilidade</a>
-            <a href>Glossário</a>
-            <a href>Cookies</a>
-            <a href>Avisos Legais</a>
-            <a href>Links Úteis</a>
-            <a href>Mapas do Site</a>
-            <a href>Contactos</a>
-          </div>
-        </div>
-      </footer>
+                    </a>
+                </div>
+            </div>
+            <div id="line"></div>
+            <div id="bottomFooter">
+                <div id="copyrightFooter">
+                    <p>© 2026, MARINHA RECRUTAMENTO</p>
+                    <p id="barraFooter">|</p>
+                </div>
+                <div id="linksFooter">
+                    <a href>Acessibilidade</a>
+                    <a href>Glossário</a>
+                    <a href>Cookies</a>
+                    <a href>Avisos Legais</a>
+                    <a href>Links Úteis</a>
+                    <a href>Mapas do Site</a>
+                    <a href>Contactos</a>
+                </div>
+            </div>
+        </footer>
     </section>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

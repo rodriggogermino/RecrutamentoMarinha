@@ -1,41 +1,29 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style"content="black-translucent"/>
-    <meta name="viewport"content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/x-icon" href="Utilities/Images/icone.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title>Prepara-te - Teste Psicológico</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <!--#### NAVBAR ####-->
     <nav>
-      <a href="index.html" id="navLogoS"
-        ><img
-          src="Utilities/Images/logoWhiteS.png"
-          alt="Logotipo Branco | Marinha Portuguesa"
-      /></a>
-      <a href="index.html" id="navLogoXS"
-        ><img
-          src="Utilities/Images/logoWhiteXS.png"
-          alt="Logotipo Branco | Marinha Portuguesa"
-      /></a>
-      <div id="rightNav">
-        <form action="/">
-          <input
-            id="barraPesquisa"
-            class="barraPesquisa"
-            type="search"
-            placeholder="Pesquise Aqui"
-          />
-        </form>
-        <span id="searchIconMobile" onclick="openNav()">
+        <a href="index.php" id="navLogoS"><img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa" /></a>
+        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" /></a>
+        <div id="rightNav">
+            <form action="/">
+                <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui" />
+            </form>
+            <span id="searchIconMobile" onclick="openNav()">
           <!--#### SEARCH ICON MOBILE ####-->
           <svg
             width="24"
@@ -52,9 +40,9 @@
             />
           </svg>
         </span>
-        <div id="searchIcons">
-          <!--#### SEARCH ICONS ####-->
-          <span id="searchIcon">
+            <div id="searchIcons">
+                <!--#### SEARCH ICONS ####-->
+                <span id="searchIcon">
             <svg
               width="24"
               height="24"
@@ -70,7 +58,7 @@
               />
             </svg>
           </span>
-          <span id="searchIconHover">
+                <span id="searchIconHover">
             <svg
               width="24"
               height="24"
@@ -84,8 +72,8 @@
               />
             </svg>
           </span>
-        </div>
-        <span id="barsIcon">
+            </div>
+            <span id="barsIcon">
           <!--#### BARS ICON ####-->
           <svg
             width="24"
@@ -114,22 +102,21 @@
             />
           </svg>
         </span>
-        <div id="sideMenu" class="side-menu">
-          <!--#### SIDE MENU ####-->
-          <ul>
-            <li><a href="profissoes.html">Profissões</a></li>
-            <li><a href="concursos.html">Concursos</a></li>
-            <li><a href="preparate.html">Prepara-te</a></li>
-            <li><a href="atuacarreira.html">A tua Carreira</a></li>
-            <li><a href="inscricao.html">Candidata-te</a></li>
-          </ul>
+            <div id="sideMenu" class="side-menu">
+                <!--#### SIDE MENU ####-->
+                <ul>
+                    <li><a href="profissoes.html">Profissões</a></li>
+                    <li><a href="concursos.php">Concursos</a></li>
+                    <li><a href="preparate.html">Prepara-te</a></li>
+                    <li><a href="atuacarreira.html">A tua Carreira</a></li>
+                    <li><a href="inscricao.html">Candidata-te</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
     <!--#### BARRA PESQUISA ####-->
     <div id="searchMobile" class="searchMobile">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a
       >
       <form action="/">
         <input
@@ -147,19 +134,19 @@
     </div>
     <!--#### CHATBOT ####-->
     <div id="chatbotDiv">
-      <div id="chatbotTop">
-        <div id="chatbotTopLeft">
-          <div id="logoChatbot"></div>
-          <div id="chatbotTopLeftContainer">
-            <h1>Marujo</h1>
-            <div id="chatbotStatus">
-              <div id="statusIcon"></div>
-              <p>Online</p>
+        <div id="chatbotTop">
+            <div id="chatbotTopLeft">
+                <div id="logoChatbot"></div>
+                <div id="chatbotTopLeftContainer">
+                    <h1>Marujo</h1>
+                    <div id="chatbotStatus">
+                        <div id="statusIcon"></div>
+                        <p>Online</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div id="chatbotTopRight">
-          <span id="minimizeIcon">
+            <div id="chatbotTopRight">
+                <span id="minimizeIcon">
             <svg
               width="20"
               height="20"
@@ -173,90 +160,71 @@
               />
             </svg>
           </span>
+            </div>
         </div>
-      </div>
-      <div id="chatbotOutput">
-        <div class="msgIntro">
-          <p>
-            Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre
-            concursos, requisitos e candidatura.
-          </p>
+        <div id="chatbotOutput">
+            <div class="msgIntro">
+                <p>
+                    Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.
+                </p>
+            </div>
+
+            <div class="msgBot">
+                <p>Em que posso ajudar hoje?</p>
+                <span class="timestamp">Agora</span>
+            </div>
+
+            <div class="msgPessoa">
+                <p>
+                    Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso seguir como militar, na categoria dos Oficiais, na Marinha?
+                </p>
+                <span class="timestamp">09:43</span>
+            </div>
+
+            <div class="msgBot">
+                <p>
+                    Rodrigo, com essas características podes concorrer na categoria dos Oficiais para:
+                </p>
+                <ul>
+                    <li>TSN, TN & TS (Regime de Contrato);</li>
+                    <li>Fuzileiros (Regime de Contrato);</li>
+                    <li>Médico Naval (Quadros Permanentes).</li>
+                </ul>
+                <span class="timestamp">Agora</span>
+            </div>
         </div>
 
-        <div class="msgBot">
-          <p>Em que posso ajudar hoje?</p>
-          <span class="timestamp">Agora</span>
+        <div id="chatbotPrompt">
+            <p>
+                *O Marujo pode conter erros. Considere verificar informações importantes.
+            </p>
+            <form action onsubmit="event.preventDefault()">
+                <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot" />
+                <input type="submit" id="enviarPergunta" value="Enviar" />
+            </form>
         </div>
-
-        <div class="msgPessoa">
-          <p>
-            Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso
-            seguir como militar, na categoria dos Oficiais, na Marinha?
-          </p>
-          <span class="timestamp">09:43</span>
-        </div>
-
-        <div class="msgBot">
-          <p>
-            Rodrigo, com essas características podes concorrer na categoria dos
-            Oficiais para:
-          </p>
-          <ul>
-            <li>TSN, TN & TS (Regime de Contrato);</li>
-            <li>Fuzileiros (Regime de Contrato);</li>
-            <li>Médico Naval (Quadros Permanentes).</li>
-          </ul>
-          <span class="timestamp">Agora</span>
-        </div>
-      </div>
-
-      <div id="chatbotPrompt">
-        <p>
-          *O Marujo pode conter erros. Considere verificar informações
-          importantes.
-        </p>
-        <form action onsubmit="event.preventDefault()">
-          <input
-            type="text"
-            placeholder="Escreve a tua pergunta..."
-            id="perguntaChatbot"
-          />
-          <input type="submit" id="enviarPergunta" value="Enviar" />
-        </form>
-      </div>
     </div>
     <section id="testesPsicologicosSection">
-      <div id="testesPsicologicosSectionContainer">
-        <div id="testesPsicologicosSectionContainerTop">
-          <h1 class="titulo2">TESTE PSICOLÓGICO</h1>
-          <a href="">INICIAR</a>
-          <a href="preparate.html">SAIR</a>
-          <p><b>**Nota:</b> Estes testes servem apenas de exemplo</p>
-        </div>      
-      </div>
+        <div id="testesPsicologicosSectionContainer">
+            <div id="testesPsicologicosSectionContainerTop">
+                <h1 class="titulo2">TESTE PSICOLÓGICO</h1>
+                <a href="">INICIAR</a>
+                <a href="preparate.html">SAIR</a>
+                <p><b>**Nota:</b> Estes testes servem apenas de exemplo</p>
+            </div>
+        </div>
     </section>
     <section id="footerSectionPreparate">
-      <!--#### FOOTER ####-->
-      <footer>
-        <div id="topFooter">
-          <div id="logotiposFooter">
-            <a href
-              ><img
-                src="Utilities/Images/logoWhiteXS.png"
-                alt="Logotipo Branco | Marinha Portuguesa"
-            /></a>
-            <a href
-              ><img
-                src="Utilities/Images/govLogo.png"
-                alt="Logotipo Républica Portuguesa"
-            /></a>
-          </div>
-          <div id="logotiposRedes">
-            <a
-              href="https://www.facebook.com/@marinharecrutamento"
-              target="_blank"
-            >
-              <span id="facebookIcon">
+        <!--#### FOOTER ####-->
+        <footer>
+            <div id="topFooter">
+                <div id="logotiposFooter">
+                    <a href><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" /></a>
+                    <a href><img src="Utilities/Images/govLogo.png" alt="Logotipo Républica Portuguesa" /></a>
+                </div>
+                <div id="logotiposRedes">
+                    <a href="https://www.facebook.com/@marinharecrutamento" target="_blank">
+                        <span id="facebookIcon">
                 <svg
                   width="24"
                   height="24"
@@ -272,7 +240,7 @@
                   />
                 </svg>
               </span>
-              <span id="facebookIconHover">
+                        <span id="facebookIconHover">
                 <svg
                   width="24"
                   height="24"
@@ -286,12 +254,9 @@
                   />
                 </svg>
               </span>
-            </a>
-            <a
-              href="https://www.instagram.com/marinharecrutamento"
-              target="_blank"
-            >
-              <span id="instagramIcon">
+                    </a>
+                    <a href="https://www.instagram.com/marinharecrutamento" target="_blank">
+                        <span id="instagramIcon">
                 <svg
                   width="24"
                   height="24"
@@ -317,7 +282,7 @@
                   />
                 </svg>
               </span>
-              <span id="instagramIconHover">
+                        <span id="instagramIconHover">
                 <svg
                   width="24"
                   height="24"
@@ -333,9 +298,9 @@
                   />
                 </svg>
               </span>
-            </a>
-            <a href="https://x.com/marinhapt" target="_blank">
-              <span id="xIcon">
+                    </a>
+                    <a href="https://x.com/marinhapt" target="_blank">
+                        <span id="xIcon">
                 <svg
                   width="24"
                   height="24"
@@ -359,12 +324,9 @@
                   />
                 </svg>
               </span>
-            </a>
-            <a
-              href="https://www.youtube.com/@MarinhaPortuguesa"
-              target="_blank"
-            >
-              <span id="youtubeIcon">
+                    </a>
+                    <a href="https://www.youtube.com/@MarinhaPortuguesa" target="_blank">
+                        <span id="youtubeIcon">
                 <svg
                   width="24"
                   height="24"
@@ -386,7 +348,7 @@
                   />
                 </svg>
               </span>
-              <span id="youtubeIconHover">
+                        <span id="youtubeIconHover">
                 <svg
                   width="24"
                   height="24"
@@ -402,12 +364,9 @@
                   />
                 </svg>
               </span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/marinha-portuguesa"
-              target="_blank"
-            >
-              <span id="linkedinIcon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/marinha-portuguesa" target="_blank">
+                        <span id="linkedinIcon">
                 <svg
                   width="24"
                   height="24"
@@ -435,7 +394,7 @@
                   />
                 </svg>
               </span>
-              <span id="linkedinIconHover" target="_blank">
+                        <span id="linkedinIconHover" target="_blank">
                 <svg
                   width="24"
                   height="24"
@@ -457,27 +416,28 @@
                   />
                 </svg>
               </span>
-            </a>
-          </div>
-        </div>
-        <div id="line"></div>
-        <div id="bottomFooter">
-          <div id="copyrightFooter">
-            <p>© 2026, MARINHA RECRUTAMENTO</p>
-            <p id="barraFooter">|</p>
-          </div>
-          <div id="linksFooter">
-            <a href>Acessibilidade</a>
-            <a href>Glossário</a>
-            <a href>Cookies</a>
-            <a href>Avisos Legais</a>
-            <a href>Links Úteis</a>
-            <a href>Mapas do Site</a>
-            <a href>Contactos</a>
-          </div>
-        </div>
-      </footer>
+                    </a>
+                </div>
+            </div>
+            <div id="line"></div>
+            <div id="bottomFooter">
+                <div id="copyrightFooter">
+                    <p>© 2026, MARINHA RECRUTAMENTO</p>
+                    <p id="barraFooter">|</p>
+                </div>
+                <div id="linksFooter">
+                    <a href>Acessibilidade</a>
+                    <a href>Glossário</a>
+                    <a href>Cookies</a>
+                    <a href>Avisos Legais</a>
+                    <a href>Links Úteis</a>
+                    <a href>Mapas do Site</a>
+                    <a href>Contactos</a>
+                </div>
+            </div>
+        </footer>
     </section>
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>

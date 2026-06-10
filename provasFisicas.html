@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -11,388 +12,394 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <title>Prepara-te - Provas Físicas</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <nav style="position: sticky">
-      <a href="index.html" id="navLogoS">
-        <img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa" />
-      </a>
-      <a href="index.html" id="navLogoXS">
-        <img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" />
-      </a>
-      <div id="rightNav">
-        <form action="/">
-          <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui" />
-        </form>
-        <span id="searchIconMobile" onclick="openNav()">
+        <a href="index.php" id="navLogoS">
+            <img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa" />
+        </a>
+        <a href="index.php" id="navLogoXS">
+            <img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" />
+        </a>
+        <div id="rightNav">
+            <form action="/">
+                <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui" />
+            </form>
+            <span id="searchIconMobile" onclick="openNav()">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z" fill="white" />
           </svg>
         </span>
-        <div id="searchIcons">
-          <span id="searchIcon">
+            <div id="searchIcons">
+                <span id="searchIcon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z" fill="white" />
             </svg>
           </span>
-          <span id="searchIconHover">
+                <span id="searchIconHover">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0977 20.6834 22.0977 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11Z" fill="white" />
             </svg>
           </span>
-        </div>
-        <span id="barsIcon">
+            </div>
+            <span id="barsIcon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M2 12C2 11.4477 2.44772 11 3 11H21C21.5523 11 22 11.4477 22 12C22 12.5523 21.5523 13 21 13H3C2.44772 13 2 12.5523 2 12Z" fill="white" />
             <path fill-rule="evenodd" clip-rule="evenodd" d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z" fill="white" />
             <path fill-rule="evenodd" clip-rule="evenodd" d="M2 18C2 17.4477 2.44772 17 3 17H21C21.5523 17 22 17.4477 22 18C22 18.5523 21.5523 19 21 19H3C2.44772 19 2 18.5523 2 18Z" fill="white" />
           </svg>
         </span>
-        <div id="sideMenu" class="side-menu">
-          <ul>
-            <li><a href="profissoes.html">Profissões</a></li>
-            <li><a href="concursos.html">Concursos</a></li>
-            <li><a href="preparate.html">Prepara-te</a></li>
-            <li><a href="atuacarreira.html">A tua Carreira</a></li>
-            <li><a href="inscricao.html">Candidata-te</a></li>
-          </ul>
+            <div id="sideMenu" class="side-menu">
+                <ul>
+                    <li><a href="profissoes.html">Profissões</a></li>
+                    <li><a href="concursos.php">Concursos</a></li>
+                    <li><a href="preparate.html">Prepara-te</a></li>
+                    <li><a href="atuacarreira.html">A tua Carreira</a></li>
+                    <li><a href="inscricao.html">Candidata-te</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
     <div id="searchMobile" class="searchMobile">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <form action="/">
-        <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui" />
-      </form>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <form action="/">
+            <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui" />
+        </form>
     </div>
 
     <div id="sideButtons">
-      <span id="chatbotBtn">CHAT</span>
-      <a href="inscricao.html">JUNTA-TE A NÓS</a>
+        <span id="chatbotBtn">CHAT</span>
+        <a href="inscricao.html">JUNTA-TE A NÓS</a>
     </div>
 
     <div id="chatbotDiv">
-      <div id="chatbotTop">
-        <div id="chatbotTopLeft">
-          <div id="logoChatbot"></div>
-          <div id="chatbotTopLeftContainer">
-            <h1>Marujo</h1>
-            <div id="chatbotStatus">
-              <div id="statusIcon"></div>
-              <p>Online</p>
+        <div id="chatbotTop">
+            <div id="chatbotTopLeft">
+                <div id="logoChatbot"></div>
+                <div id="chatbotTopLeftContainer">
+                    <h1>Marujo</h1>
+                    <div id="chatbotStatus">
+                        <div id="statusIcon"></div>
+                        <p>Online</p>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div id="chatbotTopRight">
-          <span id="minimizeIcon">
+            <div id="chatbotTopRight">
+                <span id="minimizeIcon">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M5.33317 15.8332L4.1665 14.6665L8.83317 9.99984L4.1665 5.33317L5.33317 4.1665L9.99984 8.83317L14.6665 4.1665L15.8332 5.33317L11.1665 9.99984L15.8332 14.6665L14.6665 15.8332L9.99984 11.1665L5.33317 15.8332Z" fill="#FEF7FF" />
             </svg>
           </span>
+            </div>
         </div>
-      </div>
-      <div id="chatbotOutput">
-        <div class="msgIntro">
-          <p>Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.</p>
+        <div id="chatbotOutput">
+            <div class="msgIntro">
+                <p>Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.</p>
+            </div>
+            <div class="msgBot">
+                <p>Em que posso ajudar hoje?</p>
+                <span class="timestamp">Agora</span>
+            </div>
+            <div class="msgPessoa">
+                <p>Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso seguir como militar, na categoria dos Oficiais, na Marinha?</p>
+                <span class="timestamp">09:43</span>
+            </div>
+            <div class="msgBot">
+                <p>Rodrigo, com essas características podes concorrer na categoria dos Oficiais para:</p>
+                <ul>
+                    <li>TSN, TN & TS (Regime de Contrato);</li>
+                    <li>Fuzileiros (Regime de Contrato);</li>
+                    <li>Médico Naval (Quadros Permanentes).</li>
+                </ul>
+                <span class="timestamp">Agora</span>
+            </div>
         </div>
-        <div class="msgBot">
-          <p>Em que posso ajudar hoje?</p>
-          <span class="timestamp">Agora</span>
+        <div id="chatbotPrompt">
+            <p>*O Marujo pode conter erros. Considere verificar informações importantes.</p>
+            <form action onsubmit="event.preventDefault()">
+                <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot" />
+                <input type="submit" id="enviarPergunta" value="Enviar" />
+            </form>
         </div>
-        <div class="msgPessoa">
-          <p>Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso seguir como militar, na categoria dos Oficiais, na Marinha?</p>
-          <span class="timestamp">09:43</span>
-        </div>
-        <div class="msgBot">
-          <p>Rodrigo, com essas características podes concorrer na categoria dos Oficiais para:</p>
-          <ul>
-            <li>TSN, TN & TS (Regime de Contrato);</li>
-            <li>Fuzileiros (Regime de Contrato);</li>
-            <li>Médico Naval (Quadros Permanentes).</li>
-          </ul>
-          <span class="timestamp">Agora</span>
-        </div>
-      </div>
-      <div id="chatbotPrompt">
-        <p>*O Marujo pode conter erros. Considere verificar informações importantes.</p>
-        <form action onsubmit="event.preventDefault()">
-          <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot" />
-          <input type="submit" id="enviarPergunta" value="Enviar" />
-        </form>
-      </div>
     </div>
 
     <section id="provasFisicasSection">
-      <div id="provasFisicasSectionContainer">
-        <div id="provasFisicasSectionContainerTop">
-          <h1 class="titulo2">PROVAS FÍSICAS</h1>
-          <div class="custom-dropdown">
-            <button class="dropdown-btn">
+        <div id="provasFisicasSectionContainer">
+            <div id="provasFisicasSectionContainerTop">
+                <h1 class="titulo2">PROVAS FÍSICAS</h1>
+                <div class="custom-dropdown">
+                    <button class="dropdown-btn">
               Candidatos a Oficiais (Médicos e TSN/TN/TS) / Sargentos (ET/MQ) / Praças (Serviço Naval e Músicos)
               <svg width="8" height="5" viewBox="0 0 8 5" fill="none">
                 <path d="M1 1L4 4L7 1" stroke="#182439" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
             </button>
-            <ul class="dropdown-options">
-              <li class="option selected">Candidatos a Oficiais (Médicos e TSN/TN/TS) / Sargentos (ET/MQ) / Praças (Serviço Naval e Músicos)</li>
-              <li class="option">Candidatos a Oficiais / Praças (Classe de Fuzileiros)</li>
-              <li class="option">Provas de aptidão física específica para Fuzileiros</li>
-              <li class="option">Candidatos a Praças (Classe de Mergulhadores)</li>
-              <li class="option">Aptidão Física Específica para Mergulhadores</li>
-              <li class="option">Aptidão Física Técnica para Mergulhadores</li>
-            </ul>
-          </div>
-        </div>
-        <div id="provasFisicasCards">
-          <!-- ####### -->
-          <div class="provas-group active" data-status="provasOficias">
-            <div class="caixasCarreira"> 
-              <div class="caixaCarreira">
-                <div>
-                  <h3>Masculino</h3>
-                  <ul>
-                    <li>4 elevações na barra com mãos em pronação;</li>
-                    <li>Salto Horizontal, partindo da posição de parado, de 170cm (mínimo);</li>
-                    <li>Correr 2400 metros em terreno plano (tempo máximo de 13:00 minutos)</li>
-                    <li>Salto para a água. (Da prancha a 3m de altura);</li>
-                    <li>Sustentação na água. (60 segundos).</li>
-                    <li>Nadar 50 metros, num estilo ventral, sem controlo respiratório.</li>
-                  </ul>
+                    <ul class="dropdown-options">
+                        <li class="option selected">Candidatos a Oficiais (Médicos e TSN/TN/TS) / Sargentos (ET/MQ) / Praças (Serviço Naval e Músicos)</li>
+                        <li class="option">Candidatos a Oficiais / Praças (Classe de Fuzileiros)</li>
+                        <li class="option">Provas de aptidão física específica para Fuzileiros</li>
+                        <li class="option">Candidatos a Praças (Classe de Mergulhadores)</li>
+                        <li class="option">Aptidão Física Específica para Mergulhadores</li>
+                        <li class="option">Aptidão Física Técnica para Mergulhadores</li>
+                    </ul>
                 </div>
-              </div>
-              <div class="caixaCarreira">
-                <div>
-                  <h3>Feminino</h3>
-                  <ul>
-                    <li>12 segundos de sustentação ou 3 elevações na barra com mãos em pronação;</li>
-                    <li>Salto Horizontal, partindo da posição de parado, de 150cm (mínimo);</li>
-                    <li>Correr 2400 metros em terreno plano (tempo máximo de 14:30 minutos);</li>
-                    <li>Salto para a água. (Da prancha a 3m de altura);</li>
-                    <li>Sustentação na água. (60 segundos).</li>
-                    <li>Nadar 50 metros, num estilo ventral, sem controlo respiratório.</li>
-                  </ul>
-                </div>
-              </div>
             </div>
-            <div class="videoProvasFisicas">
-              <p>Tens dúvidas de como se faz?</p>
-              <p>Vê o video que disponiblizamos no YouTube:</p>
-              <div>
-                  <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
-                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div id="provasFisicasCards">
+                <!-- ####### -->
+                <div class="provas-group active" data-status="provasOficias">
+                    <div class="caixasCarreira" id="caixaCarreira1">
+                        <div class="caixaCarreira">
+                            <div>
+                                <h3>Masculino</h3>
+                                <ul>
+                                    <li>4 elevações na barra com mãos em pronação;</li>
+                                    <li>Salto Horizontal, partindo da posição de parado, de 170cm (mínimo);</li>
+                                    <li>Correr 2400 metros em terreno plano (tempo máximo de 13:00 minutos)</li>
+                                    <li>Salto para a água. (Da prancha a 3m de altura);</li>
+                                    <li>Sustentação na água. (60 segundos).</li>
+                                    <li>Nadar 50 metros, num estilo ventral, sem controlo respiratório.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="caixaCarreira">
+                            <div>
+                                <h3>Feminino</h3>
+                                <ul>
+                                    <li>12 segundos de sustentação ou 3 elevações na barra com mãos em pronação;</li>
+                                    <li>Salto Horizontal, partindo da posição de parado, de 150cm (mínimo);</li>
+                                    <li>Correr 2400 metros em terreno plano (tempo máximo de 14:30 minutos);</li>
+                                    <li>Salto para a água. (Da prancha a 3m de altura);</li>
+                                    <li>Sustentação na água. (60 segundos).</li>
+                                    <li>Nadar 50 metros, num estilo ventral, sem controlo respiratório.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="videoProvasFisicas">
+                        <p>Tens dúvidas de como se faz?</p>
+                        <p>Vê o video que disponiblizamos no YouTube:</p>
+                        <div>
+                            <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
+                                <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
                       <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                  </a>
-              </div>
-              <p> <b>Nota:</b></p>
-              <ul>
-                    <li>São permitidas 2 tentativas em cada uma das referidas provas, excepto na prova de corrida.</li>
+                            </a>
+                        </div>
+                        <p> <b>Nota:</b></p>
+                        <ul>
+                            <li>São permitidas 2 tentativas em cada uma das referidas provas, excepto na prova de corrida.</li>
+                    </div>
+                </div>
+                <!-- ####### -->
+                <div class="provas-group" data-status="provasFuzileiros">
+                    <div class="caixasCarreira">
+                        <div class="caixaCarreiraIndividual">
+                            <div>
+                                <h3>Masculino / Feminino</h3>
+                                <ul>
+                                    <li>5 elevações na barra com mãos em pronação;</li>
+                                    <li>Realizar 30 abdominais em 60 segundos;</li>
+                                    <li>Correr 2400 metros em terreno plano (tempo máximo de 12:00 minutos);</li>
+                                    <li>Nadar 25 metros, em piscina, com controlo respiratório, num estilo ventral, sem paragens nem apoios;</li>
+                                    <li>Em flutuação, mergulhar e recolher uma manilha colocada a uma profundidade de cerca de 2,5 metros.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="videoProvasFisicas">
+                            <p>Tens dúvidas de como se faz?</p>
+                            <p>Vê o video que disponiblizamos no YouTube:</p>
+                            <div>
+                                <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
+                                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
+                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ####### -->
+                <div class="provas-group" data-status="provasEspecificaFuzileiros">
+                    <div class="caixasCarreira">
+                        <div class="caixaCarreiraIndividual">
+                            <div>
+                                <h3>Masculino / Feminino</h3>
+                                <ul>
+                                    <li>Suspenso de um cabo vertical, saltar para uma rede de abordagem e descer por esta;</li>
+                                    <li>Descida do slide com alça.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="videoProvasFisicas">
+                            <p>Tens dúvidas de como se faz?</p>
+                            <p>Vê o video que disponiblizamos no YouTube:</p>
+                            <div>
+                                <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
+                                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
+                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ####### -->
+                <div class="provas-group" data-status="provasMergulhadores">
+                    <div class="caixasCarreira">
+                        <div class="caixaCarreiraIndividual">
+                            <div>
+                                <h3>As provas devem ser realizadas pela seguinte sequência:</h3>
+                                <ol>
+                                    <li>Nadar continuamente 200 (duzentos) metros, num só estilo ventral, com controlo respiratório, numa piscina, podendo apoiar os pés nas paredes da piscina em cada viragem;</li>
+                                    <li>Descansar 10 (dez) minutos;</li>
+                                    <li>Executar elevações na barra, sem tempo limite, com o corpo na posição vertical e com as mãos em pronação;</li>
+                                    <li>Descansar 2 (dois) minutos;</li>
+                                    <li>Executar abdominais em 1 (um) minuto;</li>
+                                    <li>Descansar 2 (dois) minutos;</li>
+                                    <li>Corrida de 2400 (dois mil e quatrocentos) metros, em terreno plano;</li>
+                                    <li>A classificação das provas desta componente processa-se de acordo com a tabela que consta no <a href="https://recrutamento.marinha.pt/pt/areas/Documents/DESP_CEMA_39_19%20Classifica%c3%a7%c3%a3o%20Sele%c3%a7%c3%a3o%20Ordenamento%20Candidatos%20RC.pdf"
+                                            target="_blank">Despacho do ALM CEMA, n.º 39/19, de 11SET</a>;</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="videoProvasFisicas">
+                            <p>Tens dúvidas de como se faz?</p>
+                            <p>Vê o video que disponiblizamos no YouTube:</p>
+                            <div>
+                                <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
+                                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
+                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ####### -->
+                <div class="provas-group" data-status="provasEspecificaMergulhadores">
+                    <div class="caixasCarreira">
+                        <div class="caixaCarreiraIndividual">
+                            <div>
+                                <h3>As provas devem ser realizadas pela seguinte sequência:</h3>
+                                <ol>
+                                    <li>Nadar 25 m em apneia (corpo imerso na totalidade no sentido do comprimento da piscina);</li>
+                                    <li>Em uma só apneia, apanhar 5 objetos espalhados entre si cerca de 1,5 m;</li>
+                                    <li>Durante 5 minutos, permanecer à superfície na posição vertical, segurando, com ambas as mãos, um cabo de 10 cm de comprimento;</li>
+                                    <li>Permanecer na água durante 5 minutos, na posição vertical, segurando, com ambos os pés, um cabo de 10 cm de comprimento.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="videoProvasFisicas">
+                            <p>Tens dúvidas de como se faz?</p>
+                            <p>Vê o video que disponiblizamos no YouTube:</p>
+                            <div>
+                                <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
+                                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
+                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                                </a>
+                            </div>
+                            <p> <b>Nota:</b></p>
+                            <ul>
+                                <li>A sequência é realizada com intervalos de 5 minutos entre as provas;</li>
+                                <li>São permitidas 3 tentativas em cada uma das referidas provas;</li>
+                                <li>É excluído do concurso o candidato que não consiga realizar qualquer uma das provas da componente física;</li>
+                                <li>A realização das provas de classificação e seleção são feitas de acordo com o <a href="https://recrutamento.marinha.pt/pt/areas/Documents/DESP_CEMA_39_19%20Classifica%c3%a7%c3%a3o%20Sele%c3%a7%c3%a3o%20Ordenamento%20Candidatos%20RC.pdf"
+                                        target="_blank">Despacho do ALM CEMA, n.º 39/19, de 11SET</a>;</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- ####### -->
+                <div class="provas-group" data-status="provasTecnicaMergulhadores">
+                    <div class="caixasCarreira">
+                        <div class="caixaCarreiraIndividual">
+                            <div>
+                                <h3>As provas a serem realizadas são:</h3>
+                                <ul>
+                                    <li>Em flutuação, equipado com fato e barbatanas de mergulho, efetuar a recuperação em apneia de 3 (três) pesos colocados a uma profundidade entre 3 (três) e 3,5 (três, cinco) metros, separados entre si cerca de 2 (dois)
+                                        metros;
+                                    </li>
+                                    <li>
+                                        Recuperação de equipamento de mergulho, de acordo com o seguinte procedimento:
+                                        <ul>
+                                            <li>No fundo da piscina, completamente equipado (colete de controlo de flutuabilidade, barbatanas, cinto de lastro, aparelho autónomo de circuito aberto - conjunto garrafa, back pack e regulador - e máscara de mergulho)
+                                                proceder à largada do cinto de lastro e do aparelho autónomo de circuito aberto;</li>
+                                            <li>Efetuar subida controlada para a superfície;</li>
+                                            <li>Em sustentação, proceder à recuperação do equipamento que se encontra no fundo da piscina, de acordo com o primeiro ponto;</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        Sustentação à superfície, completamente equipado (conforme descrito no parágrafo anterior) durante 10 (dez) minutos, de acordo com o seguinte procedimento:
+                                        <ul>
+                                            <li>Utilizar, unicamente, o batimento de pernas, para manter a sustentação à superfície, em posição vertical;</li>
+                                            <li>Colete de controlo de flutuabilidade sem ar;</li>
+                                            <li>Permanecer com as vias respiratórias fora de água e o segundo andar do regulador na mão e igualmente fora de água.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="videoProvasFisicas">
+                            <p>Tens dúvidas de como se faz?</p>
+                            <p>Vê o video que disponiblizamos no YouTube:</p>
+                            <div>
+                                <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
+                                    <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
+                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                                </a>
+                            </div>
+                            <p> <b>Nota:</b></p>
+                            <ul>
+                                <li>São permitidas 2 tentativas em cada uma das referidas provas;</li>
+                                <li>É excluído do concurso o candidato que não consiga realizar qualquer uma das provas da componente técnica.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div> 
-          <!-- ####### -->
-          <div class="provas-group" data-status="provasFuzileiros">
-            <div class="caixasCarreira">
-                <div class="caixaCarreiraIndividual">
-                    <div>
-                        <h3>Masculino / Feminino</h3>
-                        <ul>
-                            <li>5 elevações na barra com mãos em pronação;</li>
-                            <li>Realizar 30 abdominais em 60 segundos;</li>
-                            <li>Correr 2400 metros em terreno plano (tempo máximo de 12:00 minutos);</li>
-                            <li>Nadar 25 metros, em piscina, com controlo respiratório, num estilo ventral, sem paragens nem apoios;</li>
-                            <li>Em flutuação, mergulhar e recolher uma manilha colocada a uma profundidade de cerca de 2,5 metros.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="videoProvasFisicas">
-                  <p>Tens dúvidas de como se faz?</p>
-                  <p>Vê o video que disponiblizamos no YouTube:</p>
-                  <div>
-                      <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
-                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
-                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </a>
-                  </div>
-              </div>
-            </div> 
-          </div> 
-          <!-- ####### -->
-          <div class="provas-group" data-status="provasEspecificaFuzileiros">
-            <div class="caixasCarreira">
-                <div class="caixaCarreiraIndividual">
-                    <div>
-                        <h3>Masculino / Feminino</h3>
-                        <ul>
-                            <li>Suspenso de um cabo vertical, saltar para uma rede de abordagem e descer por esta;</li>
-                            <li>Descida do slide com alça.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="videoProvasFisicas">
-                  <p>Tens dúvidas de como se faz?</p>
-                  <p>Vê o video que disponiblizamos no YouTube:</p>
-                  <div>
-                      <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
-                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
-                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </a>
-                  </div>
-              </div>
-            </div> 
-          </div> 
-          <!-- ####### -->
-          <div class="provas-group" data-status="provasMergulhadores">
-            <div class="caixasCarreira">
-                <div class="caixaCarreiraIndividual">
-                    <div>
-                        <h3>As provas devem ser realizadas pela seguinte sequência:</h3>
-                        <ol>
-                            <li>Nadar continuamente 200 (duzentos) metros, num só estilo ventral, com controlo respiratório, numa piscina, podendo apoiar os pés nas paredes da piscina em cada viragem;</li>
-                            <li>Descansar 10 (dez) minutos;</li>
-                            <li>Executar elevações na barra, sem tempo limite, com o corpo na posição vertical e com as mãos em pronação;</li>
-                            <li>Descansar 2 (dois) minutos;</li>
-                            <li>Executar abdominais em 1 (um) minuto;</li>
-                            <li>Descansar 2 (dois) minutos;</li>
-                            <li>Corrida de 2400 (dois mil e quatrocentos) metros, em terreno plano;</li>
-                            <li>A classificação das provas desta componente processa-se de acordo com a tabela que consta no <a href="https://recrutamento.marinha.pt/pt/areas/Documents/DESP_CEMA_39_19%20Classifica%c3%a7%c3%a3o%20Sele%c3%a7%c3%a3o%20Ordenamento%20Candidatos%20RC.pdf" target="_blank">Despacho do ALM CEMA, n.º 39/19, de 11SET</a>;</li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="videoProvasFisicas">
-                  <p>Tens dúvidas de como se faz?</p>
-                  <p>Vê o video que disponiblizamos no YouTube:</p>
-                  <div>
-                      <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
-                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
-                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </a>
-                  </div>
-              </div>
-            </div> 
-          </div> 
-          <!-- ####### -->
-          <div class="provas-group" data-status="provasEspecificaMergulhadores">
-            <div class="caixasCarreira">
-                <div class="caixaCarreiraIndividual">
-                    <div>
-                        <h3>As provas devem ser realizadas pela seguinte sequência:</h3>
-                        <ol>
-                            <li>Nadar 25 m em apneia (corpo imerso na totalidade no sentido do comprimento da piscina);</li>
-                            <li>Em uma só apneia, apanhar 5 objetos espalhados entre si cerca de 1,5 m;</li>
-                            <li>Durante 5 minutos, permanecer à superfície na posição vertical, segurando, com ambas as mãos, um cabo de 10 cm de comprimento;</li>
-                            <li>Permanecer na água durante 5 minutos, na posição vertical, segurando, com ambos os pés, um cabo de 10 cm de comprimento.</li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="videoProvasFisicas">
-                  <p>Tens dúvidas de como se faz?</p>
-                  <p>Vê o video que disponiblizamos no YouTube:</p>
-                  <div>
-                      <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
-                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
-                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </a>
-                  </div>
-                  <p> <b>Nota:</b></p>
-                  <ul>
-                    <li>A sequência é realizada com intervalos de 5 minutos entre as provas;</li>
-                    <li>São permitidas 3 tentativas em cada uma das referidas provas;</li>
-                    <li>É excluído do concurso o candidato que não consiga realizar qualquer uma das provas da componente física;</li>
-                    <li>A realização das provas de classificação e seleção são feitas de acordo com o <a href="https://recrutamento.marinha.pt/pt/areas/Documents/DESP_CEMA_39_19%20Classifica%c3%a7%c3%a3o%20Sele%c3%a7%c3%a3o%20Ordenamento%20Candidatos%20RC.pdf" target="_blank">Despacho do ALM CEMA, n.º 39/19, de 11SET</a>;</li>
-                  </ul>
-              </div>
-            </div> 
-          </div> 
-          <!-- ####### -->
-          <div class="provas-group" data-status="provasTecnicaMergulhadores">
-            <div class="caixasCarreira">
-                <div class="caixaCarreiraIndividual">
-                    <div>
-                        <h3>As provas a serem realizadas são:</h3>
-                        <ul>
-                            <li>Em flutuação, equipado com fato e barbatanas de mergulho, efetuar a recuperação em apneia de 3 (três) pesos colocados a uma profundidade entre 3 (três) e 3,5 (três, cinco) metros, separados entre si cerca de 2 (dois) metros;</li>
-                            <li>
-                              Recuperação de equipamento de mergulho, de acordo com o seguinte procedimento:
-                              <ul>
-                                  <li>No fundo da piscina, completamente equipado (colete de controlo de flutuabilidade, barbatanas, cinto de lastro, aparelho autónomo de circuito aberto - conjunto garrafa, back pack e regulador - e máscara de mergulho) proceder à largada do cinto de lastro e do aparelho autónomo de circuito aberto;</li>
-                                  <li>Efetuar subida controlada para a superfície;</li>
-                                  <li>Em sustentação, proceder à recuperação do equipamento que se encontra no fundo da piscina, de acordo com o primeiro ponto;</li>
-                              </ul>
-                            </li>
-                            <li>
-                              Sustentação à superfície, completamente equipado (conforme descrito no parágrafo anterior) durante 10 (dez) minutos, de acordo com o seguinte procedimento:
-                              <ul>
-                                  <li>Utilizar, unicamente, o batimento de pernas, para manter a sustentação à superfície, em posição vertical;</li>
-                                  <li>Colete de controlo de flutuabilidade sem ar;</li>
-                                  <li>Permanecer com as vias respiratórias fora de água e o segundo andar do regulador na mão e igualmente fora de água.</li>
-                              </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="videoProvasFisicas">
-                  <p>Tens dúvidas de como se faz?</p>
-                  <p>Vê o video que disponiblizamos no YouTube:</p>
-                  <div>
-                      <a href="https://www.youtube.com/watch?v=npIb-wfmuVw&t=3s" target="_blank">
-                        <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M0 21C0 9.40202 9.40202 0 21 0C32.598 0 42 9.40202 42 21C42 32.598 32.598 42 21 42C9.40202 42 0 32.598 0 21Z" fill="#33363A"/>
-                          <path d="M29 21.3333L16 13V29L29 21.3333Z" fill="#E9EAED" stroke="#E9EAED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                      </a>
-                  </div>
-                  <p> <b>Nota:</b></p>
-                  <ul>
-                    <li>São permitidas 2 tentativas em cada uma das referidas provas;</li>
-                    <li>É excluído do concurso o candidato que não consiga realizar qualquer uma das provas da componente técnica.</li>
-                  </ul>
-              </div>
-            </div> 
-          </div> 
         </div>
-      </div>
     </section>
 
     <section id="footerSectionPreparate">
-      <footer style="position: static">
-        <div id="topFooter">
-          <div id="logotiposFooter">
-            <a href><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" /></a>
-            <a href><img src="Utilities/Images/govLogo.png" alt="Logotipo Républica Portuguesa" /></a>
-          </div>
-          <div id="logotiposRedes">
+        <footer style="position: static">
+            <div id="topFooter">
+                <div id="logotiposFooter">
+                    <a href><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa" /></a>
+                    <a href><img src="Utilities/Images/govLogo.png" alt="Logotipo Républica Portuguesa" /></a>
+                </div>
+                <div id="logotiposRedes">
+                </div>
             </div>
-        </div>
-        <div id="line"></div>
-        <div id="bottomFooter">
-          <div id="copyrightFooter">
-            <p>© 2026, MARINHA RECRUTAMENTO</p>
-            <p id="barraFooter">|</p>
-          </div>
-          <div id="linksFooter">
-            <a href>Acessibilidade</a>
-            <a href>Glossário</a>
-            <a href>Cookies</a>
-            <a href>Avisos Legais</a>
-            <a href>Links Úteis</a>
-            <a href>Mapas do Site</a>
-            <a href>Contactos</a>
-          </div>
-        </div>
-      </footer>
+            <div id="line"></div>
+            <div id="bottomFooter">
+                <div id="copyrightFooter">
+                    <p>© 2026, MARINHA RECRUTAMENTO</p>
+                    <p id="barraFooter">|</p>
+                </div>
+                <div id="linksFooter">
+                    <a href>Acessibilidade</a>
+                    <a href>Glossário</a>
+                    <a href>Cookies</a>
+                    <a href>Avisos Legais</a>
+                    <a href>Links Úteis</a>
+                    <a href>Mapas do Site</a>
+                    <a href>Contactos</a>
+                </div>
+            </div>
+        </footer>
     </section>
-    
+
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
