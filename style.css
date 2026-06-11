@@ -1320,6 +1320,10 @@
         overflow-y: auto;
     }
     
+    .caixaCarreira div {
+        overflow-x: o;
+    }
+    
     .caixaCarreiraIndividual {
         width: 600px;
         height: 50vh;
@@ -1756,6 +1760,9 @@
     #pesquisaCarreiraRightContainer {
         height: 100%;
         width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     
     #pesquisaCarreiraRightTop {
@@ -2458,6 +2465,12 @@
         filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.1)) drop-shadow(8px 8px 8px rgba(0, 0, 0, 0.1));
     }
     
+    .numeroConcurso {
+        color: white;
+        font-size: 0.9em;
+        text-transform: uppercase;
+    }
+    
     .cardConcurso {
         color: white;
         padding: 1em;
@@ -2831,7 +2844,7 @@
     /* #### PROVAS FISICAS SECTION #### */
     
     #provasFisicasSection {
-        height: 100vh;
+        height: 130vh;
         background-image: url('Utilities/Images/bg2.png');
         margin: 0;
         background-size: cover;
@@ -2936,7 +2949,30 @@
     
     .caixasCarreira {
         display: flex;
+        flex-wrap: wrap;
         gap: 2em;
+    }
+    
+    #caixaCarreira1 {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 1em;
+        scroll-snap-align: center;
+    }
+    
+    .caixasCarreira::-webkit-scrollbar {
+        height: 8px;
+        z-index: -1;
+    }
+    
+    .caixasCarreira::-webkit-scrollbar-track {
+        background-color: #232426;
+        border-radius: 3em;
+    }
+    
+    .caixasCarreira::-webkit-scrollbar-thumb {
+        background-color: white;
+        border-radius: 3em;
     }
     /* #### TESTES PSICOLÓGICOS SECTION #### */
     
@@ -3145,6 +3181,7 @@
         /* ####### SECTION 3 ####### */
         #pesquisaCarreiraRight {
             align-items: start;
+            width: 100%;
         }
         #pesquisaCarreiraRightContainer {
             height: 70%;
@@ -3197,42 +3234,54 @@
         #profissoesSectionContainer {
             height: auto;
             width: 90%;
-            /* Give a bit more horizontal room on mobile */
         }
-        /* 2. Change flex direction to stack items top to bottom */
         .cardProfissoes {
             flex-direction: column;
             align-items: center;
             gap: 3rem;
-            /* Add space between text and images */
         }
-        /* 3. Make the left (text) section take full width */
         .profissoesLeft {
             width: 100%;
             height: auto;
             align-items: center;
-            /* Center text visually on smaller screens */
             text-align: center;
         }
         .profissoesLeft p {
             width: 100%;
         }
-        /* 4. Make the right (images) section take full width and center images */
         .profissoesRight {
             width: 100%;
             height: auto;
             justify-content: center;
             align-items: center;
+            display: none;
         }
-        /* 5. Adjust images so they scale down instead of relying on container height */
         .profissoesRight img:nth-child(1),
         .profissoesRight img:nth-child(2) {
             height: auto;
             width: 45%;
-            /* Keeps them side-by-side but scales them down */
             max-width: 300px;
-            /* Prevents them from getting absurdly large */
             object-fit: cover;
+        }
+        /* ### CONCURSOS ### */
+        #buttonsConcurso {
+            width: 90%;
+            justify-content: normal;
+        }
+        #buttonsConcurso span {
+            padding: 1em 2em;
+        }
+        /* ### INSTRUCOES ### */
+        .instrucoesBottom h3 {
+            font-size: 1em;
+        }
+        .instrucoesBottom p {
+            font-size: 0.9em;
+        }
+        /* ### PROVAS FISICAS ### */
+        .caixaCarreiraIndividual {
+            width: 100%;
+            flex-wrap: wrap;
         }
         /* ### A TUA CARREIRA ### */
         .caixaCarreira {
@@ -3242,6 +3291,10 @@
         .cardPreparate {
             width: 65vw !important;
             max-width: 250px !important;
+        }
+        .caixaDocumentacao {
+            width: 100% !important;
+            max-width: 350px !important;
         }
         /* ### FOOTER ### */
         footer {

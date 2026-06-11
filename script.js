@@ -605,11 +605,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (cartao.getAttribute('data-status') === status) {
                 cartao.style.display = 'block';
-                contador++;
+
+                // Só incrementa o contador se o cartão for um concurso vindo da Base de Dados
+                if (cartao.classList.contains('concurso-real')) {
+                    contador++;
+                }
             } else {
                 cartao.style.display = 'none';
             }
         });
+
         if (mensagemVazia) {
             if (contador === 0) {
                 mensagemVazia.style.display = 'block';
@@ -648,7 +653,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateCards(selectedText) {
         const targetStatus = statusMap[selectedText.trim()];
-        
+
         cardsGroups.forEach(group => {
             if (group.getAttribute("data-status") === targetStatus) {
                 group.style.display = "flex";
@@ -686,7 +691,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateCards(selectedText) {
         const targetStatus = statusMap[selectedText.trim()];
-        
+
         cardsGroups.forEach(group => {
             if (group.getAttribute("data-status") === targetStatus) {
                 group.style.display = "flex";
@@ -724,14 +729,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateInstrucoes(selectedText) {
         const targetStatus = statusMap[selectedText.trim()];
-        
+
         if (!targetStatus) return;
-        
+
         basicGroups.forEach(group => {
             if (group.getAttribute("data-status") === targetStatus) {
-                group.classList.add("active"); 
+                group.classList.add("active");
             } else {
-                group.classList.remove("active"); 
+                group.classList.remove("active");
             }
         });
     }
@@ -764,14 +769,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateInstrucoes(selectedText) {
         const targetStatus = statusMap[selectedText.trim()];
-        
+
         if (!targetStatus) return;
-        
+
         instrucoesGroups.forEach(group => {
             if (group.getAttribute("data-status") === targetStatus) {
-                group.classList.add("active"); 
+                group.classList.add("active");
             } else {
-                group.classList.remove("active"); 
+                group.classList.remove("active");
             }
         });
     }
@@ -806,14 +811,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateProvas(selectedText) {
         const targetStatus = statusMap[selectedText.trim()];
-        
+
         if (!targetStatus) return;
-        
+
         provasGroups.forEach(group => {
             if (group.getAttribute("data-status") === targetStatus) {
-                group.classList.add("active"); 
+                group.classList.add("active");
             } else {
-                group.classList.remove("active"); 
+                group.classList.remove("active");
             }
         });
     }
@@ -832,7 +837,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* #### PESQUISA CARREIRA #### */
 document.addEventListener("DOMContentLoaded", () => {
-    
+
     const searchBtns = document.querySelectorAll('.searchDropdownBtn');
     if (searchBtns.length > 0) {
         searchBtns.forEach(btn => {
@@ -850,7 +855,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cartoes = document.querySelectorAll('.cardPesquisaCarreira');
     if (cartoes.length > 0) {
-        
+
         const urlParams = new URLSearchParams(window.location.search);
         const userHab = urlParams.get('hab');
         const userIdadeParams = urlParams.get('idade');
@@ -868,8 +873,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const categoriaAtiva = tabAtiva ? tabAtiva.innerText.trim().toLowerCase() : 'militares';
 
             const page2Dropdowns = document.querySelectorAll('#pesquisaCarreiraLeftDropdown .custom-dropdown');
-            let atualHab = userHab || "Ensino Básico"; 
-            let atualIdadeParams = userIdadeParams || "18"; 
+            let atualHab = userHab || "Ensino Básico";
+            let atualIdadeParams = userIdadeParams || "18";
 
             if (page2Dropdowns.length >= 2) {
                 atualHab = page2Dropdowns[0].querySelector('.option.selected').innerText.trim();
@@ -965,6 +970,7 @@ if (btnEnviar && emailInput) {
         this.style.borderColor = '';
     });
 }
+
 function toggleAccordion(header) {
     const item = header.closest('.accordion-item');
     item.classList.toggle('open');

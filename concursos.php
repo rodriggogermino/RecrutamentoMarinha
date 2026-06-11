@@ -1,39 +1,32 @@
+<?php 
+    require_once 'ligacao_bd.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent">
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-        <link rel="icon" type="image/x-icon" href="Utilities/Images/icone.ico">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <title>Concurso - nº 12345</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" type="image/x-icon" href="Utilities/Images/icone.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Marinha Recrutamento</title>
+</head>
 
-    <body
-        style="background-image: url(Utilities/Images/bg1.png); background-position: center; background-size: cover;">
-        <!--#### NAVBAR ####-->
-        <nav>
-            <a href="index.html" id="navLogoS"><img
-                    src="Utilities/Images/logoWhiteS.png"
-                    alt="Logotipo Branco | Marinha Portuguesa"></a>
-            <a href="index.html" id="navLogoXS"><img
-                    src="Utilities/Images/logoWhiteXS.png"
-                    alt="Logotipo Branco | Marinha Portuguesa"></a>
-            <div id="rightNav">
-                <form action="/">
-                    <input id="barraPesquisa" class="barraPesquisa"
-                        type="search" placeholder="Pesquise Aqui">
-                </form>
-                <span id="searchIconMobile" onclick="openNav()">
+<body style="background-image: url(Utilities/Images/bg1.png); background-position: center; background-size: cover;">
+    <!--#### NAVBAR ####-->
+    <nav>
+        <a href="index.php" id="navLogoS"><img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+        <div id="rightNav">
+            <form action="/">
+                <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
+            </form>
+            <span id="searchIconMobile" onclick="openNav()">
                     <!--#### SEARCH ICON MOBILE ####-->
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -42,9 +35,9 @@
                             fill="white" />
                     </svg>
                 </span>
-                <div id="searchIcons">
-                    <!--#### SEARCH ICONS ####-->
-                    <span id="searchIcon">
+            <div id="searchIcons">
+                <!--#### SEARCH ICONS ####-->
+                <span id="searchIcon">
                         <svg width="24" height="24" viewBox="0 0 24 24"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -52,7 +45,7 @@
                                 fill="white" />
                         </svg>
                     </span>
-                    <span id="searchIconHover">
+                <span id="searchIconHover">
                         <svg width="24" height="24" viewBox="0 0 24 24"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -60,8 +53,8 @@
                                 fill="white" />
                         </svg>
                     </span>
-                </div>
-                <span id="barsIcon"> <!--#### BARS ICON ####-->
+            </div>
+            <span id="barsIcon"> <!--#### BARS ICON ####-->
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -75,47 +68,45 @@
                             fill="white" />
                     </svg>
                 </span>
-                <div id="sideMenu" class="side-menu">
-                    <!--#### SIDE MENU ####-->
-                    <ul>
-                        <li><a href="profissoes.html">Profissões</a></li>
-                        <li><a href="concursos.html">Concursos</a></li>
-                        <li><a href="preparate.html">Prepara-te</a></li>
-                        <li><a href="atuacarreira.html">A tua Carreira</a></li>
-                        <li><a href="inscricao.html">Candidata-te</a></li>
-                    </ul>
-                </div>
+            <div id="sideMenu" class="side-menu">
+                <!--#### SIDE MENU ####-->
+                <ul>
+                    <li><a href="profissoes.html">Profissões</a></li>
+                    <li><a href="concursos.php">Concursos</a></li>
+                    <li><a href="preparate.html">Prepara-te</a></li>
+                    <li><a href="atuacarreira.html">A tua Carreira</a></li>
+                    <li><a href="inscricao.html">Candidata-te</a></li>
+                </ul>
             </div>
-        </nav>
-        <!--#### BARRA PESQUISA ####-->
-        <div id="searchMobile" class="searchMobile">
-            <a href="javascript:void(0)" class="closebtn"
-                onclick="closeNav()">&times;</a>
-            <form action="/">
-                <input id="barraPesquisa" class="barraPesquisa" type="search"
-                    placeholder="Pesquise Aqui">
-            </form>
         </div>
-        <!--#### SIDE BUTTONS ####-->
-        <div id="sideButtons">
-            <span id="chatbotBtn">CHAT</span>
-            <a href="inscricao.html">JUNTA-TE A NÓS</a>
-        </div>
-        <!--#### CHATBOT ####-->
-        <div id="chatbotDiv">
-            <div id="chatbotTop">
-                <div id="chatbotTopLeft">
-                    <div id="logoChatbot"></div>
-                    <div id="chatbotTopLeftContainer">
-                        <h1>Marujo</h1>
-                        <div id="chatbotStatus">
-                            <div id="statusIcon"></div>
-                            <p>Online</p>
-                        </div>
+    </nav>
+    <!--#### BARRA PESQUISA ####-->
+    <div id="searchMobile" class="searchMobile">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <form action="/">
+            <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
+        </form>
+    </div>
+    <!--#### SIDE BUTTONS ####-->
+    <div id="sideButtons">
+        <span id="chatbotBtn">CHAT</span>
+        <a href="inscricao.html">JUNTA-TE A NÓS</a>
+    </div>
+    <!--#### CHATBOT ####-->
+    <div id="chatbotDiv">
+        <div id="chatbotTop">
+            <div id="chatbotTopLeft">
+                <div id="logoChatbot"></div>
+                <div id="chatbotTopLeftContainer">
+                    <h1>Marujo</h1>
+                    <div id="chatbotStatus">
+                        <div id="statusIcon"></div>
+                        <p>Online</p>
                     </div>
                 </div>
-                <div id="chatbotTopRight">
-                    <span id="minimizeIcon">
+            </div>
+            <div id="chatbotTopRight">
+                <span id="minimizeIcon">
                         <svg width="20" height="20" viewBox="0 0 20 20"
                             fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -123,127 +114,162 @@
                                 fill="#FEF7FF" />
                         </svg>
                     </span>
-                </div>
-            </div>
-            <div id="chatbotOutput">
-                <div class="msgIntro">
-                    <p>Olá! Sou o assistente virtual. Posso ajudar com dúvidas
-                        sobre concursos, requisitos e candidatura.
-                    </p>
-                </div>
-
-                <div class="msgBot">
-                    <p>Em que posso ajudar hoje?</p>
-                    <span class="timestamp">Agora</span>
-                </div>
-
-                <div class="msgPessoa">
-                    <p>Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O
-                        que posso seguir como militar, na categoria dos
-                        Oficiais, na Marinha?</p>
-                    <span class="timestamp">09:43</span>
-                </div>
-
-                <div class="msgBot">
-                    <p>Rodrigo, com essas características podes concorrer na
-                        categoria dos Oficiais para:</p>
-                    <ul>
-                        <li>TSN, TN & TS (Regime de Contrato);</li>
-                        <li>Fuzileiros (Regime de Contrato);</li>
-                        <li>Médico Naval (Quadros Permanentes).</li>
-                    </ul>
-                    <span class="timestamp">Agora</span>
-                </div>
-            </div>
-
-            <div id="chatbotPrompt">
-                <p>*O Marujo pode conter erros. Considere verificar informações
-                    importantes.
-                </p>
-                <form action onsubmit="event.preventDefault();">
-                    <input type="text" placeholder="Escreve a tua pergunta..."
-                        id="perguntaChatbot">
-                    <input type="submit" id="enviarPergunta" value="Enviar">
-                </form>
             </div>
         </div>
-        <section id="concursosInfoSection">
-            <div id="concursosInfoSectionContainer">
-                <div id="InfoConcurso">
-                    <div id="tituloInfoConcurso">
-                        <p>Concurso nº 12345</p>
-                        <h1>Oficiais - TSN / TS / TN</h1>
-                    </div>
-                    <p><b>Tipo de Contrato:</b> Regime de Contrato (RC)</p>
-                    <div id="datasInfoConcurso">
-                        <p><b>Inicio:</b> 02/03/2026</p>
-                        <p><b>Fim:</b> 31/03/2026</p>
-                        <p><b>Incorporação:</b> 15/06/2026</p>
-                    </div>
-                    <a href="login.html">Candidatar-me</a>
-                </div>
-                <div id="outrosConcursos">
-                    <div id="tituloOutrosConcurso">
-                        <p>Abertos</p>
-                        <h1>Outros Concursos</h1>
-                    </div>
-                    <div id="listaConcursosInfo">
-                        <div id="abertos" class="cardConcurso">
-                            <h2>Oficiais - TSN / TS / TN</h2>
-                            <p>Admissão ao Curso de Formação de Oficiais. 12.º
-                                ano ou equivalente e provas específicas.</p>
-                            <div class="btnsConcursos">
-                                <a href class="btnAvisoConcurso">Aviso</a>
-                                <a href="concursoInfo.html"
-                                    class="btnSaberMaisConcurso">Saber Mais</a>
-                            </div>
-                        </div>
-                        <div id="abertos" class="cardConcurso">
-                            <h2>Praças da Classe de Músicos (B) dos Quadros
-                                Permanentes </h2>
-                            <p>Concurso de Admissão de Voluntários para Ingresso
-                                na Categoria de Praças da Classe de Músicos (B)
-                                dos Quadros Permanentes (QP) - Saxofone; Trompa
-                                de Harmonia; Trombone Tenor</p>
-                            <div class="btnsConcursos">
-                                <a href class="btnAvisoConcurso">Aviso</a>
-                                <a href="concursoInfo.html"
-                                    class="btnSaberMaisConcurso">Saber Mais</a>
-                            </div>
-                        </div>
-                        <div id="abertos" class="cardConcurso">
-                            <h2>Cursos de Formação de Sargentos (CFS) para
-                                Ingresso na Categoria de Sargento do Quadro
-                                Permanente das Classes Eletrotécnicos (ET) e
-                                Maquinistas Navais (MQ)</h2>
-                            <p>Concurso de Admissão de Voluntários para Ingresso
-                                na Categoria de Praças da Classe de Músicos (B)
-                                dos Quadros Permanentes (QP) - Saxofone; Trompa
-                                de Harmonia; Trombone Tenor</p>
-                            <div class="btnsConcursos">
-                                <a href class="btnAvisoConcurso">Aviso</a>
-                                <a href="concursoInfo.html"
-                                    class="btnSaberMaisConcurso">Saber Mais</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div id="chatbotOutput">
+            <div class="msgIntro">
+                <p>Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.
+                </p>
             </div>
-        </section>
-        <section id="carreiraSectionPreparate">
-            <!--#### FOOTER ####-->
-            <footer style="position: static;">
-                <div id="topFooter">
-                    <div id="logotiposFooter">
-                        <a href><img src="Utilities/Images/logoWhiteXS.png"
-                                alt="Logotipo Branco | Marinha Portuguesa"></a>
-                        <a href><img src="Utilities/Images/govLogo.png"
-                                alt="Logotipo Républica Portuguesa"></a>
-                    </div>
-                    <div id="logotiposRedes">
-                        <a href="https://www.facebook.com/@marinharecrutamento"
-                            target="_blank">
-                            <span id="facebookIcon">
+
+            <div class="msgBot">
+                <p>Em que posso ajudar hoje?</p>
+                <span class="timestamp">Agora</span>
+            </div>
+
+            <div class="msgPessoa">
+                <p>Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso seguir como militar, na categoria dos Oficiais, na Marinha?</p>
+                <span class="timestamp">09:43</span>
+            </div>
+
+            <div class="msgBot">
+                <p>Rodrigo, com essas características podes concorrer na categoria dos Oficiais para:</p>
+                <ul>
+                    <li>TSN, TN & TS (Regime de Contrato);</li>
+                    <li>Fuzileiros (Regime de Contrato);</li>
+                    <li>Médico Naval (Quadros Permanentes).</li>
+                </ul>
+                <span class="timestamp">Agora</span>
+            </div>
+        </div>
+
+        <div id="chatbotPrompt">
+            <p>*O Marujo pode conter erros. Considere verificar informações importantes.
+            </p>
+            <form action onsubmit="event.preventDefault();">
+                <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot">
+                <input type="submit" id="enviarPergunta" value="Enviar">
+            </form>
+        </div>
+    </div>
+    <section id="concursosSection">
+        <div id="concursosSectionContainer">
+            <div id="tituloPreparate">
+                <h1>Fica a par dos nossos concursos</h1>
+                <p>Não percas um concurso na Marinha Portuguesa</p>
+            </div>
+            <div id="buttonsConcurso">
+                <span id="concursosAbertos">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" id="abertoIcone">
+                            <path d="M23.6102 12.9422C24.1304 12.4211 24.1297 11.5768 23.6086 11.0566C23.0875 10.5363 22.2433 10.537 21.723 11.0581L14.6658 18.1271L11.6094 15.0707C11.0887 14.55 10.2445 14.55 9.72378 15.0707C9.20308 15.5914 9.20308 16.4356 9.72378 16.9563L13.7238 20.9563C13.974 21.2065 14.3133 21.347 14.6671 21.3468C15.021 21.3467 15.3602 21.2059 15.6102 20.9555L23.6102 12.9422Z" fill="#232426"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M30.6666 16.0002C30.6666 24.1003 24.1001 30.6668 15.9999 30.6668C7.89974 30.6668 1.33325 24.1003 1.33325 16.0002C1.33325 7.89999 7.89974 1.3335 15.9999 1.3335C24.1001 1.3335 30.6666 7.89999 30.6666 16.0002ZM27.9999 16.0002C27.9999 22.6276 22.6273 28.0002 15.9999 28.0002C9.3725 28.0002 3.99992 22.6276 3.99992 16.0002C3.99992 9.37275 9.3725 4.00016 15.9999 4.00016C22.6273 4.00016 27.9999 9.37275 27.9999 16.0002Z" fill="#232426"/>
+                        </svg>
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" id="abertoIconeHover">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 1.33301C24.1002 1.33301 30.667 7.89982 30.667 16C30.667 24.1002 24.1002 30.667 16 30.667C7.89982 30.667 1.33301 24.1002 1.33301 16C1.33301 7.89982 7.89982 1.33301 16 1.33301ZM23.6084 11.0566C23.0873 10.5364 22.2429 10.5365 21.7227 11.0576L14.666 18.127L11.6094 15.0703C11.0887 14.5498 10.2443 14.5497 9.72363 15.0703C9.20299 15.591 9.20309 16.4353 9.72363 16.9561L13.7236 20.9561C13.9738 21.2062 14.3133 21.3468 14.667 21.3467C15.0208 21.3465 15.3604 21.2055 15.6104 20.9551L23.6104 12.9424C24.1306 12.4212 24.1295 11.5769 23.6084 11.0566Z" fill="#232426"/>
+                        </svg>
+                        <p>ABERTOS</p>
+                </span>
+                <span id="concursosTerminados"> 
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" id="terminadoIcone"> 
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9999 4.00016C9.3725 4.00016 3.99992 9.37275 3.99992 16.0002C3.99992 22.6276 9.3725 28.0002 15.9999 28.0002C22.6273 28.0002 27.9999 22.6276 27.9999 16.0002C27.9999 9.37275 22.6273 4.00016 15.9999 4.00016ZM1.33325 16.0002C1.33325 7.89999 7.89974 1.3335 15.9999 1.3335C24.1001 1.3335 30.6666 7.89999 30.6666 16.0002C30.6666 24.1003 24.1001 30.6668 15.9999 30.6668C7.89974 30.6668 1.33325 24.1003 1.33325 16.0002Z" fill="#232426"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20.9427 11.0574C21.4634 11.5781 21.4634 12.4223 20.9427 12.943L12.9427 20.943C12.422 21.4637 11.5778 21.4637 11.0571 20.943C10.5364 20.4223 10.5364 19.5781 11.0571 19.0574L19.0571 11.0574C19.5778 10.5367 20.422 10.5367 20.9427 11.0574Z" fill="#232426"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.0571 11.0574C11.5778 10.5367 12.422 10.5367 12.9427 11.0574L20.9427 19.0574C21.4634 19.5781 21.4634 20.4223 20.9427 20.943C20.422 21.4637 19.5778 21.4637 19.0571 20.943L11.0571 12.943C10.5364 12.4223 10.5364 11.5781 11.0571 11.0574Z" fill="#232426"/>
+                        </svg>
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" id="terminadoIconeHover">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 1.33301C24.1002 1.33301 30.667 7.89982 30.667 16C30.667 24.1002 24.1002 30.667 16 30.667C7.89982 30.667 1.33301 24.1002 1.33301 16C1.33301 7.89982 7.89982 1.33301 16 1.33301ZM20.9424 11.0576C20.4217 10.5369 19.5783 10.5369 19.0576 11.0576L16 14.1152L12.9424 11.0576C12.4217 10.5369 11.5783 10.5369 11.0576 11.0576C10.5369 11.5783 10.5369 12.4217 11.0576 12.9424L14.1152 16L11.0576 19.0576C10.5369 19.5783 10.5369 20.4217 11.0576 20.9424C11.5783 21.4631 12.4217 21.4631 12.9424 20.9424L16 17.8848L19.0576 20.9424C19.5783 21.4631 20.4217 21.4631 20.9424 20.9424C21.4631 20.4217 21.4631 19.5783 20.9424 19.0576L17.8848 16L20.9424 12.9424C21.4631 12.4217 21.4631 11.5783 20.9424 11.0576Z" fill="#232426"/>
+                        </svg>
+                        <p>TERMINADOS</p>
+                    
+                </span>
+                <span id="concursosFuturos">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" id="futuroIcone">
+                            <path d="M16.0001 10.6667C16.7365 10.6667 17.3334 11.2637 17.3334 12.0001V17.3334C17.3334 18.0698 16.7365 18.6667 16.0001 18.6667C15.2637 18.6667 14.6667 18.0698 14.6667 17.3334V12.0001C14.6667 11.2637 15.2637 10.6667 16.0001 10.6667Z" fill="#232426"/>
+                            <path d="M16.0001 21.3334C15.2637 21.3334 14.6667 21.9304 14.6667 22.6667C14.6667 23.4031 15.2637 24.0001 16.0001 24.0001H16.0134C16.7498 24.0001 17.3467 23.4031 17.3467 22.6667C17.3467 21.9304 16.7498 21.3334 16.0134 21.3334H16.0001Z" fill="#232426"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0377 3.04424C14.6368 2.70697 15.3126 2.52979 16.0001 2.52979C16.6876 2.52979 17.3634 2.70697 17.9625 3.04424C18.5616 3.38151 19.0636 3.86749 19.4201 4.45527L19.424 4.46161L30.7173 23.3149L30.7281 23.3334C31.0774 23.9382 31.2622 24.624 31.2641 25.3224C31.2661 26.0208 31.0851 26.7076 30.7392 27.3144C30.3934 27.9212 29.8946 28.4269 29.2927 28.7811C28.6907 29.1353 28.0065 29.3257 27.3081 29.3334L27.2934 29.3335L4.69212 29.3334C3.99371 29.3258 3.3095 29.1353 2.70754 28.7811C2.10557 28.4269 1.60685 27.9212 1.26097 27.3144C0.915103 26.7076 0.734144 26.0208 0.7361 25.3224C0.738055 24.624 0.922858 23.9382 1.27212 23.3334L1.28295 23.3149L12.5801 4.45526C12.9366 3.86748 13.4387 3.38151 14.0377 3.04424ZM16.0001 5.19645C15.771 5.19645 15.5457 5.25551 15.346 5.36794C15.1472 5.47985 14.9805 5.64089 14.8617 5.83563L3.57703 24.6745C3.46346 24.8743 3.4034 25.1 3.40276 25.3299C3.4021 25.5627 3.46242 25.7916 3.57771 25.9939C3.69301 26.1961 3.85925 26.3647 4.0599 26.4828C4.2588 26.5998 4.48464 26.6632 4.71531 26.6668H27.2849C27.5156 26.6632 27.7414 26.5998 27.9403 26.4828C28.141 26.3647 28.3072 26.1961 28.4225 25.9939C28.5378 25.7916 28.5981 25.5627 28.5975 25.3299C28.5968 25.1 28.5368 24.8743 28.4232 24.6746L17.1401 5.83828L17.1385 5.83563C17.0198 5.64089 16.853 5.47985 16.6542 5.36794C16.4546 5.25551 16.2293 5.19645 16.0001 5.19645Z" fill="#232426"/>
+                        </svg>
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" id="futuroIconeHover">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9999 2.52979C15.3124 2.52979 14.6365 2.70697 14.0375 3.04424C13.4384 3.38151 12.9364 3.86748 12.5798 4.45526L1.28271 23.3149L1.27188 23.3334C0.922614 23.9382 0.737811 24.624 0.735856 25.3224C0.7339 26.0208 0.914859 26.7076 1.26073 27.3144C1.6066 27.9212 2.10533 28.4269 2.70729 28.7811C3.30925 29.1353 3.99347 29.3258 4.69188 29.3334L27.2932 29.3335L27.3079 29.3334C28.0063 29.3257 28.6905 29.1353 29.2924 28.7811C29.8944 28.4269 30.3931 27.9212 30.739 27.3144C31.0849 26.7076 31.2658 26.0208 31.2639 25.3224C31.2619 24.624 31.0771 23.9382 30.7279 23.3334L30.717 23.3149L19.4237 4.46161L19.4199 4.45527C19.0633 3.86749 18.5613 3.38151 17.9623 3.04424C17.3632 2.70697 16.6873 2.52979 15.9999 2.52979ZM17.3332 12.0001C17.3332 11.2637 16.7362 10.6667 15.9998 10.6667C15.2635 10.6667 14.6665 11.2637 14.6665 12.0001V17.3334C14.6665 18.0698 15.2635 18.6667 15.9998 18.6667C16.7362 18.6667 17.3332 18.0698 17.3332 17.3334V12.0001ZM15.9998 21.3334C15.2635 21.3334 14.6665 21.9304 14.6665 22.6667C14.6665 23.4031 15.2635 24.0001 15.9998 24.0001H16.0132C16.7496 24.0001 17.3465 23.4031 17.3465 22.6667C17.3465 21.9304 16.7496 21.3334 16.0132 21.3334H15.9998Z" fill="#232426"/>
+                        </svg>
+                        <p>FUTUROS</p>
+                    
+                </span>
+            </div>
+            <span id="concursosFiltrar">
+                <p>Filtrar</p>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="filtrarIcon">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.0929 2.57912C1.25675 2.22596 1.61069 2 2.00001 2H22C22.3893 2 22.7433 2.22596 22.9071 2.57912C23.071 2.93229 23.015 3.34845 22.7636 3.64573L15 12.8261V21C15 21.3466 14.8206 21.6684 14.5257 21.8507C14.2309 22.0329 13.8628 22.0494 13.5528 21.8944L9.5528 19.8944C9.21402 19.725 9.00001 19.3788 9.00001 19V12.8261L1.23644 3.64573C0.985046 3.34845 0.929037 2.93229 1.0929 2.57912ZM4.15532 4L10.7636 11.8143C10.9162 11.9948 11 12.2236 11 12.46V18.382L13 19.382V12.46C13 12.2236 13.0838 11.9948 13.2364 11.8143L19.8447 4H4.15532Z" fill="white"/>
+                </svg>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" id="filtrarIconHover">
+                    <path d="M2.00001 2C1.61069 2 1.25675 2.22596 1.0929 2.57912C0.929037 2.93229 0.985046 3.34845 1.23644 3.64573L9.00001 12.8261V19C9.00001 19.3788 9.21402 19.725 9.5528 19.8944L13.5528 21.8944C13.8628 22.0494 14.2309 22.0329 14.5257 21.8507C14.8206 21.6684 15 21.3466 15 21V12.8261L22.7636 3.64573C23.015 3.34845 23.071 2.93229 22.9071 2.57912C22.7433 2.22596 22.3893 2 22 2H2.00001Z" fill="white"/>
+                </svg>
+            </span>
+            <div id="listaConcursos">
+                <?php
+                    $sqlConcursos = "SELECT * FROM concursos ORDER BY data_fim ASC";
+                    $stmtConcursos = $pdo->prepare($sqlConcursos);
+                    $stmtConcursos->execute();
+                    $listaConcursos = $stmtConcursos->fetchAll(PDO::FETCH_ASSOC);
+
+                    $categorias = [
+                        'abertos' => ['bd' => 'aberto', 'titulo' => 'Abertos', 'descricao' => 'Todos os concursos abertos de momento.'],
+                        'terminados' => ['bd' => 'terminado', 'titulo' => 'Terminados', 'descricao' => 'Todos os concursos terminados.'],
+                        'futuros' => ['bd' => 'futuro', 'titulo' => 'Futuros', 'descricao' => 'Todos os concursos futuros.']
+                    ];
+
+                    foreach ($categorias as $statusHtml => $info):
+                        $concursosNestaCategoria = array_filter($listaConcursos, function($c) use ($info) {
+                            return $c['estado'] === $info['bd'];
+                        });
+                        
+                        if (count($concursosNestaCategoria) > 0): 
+                ?>
+                            <div data-status="<?= $statusHtml ?>" class="cardConcurso" style="display:none;">
+                                <h2><?= $info['titulo'] ?></h2>
+                                <p><?= $info['descricao'] ?></p>
+                            </div>
+
+                            <?php foreach ($concursosNestaCategoria as $concurso): ?>
+                                <div data-status="<?= $statusHtml ?>" class="cardConcurso" style="display:none;">
+                                    <p class="numeroConcurso">
+                                        <?= htmlspecialchars($concurso['numero_concurso']) ?>
+                                    </p>
+                                    <h2><?= htmlspecialchars($concurso['categoria']) ?> - <?= htmlspecialchars($concurso['titulo']) ?></h2>
+                                    <p>
+                                        <?= htmlspecialchars($concurso['descricao']) ?>
+                                    </p>
+                                    
+                                    <div class="btnsConcursos">
+                                        <?php if(!empty($concurso['diario_republica_url'])): ?>
+                                            <a href="<?= htmlspecialchars($concurso['diario_republica_url']) ?>" target="_blank" class="btnAvisoConcurso">Aviso</a>
+                                        <?php endif; ?>
+                                        <a href="concursoInfo.php?id=<?= $concurso['id'] ?>" class="btnSaberMaisConcurso">Saber Mais</a>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                <?php 
+                        else: 
+                ?>
+                            <div data-status="<?= $statusHtml ?>" class="cardConcurso" style="display:none; text-align: center;">
+                                <h2>Sem concursos de momento</h2>
+                                <p>Não existem concursos disponíveis nesta categoria.</p>
+                            </div>
+                <?php 
+                        endif;
+                    endforeach; 
+                ?>
+            </div>
+    </section>
+    <section id="carreiraSectionPreparate">
+        <!--#### FOOTER ####-->
+        <footer style="position: static;">
+            <div id="topFooter">
+                <div id="logotiposFooter">
+                    <a href><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+                    <a href><img src="Utilities/Images/govLogo.png" alt="Logotipo Républica Portuguesa"></a>
+                </div>
+                <div id="logotiposRedes">
+                    <a href="https://www.facebook.com/@marinharecrutamento" target="_blank">
+                        <span id="facebookIcon">
                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -253,7 +279,7 @@
                                         fill="white" />
                                 </svg>
                             </span>
-                            <span id="facebookIconHover">
+                        <span id="facebookIconHover">
                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -262,10 +288,9 @@
                                         fill="white" />
                                 </svg>
                             </span>
-                        </a>
-                        <a href="https://www.instagram.com/marinharecrutamento"
-                            target="_blank">
-                            <span id="instagramIcon">
+                    </a>
+                    <a href="https://www.instagram.com/marinharecrutamento" target="_blank">
+                        <span id="instagramIcon">
                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -282,7 +307,7 @@
                                         fill="white" />
                                 </svg>
                             </span>
-                            <span id="instagramIconHover">
+                        <span id="instagramIconHover">
                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -292,9 +317,9 @@
                                         fill="white" />
                                 </svg>
                             </span>
-                        </a>
-                        <a href="https://x.com/marinhapt" target="_blank">
-                            <span id="xIcon">
+                    </a>
+                    <a href="https://x.com/marinhapt" target="_blank">
+                        <span id="xIcon">
                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -312,10 +337,9 @@
                                         mask="url(#path-1-inside-1_707_1928)" />
                                 </svg>
                             </span>
-                        </a>
-                        <a href="https://www.youtube.com/@MarinhaPortuguesa"
-                            target="_blank">
-                            <span id="youtubeIcon">
+                    </a>
+                    <a href="https://www.youtube.com/@MarinhaPortuguesa" target="_blank">
+                        <span id="youtubeIcon">
                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -329,7 +353,7 @@
                                         fill="white" />
                                 </svg>
                             </span>
-                            <span id="youtubeIconHover">
+                        <span id="youtubeIconHover">
                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -339,10 +363,9 @@
                                         fill="white" />
                                 </svg>
                             </span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/marinha-portuguesa"
-                            target="_blank">
-                            <span id="linkedinIcon">
+                    </a>
+                    <a href="https://www.linkedin.com/in/marinha-portuguesa" target="_blank">
+                        <span id="linkedinIcon">
                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -360,7 +383,7 @@
                                         fill="white" />
                                 </svg>
                             </span>
-                            <span id="linkedinIconHover" target="_blank">
+                        <span id="linkedinIconHover" target="_blank">
                                 <svg width="24" height="24" viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -375,29 +398,29 @@
                                         fill="white" />
                                 </svg>
                             </span>
-                        </a>
-                    </div>
+                    </a>
                 </div>
-                <div id="line"></div>
-                <div id="bottomFooter">
-                    <div id="copyrightFooter">
-                        <p>© 2026, MARINHA RECRUTAMENTO</p>
-                        <p id="barraFooter">|</p>
-                    </div>
-                    <div id="linksFooter">
-                        <a href>Acessibilidade</a>
-                        <a href>Glossário</a>
-                        <a href>Cookies</a>
-                        <a href>Avisos Legais</a>
-                        <a href>Links Úteis</a>
-                        <a href>Mapas do Site</a>
-                        <a href>Contactos</a>
-                    </div>
+            </div>
+            <div id="line"></div>
+            <div id="bottomFooter">
+                <div id="copyrightFooter">
+                    <p>© 2026, MARINHA RECRUTAMENTO</p>
+                    <p id="barraFooter">|</p>
                 </div>
-            </footer>
-        </section>
+                <div id="linksFooter">
+                    <a href>Acessibilidade</a>
+                    <a href>Glossário</a>
+                    <a href>Cookies</a>
+                    <a href>Avisos Legais</a>
+                    <a href>Links Úteis</a>
+                    <a href>Mapas do Site</a>
+                    <a href>Contactos</a>
+                </div>
+            </div>
+        </footer>
+    </section>
 
-        <script src="script.js"></script>
-    </body>
+    <script src="script.js"></script>
+</body>
 
 </html>
