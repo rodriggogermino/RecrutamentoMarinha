@@ -206,7 +206,7 @@
                     </div>
                     
                     <?php if ($concursoAtual['estado'] === 'aberto'): ?>
-                        <a href="inscricao.html">Candidatar-me</a>
+                        <a href="login.html">Candidatar-me</a>
                     <?php else: ?>
                         <a href="#" style="cursor: not-allowed;">Candidaturas Encerradas</a>
                     <?php endif; ?>
