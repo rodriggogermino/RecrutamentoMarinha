@@ -3197,41 +3197,32 @@
         #profissoesSectionContainer {
             height: auto;
             width: 90%;
-            /* Give a bit more horizontal room on mobile */
         }
-        /* 2. Change flex direction to stack items top to bottom */
         .cardProfissoes {
             flex-direction: column;
             align-items: center;
             gap: 3rem;
-            /* Add space between text and images */
         }
-        /* 3. Make the left (text) section take full width */
         .profissoesLeft {
             width: 100%;
             height: auto;
             align-items: center;
-            /* Center text visually on smaller screens */
             text-align: center;
         }
         .profissoesLeft p {
             width: 100%;
         }
-        /* 4. Make the right (images) section take full width and center images */
         .profissoesRight {
             width: 100%;
             height: auto;
             justify-content: center;
             align-items: center;
         }
-        /* 5. Adjust images so they scale down instead of relying on container height */
         .profissoesRight img:nth-child(1),
         .profissoesRight img:nth-child(2) {
             height: auto;
             width: 45%;
-            /* Keeps them side-by-side but scales them down */
             max-width: 300px;
-            /* Prevents them from getting absurdly large */
             object-fit: cover;
         }
         /* ### A TUA CARREIRA ### */
