@@ -1240,7 +1240,7 @@
         font-weight: 100;
         min-height: 70%;
         height: auto;
-        font-size: 0.7em;
+        font-size: 0.9em;
         display: flex;
         gap: 1em;
         flex-direction: column;
@@ -2127,6 +2127,9 @@
     .profissoesLeft h1 {
         font-weight: 700;
         font-size: 3rem;
+        backdrop-filter: blur(1.3vh);
+        padding: 2vh;
+        border-radius: 2vh;
     }
     
     .profissoesLeft p {
@@ -2135,6 +2138,9 @@
         line-height: 1.5em;
         overflow: auto;
         width: 80%;
+        backdrop-filter: blur(6vh);
+        padding: 2vh;
+        border-radius: 2vh;
     }
     
     .profissoesLeft a {
@@ -2476,14 +2482,8 @@
         padding: 1em;
         margin-top: 1em;
         transition: 0.4s;
-    }
-    
-    .cardConcurso:first-of-type:hover {
-        filter: brightness(1);
-    }
-    
-    .cardConcurso:hover {
-        filter: brightness(0.776);
+        backdrop-filter: blur(1.5vh);
+        border-radius: 2vh;
     }
     
     .cardConcurso h2 {
@@ -2668,8 +2668,7 @@
     }
     
     #listaConcursosInfo .cardConcurso {
-        padding: 0;
-        padding-bottom: 1em;
+        padding: 1vh;
     }
     /* #### DOCUMENTACAO SECTION #### */
     
@@ -3046,6 +3045,68 @@
         background-color: transparent;
         color: #78849d;
     }
+    /* ###### CONTACTOS ###### */
+    
+    #contactosSection {
+        height: fit-content;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #contactosSectionContainer {
+        height: fit-content;
+        width: 85%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: start;
+        justify-content: start;
+        overflow: hidden;
+        gap: 2em;
+        margin-bottom: 9vh;
+    }
+    
+    #contactosLados {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2em;
+    }
+    
+    #contactosLados iframe {
+        filter: invert(90%) hue-rotate(180deg) brightness(95%) contrast(90%);
+        border-radius: 2vh;
+    }
+    
+    #listaContactos {
+        backdrop-filter: blur(1.5vh);
+        padding: 1.5em;
+        border-radius: 2vh;
+    }
+    
+    #listaContactos h3 {
+        color: white;
+        font-weight: 600;
+        padding: 1em 0;
+    }
+    
+    #listaContactos p {
+        color: white;
+        padding: 0.2em 1em;
+        font-weight: 400;
+    }
+    
+    #listaContactos ul {
+        color: white;
+        padding: 0 3em;
+        font-weight: 400;
+    }
+    
+    #listaContactos a {
+        color: #a3b2ff;
+    }
     /* ###### RESPONSIVIDADE ###### */
     
     @media (max-width: 950px) {
@@ -3199,6 +3260,23 @@
         #imgPesquisaCarreira2 {
             height: 70%;
         }
+        #imgPesquisaCarreira1,
+        #imgPesquisaCarreira3 {
+            object-position: top;
+        }
+        #imgPesquisaCarreira2 {
+            height: 70%;
+        }
+        #pesquisaCarreiraResultadoRight {
+            width: 100%;
+            height: 60%;
+        }
+        .classePesquisaCarreira,
+        .contratoPesquisaCarreira,
+        .funcaoPesquisaCarreira {
+            font-size: 1.4em;
+            font-weight: 100;
+        }
         /* ####### SECTION 4 ####### */
         .cardContainer {
             font-size: 0.7em;
@@ -3273,15 +3351,27 @@
             object-fit: cover;
         }
         /* ### CONCURSOS ### */
+        #tituloInfoConcurso {
+            font-size: 1.5vh;
+        }
+        #InfoConcurso {
+            backdrop-filter: blur(1.2vh);
+            padding: 2vh;
+            border-radius: 2vh;
+        }
+        #InfoConcurso p,
+        #InfoConcurso a {
+            font-size: 1.5vh;
+        }
         #buttonsConcurso span {
             padding: 1em 2em;
         }
         /* ### INSTRUCOES ### */
         .instrucoesBottom h3 {
-            font-size: 1em;
+            font-size: 1.4em;
         }
         .instrucoesBottom p {
-            font-size: 0.9em;
+            font-size: 1.2em;
         }
         /* ### PROVAS FISICAS ### */
         .caixaCarreiraIndividual {
@@ -3305,6 +3395,12 @@
         .caixaDocumentacao {
             width: 100% !important;
             max-width: 600px !important;
+        }
+        /* ### CONTACTOS ### */
+        #contactosLados iframe {
+            width: 100%;
+            height: 30vh;
+            margin-bottom: 14vh;
         }
         /* ### FOOTER ### */
         footer {
@@ -3465,6 +3561,12 @@
         }
         #imgPesquisaCarreira2 {
             height: 70%;
+        }
+        .classePesquisaCarreira,
+        .contratoPesquisaCarreira,
+        .funcaoPesquisaCarreira {
+            font-size: 1.1em;
+            font-weight: 100;
         }
         /* ####### SECTION 4 ####### */
         .cardContainer {
