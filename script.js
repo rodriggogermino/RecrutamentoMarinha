@@ -59,6 +59,22 @@ function closeNav() {
     }
 }
 
+/* ### SEARCH ### */
+
+const form = document.querySelector('form');
+const inputPesquisa = document.getElementById('barraPesquisa');
+
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const termo = inputPesquisa.value;
+
+    if (termo.trim() !== "") {
+        console.log("Pesquisando por:", termo);
+
+    }
+});
+
 /* #### MOSTRA NAV / SIDE BUTTONS EM SCROLL / SCROLL IMEDIATO PARA SECÇÃO #### */
 const sideButtons = document.getElementById('sideButtons');
 const scrollSnapArticle = document.querySelector('.scrollSnap');
@@ -105,6 +121,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* #### CARROSSEL (Destaques) #### */
 document.addEventListener('DOMContentLoaded', () => {
+
+    /* #### BTNS #### */
+
     const slides = document.querySelectorAll('.destaquesSlide');
     const btnNext = document.getElementById('destaquesBtnNext');
     const btnPrev = document.getElementById('destaquesBtnPrev');
@@ -144,6 +163,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 slide.style.opacity = 0;
             }
         });
+    }
+
+    /* #### ARRASTAR (ESQ/DIR) #### */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
+
+    const carouselContainer = slides[0].parentElement;
+
+    carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const distance = touchEndX - touchStartX;
+
+        if (distance > swipeThreshold) {
+            currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+            updateSlides();
+        } else if (distance < -swipeThreshold) {
+            currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+            updateSlides();
+        }
     }
 
     btnNext.addEventListener('click', () => {
@@ -225,6 +273,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const exactWidth = (visibleCardsCount * cardWidth) + ((visibleCardsCount - 1) * gap);
         wrapper.style.width = `${exactWidth}px`;
         track.style.justifyContent = 'flex-start';
+
         if (visibleCardsCount >= slides.length) {
             buttonsContainer.style.display = 'none';
             currentIndex = 0;
@@ -234,9 +283,45 @@ document.addEventListener("DOMContentLoaded", () => {
             if (currentIndex > maxIndex) currentIndex = Math.max(0, maxIndex);
             if (currentIndex < 0) currentIndex = 0;
         }
+
         const moveAmount = (cardWidth + gap) * currentIndex;
         track.style.transform = `translateX(-${moveAmount}px)`;
     }
+
+    /* #### ARRASTAR (ESQ/DIR) #### */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
+
+    wrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const distance = touchEndX - touchStartX;
+        const maxIndex = slides.length - visibleCardsCount;
+
+        if (distance > swipeThreshold) {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateOndeEstamosSlider();
+            }
+        } else if (distance < -swipeThreshold) {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateOndeEstamosSlider();
+            }
+        }
+    }
+
+    /* #### BTNS #### */
+
     btnNext.addEventListener('click', () => {
         const maxIndex = slides.length - visibleCardsCount;
         if (currentIndex < maxIndex) {
@@ -244,12 +329,14 @@ document.addEventListener("DOMContentLoaded", () => {
             updateOndeEstamosSlider();
         }
     });
+
     btnPrev.addEventListener('click', () => {
         if (currentIndex > 0) {
             currentIndex--;
             updateOndeEstamosSlider();
         }
     });
+
     window.addEventListener('resize', updateOndeEstamosSlider);
     setTimeout(updateOndeEstamosSlider, 150);
 });
@@ -422,6 +509,40 @@ document.addEventListener("DOMContentLoaded", () => {
         track.style.transform = `translateX(-${moveAmount}px)`;
     }
 
+    /* #### ARRASTAR (ESQ/DIR) #### */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
+
+    wrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const distance = touchEndX - touchStartX;
+        const maxIndex = slides.length - visibleCardsCount;
+
+        if (distance > swipeThreshold) {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updatePreparateSlider();
+            }
+        } else if (distance < -swipeThreshold) {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updatePreparateSlider();
+            }
+        }
+    }
+
+    /* #### BTNS #### */
+
     btnNext.addEventListener('click', () => {
         const maxIndex = slides.length - visibleCardsCount;
         if (currentIndex < maxIndex) {
@@ -485,6 +606,40 @@ document.addEventListener("DOMContentLoaded", () => {
         track.style.transform = `translateX(-${moveAmount}px)`;
     }
 
+    /* #### ARRASTAR (ESQ/DIR) #### */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
+
+    wrapper.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const distance = touchEndX - touchStartX;
+        const maxIndex = slides.length - visibleCardsCount;
+
+        if (distance > swipeThreshold) {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarreiraSlider();
+            }
+        } else if (distance < -swipeThreshold) {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+                updateCarreiraSlider();
+            }
+        }
+    }
+
+    /* #### BTNS #### */
+
     btnNext.addEventListener('click', () => {
         const maxIndex = slides.length - visibleCardsCount;
         if (currentIndex < maxIndex) {
@@ -547,10 +702,43 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    /* #### ARRASTAR (ESQ/DIR) #### */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
+
+    const carouselContainer = slides[0].parentElement;
+
+    carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+        const distance = touchEndX - touchStartX;
+
+        if (distance > swipeThreshold) {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlides();
+        } else if (distance < -swipeThreshold) {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlides();
+        }
+    }
+
+    /* #### BTNS #### */
+
     btnNext.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % slides.length;
         updateSlides();
     });
+
     btnPrev.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + slides.length) % slides.length;
         updateSlides();
@@ -558,6 +746,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updateSlides();
 });
+
 /* #### CONSULTAR PARAMETROS DOCUMENTAÇÃO #### */
 document.addEventListener("DOMContentLoaded", () => {
     const consultarBtns = document.querySelectorAll('.consultarParamBtn');
@@ -883,7 +1072,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const atualIdade = atualIdadeParams === '+27' ? 99 : parseInt(atualIdadeParams);
 
-            // C. Filtrar cada cartão
             cartoes.forEach(cartao => {
                 const regrasHab = cartao.getAttribute('data-hab') || "";
                 const regraIdadeMax = parseInt(cartao.getAttribute('data-idade-max')) || 0;
@@ -931,6 +1119,8 @@ function atualizarDropdownVisuais(dropdownContainer, valorParaSelecionar) {
         }
     });
 }
+
+
 
 /* # */
 /* # */

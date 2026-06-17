@@ -27,8 +27,8 @@
             <a href="index.php" id="navLogoS"><img src="Utilities/Images/logoWhiteS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
             <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
             <div id="rightNav">
-                <form action="/">
-                    <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
+                <form action="/resultados" method="GET">
+                    <input id="barraPesquisa" name="q" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
                 </form>
                 <span id="searchIconMobile" onclick="openNav()"> <!--#### SEARCH ICON MOBILE ####-->
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -557,13 +557,13 @@
                         <p id="barraFooter">|</p>
                     </div>
                     <div id="linksFooter">
-                        <a href="">Acessibilidade</a>
-                        <a href="">Glossário</a>
-                        <a href="">Cookies</a>
-                        <a href="">Avisos Legais</a>
-                        <a href="">Links Úteis</a>
-                        <a href="">Mapas do Site</a>
-                        <a href="">Contactos</a>
+                        <a href="acessibilidade.html ">Acessibilidade</a>
+                        <a href="glossario.html ">Glossário</a>
+                        <a href="cookies.html ">Cookies</a>
+                        <a href="avisos-legais.html ">Avisos Legais</a>
+                        <a href="links.html ">Links Úteis</a>
+                        <a href="mapasSite.html ">Mapas do Site</a>
+                        <a href="contactos.html ">Contactos</a>
                     </div>
                 </div>
             </footer>
@@ -571,7 +571,6 @@
     </article>
 
     <!-- #### SCRIPTS #### -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
 

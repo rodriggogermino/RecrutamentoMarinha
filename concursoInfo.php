@@ -207,8 +207,10 @@
                     
                     <?php if ($concursoAtual['estado'] === 'aberto'): ?>
                         <a href="login.html">Candidatar-me</a>
-                    <?php else: ?>
+                    <?php elseif ($concursoAtual['estado'] === 'terminado'): ?>
                         <a href="#" style="cursor: not-allowed;">Candidaturas Encerradas</a>
+                    <?php else: ?>
+                        <a href="#" style="cursor: not-allowed;">Brevemente</a>
                     <?php endif; ?>
                 </div>
 
@@ -403,13 +405,13 @@
                         <p id="barraFooter">|</p>
                     </div>
                     <div id="linksFooter">
-                        <a href>Acessibilidade</a>
-                        <a href>Glossário</a>
-                        <a href>Cookies</a>
-                        <a href>Avisos Legais</a>
-                        <a href>Links Úteis</a>
-                        <a href>Mapas do Site</a>
-                        <a href>Contactos</a>
+                        <a href="acessibilidade.html ">Acessibilidade</a>
+                    <a href="glossario.html ">Glossário</a>
+                    <a href="cookies.html ">Cookies</a>
+                    <a href="avisos-legais.html ">Avisos Legais</a>
+                    <a href="links.html ">Links Úteis</a>
+                    <a href="mapasSite.html ">Mapas do Site</a>
+                    <a href="contactos.html ">Contactos</a>
                     </div>
                 </div>
             </footer>

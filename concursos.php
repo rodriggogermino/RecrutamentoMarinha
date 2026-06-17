@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Marinha Recrutamento</title>
+    <title>Concursos - Marinha</title>
 </head>
 
 <body style="background-image: url(Utilities/Images/bg1.png); background-position: center; background-size: cover;">
@@ -408,13 +408,13 @@
                     <p id="barraFooter">|</p>
                 </div>
                 <div id="linksFooter">
-                    <a href>Acessibilidade</a>
-                    <a href>Glossário</a>
-                    <a href>Cookies</a>
-                    <a href>Avisos Legais</a>
-                    <a href>Links Úteis</a>
-                    <a href>Mapas do Site</a>
-                    <a href>Contactos</a>
+                    <a href="acessibilidade.html ">Acessibilidade</a>
+                    <a href="glossario.html ">Glossário</a>
+                    <a href="cookies.html ">Cookies</a>
+                    <a href="avisos-legais.html ">Avisos Legais</a>
+                    <a href="links.html ">Links Úteis</a>
+                    <a href="mapasSite.html ">Mapas do Site</a>
+                    <a href="contactos.html ">Contactos</a>
                 </div>
             </div>
         </footer>
