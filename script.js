@@ -1072,7 +1072,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const atualIdade = atualIdadeParams === '+27' ? 99 : parseInt(atualIdadeParams);
 
-            // C. Filtrar cada cartão
             cartoes.forEach(cartao => {
                 const regrasHab = cartao.getAttribute('data-hab') || "";
                 const regraIdadeMax = parseInt(cartao.getAttribute('data-idade-max')) || 0;
@@ -1120,6 +1119,8 @@ function atualizarDropdownVisuais(dropdownContainer, valorParaSelecionar) {
         }
     });
 }
+
+
 
 /* # */
 /* # */

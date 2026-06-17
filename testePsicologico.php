@@ -1,3 +1,30 @@
+<?php
+    require_once 'ligacao_bd.php';
+
+    $sqlPerguntas = "SELECT * FROM testes_perguntas";
+    $stmt = $pdo->prepare($sqlPerguntas);
+    $stmt->execute();
+    $perguntasBD = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $arrayFinal = [];
+
+    foreach ($perguntasBD as $pergunta) {
+        $sqlRespostas = "SELECT id, resposta, correta FROM testes_respostas WHERE id_pergunta = :id_pergunta";
+        $stmtResp = $pdo->prepare($sqlRespostas);
+        $stmtResp->execute(['id_pergunta' => $pergunta['id']]);
+        $respostas = $stmtResp->fetchAll(PDO::FETCH_ASSOC);
+
+
+        $arrayFinal[] = [
+            'id' => $pergunta['id'],
+            'pergunta' => $pergunta['pergunta'],
+            'imagem_url' => $pergunta['imagem_url'],
+            'opcoes' => $respostas
+        ];
+    }
+
+    $jsonPerguntas = json_encode($arrayFinal);
+?>
 <!doctype html>
 <html lang="en">
 
@@ -11,7 +38,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <title>Prepara-te - Teste Psicológico</title>
+    <title>Teste Psicológico</title>
 </head>
 
 <body>
@@ -127,90 +154,33 @@
         />
       </form>
     </div>
-    <!--#### SIDE BUTTONS ####-->
-    <div id="sideButtons">
-      <span id="chatbotBtn">CHAT</span>
-      <a href="inscricao.html">JUNTA-TE A NÓS</a>
-    </div>
-    <!--#### CHATBOT ####-->
-    <div id="chatbotDiv">
-        <div id="chatbotTop">
-            <div id="chatbotTopLeft">
-                <div id="logoChatbot"></div>
-                <div id="chatbotTopLeftContainer">
-                    <h1>Marujo</h1>
-                    <div id="chatbotStatus">
-                        <div id="statusIcon"></div>
-                        <p>Online</p>
+    <section id="testesPsicologicoSection">
+        <div id="testesPsicologicoSectionContainer">
+            <div id="testesPsicologicoSectionContainerLeft">
+                <img src="Utilities/Images/imgTestePsicologicoExemplo.png" alt="Teste Psicológico" />
+                <h1>Neste sistema de engrenagem, qual a roda que irá girar o maior número de vezes? (se forem todas iguais, assinale D)</h1>
+                <div id="testesPsicologicoProgressBar">
+                    <span></span>
+                </div>
+                <p id="perguntaNumero">Pergunta 4 / 20</p>
+            </div>
+            <div id="testesPsicologicoSectionContainerRight">
+                <div id="containerRespostas">
+                    <div class="respostaTestePsciologico">
+                        <p>Resposta 1</p>
+                    </div>
+                    <div class="respostaTestePsciologico">
+                        <p>Resposta 2</p>
+                    </div>
+                    <div class="respostaTestePsciologico">
+                        <p>Resposta 3</p>
+                    </div>
+                    <div class="respostaTestePsciologico">
+                        <p>Resposta 4</p>
                     </div>
                 </div>
-            </div>
-            <div id="chatbotTopRight">
-                <span id="minimizeIcon">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M5.33317 15.8332L4.1665 14.6665L8.83317 9.99984L4.1665 5.33317L5.33317 4.1665L9.99984 8.83317L14.6665 4.1665L15.8332 5.33317L11.1665 9.99984L15.8332 14.6665L14.6665 15.8332L9.99984 11.1665L5.33317 15.8332Z"
-                fill="#FEF7FF"
-              />
-            </svg>
-          </span>
-            </div>
-        </div>
-        <div id="chatbotOutput">
-            <div class="msgIntro">
-                <p>
-                    Olá! Sou o assistente virtual. Posso ajudar com dúvidas sobre concursos, requisitos e candidatura.
-                </p>
-            </div>
-
-            <div class="msgBot">
-                <p>Em que posso ajudar hoje?</p>
-                <span class="timestamp">Agora</span>
-            </div>
-
-            <div class="msgPessoa">
-                <p>
-                    Olá, chamo-me Rodrigo tenho uma licenciatura e 22 anos. O que posso seguir como militar, na categoria dos Oficiais, na Marinha?
-                </p>
-                <span class="timestamp">09:43</span>
-            </div>
-
-            <div class="msgBot">
-                <p>
-                    Rodrigo, com essas características podes concorrer na categoria dos Oficiais para:
-                </p>
-                <ul>
-                    <li>TSN, TN & TS (Regime de Contrato);</li>
-                    <li>Fuzileiros (Regime de Contrato);</li>
-                    <li>Médico Naval (Quadros Permanentes).</li>
-                </ul>
-                <span class="timestamp">Agora</span>
-            </div>
-        </div>
-
-        <div id="chatbotPrompt">
-            <p>
-                *O Marujo pode conter erros. Considere verificar informações importantes.
-            </p>
-            <form action onsubmit="event.preventDefault()">
-                <input type="text" placeholder="Escreve a tua pergunta..." id="perguntaChatbot" />
-                <input type="submit" id="enviarPergunta" value="Enviar" />
-            </form>
-        </div>
-    </div>
-    <section id="testesPsicologicosSection">
-        <div id="testesPsicologicosSectionContainer">
-            <div id="testesPsicologicosSectionContainerTop">
-                <h1 class="titulo2">TESTE PSICOLÓGICO</h1>
-                <a href="testePsicologico.php">INICIAR</a>
-                <a href="preparate.html">SAIR</a>
-                <p><b>**Nota:</b> Estes testes servem apenas de exemplo</p>
+                <div id="containerRespostasNext">
+                </div>
             </div>
         </div>
     </section>
@@ -437,6 +407,102 @@
             </div>
         </footer>
     </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const perguntas = <?php echo $jsonPerguntas; ?>;
+            
+            let indiceAtual = 0;
+            let pontuacao = 0;
+
+            const elementoPergunta = document.querySelector('#testesPsicologicoSectionContainerLeft h1');
+            const elementoImagem = document.querySelector('#testesPsicologicoSectionContainerLeft img');
+            const elementoProgresso = document.querySelector('#testesPsicologicoProgressBar span');
+            const elementoContador = document.getElementById('perguntaNumero');
+            const containerRespostas = document.getElementById('containerRespostas');
+            const containerNext = document.getElementById('containerRespostasNext');
+
+            function carregarPergunta(indice) {
+                if (indice >= perguntas.length) {
+                    finalizarTeste();
+                    return;
+                }
+
+                containerRespostas.classList.remove('slide-pergunta-nova');
+                void containerRespostas.offsetWidth;
+                containerRespostas.classList.add('slide-pergunta-nova');
+
+                const dadosPergunta = perguntas[indice];
+                elementoPergunta.textContent = dadosPergunta.pergunta;
+                
+                if (dadosPergunta.imagem_url) {
+                    elementoImagem.src = dadosPergunta.imagem_url;
+                    elementoImagem.style.display = 'block';
+                } else {
+                    elementoImagem.style.display = 'none';
+                }
+
+                const numeroPerguntaAtual = indice + 1;
+                const totalPerguntas = perguntas.length;
+                elementoContador.textContent = `Pergunta ${numeroPerguntaAtual} / ${totalPerguntas}`;
+                
+                const percentagem = Math.round((numeroPerguntaAtual / totalPerguntas) * 100);
+                elementoProgresso.style.width = percentagem + '%';
+                containerRespostas.innerHTML = '';
+
+                dadosPergunta.opcoes.forEach(opcao => {
+                    const divResposta = document.createElement('div');
+                    divResposta.className = 'respostaTestePsciologico';
+                    divResposta.innerHTML = `<p>${opcao.resposta}</p>`;
+                    
+                    divResposta.addEventListener('click', () => {
+                        if (opcao.correta == 1) {
+                            pontuacao++;
+                        }
+                        indiceAtual++;
+                        carregarPergunta(indiceAtual);
+                    });
+
+                    containerRespostas.appendChild(divResposta);
+                });
+
+                if (indice + 1 < perguntas.length) {
+                    containerNext.style.display = 'flex';
+                    containerNext.innerHTML = `
+                        <div class="respostaTestePsciologico" style="opacity: 0.4;"><p>...</p></div>
+                        <div class="respostaTestePsciologico" style="opacity: 0.4;"><p>...</p></div>
+                        <div class="respostaTestePsciologico" style="opacity: 0.4;"><p>...</p></div>
+                    `;
+                } else {
+                    containerNext.style.display = 'none';
+                }
+            }
+
+            function finalizarTeste() {
+                elementoImagem.style.display = 'none';
+                elementoContador.style.display = 'none';
+                document.getElementById('testesPsicologicoProgressBar').style.display = 'none';
+                containerNext.style.display = 'none';
+                
+                elementoPergunta.textContent = "Teste Concluído!";
+                
+                containerRespostas.innerHTML = `
+                    <div class="respostaTestePsciologico" style="background-color: rgba(255,255,255,0.2); cursor: default;">
+                        <h2>Resultado Final</h2>
+                        <p>Acertaste ${pontuacao} de ${perguntas.length} perguntas.</p>
+                    </div>
+                    <a href="testesPsicologicos.html" style="color: white; text-align: center; display: block; margin-top: 1em; text-decoration: underline;">Regressar aos Testes Psicológicos</a>
+                `;
+            }
+
+            if (perguntas.length > 0) {
+                carregarPergunta(indiceAtual);
+            } else {
+                elementoPergunta.textContent = "Sem perguntas na base de dados.";
+                containerRespostas.innerHTML = '';
+            }
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 
