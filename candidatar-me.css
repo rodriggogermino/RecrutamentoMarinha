@@ -1,0 +1,286 @@
+/* Candidatar-me (layout compatível com homepage.css + design de formulário) */
+
+.cand-main {
+  padding-top: 110px;
+  min-height: 100vh;
+  padding-bottom: 240px;
+}
+
+.cand-hero {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto 24px;
+}
+
+.cand-hero-inner {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.cand-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  background: #78849d;
+  background: linear-gradient(to right, #78849d 0%, #000000 100%);
+  filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cand-subtitle {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 200;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* progresso */
+.cand-progress {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cand-progress-bar {
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+
+.cand-progress-fill {
+  display: block;
+  height: 100%;
+  width: 25%;
+  background: linear-gradient(90deg, #83e1b2, #2ce387);
+  border-radius: 999px;
+}
+
+.cand-progress-steps {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.cand-progress-steps .step {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.cand-progress-steps .step.active {
+  background: rgba(131, 225, 178, 0.18);
+  border-color: #83e1b2;
+  color: #ffffff;
+}
+
+/* shell */
+.cand-form-shell {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 24px;
+  padding: 26px 24px;
+  color: white;
+}
+
+.cand-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* tabs */
+.cand-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cand-tabs .tab {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.85);
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.25s;
+}
+
+.cand-tabs .tab:hover {
+  background: rgba(255,255,255,0.14);
+}
+
+.cand-tabs .tab.active {
+  background: rgba(131, 225, 178, 0.25);
+  border-color: #83e1b2;
+  color: #fff;
+}
+
+/* panels */
+.cand-panels {
+  width: 100%;
+}
+
+.panel {
+  display: none;
+}
+
+.panel.active {
+  display: block;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.panel-head img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.panel-head h2 {
+  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
+  font-weight: 800;
+}
+
+/* grid / fields */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 26px;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.88);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.08);
+  color: rgb(0, 0, 0);
+  outline: none;
+}
+
+.field input::placeholder {
+  color: rgba(255,255,255,0.55);
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #83e1b2;
+  box-shadow: 0 0 0 3px rgba(131,225,178,0.18);
+}
+
+.field select {
+  appearance: none;
+}
+
+/* password icon */
+.input-icon {
+  position: relative;
+}
+
+.input-icon .icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.75;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* actions */
+.cand-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(131, 225, 178, 0.22);
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.25s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  background: rgba(131, 225, 178, 0.35);
+}
+
+.btn.ghost {
+  background: rgba(255,255,255,0.08);
+}
+
+.btn.submit {
+  background: #83e1b2;
+  border-color: #83e1b2;
+}
+
+.btn.submit:hover {
+  background: #2ce387;
+}
+
+@media (max-width: 650px) {
+  .cand-form-shell {
+    padding: 18px 14px;
+  }
+  .cand-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cand-actions .btn {
+    width: 100%;
+  }
+}
+

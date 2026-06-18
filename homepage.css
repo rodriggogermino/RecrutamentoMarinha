@@ -223,8 +223,63 @@ body {
     display: block;
 }
 
+/* Ícones por baixo da hero */
+.hero-icons {
+    margin-top: 10px;
+}
+
+.hero-icons-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 6px;
+}
+
+/* garante que os ícones ficam todos na mesma linha e mais próximos */
+@media (max-width: 900px) {
+    .hero-icons-grid {
+        gap: 6px;
+    }
+}
+
+
+.hero-icon {
+    color: #111;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 4px;
+}
+
+.hero-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+    stroke-width: 2px;
+    fill: none;
+}
+
+.hero-icon:hover {
+    color: #1a2b48;
+}
+
+@media (max-width: 900px) {
+    .hero-icons-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-icons-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 /* Icon Navigation */
 .icon-nav {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -430,4 +485,64 @@ body {
 .accordion-item.open .accordion-body {
     max-height: 500px;
     padding: 10px 20px 15px;
+}
+/* ==========================================================================
+   BARRA DE ÍCONES DO UTILIZADOR (SVG)
+   ========================================================================== */
+
+/* Contentor principal posicionado dentro do #rightNav */
+.user-icons-menu {
+    display: flex;
+    align-items: center;
+    gap: 14px;            /* Espaçamento uniforme entre cada ícone */
+    margin-right: 18px;    /* Separação segura antes do botão hambúrguer */
+}
+
+/* Estilização individual das ligações/âncoras dos ícones */
+.user-icons-menu a {
+    color: #111111;        /* Tom escuro neutro idêntico ao da imagem */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.1s ease;
+}
+
+/* Comportamento visual ao passar o rato (Hover) e foco */
+.user-icons-menu a:hover,
+.user-icons-menu a:focus {
+    color: #1a2b48;        /* Muda sutilmente para o azul-escuro institucional (var(--navy-blue)) */
+    transform: scale(1.08); /* Efeito suave de ampliação */
+}
+
+/* Configuração interna estrita dos elementos vetoriais SVG */
+.user-icons-menu a svg {
+    width: 22px;           /* Dimensão calibrada para manter a proporção da barra */
+    height: 22px;
+    stroke: currentColor;  /* Permite herdar a cor do link pai dinamicamente */
+    stroke-width: 1.8px;   /* Espessura equilibrada para excelente leitura e nitidez */
+    fill: none;
+}
+
+/* ==========================================================================
+   REGRAS COMPLEMENTARES DE LAYOUT DA NAV (Garantia de Alinhamento)
+   ========================================================================== */
+
+/* Ajuste no container geral da direita para que tudo corra em linha */
+#rightNav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Alinhamento nativo do ícone hambúrguer ao lado dos SVGs */
+#barsIcon {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+#barsIcon svg {
+    display: block;
 }
