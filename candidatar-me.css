@@ -83,7 +83,7 @@
 .cand-progress-steps .step.active {
   background: rgba(131, 225, 178, 0.18);
   border-color: #83e1b2;
-  color: #ffffff;
+  color: #000000;
 }
 
 /* shell */
@@ -91,10 +91,10 @@
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
-  background-color: rgba(0,0,0,0.55);
+  background-color: rgb(131, 129, 129);
   backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.35);
-  border-radius: 24px;
+  
   padding: 26px 24px;
   color: white;
 }
@@ -124,7 +124,7 @@
 }
 
 .cand-tabs .tab:hover {
-  background: rgba(255,255,255,0.14);
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .cand-tabs .tab.active {
