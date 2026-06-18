@@ -484,12 +484,12 @@
                 document.getElementById('testesPsicologicoProgressBar').style.display = 'none';
                 containerNext.style.display = 'none';
                 
-                elementoPergunta.textContent = "Teste Concluído!";
+                elementoPergunta.textContent = "Chegaste ao fim do teste.";
                 
                 containerRespostas.innerHTML = `
                     <div class="respostaTestePsciologico" style="background-color: rgba(255,255,255,0.2); cursor: default;">
                         <h2>Resultado Final</h2>
-                        <p>Acertaste ${pontuacao} de ${perguntas.length} perguntas.</p>
+                        <p>Acertaste ${pontuacao} / ${perguntas.length} perguntas.</p>
                     </div>
                     <a href="testesPsicologicos.html" style="color: white; text-align: center; display: block; margin-top: 1em; text-decoration: underline;">Regressar aos Testes Psicológicos</a>
                 `;
