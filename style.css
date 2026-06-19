@@ -3567,6 +3567,33 @@
                     text-align: center;
                     font-size: 8.5px;
                 }
+                /* #### TESTES PSICOLÓGICOS PÁGINA #### */
+                #testesPsicologicoSection {
+                    align-items: start;
+                    padding-top: 13vh;
+                }
+                #testesPsicologicoSectionContainer {
+                    height: fit-content;
+                }
+                #testesPsicologicoSectionContainerLeft {
+                    max-width: 100%;
+                    width: 100%;
+                    height: fit-content;
+                    margin-bottom: 0;
+                }
+                #testesPsicologicoSectionContainerLeft img {
+                    width: 60%;
+                }
+                #testesPsicologicoSectionContainerRight {
+                    height: fit-content;
+                    width: 80%;
+                }
+                #containerRespostas {
+                    width: 50%;
+                }
+                #containerRespostasNext {
+                    width: 35%;
+                }
             }
             /* 4. SMALL DEVICES / SMARTPHONES*/
             
