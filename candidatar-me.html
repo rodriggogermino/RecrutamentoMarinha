@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Candidatar-me | Marinha Portuguesa</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="homepage.css" />
+  <link rel="stylesheet" href="candidatar-me.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+  <!-- NAVBAR (reuse do layout das outras páginas) -->
+  <nav>
+    <a href="index.php" id="navLogoS"><img src="Utilities/Images/LogoBlackXS.png" alt="Logotipo | Marinha Portuguesa"></a>
+    <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo | Marinha Portuguesa"></a>
+
+    <div id="rightNav">
+      <span id="barsIcon">
+        <svg width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9.33333C0 8.59695 0.614318 8 1.37212 8H26.0702C26.828 8 27.4423 8.59695 27.4423 9.33333C27.4423 10.0697 26.828 10.6667 26.0702 10.6667H1.37212C0.614318 10.6667 0 10.0697 0 9.33333Z" fill="black" />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.33333C0 0.596954 0.614318 0 1.37212 0H26.0702C26.828 0 27.4423 0.596954 27.4423 1.33333C27.4423 2.06971 26.828 2.66667 26.0702 2.66667H1.37212C0.614318 2.66667 0 2.06971 0 1.33333Z" fill="black" />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M0 17.3333C0 16.597 0.614318 16 1.37212 16H26.0702C26.828 16 27.4423 16.597 27.4423 17.3333C27.4423 18.0697 26.828 18.6667 26.0702 18.6667H1.37212C0.614318 18.6667 0 18.0697 0 17.3333Z" fill="black" />
+        </svg>
+
+        <div id="sideMenu" class="side-menu">
+          <ul>
+            <li><a href="#">Profissões</a></li>
+            <li><a href="#">Concursos</a></li>
+            <li><a href="#">Prepara-te</a></li>
+            <li><a href="#">A tua Carreira</a></li>
+            <li><a href="inscricao.html">Candidata-te</a></li>
+          </ul>
+        </div>
+      </span>
+    </div>
+  </nav>
+
+  <main class="cand-main">
+    <section class="cand-hero">
+      <div class="cand-hero-inner">
+        <h1 class="cand-title">Junta-te a nós</h1>
+        <p class="cand-subtitle">Preenche os teus dados para submeter a candidatura.</p>
+
+        <div class="cand-progress" aria-label="Progresso">
+          <div class="cand-progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
+            <span class="cand-progress-fill" style="width: 25%"></span>
+          </div>
+          <div class="cand-progress-steps" aria-hidden="true">
+            <span class="step active">1</span>
+            <span class="step">2</span>
+            <span class="step">3</span>
+            <span class="step">4</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cand-form-shell">
+      <form class="cand-form" action="" method="post">
+        <div class="cand-tabs" role="tablist">
+          <button type="button" class="tab active" role="tab" aria-selected="true">Dados Pessoais</button>
+          <button type="button" class="tab" role="tab" aria-selected="false">Filiação</button>
+          <button type="button" class="tab" role="tab" aria-selected="false">Habilitações</button>
+          <button type="button" class="tab" role="tab" aria-selected="false">Morada</button>
+        </div>
+
+        <div class="cand-panels">
+          <!-- 1: Dados Pessoais -->
+          <div class="panel active" role="tabpanel">
+            <div class="panel-head">
+              <h2>Dados Pessoais</h2>
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label for="nome">Nome Completo</label>
+                <input id="nome" name="nome" type="text" placeholder="Primeiro e Ultimo Nome" />
+              </div>
+              <div class="field">
+                <label for="telefone">Nº de telemóvel / Telefone</label>
+                <input id="telefone" name="telefone" type="tel" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="ex@email.com" />
+              </div>
+              <div class="field">
+                <label for="nascimento">Data de Nascimento</label>
+                <input id="nascimento" name="nascimento" type="date" />
+              </div>
+              // Campos adicionais podem ser adicionados aqui conforme necessário
+            </div>
+          </div>
+
+          <!-- 2: Filiação -->
+          <div class="panel" role="tabpanel">
+            <div class="panel-head">
+              <h2>Filiação</h2>
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label for="pai">Nome do Pai</label>
+                <input id="pai" name="pai" type="text" />
+              </div>
+              <div class="field">
+                <label for="mae">Nome da Mãe</label>
+                <input id="mae" name="mae" type="text" />
+              </div>
+              <div class="field">
+                <label for="nif">NIF</label>
+                <input id="nif" name="nif" type="text" inputmode="numeric" placeholder="" />
+              </div>
+              <div class="field">
+                <label for="cc">Nº do Cartão de Cidadão</label>
+                <input id="cc" name="cc" type="text" placeholder="" />
+              </div>
+            </div>
+          </div>
+
+          <!-- 3: Habilitações -->
+          <div class="panel" role="tabpanel">
+            <div class="panel-head">
+               <h2>Habilitações e Segurança</h2>
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label for="habilitacoes">Habilitações Literárias</label>
+                <select id="habilitacoes" name="habilitacoes">
+                  <option>Mestrado</option>
+                  <option>Licenciatura</option>
+                  <option>Ensino Secundário</option>
+                  <option>Ensino Profissional</option>
+                  <option>Ensino Básico</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="genero">Género</label>
+                <select id="genero" name="genero">
+                  <option>Masculino</option>
+                  <option>Feminino</option>
+                  <option>Outro</option>
+                  <option>Prefiro não dizer</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="password">Palavra-passe</label>
+                <div class="input-icon">
+                  <input id="password" name="password" type="password" value="password" />
+                  <span class="icon toggle-pw" aria-hidden="true">👁</span>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="confirm">Confirmar Palavra-passe</label>
+                <div class="input-icon">
+                  <input id="confirm" name="confirm" type="password" value="password123" />
+                  <span class="icon toggle-pw" aria-hidden="true">👁</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4: Morada -->
+          <div class="panel" role="tabpanel">
+            <div class="panel-head">
+              <h2>Morada</h2>
+            </div>
+
+            <div class="grid">
+              <div class="field">
+                <label for="rua">Rua / Avenida</label>
+                <input id="rua" name="rua" type="text" placeholder="" />
+              </div>
+              <div class="field">
+                <label for="numero">Número</label>
+                <input id="numero" name="numero" type="text" placeholder="" />
+              </div>
+              <div class="field">
+                <label for="codigo">Código Postal</label>
+                <input id="codigo" name="codigo" type="text" inputmode="numeric" placeholder="" />
+              </div>
+              <div class="field">
+                <label for="localidade">Localidade</label>
+                <input id="localidade" name="localidade" type="text" placeholder="" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cand-actions">
+          <button type="button" class="btn ghost" id="btnPrev">Anterior</button>
+          <button type="button" class="btn" id="btnNext">Próximo</button>
+          <button type="submit" class="btn submit" id="btnSubmit" style="display:none">Submeter</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER: reutiliza o mesmo footer das páginas (home/formulario) -->
+  <footer>
+    <div id="topFooter">
+      <div id="logotiposFooter">
+        <a href=""><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+        <a href=""><img src="Utilities/Images/govLogo.png" alt="Logotipo Républica Portuguesa"></a>
+      </div>
+      <div id="logotiposRedes">
+        <a href="https://www.facebook.com/@marinharecrutamento" target="_blank">
+          <span id="facebookIcon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7574 2.75736C11.8826 1.63214 13.4087 1 15 1H18C18.5523 1 19 1.44772 19 2V6C19 6.55228 18.5523 7 18 7H15V9H18C18.3079 9 18.5987 9.14187 18.7882 9.38459C18.9777 9.6273 19.0448 9.94379 18.9701 10.2425L17.9701 14.2425C17.8589 14.6877 17.4589 15 17 15H15V22C15 22.5523 14.5523 23 14 23H10C9.44772 23 9 22.5523 9 22V15H7C6.44772 15 6 14.5523 6 14V10C6 9.44772 6.44772 9 7 9H9V7C9 5.4087 9.63214 3.88258 10.7574 2.75736ZM15 3C13.9391 3 12.9217 3.42143 12.1716 4.17157C11.4214 4.92172 11 5.93913 11 7V10C11 10.5523 10.5523 11 10 11H8V13H10C10.5523 13 11 13.4477 11 14V21H13V14C13 13.4477 13.4477 13 14 13H16.2192L16.7192 11H14C13.4477 11 13 10.5523 13 10V7C13 6.46957 13.2107 5.96086 13.5858 5.58579C13.9609 5.21071 14.4696 5 15 5H17V3H15Z" fill="white" />
+            </svg>
+          </span>
+          <span id="facebookIconHover" style="display:none"></span>
+        </a>
+      </div>
+    </div>
+
+    <div id="line"></div>
+
+    <div id="bottomFooter">
+      <div id="copyrightFooter">
+        <p>© 2026, MARINHA RECRUTAMENTO</p>
+        <p id="barraFooter">|</p>
+      </div>
+      <div id="linksFooter">
+        <a href="acessibilidade.html">Acessibilidade</a>
+        <a href="glossario.html">Glossário</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="avisos-legais.html">Avisos Legais</a>
+        <a href="links.html">Links Úteis</a>
+        <a href="mapasSite.html">Mapas do Site</a>
+        <a href="contactos.html">Contactos</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Tabs simples (sem depender do script.js atual)
+    (function () {
+      const tabs = Array.from(document.querySelectorAll('.cand-tabs .tab'));
+      const panels = Array.from(document.querySelectorAll('.cand-panels .panel'));
+      const prevBtn = document.getElementById('btnPrev');
+      const nextBtn = document.getElementById('btnNext');
+      const submitBtn = document.getElementById('btnSubmit');
+      const progressFill = document.querySelector('.cand-progress-fill');
+      const stepEls = Array.from(document.querySelectorAll('.cand-progress-steps .step'));
+
+      let index = 0;
+
+      function render() {
+        tabs.forEach((t, i) => t.classList.toggle('active', i === index));
+        panels.forEach((p, i) => p.classList.toggle('active', i === index));
+
+        prevBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
+        nextBtn.style.display = index === 3 ? 'none' : 'inline-flex';
+        submitBtn.style.display = index === 3 ? 'inline-flex' : 'none';
+
+        const pct = ((index + 1) / 4) * 100;
+        if (progressFill) progressFill.style.width = pct + '%';
+        stepEls.forEach((s, i) => s.classList.toggle('active', i === index));
+      }
+
+      tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => {
+          index = i;
+          render();
+        });
+      });
+
+      prevBtn.addEventListener('click', () => {
+        index = Math.max(0, index - 1);
+        render();
+      });
+
+      nextBtn.addEventListener('click', () => {
+        index = Math.min(3, index + 1);
+        render();
+      });
+
+      render();
+    })();
+  </script>
+</body>
+
+</html>
+
