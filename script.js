@@ -120,10 +120,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* #### CARROSSEL (Destaques) #### */
+
+/* #### CARROSSEL (Destaques) #### */
 document.addEventListener('DOMContentLoaded', () => {
 
     /* #### BTNS #### */
-
     const slides = document.querySelectorAll('.destaquesSlide');
     const btnNext = document.getElementById('destaquesBtnNext');
     const btnPrev = document.getElementById('destaquesBtnPrev');
@@ -131,6 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (slides.length === 0 || !btnNext || !btnPrev) return;
 
     let currentIndex = 0;
+    let autoPlayInterval;
+    const autoPlayDelay = 4000;
 
     const maxVisible = 3;
     const translateStep = 15;
@@ -140,10 +143,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateSlides() {
         slides.forEach((slide, index) => {
             let offset = index - currentIndex;
+
             if (offset < 0) {
                 offset += slides.length;
             }
+
             slide.style.pointerEvents = offset === 0 ? 'auto' : 'none';
+            slide.style.transition = 'transform 0.4s ease, opacity 0.4s ease, filter 0.4s ease';
 
             if (offset === 0) {
                 slide.style.transform = `translateX(0) scale(1)`;
@@ -165,46 +171,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* #### ARRASTAR (ESQ/DIR) #### */
+    /* #### BTNS #### */
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlides();
+    }
 
-    let touchStartX = 0;
-    let touchEndX = 0;
-    const swipeThreshold = 50;
-
-    const carouselContainer = slides[0].parentElement;
-
-    carouselContainer.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
-
-    carouselContainer.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    }, { passive: true });
-
-    function handleSwipe() {
-        const distance = touchEndX - touchStartX;
-
-        if (distance > swipeThreshold) {
-            currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-            updateSlides();
-        } else if (distance < -swipeThreshold) {
-            currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-            updateSlides();
-        }
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlides();
     }
 
     btnNext.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlides();
+        nextSlide();
+        resetAutoPlay();
     });
 
     btnPrev.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlides();
+        prevSlide();
+        resetAutoPlay();
+    });
+
+    /* #### AUTO SLIDESHOW #### */
+    function startAutoPlay() {
+        // Prevent multiple intervals from running simultaneously
+        clearInterval(autoPlayInterval);
+        autoPlayInterval = setInterval(nextSlide, autoPlayDelay);
+    }
+
+    function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+    }
+
+    function resetAutoPlay() {
+        stopAutoPlay();
+        startAutoPlay();
+    }
+
+    slides.forEach(slide => {
+        slide.addEventListener('mouseenter', stopAutoPlay);
+        slide.addEventListener('mouseleave', startAutoPlay);
     });
 
     updateSlides();
+    startAutoPlay();
 });
 
 /* #### DROPDOWN #### */

@@ -170,7 +170,7 @@
         <section id="destaquesSection">
             <div id="destaquesContainer">
                 <!--#### TITULOS ####-->
-                <h1 class="titulo1">DESTAQUES</h1>
+                <h1 class="titulo1" id="section2Titulo">DESTAQUES</h1>
                 <div id="destaquesSlideshow">
                     <div id="destaquesBox">
                         <?php
