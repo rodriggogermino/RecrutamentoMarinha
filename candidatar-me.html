@@ -1,6 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="pt">
-
+ 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,13 +11,13 @@
   <link rel="stylesheet" href="candidatar-me.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
-
+ 
 <body>
   <!-- NAVBAR (reuse do layout das outras páginas) -->
   <nav>
     <a href="index.php" id="navLogoS"><img src="Utilities/Images/LogoBlackXS.png" alt="Logotipo | Marinha Portuguesa"></a>
     <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo | Marinha Portuguesa"></a>
-
+ 
     <div id="rightNav">
       <span id="barsIcon">
         <svg width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +25,7 @@
           <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.33333C0 0.596954 0.614318 0 1.37212 0H26.0702C26.828 0 27.4423 0.596954 27.4423 1.33333C27.4423 2.06971 26.828 2.66667 26.0702 2.66667H1.37212C0.614318 2.66667 0 2.06971 0 1.33333Z" fill="black" />
           <path fill-rule="evenodd" clip-rule="evenodd" d="M0 17.3333C0 16.597 0.614318 16 1.37212 16H26.0702C26.828 16 27.4423 16.597 27.4423 17.3333C27.4423 18.0697 26.828 18.6667 26.0702 18.6667H1.37212C0.614318 18.6667 0 18.0697 0 17.3333Z" fill="black" />
         </svg>
-
+ 
         <div id="sideMenu" class="side-menu">
           <ul>
             <li><a href="#">Profissões</a></li>
@@ -37,110 +38,54 @@
       </span>
     </div>
   </nav>
-
+ 
   <main class="cand-main">
-    <section class="cand-hero">
-      <div class="cand-hero-inner">
-        <h1 class="cand-title">Junta-te a nós</h1>
-        <p class="cand-subtitle">Preenche os teus dados para submeter a candidatura.</p>
-
-        <div class="cand-progress" aria-label="Progresso">
-          <div class="cand-progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="4">
-            <span class="cand-progress-fill" style="width: 25%"></span>
-          </div>
-          <div class="cand-progress-steps" aria-hidden="true">
-            <span class="step active">1</span>
-            <span class="step">2</span>
-            <span class="step">3</span>
-            <span class="step">4</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <div class="cand-title-row">
+      <h1 class="cand-title">OS MEUS DADOS</h1>
+    </div>
+ 
     <section class="cand-form-shell">
       <form class="cand-form" action="" method="post">
         <div class="cand-tabs" role="tablist">
-          <button type="button" class="tab active" role="tab" aria-selected="true">Dados Pessoais</button>
-          <button type="button" class="tab" role="tab" aria-selected="false">Filiação</button>
-          <button type="button" class="tab" role="tab" aria-selected="false">Habilitações</button>
-          <button type="button" class="tab" role="tab" aria-selected="false">Morada</button>
+          <button type="button" class="tab active" role="tab" aria-selected="true" data-index="0">
+            <span class="tab-num">1</span><span class="tab-label">Dados pessoais*</span>
+          </button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-index="1">
+            <span class="tab-num">2</span><span class="tab-label">Morada</span>
+          </button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-index="2">
+            <span class="tab-num">3</span><span class="tab-label">Filiação</span>
+          </button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-index="3">
+            <span class="tab-num">4</span><span class="tab-label">Habilitações</span>
+          </button>
+          <button type="button" class="tab" role="tab" aria-selected="false" data-index="4">
+            <span class="tab-num">5</span><span class="tab-label">Situação Militar</span>
+          </button>
+          <button type="submit" class="tab tab-finalizar" role="tab" aria-selected="false" data-index="5" id="btnSubmit">
+            <span class="tab-num">6</span><span class="tab-label">FINALIZAR</span>
+          </button>
         </div>
-
+ 
+        <div class="cand-info-banner">
+          <p>Preenche os seguintes dados para poderes efetuar a tua candidatura. Finaliza e clica no botão gravar para confirmar todos os dados.</p>
+          <p>Os campos assinalados com (*) são de preenchimento obrigatório.</p>
+        </div>
+ 
         <div class="cand-panels">
           <!-- 1: Dados Pessoais -->
           <div class="panel active" role="tabpanel">
-            <div class="panel-head">
-              <h2>Dados Pessoais</h2>
-            </div>
-
-            <div class="grid">
-              <div class="field">
-                <label for="nome">Nome Completo</label>
-                <input id="nome" name="nome" type="text" placeholder="Primeiro e Ultimo Nome" />
+            <div class="grid grid-3">
+              <div class="fdInput fdFilled">
+                <input id="nome" name="nome" type="text" placeholder=" " value="Sandro Miguel Oliveira Filipe" required />
+                <label for="nome">Nome Completo*</label>
               </div>
-              <div class="field">
-                <label for="telefone">Nº de telemóvel / Telefone</label>
-                <input id="telefone" name="telefone" type="tel" />
+              <div class="fdInput fdFilled fdIcon">
+                <input id="nascimento" name="nascimento" type="text" placeholder=" " value="08/06/2006" required />
+                <label for="nascimento">Data de Nascimento*</label>
+                <i class="fa-regular fa-calendar"></i>
               </div>
-              <div class="field">
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="ex@email.com" />
-              </div>
-              <div class="field">
-                <label for="nascimento">Data de Nascimento</label>
-                <input id="nascimento" name="nascimento" type="date" />
-              </div>
-              // Campos adicionais podem ser adicionados aqui conforme necessário
-            </div>
-          </div>
-
-          <!-- 2: Filiação -->
-          <div class="panel" role="tabpanel">
-            <div class="panel-head">
-              <h2>Filiação</h2>
-            </div>
-
-            <div class="grid">
-              <div class="field">
-                <label for="pai">Nome do Pai</label>
-                <input id="pai" name="pai" type="text" />
-              </div>
-              <div class="field">
-                <label for="mae">Nome da Mãe</label>
-                <input id="mae" name="mae" type="text" />
-              </div>
-              <div class="field">
-                <label for="nif">NIF</label>
-                <input id="nif" name="nif" type="text" inputmode="numeric" placeholder="" />
-              </div>
-              <div class="field">
-                <label for="cc">Nº do Cartão de Cidadão</label>
-                <input id="cc" name="cc" type="text" placeholder="" />
-              </div>
-            </div>
-          </div>
-
-          <!-- 3: Habilitações -->
-          <div class="panel" role="tabpanel">
-            <div class="panel-head">
-               <h2>Habilitações e Segurança</h2>
-            </div>
-
-            <div class="grid">
-              <div class="field">
-                <label for="habilitacoes">Habilitações Literárias</label>
-                <select id="habilitacoes" name="habilitacoes">
-                  <option>Mestrado</option>
-                  <option>Licenciatura</option>
-                  <option>Ensino Secundário</option>
-                  <option>Ensino Profissional</option>
-                  <option>Ensino Básico</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="genero">Género</label>
+              <div class="fdSelect">
                 <select id="genero" name="genero">
                   <option>Masculino</option>
                   <option>Feminino</option>
@@ -148,63 +93,194 @@
                   <option>Prefiro não dizer</option>
                 </select>
               </div>
-
-              <div class="field">
-                <label for="password">Palavra-passe</label>
-                <div class="input-icon">
-                  <input id="password" name="password" type="password" value="password" />
-                  <span class="icon toggle-pw" aria-hidden="true">👁</span>
-                </div>
+            </div>
+ 
+            <div class="grid grid-3">
+              <div class="fdInput">
+                <input id="cc" name="cc" type="text" placeholder="Nº CC*" />
               </div>
-
-              <div class="field">
-                <label for="confirm">Confirmar Palavra-passe</label>
-                <div class="input-icon">
-                  <input id="confirm" name="confirm" type="password" value="password123" />
-                  <span class="icon toggle-pw" aria-hidden="true">👁</span>
-                </div>
+              <div class="fdInput">
+                <input id="ctrl" name="ctrl" type="text" placeholder="Ctrl*" />
+              </div>
+              <div class="fdInput fdIcon">
+                <input id="validadeCC" name="validadeCC" type="text" placeholder="Data Validade CC" />
+                <i class="fa-regular fa-calendar"></i>
+              </div>
+              <div class="fdInput">
+                <input id="telefone" name="telefone" type="tel" placeholder="Telefone" />
+              </div>
+              <div class="fdInput fdFilled">
+                <input id="telemovel" name="telemovel" type="tel" placeholder=" " value="934357397" required />
+                <label for="telemovel">Telemóvel*</label>
               </div>
             </div>
+ 
+            <div class="grid grid-3">
+              <div class="fdSelect fdPlaceholder">
+                <select id="estadoCivil" name="estadoCivil">
+                  <option value="" disabled selected>Estado Civil*</option>
+                  <option>Solteiro(a)</option>
+                  <option>Casado(a)</option>
+                  <option>Divorciado(a)</option>
+                  <option>Viúvo(a)</option>
+                </select>
+              </div>
+              <div class="fdInput fdIcon">
+                <input id="dataEstadoCivil" name="dataEstadoCivil" type="text" placeholder="Data do Estado civil" />
+                <i class="fa-regular fa-calendar"></i>
+              </div>
+              <div class="fdInput">
+                <input id="nif" name="nif" type="text" inputmode="numeric" placeholder="Número de Identificação Fiscal*" />
+              </div>
+              <div class="fdInput">
+                <input id="niss" name="niss" type="text" inputmode="numeric" placeholder="N. de Identificação da Segurança Social" />
+              </div>
+            </div>
+ 
+            <p class="section-label">NATURALIDADE (LOCAL DE NASCIMENTO)*</p>
+            <div class="grid grid-3">
+              <div class="fdSelect fdPlaceholder">
+                <select id="paisNaturalidade" name="paisNaturalidade">
+                  <option value="" disabled selected>País de Naturalidade*</option>
+                  <option>Portugal</option>
+                  <option>Brasil</option>
+                  <option>Angola</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+            </div>
+ 
+            <p class="section-label">IBAN FORMATO: PT50 XXXX XXXX XXXXXXXXXXX XX</p>
+            <div class="iban-row">
+              <div class="fdInput fdFilled iban-fixed">
+                <input type="text" value="PT50" readonly />
+              </div>
+              <div class="fdInput"><input type="text" inputmode="numeric" maxlength="4" /></div>
+              <div class="fdInput"><input type="text" inputmode="numeric" maxlength="4" /></div>
+              <div class="fdInput"><input type="text" inputmode="numeric" maxlength="11" /></div>
+              <div class="fdInput"><input type="text" inputmode="numeric" maxlength="2" /></div>
+            </div>
+ 
+            <div class="grid grid-2 email-row">
+              <div class="fdInput fdFilled">
+                <input id="email" name="email" type="email" placeholder=" " value="sandrofilipe2006@gmail.com" required />
+                <label for="email">Email*</label>
+              </div>
+              <label class="checkbox-box">
+                <input type="checkbox" name="consentimento" />
+                <span>Li e aceito os termos da <a href="#" class="link-red">DECLARAÇÃO DE CONSENTIMENTO*</a></span>
+              </label>
+            </div>
+ 
+            <button type="button" class="btn-teal" id="btnAlterarEmail">ALTERAR EMAIL</button>
           </div>
-
-          <!-- 4: Morada -->
+ 
+          <!-- 2: Morada -->
           <div class="panel" role="tabpanel">
-            <div class="panel-head">
-              <h2>Morada</h2>
-            </div>
-
-            <div class="grid">
-              <div class="field">
-                <label for="rua">Rua / Avenida</label>
-                <input id="rua" name="rua" type="text" placeholder="" />
-              </div>
-              <div class="field">
-                <label for="numero">Número</label>
-                <input id="numero" name="numero" type="text" placeholder="" />
-              </div>
-              <div class="field">
-                <label for="codigo">Código Postal</label>
-                <input id="codigo" name="codigo" type="text" inputmode="numeric" placeholder="" />
-              </div>
-              <div class="field">
-                <label for="localidade">Localidade</label>
-                <input id="localidade" name="localidade" type="text" placeholder="" />
-              </div>
+            <div class="grid grid-2">
+              <div class="fdInput"><input id="rua" name="rua" type="text" placeholder="Rua / Avenida*" /></div>
+              <div class="fdInput"><input id="numero" name="numero" type="text" placeholder="Número*" /></div>
+              <div class="fdInput"><input id="codigo" name="codigo" type="text" inputmode="numeric" placeholder="Código Postal*" /></div>
+              <div class="fdInput"><input id="localidade" name="localidade" type="text" placeholder="Localidade*" /></div>
             </div>
           </div>
-        </div>
-
-        <div class="cand-actions">
-          <button type="button" class="btn ghost" id="btnPrev">Anterior</button>
-          <button type="button" class="btn" id="btnNext">Próximo</button>
-          <button type="submit" class="btn submit" id="btnSubmit" style="display:none">Submeter</button>
+ 
+          <!-- 3: Filiação -->
+          <div class="panel" role="tabpanel">
+            <p class="section-label plain">Preencher conforme cartão de cidadão</p>
+            <div class="grid grid-2">
+              <div class="fdInput"><input id="filhoDe" name="filhoDe" type="text" placeholder="Filho de*" /></div>
+              <div class="fdInput"><input id="eDe" name="eDe" type="text" placeholder="e de*" /></div>
+            </div>
+          </div>
+ 
+          <!-- 4: Habilitações -->
+          <div class="panel" role="tabpanel">
+            <div class="dashed-box">
+              <p class="box-title">Habilitações Literárias:</p>
+              <p class="box-subtitle">(Podes adicionar mais que uma habilitação, se a área de educação for diferente)</p>
+ 
+              <div class="grid grid-2">
+                <div class="fdSelect">
+                  <select id="habilitacoes" name="habilitacoes">
+                    <option>CURSO TECNOLÓGICO/PROFISSIONAL/OUTROS (NÍVEL V)</option>
+                    <option>MESTRADO</option>
+                    <option>LICENCIATURA</option>
+                    <option>ENSINO SECUNDÁRIO</option>
+                    <option>ENSINO BÁSICO</option>
+                  </select>
+                </div>
+                <div class="fdInput"><input id="escola" name="escola" type="text" placeholder="Escola/Universidade*" /></div>
+                <div class="fdInput fdIcon"><input id="dataConclusao" name="dataConclusao" type="text" placeholder="Data de conclusão*" /><i class="fa-regular fa-calendar"></i></div>
+                <div class="fdInput"><input id="notaFinal" name="notaFinal" type="text" placeholder="Nota Final*" /></div>
+              </div>
+ 
+              <p class="box-title small-top">Áreas de Educação (opcional):</p>
+              <div class="grid grid-2">
+                <div class="fdSelect">
+                  <select id="areaEducacao" name="areaEducacao">
+                    <option>Grande Grupo</option>
+                    <option>Ciências</option>
+                    <option>Engenharia</option>
+                    <option>Humanidades</option>
+                  </select>
+                </div>
+              </div>
+ 
+              <button type="button" class="btn-teal" id="btnAdicionarHab">ADICIONAR HABILITAÇÃO</button>
+            </div>
+ 
+            <div class="dashed-box">
+              <p class="box-title">Carta de Condução:</p>
+              <label class="checkbox-box">
+                <input type="checkbox" name="cartaB" />
+                <span>Carta de condução do tipo B (automóveis ligeiros)</span>
+              </label>
+            </div>
+          </div>
+ 
+          <!-- 5: Situação Militar -->
+          <div class="panel" role="tabpanel">
+            <div class="mil-question">
+              <span>Prestas ou prestaste serviço nalgum ramo das Forças Armadas?*</span>
+              <select id="prestouServico" name="prestouServico" class="mil-select">
+                <option>Sim</option>
+                <option>Não</option>
+              </select>
+            </div>
+ 
+            <div class="fdSelect full-width">
+              <select id="ramo" name="ramo">
+                <option>Marinha</option>
+                <option>Exército</option>
+                <option>Força Aérea</option>
+                <option>GNR</option>
+              </select>
+            </div>
+ 
+            <div class="fdInput tall"><input id="nii" name="nii" type="text" placeholder="NII" /></div>
+ 
+            <label class="checkbox-box">
+              <input type="checkbox" name="jureiBandeira" />
+              <span>Jurei Bandeira</span>
+            </label>
+ 
+            <div class="fdInput fdIcon"><input id="dataIncorporacao" name="dataIncorporacao" type="text" placeholder="Data de Incorporação" /><i class="fa-regular fa-calendar"></i></div>
+            <div class="fdInput fdIcon"><input id="dataReserva" name="dataReserva" type="text" placeholder="Data de Passagem à Reserva" /><i class="fa-regular fa-calendar"></i></div>
+          </div>
+ 
+          <!-- 6: Finalizar -->
+          <div class="panel" role="tabpanel">
+            <p class="section-label plain">Confirma todos os dados nos separadores anteriores e clica em gravar para submeteres a tua candidatura.</p>
+            <button type="submit" class="btn-teal btn-finalizar-submit">GRAVAR CANDIDATURA</button>
+          </div>
         </div>
       </form>
     </section>
   </main>
-
+ 
   <!-- FOOTER: reutiliza o mesmo footer das páginas (home/formulario) -->
-  <footer>
+  <footer style="position:sticky ;">
     <div id="topFooter">
       <div id="logotiposFooter">
         <a href=""><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
@@ -221,9 +297,9 @@
         </a>
       </div>
     </div>
-
+ 
     <div id="line"></div>
-
+ 
     <div id="bottomFooter">
       <div id="copyrightFooter">
         <p>© 2026, MARINHA RECRUTAMENTO</p>
@@ -240,55 +316,40 @@
       </div>
     </div>
   </footer>
-
+ 
   <script src="script.js"></script>
   <script>
-    // Tabs simples (sem depender do script.js atual)
+    // Tabs (6 separadores, o 6º é sempre visível e submete o formulário)
     (function () {
       const tabs = Array.from(document.querySelectorAll('.cand-tabs .tab'));
       const panels = Array.from(document.querySelectorAll('.cand-panels .panel'));
-      const prevBtn = document.getElementById('btnPrev');
-      const nextBtn = document.getElementById('btnNext');
-      const submitBtn = document.getElementById('btnSubmit');
-      const progressFill = document.querySelector('.cand-progress-fill');
-      const stepEls = Array.from(document.querySelectorAll('.cand-progress-steps .step'));
-
-      let index = 0;
-
-      function render() {
+ 
+      function render(index) {
         tabs.forEach((t, i) => t.classList.toggle('active', i === index));
         panels.forEach((p, i) => p.classList.toggle('active', i === index));
-
-        prevBtn.style.visibility = index === 0 ? 'hidden' : 'visible';
-        nextBtn.style.display = index === 3 ? 'none' : 'inline-flex';
-        submitBtn.style.display = index === 3 ? 'inline-flex' : 'none';
-
-        const pct = ((index + 1) / 4) * 100;
-        if (progressFill) progressFill.style.width = pct + '%';
-        stepEls.forEach((s, i) => s.classList.toggle('active', i === index));
       }
-
+ 
       tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => {
-          index = i;
-          render();
+        tab.addEventListener('click', (e) => {
+          if (tab.classList.contains('tab-finalizar')) return; // deixa o submit acontecer
+          render(i);
         });
       });
-
-      prevBtn.addEventListener('click', () => {
-        index = Math.max(0, index - 1);
-        render();
+ 
+      // Selects: texto normal (preto) assim que o utilizador escolhe uma opção,
+      // cinza enquanto mostra a opção "placeholder"
+      document.querySelectorAll('.fdSelect.fdPlaceholder select').forEach((sel) => {
+        const updateState = () => {
+          sel.parentElement.classList.toggle('has-value', sel.value !== '');
+        };
+        sel.addEventListener('change', updateState);
+        updateState();
       });
-
-      nextBtn.addEventListener('click', () => {
-        index = Math.min(3, index + 1);
-        render();
-      });
-
-      render();
+ 
+      render(0);
     })();
   </script>
 </body>
-
+ 
 </html>
 
