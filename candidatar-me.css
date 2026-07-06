@@ -1,41 +1,47 @@
-/* Candidatar-me — "OS MEUS DADOS" (visual conforme prints) */
- 
-:root {
-  --cand-bg: #eef0f2;
-  --cand-red: #c0392b;
-  --cand-blue-banner-bg: #d9edf7;
-  --cand-blue-banner-text: #2f6690;
-  --cand-teal: #315b6b;
-  --cand-teal-hover: #264753;
-  --cand-green: #2e8a4c;
-  --cand-green-dark: #206238;
-  --cand-border: #cfd3d8;
-  --cand-label: #93a3b8;
-  --cand-text-dark: #1c1c1c;
-}
- 
+/* ==========================================================================
+   Candidatar-me — "OS MEUS DADOS"
+   Reescrito para usar EXCLUSIVAMENTE os tokens do design system existente
+   (login.css + homepage.css). Não introduz cores, raios ou fontes novas.
+
+   Tokens usados (já globais, definidos em login.css / homepage.css):
+     --navy-blue   #1a2b48   → cor institucional principal
+     --navy-hover  #153050   → hover da cor institucional
+     --border      #cdd1d6   → contorno de inputs/cartões
+     --bg-gray     #e9ecef   → fundo neutro de secções
+     --light-blue  #d6e4ff   → fundo de banners informativos
+     --text-color  #333      → texto base
+     --font-body   'Noto Sans', sans-serif
+
+   Nota: o site usa var(--navy) em login.css mas essa variável nunca é
+   definida nos ficheiros fornecidos — aqui usa-se sempre --navy-blue,
+   que É definida em homepage.css, para não depender de uma variável em falta.
+   ========================================================================== */
+
 .cand-main {
   padding-top: 110px;
   min-height: 100vh;
   padding-bottom: 100px;
-  background: var(--cand-bg);
-  color: var(--cand-text-dark);
+  background: var(--bg-gray);
+  color: var(--text-color);
+  font-family: var(--font-body);
 }
- 
+
 /* Título */
 .cand-title-row {
   width: 92%;
   max-width: 1200px;
   margin: 0 auto 18px;
 }
- 
+
 .cand-title {
-  font-size: 1.9rem;
-  font-weight: 700;
-  color: var(--cand-red);
-  letter-spacing: 0.5px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--navy-blue);
+  letter-spacing: 0.02em;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--navy-blue);
 }
- 
+
 /* Shell */
 .cand-form-shell {
   width: 92%;
@@ -43,15 +49,15 @@
   margin: 0 auto;
   background: transparent;
   padding: 0;
-  color: var(--cand-text-dark);
+  color: var(--text-color);
 }
- 
+
 .cand-form {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
- 
+
 /* Tabs */
 .cand-tabs {
   position: sticky;
@@ -59,11 +65,12 @@
   z-index: 5;
   display: flex;
   align-items: stretch;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
   overflow-x: auto;
 }
- 
+
 .cand-tabs .tab {
   display: flex;
   align-items: center;
@@ -73,18 +80,19 @@
   border-bottom: 3px solid transparent;
   padding: 16px 20px;
   cursor: pointer;
+  font-family: var(--font-body);
   font-size: 0.92rem;
   color: #8a8f99;
   white-space: nowrap;
-  transition: 0.2s;
+  transition: 0.2s ease;
 }
- 
+
 .cand-tabs .tab .tab-num {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #4a4f57;
-  color: #fff;
+  background: #8a8f99;
+  color: #ffffff;
   font-size: 0.72rem;
   font-weight: 700;
   display: inline-flex;
@@ -92,108 +100,133 @@
   justify-content: center;
   flex: none;
 }
- 
+
 .cand-tabs .tab.active {
-  color: #1c1c1c;
+  color: var(--navy-blue);
   font-weight: 700;
-  border-bottom-color: var(--cand-red);
+  border-bottom-color: var(--navy-blue);
 }
- 
+
 .cand-tabs .tab.active .tab-num {
-  background: #2b2f36;
+  background: var(--navy-blue);
 }
- 
+
+/* Botão "Finalizar" — segue o padrão de CTA "Candidata-te" já usado
+   no botão lateral fixo do site (#sideButtons a): verde-menta com
+   texto navy escuro, e hover no verde mais vivo do mesmo componente. */
 .cand-tabs .tab-finalizar {
   margin-left: auto;
-  background: var(--cand-green);
-  color: #fff;
+  background: #83e1b2;
+  color: #182439;
   font-weight: 700;
   border-bottom: none;
 }
- 
+
 .cand-tabs .tab-finalizar .tab-num {
-  background: var(--cand-green-dark);
+  background: #182439;
+  color: #83e1b2;
 }
- 
+
 .cand-tabs .tab-finalizar:hover {
-  background: var(--cand-green-dark);
+  background: #2ce387;
 }
- 
-/* Banner informativo */
+
+/* Banner informativo — reaproveita --light-blue já definida no sistema */
 .cand-info-banner {
-  background: var(--cand-blue-banner-bg);
-  color: var(--cand-blue-banner-text);
+  background: var(--light-blue);
+  color: var(--navy-blue);
   padding: 14px 20px;
   font-size: 0.88rem;
   line-height: 1.5;
+  border: 1px solid var(--border);
+  border-top: none;
 }
- 
+
 .cand-info-banner p {
   margin: 0;
 }
- 
+
 /* Panels */
 .cand-panels {
   padding: 24px 4px 10px;
 }
- 
+
 .panel {
   display: none;
   flex-direction: column;
   gap: 18px;
 }
- 
+
 .panel.active {
   display: flex;
 }
- 
+
 .section-label {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #444;
+  color: var(--text-color);
   margin: 4px 0 -6px;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.02em;
 }
- 
+
 .section-label.plain {
   font-weight: 400;
   text-transform: none;
-  color: #333;
+  color: var(--text-color);
   margin-bottom: 0;
 }
- 
+
 /* Grid */
 .grid {
   display: grid;
   gap: 16px;
 }
- 
+
 .grid-2 {
   grid-template-columns: repeat(2, 1fr);
 }
- 
+
 .grid-3 {
   grid-template-columns: repeat(3, 1fr);
 }
- 
+
 @media (max-width: 900px) {
   .grid-2,
   .grid-3 {
     grid-template-columns: 1fr;
   }
 }
- 
+
 .email-row {
   align-items: stretch;
 }
- 
-/* Inputs simples (placeholder centrado, estilo caixa) */
+
+/* Linha "Cod. Postal / Aux / Localidade / País de Residência" (painel Morada) */
+.morada-cp-row {
+  grid-template-columns: 0.6fr 0.4fr 1.6fr 1.6fr;
+}
+
+@media (max-width: 900px) {
+  .morada-cp-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .morada-cp-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Inputs — mesmo tratamento visual do .input-box input do login
+   (borda --border, raio 3px, foco em navy-blue) */
 .fdInput {
   position: relative;
-  background: #fff;
-  border: 1px solid var(--cand-border);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 3px;
 }
- 
+
 .fdInput input {
   width: 100%;
   height: 54px;
@@ -201,80 +234,83 @@
   border: none;
   outline: none;
   background: transparent;
-  font-size: 0.92rem;
-  color: var(--cand-text-dark);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-color);
 }
- 
+
 .fdInput input::placeholder {
-  color: var(--cand-label);
+  color: #8a8f99;
+  font-size: 0.9rem;
 }
- 
+
 .fdInput input:focus {
-  box-shadow: inset 0 0 0 1.5px var(--cand-teal);
+  box-shadow: inset 0 0 0 1.5px var(--navy-blue);
 }
- 
+
 .fdInput.tall input {
   height: 74px;
 }
- 
+
 /* Inputs com valor pré-preenchido / label flutuante */
 .fdInput.fdFilled input {
   padding: 18px 14px 4px;
 }
- 
+
 .fdInput.fdFilled label {
   position: absolute;
   left: 14px;
   top: 6px;
   font-size: 0.65rem;
-  color: var(--cand-label);
+  color: #8a8f99;
   pointer-events: none;
 }
- 
-/* Ícone de calendário */
+
+/* Ícone de calendário — cor neutra, sem inventar tom novo */
 .fdInput.fdIcon input {
   padding-right: 40px;
 }
- 
+
 .fdInput.fdIcon i {
   position: absolute;
   right: 14px;
   top: 50%;
   transform: translateY(-50%);
-  color: #e5a53a;
+  color: var(--navy-blue);
   font-size: 0.95rem;
   pointer-events: none;
 }
- 
+
 .fdInput.fdFilled.fdIcon input {
   padding: 18px 40px 4px 14px;
 }
- 
+
 /* IBAN */
 .iban-row {
   display: grid;
   grid-template-columns: 0.9fr 1fr 1fr 1.6fr 0.7fr;
   gap: 12px;
 }
- 
+
 .iban-fixed input {
   font-weight: 700;
-  color: #1c1c1c;
+  color: var(--navy-blue);
 }
- 
+
 @media (max-width: 700px) {
   .iban-row {
     grid-template-columns: repeat(2, 1fr);
   }
 }
- 
-/* Selects */
+
+/* Selects — mesmo padrão dos inputs */
 .fdSelect {
   position: relative;
-  background: #fff;
-  border: 1px solid var(--cand-border);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 3px;
 }
- 
+
 .fdSelect select {
   width: 100%;
   height: 54px;
@@ -282,12 +318,17 @@
   border: none;
   outline: none;
   background: transparent;
-  font-size: 0.92rem;
-  color: var(--cand-text-dark);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-color);
   appearance: none;
   cursor: pointer;
 }
- 
+
+.fdSelect:focus-within {
+  box-shadow: inset 0 0 0 1.5px var(--navy-blue);
+}
+
 .fdSelect::after {
   content: "";
   position: absolute;
@@ -295,128 +336,148 @@
   top: 50%;
   width: 8px;
   height: 8px;
-  border-right: 2px solid #888;
-  border-bottom: 2px solid #888;
+  border-right: 2px solid #8a8f99;
+  border-bottom: 2px solid #8a8f99;
   transform: translateY(-70%) rotate(45deg);
   pointer-events: none;
 }
- 
+
 .fdSelect.fdPlaceholder select {
-  color: var(--cand-label);
+  color: #8a8f99;
 }
- 
+
 .fdSelect.fdPlaceholder.has-value select {
-  color: var(--cand-text-dark);
+  color: var(--text-color);
 }
- 
+
 .fdSelect.full-width {
   width: 100%;
 }
- 
+
 /* Checkbox rows */
 .checkbox-box {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #fff;
-  border: 1px solid var(--cand-border);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 3px;
   padding: 16px 14px;
   font-size: 0.88rem;
-  color: #333;
+  color: var(--text-color);
   cursor: pointer;
 }
- 
+
 .checkbox-box input[type="checkbox"] {
   width: 16px;
   height: 16px;
   flex: none;
+  accent-color: var(--navy-blue);
 }
- 
+
 .link-red {
-  color: var(--cand-red);
+  color: var(--navy-blue);
   font-weight: 700;
   text-decoration: none;
 }
- 
+
 .link-red:hover {
+  color: var(--navy-hover);
   text-decoration: underline;
 }
- 
-/* Botões */
+
+/* Botões de acção secundária — mesmo tratamento do .btn-submit do login
+   (azul sólido #004ecc / hover --navy-hover), único padrão de botão
+   sólido existente no sistema. */
 .btn-teal {
   align-self: flex-start;
-  background: var(--cand-teal);
-  color: #fff;
+  background-color: #004ecc;
+  color: #ffffff;
   border: none;
-  padding: 13px 22px;
-  font-weight: 700;
-  font-size: 0.82rem;
-  letter-spacing: 0.4px;
+  border-radius: 3px;
+  padding: 11px 22px;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
   cursor: pointer;
-  transition: 0.2s;
+  transition: background 0.2s ease, transform 0.15s ease;
 }
- 
+
 .btn-teal:hover {
-  background: var(--cand-teal-hover);
+  background: var(--navy-hover);
+  transform: translateY(-1px);
 }
- 
+
+.btn-teal:active {
+  transform: translateY(1px);
+}
+
+/* Botão final "GRAVAR CANDIDATURA" — mesma linguagem de CTA
+   "candidatar-te" (verde-menta) usada no botão lateral fixo do site. */
 .btn-finalizar-submit {
-  background: var(--cand-green);
+  background-color: #83e1b2;
+  color: #182439;
 }
- 
+
 .btn-finalizar-submit:hover {
-  background: var(--cand-green-dark);
+  background: #2ce387;
 }
- 
-/* Habilitações — caixas com contorno tracejado */
+
+/* Habilitações — caixas com contorno tracejado, cor de sistema */
 .dashed-box {
-  border: 1px dashed #9aa0a8;
+  border: 1px dashed var(--border);
+  border-radius: 3px;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
+  background: #ffffff;
 }
- 
+
 .box-title {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #1c1c1c;
+  color: var(--navy-blue);
   margin: 0;
 }
- 
+
 .box-title.small-top {
   margin-top: 4px;
 }
- 
+
 .box-subtitle {
   font-size: 0.8rem;
   color: #666;
   margin: -8px 0 0;
 }
- 
+
 /* Situação Militar */
 .mil-question {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  background: #fff;
-  border: 1px solid var(--cand-border);
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 3px;
   padding: 16px 14px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: #1c1c1c;
+  color: var(--text-color);
 }
- 
+
 .mil-select {
-  border: 1px solid var(--cand-border);
-  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: #ffffff;
   padding: 8px 12px;
+  font-family: var(--font-body);
   font-size: 0.85rem;
-  color: #1c1c1c;
+  color: var(--text-color);
   cursor: pointer;
 }
- 
+
 @media (max-width: 650px) {
   .mil-question {
     flex-direction: column;

@@ -1,4 +1,19 @@
-﻿<!DOCTYPE html>
+﻿<?php
+session_start();
+
+require_once "ligacao_bd.php";
+
+$sql = "SELECT * FROM concursos
+        WHERE estado='aberto'
+        ORDER BY data_criacao DESC";
+
+$resultado = mysqli_query($ligacao,$sql);
+
+if(!$resultado){
+    die("Erro na consulta: ".mysqli_error($ligacao));
+}
+?>
+<!DOCTYPE html>
 <html lang="pt">
 
 <head>
@@ -7,6 +22,7 @@
     <title>Homepage Recrutamento</title>
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="responsive.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
@@ -44,37 +60,37 @@
         <!-- Ícones da linha 20 a 53 (menu do utilizador) agora por baixo da imagem -->
         <section class="hero-icons">
             <div class="hero-icons-grid">
-                <a class="hero-icon" href="homepage.html" title="Início">
+                <a class="hero-icon" href="homepage.php" title="Início">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 </a>
-                <a class="hero-icon" href="perfil.html" title="Perfil">
+                <a class="hero-icon" href="perfil.php" title="Perfil">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 </a>
-                <a class="hero-icon" href="mensagens.html" title="Mensagens">
+                <a class="hero-icon" href="mensagens.php" title="Mensagens">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 </a>
-                <a class="hero-icon" href="documentos.html" title="Documentos">
+                <a class="hero-icon" href="documentos.php" title="Documentos">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
                 </a>
-                <a class="hero-icon" href="candidaturas.html" title="Candidaturas">
+                <a class="hero-icon" href="candidaturas.php" title="Candidaturas">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg>
                 </a>
-                <a class="hero-icon" href="definicoes.html" title="Definições">
+                <a class="hero-icon" href="definicoes.php" title="Definições">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="12" y2="12"/></svg>
                 </a>
-                <a class="hero-icon" href="inscricao.html" title="Candidata-te">
+                <a class="hero-icon" href="inscricao.php" title="Candidata-te">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
                 </a>
-                <a class="hero-icon" href="seguranca.html" title="Alterar Palavra-Passe">
+                <a class="hero-icon" href="seguranca.php" title="Alterar Palavra-Passe">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3Z"/></svg>
                 </a>
-                <a class="hero-icon" href="estado.html" title="Estado da Candidatura">
+                <a class="hero-icon" href="estado.php" title="Estado da Candidatura">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="17" x2="22" y1="8" y2="13"/><line x1="22" x2="17" y1="8" y2="13"/></svg>
                 </a>
-                <a class="hero-icon" href="contactos.html" title="Contactos / Suporte">
+                <a class="hero-icon" href="contactos.php" title="Contactos / Suporte">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 </a>
-                <a class="hero-icon" href="login.html" title="Terminar Sessão">
+                <a class="hero-icon" href="login.php" title="Terminar Sessão">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1-2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
                 </a>
             </div>
@@ -82,55 +98,159 @@
 
         <section class="status-grid">
 
-            <a class="status-card" href="documentos.html">
+            <a class="status-card" href="documentos.php">
                 <span>TENS 0 DOCUMENTOS PARA ENTREGAR</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a class="status-card" href="mensagens.html">
+            <a class="status-card" href="mensagens.php">
                 <span>TENS 0 MENSAGENS PARA LER</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
-            <a class="status-card" href="candidaturas.html">
+            <a class="status-card" href="candidaturas.php">
                 <span>TENS 0 CANDIDATURAS SUBMETIDAS</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
         </section>
 
-        <section class="concursos">
-            <h2>Concursos abertos</h2>
+       <section class="concursos">
 
-            <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <p>Concurso de Admissão de Voluntários para Ingresso na Categoria de Praças da Classe de Músicos (B) dos Quadros Permanentes (QP) – Saxofone; Trompa de Harmonia; Trombone Tenor</p>
-                    <i class="fa-solid fa-chevron-down accordion-arrow"></i>
-                </div>
-                <div class="accordion-body">
-                    <p>Início das candidaturas:14/05/2026</p>
-                    <p>Fim das candidaturas:31/07/2026</p>
-                    <p>Incorporação:09/11/2026</p>
+<h2>Concursos Abertos</h2>
 
-                    <div class="candidatar-me-row">
-                        <a class="candidatarBtn" href="candidatar-me.html">candidatar-me</a>
-                    </div>
+<?php
 
-                    <div class="incorporacao-row">
-                        <a class="downloadLink" href="Utilities/Docs/aviso.pdf" download="aviso.pdf">
-                            <span class="incorporacao-text">Diario da republica</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+if(mysqli_num_rows($resultado)>0){
 
-            <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <p>Concurso de Admissão de Voluntários para Prestação de Serviço em Regime de Contrato (RC) ou Regime de Voluntariado (RV) na categoria de Praças para a classe de Serviço Naval (SN) 2026 – 2.ª edição</p>
-                    <i class="fa-solid fa-chevron-down accordion-arrow"></i>
-                </div>
-                <div class="accordion-body">
-                    <p>Informação detalhada sobre este concurso.</p>
-                </div>
-            </div>
-        </section>
+while($concurso=mysqli_fetch_assoc($resultado)){
+
+?>
+
+<div class="accordion-item">
+
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+
+        <p>
+
+            <?php
+
+            echo htmlspecialchars($concurso['titulo']);
+
+            ?>
+
+        </p>
+
+        <i class="fa-solid fa-chevron-down accordion-arrow"></i>
+
+    </div>
+
+    <div class="accordion-body">
+
+        <p>
+
+            <strong>Número do Concurso:</strong>
+
+            <?php echo htmlspecialchars($concurso['numero_concurso']); ?>
+
+        </p>
+
+        <p>
+
+            <strong>Categoria:</strong>
+
+            <?php echo htmlspecialchars($concurso['categoria']); ?>
+
+        </p>
+
+        <p>
+
+            <strong>Tipo de Contrato:</strong>
+
+            <?php echo htmlspecialchars($concurso['tipo_contrato']); ?>
+
+        </p>
+
+        <p>
+
+            <strong>Descrição:</strong><br>
+
+            <?php echo nl2br(htmlspecialchars($concurso['descricao'])); ?>
+
+        </p>
+
+        <p>
+
+            <strong>Início:</strong>
+
+            <?php echo date("d/m/Y",strtotime($concurso['data_inicio'])); ?>
+
+        </p>
+
+        <p>
+
+            <strong>Fim:</strong>
+
+            <?php echo date("d/m/Y",strtotime($concurso['data_fim'])); ?>
+
+        </p>
+
+        <p>
+
+            <strong>Incorporação:</strong>
+
+            <?php echo date("d/m/Y",strtotime($concurso['data_incorporacao'])); ?>
+
+        </p>
+
+        <div class="candidatar-me-row">
+
+            <a class="candidatarBtn"
+
+            href="formulario.php?id=<?php echo $concurso['id']; ?>">
+
+            Candidatar-me
+
+            </a>
+
+        </div>
+
+        <?php
+
+        if(!empty($concurso['diario_republica_url'])){
+
+        ?>
+
+        <div class="incorporacao-row">
+
+            <a class="downloadLink"
+
+               href="<?php echo htmlspecialchars($concurso['diario_republica_url']); ?>"
+
+               target="_blank">
+
+               Diário da República
+
+            </a>
+
+        </div>
+
+        <?php } ?>
+
+    </div>
+
+</div>
+
+<?php
+
+}
+
+}else{
+
+?>
+
+<p>Não existem concursos abertos.</p>
+
+<?php } ?>
+
+</section>
 
         <footer>
             <div id="topFooter">
