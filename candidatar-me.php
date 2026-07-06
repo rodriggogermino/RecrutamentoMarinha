@@ -178,9 +178,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="email">Email*</label>
               </div>
               <label class="checkbox-box">
-                <input type="checkbox" name="consentimento" required />
-                <span>Li e aceito os termos da <a href="#" class="link-red">DECLARAÇÃO DE CONSENTIMENTO*</a></span>
-              </label>
+    <input type="checkbox" name="consentimento" required />
+    <span>Li e aceito os termos da <a href="https://candidaturas.marinha.pt/files/20180223_Declaracao_Consentimento_Tratamento_DadosPessoais.pdf" target="_blank" class="link-red">DECLARAÇÃO DE CONSENTIMENTO*</a></span>
+</label>
             </div>
 
             <button type="button" class="btn-teal" id="btnAlterarEmail">ALTERAR EMAIL</button>
@@ -291,7 +291,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </main>
 
   <!-- FOOTER -->
-  <footer style="position:;">
+  <footer style="position:relative;">
     <div id="topFooter">
       <div id="logotiposFooter">
         <a href=""><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>

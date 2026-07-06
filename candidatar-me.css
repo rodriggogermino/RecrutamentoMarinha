@@ -118,7 +118,7 @@
 /* Botão "Finalizar" — usa a cor de sucesso (--valid) definida em formulario.css */
 .cand-tabs .tab-finalizar {
   margin-left: auto;
-  background: var(--valid);
+  background-color: #004ecc;
   color: var(--white);
   font-weight: 700;
   border-bottom: none;
@@ -126,11 +126,11 @@
 
 .cand-tabs .tab-finalizar .tab-num {
   background: var(--white);
-  color: var(--valid);
+  color: black;
 }
 
 .cand-tabs .tab-finalizar:hover {
-  background: #24803e;
+  background: var(--navy);
 }
 
 /* Banner informativo */
@@ -391,13 +391,13 @@
 }
 
 .link-red {
-  color: var(--red);
+  color: var(--navy);
   font-weight: 700;
   text-decoration: none;
 }
 
 .link-red:hover {
-  color: var(--red-hover);
+  color: var(--navy);
   text-decoration: underline;
 }
 
@@ -405,7 +405,7 @@
    inputs/focus de formulario.css */
 .btn-teal {
   align-self: flex-start;
-  background-color: var(--navy);
+  background-color: #004ecc;
   color: var(--white);
   border: none;
   border-radius: var(--radius);
@@ -419,7 +419,7 @@
 }
 
 .btn-teal:hover {
-  background: #24365a;
+  background: var(--navy);
   transform: translateY(-1px);
 }
 
@@ -434,7 +434,7 @@
 }
 
 .btn-finalizar-submit:hover {
-  background: #24803e;
+  background: #148534;
 }
 
 /* Habilitações — caixas com contorno tracejado */
