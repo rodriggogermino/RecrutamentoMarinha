@@ -1,7 +1,18 @@
-
+<?php
+// Bloco de processamento do formulário no servidor
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Aqui podes capturar os dados para guardar na Base de Dados
+    // Exemplo: $nome = $_POST['nome'];
+    // Exemplo: $iban_blocos = $_POST['iban']; (retorna um array com os 4 blocos)
+    
+    // Após gravar com sucesso, podes redirecionar o utilizador:
+    // header("Location: obrigado.php");
+    // exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt">
- 
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,13 +23,13 @@
   <link rel="stylesheet" href="responsive.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 </head>
- 
+
 <body>
-  <!-- NAVBAR (reuse do layout das outras páginas) -->
+  <!-- NAVBAR -->
   <nav>
     <a href="index.php" id="navLogoS"><img src="Utilities/Images/LogoBlackXS.png" alt="Logotipo | Marinha Portuguesa"></a>
     <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo | Marinha Portuguesa"></a>
- 
+
     <div id="rightNav">
       <span id="barsIcon">
         <svg width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -26,27 +37,28 @@
           <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.33333C0 0.596954 0.614318 0 1.37212 0H26.0702C26.828 0 27.4423 0.596954 27.4423 1.33333C27.4423 2.06971 26.828 2.66667 26.0702 2.66667H1.37212C0.614318 2.66667 0 2.06971 0 1.33333Z" fill="black" />
           <path fill-rule="evenodd" clip-rule="evenodd" d="M0 17.3333C0 16.597 0.614318 16 1.37212 16H26.0702C26.828 16 27.4423 16.597 27.4423 17.3333C27.4423 18.0697 26.828 18.6667 26.0702 18.6667H1.37212C0.614318 18.6667 0 18.0697 0 17.3333Z" fill="black" />
         </svg>
- 
+
         <div id="sideMenu" class="side-menu">
           <ul>
             <li><a href="#">Profissões</a></li>
             <li><a href="#">Concursos</a></li>
             <li><a href="#">Prepara-te</a></li>
             <li><a href="#">A tua Carreira</a></li>
-            <li><a href="inscricao.html">Candidata-te</a></li>
+            <li><a href="inscricao.php">Candidata-te</a></li>
           </ul>
         </div>
       </span>
     </div>
   </nav>
- 
+
   <main class="cand-main">
     <div class="cand-title-row">
       <h1 class="cand-title">OS MEUS DADOS</h1>
     </div>
- 
+
     <section class="cand-form-shell">
-      <form class="cand-form" action="" method="post">
+      <!-- action configurado para processar na própria página -->
+      <form class="cand-form" action="candidatura.php" method="POST">
         <div class="cand-tabs" role="tablist">
           <button type="button" class="tab active" role="tab" aria-selected="true" data-index="0">
             <span class="tab-num">1</span><span class="tab-label">Dados pessoais*</span>
@@ -67,27 +79,28 @@
             <span class="tab-num">6</span><span class="tab-label">FINALIZAR</span>
           </button>
         </div>
- 
+
         <div class="cand-info-banner">
           <p>Preenche os seguintes dados para poderes efetuar a tua candidatura. Finaliza e clica no botão gravar para confirmar todos os dados.</p>
           <p>Os campos assinalados com (*) são de preenchimento obrigatório.</p>
         </div>
- 
+
         <div class="cand-panels">
           <!-- 1: Dados Pessoais -->
           <div class="panel active" role="tabpanel">
             <div class="grid grid-3">
               <div class="fdInput fdFilled">
                 <input id="nome" name="nome" type="text" placeholder=" " value="Sandro Miguel Oliveira Filipe" required />
-                <label for="nome">Nome Completo*</label>
+                <label for="nome">Nome Completo *</label>
               </div>
               <div class="fdInput fdFilled fdIcon">
-                <input id="nascimento" name="nascimento" type="text" placeholder=" " value="08/06/2006" required />
-                <label for="nascimento">Data de Nascimento*</label>
-                <i class="fa-regular fa-calendar"></i>
+                <input type="date" id="nascimento" name="nascimento" value="" required />
+                <label for="nascimento">Data de Nascimento *</label>
+                
               </div>
               <div class="fdSelect">
-                <select id="genero" name="genero">
+                <select id="genero" name="genero ">
+                  <option>Genero *</option>
                   <option>Masculino</option>
                   <option>Feminino</option>
                   <option>Outro</option>
@@ -95,17 +108,17 @@
                 </select>
               </div>
             </div>
- 
+
             <div class="grid grid-3">
               <div class="fdInput">
-                <input id="cc" name="cc" type="text" placeholder="Nº CC*" />
+                <input id="cc" name="cc" type="text" placeholder="Nº CC*" required />
               </div>
               <div class="fdInput">
-                <input id="ctrl" name="ctrl" type="text" placeholder="Ctrl*" />
+                <input id="ctrl" name="ctrl" type="text" placeholder="Ctrl*" required />
               </div>
               <div class="fdInput fdIcon">
-                <input id="validadeCC" name="validadeCC" type="text" placeholder="Data Validade CC" />
-                <i class="fa-regular fa-calendar"></i>
+            
+                <input id="validadeCC" name="validadeCC" type="date" placeholder="Data Validade CC" value="" required />
               </div>
               <div class="fdInput">
                 <input id="telefone" name="telefone" type="tel" placeholder="Telefone" />
@@ -115,10 +128,10 @@
                 <label for="telemovel">Telemóvel*</label>
               </div>
             </div>
- 
+
             <div class="grid grid-3">
               <div class="fdSelect fdPlaceholder">
-                <select id="estadoCivil" name="estadoCivil">
+                <select id="estadoCivil" name="estadoCivil" required>
                   <option value="" disabled selected>Estado Civil*</option>
                   <option>Solteiro(a)</option>
                   <option>Casado(a)</option>
@@ -127,17 +140,17 @@
                 </select>
               </div>
               <div class="fdInput">
-                <input id="nif" name="nif" type="text" inputmode="numeric" placeholder="Número de Identificação Fiscal*" />
+                <input id="nif" name="nif" type="text" inputmode="numeric" placeholder="Número de Identificação Fiscal*" required />
               </div>
               <div class="fdInput">
                 <input id="niss" name="niss" type="text" inputmode="numeric" placeholder="N. de Identificação da Segurança Social" />
               </div>
             </div>
- 
+
             <p class="section-label">NATURALIDADE (LOCAL DE NASCIMENTO)*</p>
             <div class="grid grid-3">
               <div class="fdSelect fdPlaceholder">
-                <select id="paisNaturalidade" name="paisNaturalidade">
+                <select id="paisNaturalidade" name="paisNaturalidade" required>
                   <option value="" disabled selected>País de Naturalidade*</option>
                   <option>Portugal</option>
                   <option>Brasil</option>
@@ -146,42 +159,43 @@
                 </select>
               </div>
             </div>
- 
+
             <p class="section-label">IBAN FORMATO: PT50 XXXX XXXX XXXXXXXXXXX XX</p>
             <div class="iban-row">
               <div class="fdInput fdFilled iban-fixed">
-                <input type="text" value="PT50" readonly />
+                <input type="text" name="iban_pais" value="PT50" readonly />
               </div>
-              <div class="fdInput"><input type="text" inputmode="numeric" maxlength="4" /></div>
-              <div class="fdInput"><input type="text" inputmode="numeric" maxlength="4" /></div>
-              <div class="fdInput"><input type="text" inputmode="numeric" maxlength="11" /></div>
-              <div class="fdInput"><input type="text" inputmode="numeric" maxlength="2" /></div>
+              <!-- Adicionado name="iban[]" em formato array para captura correta em PHP -->
+              <div class="fdInput"><input type="text" name="iban[]" inputmode="numeric" maxlength="4" /></div>
+              <div class="fdInput"><input type="text" name="iban[]" inputmode="numeric" maxlength="4" /></div>
+              <div class="fdInput"><input type="text" name="iban[]" inputmode="numeric" maxlength="11" /></div>
+              <div class="fdInput"><input type="text" name="iban[]" inputmode="numeric" maxlength="2" /></div>
             </div>
- 
+
             <div class="grid grid-2 email-row">
               <div class="fdInput fdFilled">
                 <input id="email" name="email" type="email" placeholder=" " value="sandrofilipe2006@gmail.com" required />
                 <label for="email">Email*</label>
               </div>
               <label class="checkbox-box">
-                <input type="checkbox" name="consentimento" />
+                <input type="checkbox" name="consentimento" required />
                 <span>Li e aceito os termos da <a href="#" class="link-red">DECLARAÇÃO DE CONSENTIMENTO*</a></span>
               </label>
             </div>
- 
+
             <button type="button" class="btn-teal" id="btnAlterarEmail">ALTERAR EMAIL</button>
           </div>
- 
+
           <!-- 2: Morada -->
           <div class="panel" role="tabpanel">
             <div class="grid grid-2">
-              <div class="fdInput"><input id="rua" name="rua" type="text" placeholder="Rua / Avenida*" /></div>
+              <div class="fdInput"><input id="rua" name="rua" type="text" placeholder="Ria / Avenida*" /></div>
               <div class="fdInput"><input id="numero" name="numero" type="text" placeholder="Número*" /></div>
               <div class="fdInput"><input id="codigo" name="codigo" type="text" inputmode="numeric" placeholder="Código Postal*" /></div>
               <div class="fdInput"><input id="localidade" name="localidade" type="text" placeholder="Localidade*" /></div>
             </div>
           </div>
- 
+
           <!-- 3: Filiação -->
           <div class="panel" role="tabpanel">
             <p class="section-label plain">Preencher conforme cartão de cidadão</p>
@@ -190,13 +204,13 @@
               <div class="fdInput"><input id="eDe" name="eDe" type="text" placeholder="e de*" /></div>
             </div>
           </div>
- 
+
           <!-- 4: Habilitações -->
           <div class="panel" role="tabpanel">
             <div class="dashed-box">
               <p class="box-title">Habilitações Literárias:</p>
               <p class="box-subtitle">(Podes adicionar mais que uma habilitação, se a área de educação for diferente)</p>
- 
+
               <div class="grid grid-2">
                 <div class="fdSelect">
                   <select id="habilitacoes" name="habilitacoes">
@@ -211,7 +225,7 @@
                 <div class="fdInput fdIcon"><input id="dataConclusao" name="dataConclusao" type="text" placeholder="Data de conclusão*" /><i class="fa-regular fa-calendar"></i></div>
                 <div class="fdInput"><input id="notaFinal" name="notaFinal" type="text" placeholder="Nota Final*" /></div>
               </div>
- 
+
               <p class="box-title small-top">Áreas de Educação (opcional):</p>
               <div class="grid grid-2">
                 <div class="fdSelect">
@@ -223,19 +237,19 @@
                   </select>
                 </div>
               </div>
- 
+
               <button type="button" class="btn-teal" id="btnAdicionarHab">ADICIONAR HABILITAÇÃO</button>
             </div>
- 
+
             <div class="dashed-box">
               <p class="box-title">Carta de Condução:</p>
               <label class="checkbox-box">
-                <input type="checkbox" name="cartaB" />
+                <input type="checkbox" name="cartaB" value="1" />
                 <span>Carta de condução do tipo B (automóveis ligeiros)</span>
               </label>
             </div>
           </div>
- 
+
           <!-- 5: Situação Militar -->
           <div class="panel" role="tabpanel">
             <div class="mil-question">
@@ -245,7 +259,7 @@
                 <option>Não</option>
               </select>
             </div>
- 
+
             <div class="fdSelect full-width">
               <select id="ramo" name="ramo">
                 <option>Marinha</option>
@@ -254,18 +268,18 @@
                 <option>GNR</option>
               </select>
             </div>
- 
+
             <div class="fdInput tall"><input id="nii" name="nii" type="text" placeholder="NII" /></div>
- 
+
             <label class="checkbox-box">
-              <input type="checkbox" name="jureiBandeira" />
+              <input type="checkbox" name="jureiBandeira" value="1" />
               <span>Jurei Bandeira</span>
             </label>
- 
+
             <div class="fdInput fdIcon"><input id="dataIncorporacao" name="dataIncorporacao" type="text" placeholder="Data de Incorporação" /><i class="fa-regular fa-calendar"></i></div>
             <div class="fdInput fdIcon"><input id="dataReserva" name="dataReserva" type="text" placeholder="Data de Passagem à Reserva" /><i class="fa-regular fa-calendar"></i></div>
           </div>
- 
+
           <!-- 6: Finalizar -->
           <div class="panel" role="tabpanel">
             <p class="section-label plain">Confirma todos os dados nos separadores anteriores e clica em gravar para submeteres a tua candidatura.</p>
@@ -275,9 +289,9 @@
       </form>
     </section>
   </main>
- 
-  <!-- FOOTER: reutiliza o mesmo footer das páginas (home/formulario) -->
-  <footer style="position:sticky ;">
+
+  <!-- FOOTER -->
+  <footer style="position:sticky;">
     <div id="topFooter">
       <div id="logotiposFooter">
         <a href=""><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
@@ -287,16 +301,16 @@
         <a href="https://www.facebook.com/@marinharecrutamento" target="_blank">
           <span id="facebookIcon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7574 2.75736C11.8826 1.63214 13.4087 1 15 1H18C18.5523 1 19 1.44772 19 2V6C19 6.55228 18.5523 7 18 7H15V9H18C18.3079 9 18.5987 9.14187 18.7882 9.38459C18.9777 9.6273 19.0448 9.94379 18.9701 10.2425L17.9701 14.2425C17.8589 14.6877 17.4589 15 17 15H15V22C15 22.5523 14.5523 23 14 23H10C9.44772 23 9 22.5523 9 22V15H7C6.44772 15 6 14.5523 6 14V10C6 9.44772 6.44772 9 7 9H9V7C9 5.4087 9.63214 3.88258 10.7574 2.75736ZM15 3C13.9391 3 12.9217 3.42143 12.1716 4.17157C11.4214 4.92172 11 5.93913 11 7V10C11 10.5523 10.5523 11 10 11H8V13H10C10.5523 13 11 13.4477 11 14V21H13V14C13 13.4477 13.4477 13 14 13H16.2192L16.7192 11H14C13.4477 11 13 10.5523 13 10V7C13 6.46957 13.2107 5.96086 13.5858 5.58579C13.9609 5.21071 14.4696 5 15 5H17V3H15Z" fill="white" />
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7574 2.75736C11.8826 1.63214 13.4087 1 15 1H18C18.5523 1 19 1.44772 19 2V6C19 6.55228 18.5523 7 18 7H15V9H18 anchor C18.3079 9 18.5987 9.14187 18.7882 9.38459C18.9777 9.6273 19.0448 9.94379 18.9701 10.2425L17.9701 14.2425C17.8589 14.6877 17.4589 15 17 15H15V22C15 22.5523 14.5523 23 14 23H10C9.44772 23 9 22.5523 9 22V15H7C6.44772 15 6 14.5523 6 14V10C6 9.44772 6.44772 9 7 9H9V7C9 5.4087 9.63214 3.88258 10.7574 2.75736ZM15 3C13.9391 3 12.9217 3.42143 12.1716 4.17157C11.4214 4.92172 11 5.93913 11 7V10C11 10.5523 10.5523 11 10 11H8V13H10C10.5523 13 11 13.4477 11 14V21H13V14C13 13.4477 13.4477 13 14 13H16.2192L16.7192 11H14C13.4477 11 13 10.5523 13 10V7C13 6.46957 13.2107 5.96086 13.5858 5.58579C13.9609 5.21071 14.4696 5 15 5H17V3H15Z" fill="white" />
             </svg>
           </span>
           <span id="facebookIconHover" style="display:none"></span>
         </a>
       </div>
     </div>
- 
+
     <div id="line"></div>
- 
+
     <div id="bottomFooter">
       <div id="copyrightFooter">
         <p>© 2026, MARINHA RECRUTAMENTO</p>
@@ -313,28 +327,25 @@
       </div>
     </div>
   </footer>
- 
+
   <script src="script.js"></script>
   <script>
-    // Tabs (6 separadores, o 6º é sempre visível e submete o formulário)
     (function () {
       const tabs = Array.from(document.querySelectorAll('.cand-tabs .tab'));
       const panels = Array.from(document.querySelectorAll('.cand-panels .panel'));
- 
+
       function render(index) {
         tabs.forEach((t, i) => t.classList.toggle('active', i === index));
         panels.forEach((p, i) => p.classList.toggle('active', i === index));
       }
- 
+
       tabs.forEach((tab, i) => {
         tab.addEventListener('click', (e) => {
-          if (tab.classList.contains('tab-finalizar')) return; // deixa o submit acontecer
+          if (tab.classList.contains('tab-finalizar')) return; 
           render(i);
         });
       });
- 
-      // Selects: texto normal (preto) assim que o utilizador escolhe uma opção,
-      // cinza enquanto mostra a opção "placeholder"
+
       document.querySelectorAll('.fdSelect.fdPlaceholder select').forEach((sel) => {
         const updateState = () => {
           sel.parentElement.classList.toggle('has-value', sel.value !== '');
@@ -342,11 +353,10 @@
         sel.addEventListener('change', updateState);
         updateState();
       });
- 
+
       render(0);
     })();
   </script>
 </body>
- 
-</html>
 
+</html>

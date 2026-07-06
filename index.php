@@ -74,7 +74,7 @@
                         <li><a href="concursos.php">Concursos</a></li>
                         <li><a href="preparate.html">Prepara-te</a></li>
                         <li><a href="atuacarreira.html">A tua Carreira</a></li>
-                        <li><a href="formulario.html">Candidata-te</a></li>
+                        <li><a href="formulario.php">Candidata-te</a></li>
                     </ul>
                 </div>
             </div>
@@ -93,7 +93,7 @@
             </div>
             <img id="mergulhadorHomepage" src="Utilities/Images/mergulhadorHomepage.png" alt="Mergulhador da Marinha Portuguesa">
             <div id="bottomHomepage">
-                <a href="formulario.html" class="btnJuntate">JUNTA-TE A NÓS</a>
+                <a href="formulario.php" class="btnJuntate">JUNTA-TE A NÓS</a>
                 <div>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd" d="M17.7071 11.7071C17.3166 12.0976 16.6834 12.0976 16.2929 11.7071L12 7.41423L7.7071 11.7071C7.3166 12.0976 6.6834 12.0976 6.2929 11.7071C5.9024 11.3166 5.9024 10.6834 6.2929 10.2929L11.2929 5.29293C11.6834 4.90243 12.3166 4.90243 12.7071 5.29293L17.7071 10.2929C18.0976 10.6834 18.0976 11.3166 17.7071 11.7071Z" fill="white"/>
@@ -106,7 +106,7 @@
         <!--#### SIDE BUTTONS ####-->
         <div id="sideButtons">
             <span id="chatbotBtn">CHAT</span>
-            <a href="login.html">JUNTA-TE A NÓS</a>
+            <a href="login.php">JUNTA-TE A NÓS</a>
         </div>
         <!--#### CHATBOT ####-->
         <div id="chatbotDiv">

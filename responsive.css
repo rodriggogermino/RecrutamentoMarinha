@@ -37,7 +37,9 @@ html {
 html, body {
   overflow-x: hidden;
   width: 100%;
+  overflow-y: auto;
 }
+
 
 img {
   max-width: 100%;
