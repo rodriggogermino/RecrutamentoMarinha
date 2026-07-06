@@ -1,28 +1,28 @@
-/* ==========================================================================
-   Candidatar-me — "OS MEUS DADOS"
-   Reescrito para usar EXCLUSIVAMENTE os tokens do design system existente
-   (login.css + homepage.css). Não introduz cores, raios ou fontes novas.
-
-   Tokens usados (já globais, definidos em login.css / homepage.css):
-     --navy-blue   #1a2b48   → cor institucional principal
-     --navy-hover  #153050   → hover da cor institucional
-     --border      #cdd1d6   → contorno de inputs/cartões
-     --bg-gray     #e9ecef   → fundo neutro de secções
-     --light-blue  #d6e4ff   → fundo de banners informativos
-     --text-color  #333      → texto base
-     --font-body   'Noto Sans', sans-serif
-
-   Nota: o site usa var(--navy) em login.css mas essa variável nunca é
-   definida nos ficheiros fornecidos — aqui usa-se sempre --navy-blue,
-   que É definida em homepage.css, para não depender de uma variável em falta.
-   ========================================================================== */
+/* =========================================
+   Marinha Recrutamento – candidatar-me.css
+   (alinhado com a linguagem visual de formulario.css)
+   ========================================= */
 
 .cand-main {
+  /* Tokens copiados de formulario.css, para consistência visual */
+  --navy:       #1a2b45;
+  --red:        #d0021b;
+  --red-hover:  #a80016;
+  --light-bg:   #f4f4f4;
+  --white:      #ffffff;
+  --border:     #cccccc;
+  --text:       #222222;
+  --label:      #444444;
+  --valid:      #2e9e4f;
+  --radius:     6px;
+  --font-body:  'Noto Sans', sans-serif;
+  --font-title: 'Noto Sans', sans-serif;
+
   padding-top: 110px;
   min-height: 100vh;
   padding-bottom: 100px;
-  background: var(--bg-gray);
-  color: var(--text-color);
+  background: var(--light-bg);
+  color: var(--text);
   font-family: var(--font-body);
 }
 
@@ -34,22 +34,26 @@
 }
 
 .cand-title {
+  font-family: var(--font-title);
   font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--navy-blue);
-  letter-spacing: 0.02em;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  text-transform: uppercase;
   padding-bottom: 14px;
-  border-bottom: 2px solid var(--navy-blue);
+  border-bottom: 2px solid var(--light-bg);
 }
 
-/* Shell */
+/* Shell — cartão com fundo e sombra, como .form-wrapper */
 .cand-form-shell {
   width: 92%;
   max-width: 1200px;
   margin: 0 auto;
-  background: transparent;
-  padding: 0;
-  color: var(--text-color);
+  background: #f3f6fc;
+  border-radius: 10px;
+  padding: 24px;
+  color: var(--text);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
 }
 
 .cand-form {
@@ -65,9 +69,9 @@
   z-index: 5;
   display: flex;
   align-items: stretch;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 4px 4px 0 0;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
   overflow-x: auto;
 }
 
@@ -82,7 +86,7 @@
   cursor: pointer;
   font-family: var(--font-body);
   font-size: 0.92rem;
-  color: #8a8f99;
+  color: var(--label);
   white-space: nowrap;
   transition: 0.2s ease;
 }
@@ -91,8 +95,8 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #8a8f99;
-  color: #ffffff;
+  background: var(--label);
+  color: var(--white);
   font-size: 0.72rem;
   font-weight: 700;
   display: inline-flex;
@@ -102,43 +106,41 @@
 }
 
 .cand-tabs .tab.active {
-  color: var(--navy-blue);
+  color: var(--navy);
   font-weight: 700;
-  border-bottom-color: var(--navy-blue);
+  border-bottom-color: var(--navy);
 }
 
 .cand-tabs .tab.active .tab-num {
-  background: var(--navy-blue);
+  background: var(--navy);
 }
 
-/* Botão "Finalizar" — segue o padrão de CTA "Candidata-te" já usado
-   no botão lateral fixo do site (#sideButtons a): verde-menta com
-   texto navy escuro, e hover no verde mais vivo do mesmo componente. */
+/* Botão "Finalizar" — usa a cor de sucesso (--valid) definida em formulario.css */
 .cand-tabs .tab-finalizar {
   margin-left: auto;
-  background: #83e1b2;
-  color: #182439;
+  background: var(--valid);
+  color: var(--white);
   font-weight: 700;
   border-bottom: none;
 }
 
 .cand-tabs .tab-finalizar .tab-num {
-  background: #182439;
-  color: #83e1b2;
+  background: var(--white);
+  color: var(--valid);
 }
 
 .cand-tabs .tab-finalizar:hover {
-  background: #2ce387;
+  background: #24803e;
 }
 
-/* Banner informativo — reaproveita --light-blue já definida no sistema */
+/* Banner informativo */
 .cand-info-banner {
-  background: var(--light-blue);
-  color: var(--navy-blue);
+  background: rgba(26, 43, 69, 0.06);
+  color: var(--navy);
   padding: 14px 20px;
   font-size: 0.88rem;
   line-height: 1.5;
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   border-top: none;
 }
 
@@ -162,17 +164,18 @@
 }
 
 .section-label {
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--label);
   margin: 4px 0 -6px;
   letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .section-label.plain {
-  font-weight: 400;
+  font-weight: 600;
   text-transform: none;
-  color: var(--text-color);
+  color: var(--label);
   margin-bottom: 0;
 }
 
@@ -218,71 +221,82 @@
   }
 }
 
-/* Inputs — mesmo tratamento visual do .input-box input do login
-   (borda --border, raio 3px, foco em navy-blue) */
+/* Inputs — mesmo tratamento visual dos inputs de formulario.css
+   (borda 1.5px, --radius, foco com glow em vez de inset shadow) */
 .fdInput {
   position: relative;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 3px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .fdInput input {
   width: 100%;
-  height: 54px;
-  padding: 0 14px;
+  height: 46px;
+  padding: 0 12px;
   border: none;
   outline: none;
   background: transparent;
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--text-color);
+  font-size: 0.9rem;
+  color: var(--text);
 }
 
 .fdInput input::placeholder {
-  color: #8a8f99;
-  font-size: 0.9rem;
+  color: var(--label);
+  font-size: 0.88rem;
 }
 
-.fdInput input:focus {
-  box-shadow: inset 0 0 0 1.5px var(--navy-blue);
+.fdInput:focus-within {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26, 43, 69, 0.12);
 }
 
 .fdInput.tall input {
-  height: 74px;
+  height: 64px;
 }
 
 /* Inputs com valor pré-preenchido / label flutuante */
 .fdInput.fdFilled input {
-  padding: 18px 14px 4px;
+  padding: 16px 12px 4px;
 }
 
 .fdInput.fdFilled label {
   position: absolute;
-  left: 14px;
+  left: 12px;
   top: 6px;
   font-size: 0.65rem;
-  color: #8a8f99;
+  color: var(--label);
   pointer-events: none;
 }
 
-/* Ícone de calendário — cor neutra, sem inventar tom novo */
+/* Ícone (ex: calendário) */
 .fdInput.fdIcon input {
-  padding-right: 40px;
+  padding-right: 36px;
 }
 
 .fdInput.fdIcon i {
   position: absolute;
-  right: 14px;
+  right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--navy-blue);
+  color: var(--navy);
   font-size: 0.95rem;
   pointer-events: none;
 }
 
 .fdInput.fdFilled.fdIcon input {
-  padding: 18px 40px 4px 14px;
+  padding: 16px 36px 4px 12px;
+}
+
+/* Esconde o ícone nativo do calendário no Chrome, tal como em formulario.css */
+.fdInput input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 36px;
+  cursor: pointer;
 }
 
 /* IBAN */
@@ -294,7 +308,7 @@
 
 .iban-fixed input {
   font-weight: 700;
-  color: var(--navy-blue);
+  color: var(--navy);
 }
 
 @media (max-width: 700px) {
@@ -306,48 +320,49 @@
 /* Selects — mesmo padrão dos inputs */
 .fdSelect {
   position: relative;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 3px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .fdSelect select {
   width: 100%;
-  height: 54px;
-  padding: 0 14px;
+  height: 46px;
+  padding: 0 12px;
   border: none;
   outline: none;
   background: transparent;
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--text-color);
+  font-size: 0.9rem;
+  color: var(--text);
   appearance: none;
+  -webkit-appearance: none;
   cursor: pointer;
 }
 
 .fdSelect:focus-within {
-  box-shadow: inset 0 0 0 1.5px var(--navy-blue);
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26, 43, 69, 0.12);
 }
 
 .fdSelect::after {
-  content: "";
+  content: '▼';
   position: absolute;
-  right: 16px;
+  right: 14px;
   top: 50%;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid #8a8f99;
-  border-bottom: 2px solid #8a8f99;
-  transform: translateY(-70%) rotate(45deg);
+  transform: translateY(-50%);
+  font-size: 0.65rem;
+  color: var(--label);
   pointer-events: none;
 }
 
 .fdSelect.fdPlaceholder select {
-  color: #8a8f99;
+  color: var(--label);
 }
 
 .fdSelect.fdPlaceholder.has-value select {
-  color: var(--text-color);
+  color: var(--text);
 }
 
 .fdSelect.full-width {
@@ -359,12 +374,12 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  padding: 16px 14px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 12px;
   font-size: 0.88rem;
-  color: var(--text-color);
+  color: var(--text);
   cursor: pointer;
 }
 
@@ -372,32 +387,31 @@
   width: 16px;
   height: 16px;
   flex: none;
-  accent-color: var(--navy-blue);
+  accent-color: var(--navy);
 }
 
 .link-red {
-  color: var(--navy-blue);
+  color: var(--red);
   font-weight: 700;
   text-decoration: none;
 }
 
 .link-red:hover {
-  color: var(--navy-hover);
+  color: var(--red-hover);
   text-decoration: underline;
 }
 
-/* Botões de acção secundária — mesmo tratamento do .btn-submit do login
-   (azul sólido #004ecc / hover --navy-hover), único padrão de botão
-   sólido existente no sistema. */
+/* Botões de acção secundária — cor navy sólida, no espírito dos
+   inputs/focus de formulario.css */
 .btn-teal {
   align-self: flex-start;
-  background-color: #004ecc;
-  color: #ffffff;
+  background-color: var(--navy);
+  color: var(--white);
   border: none;
-  border-radius: 3px;
+  border-radius: var(--radius);
   padding: 11px 22px;
   font-family: var(--font-body);
-  font-weight: 400;
+  font-weight: 700;
   font-size: 0.85rem;
   letter-spacing: 0.04em;
   cursor: pointer;
@@ -405,7 +419,7 @@
 }
 
 .btn-teal:hover {
-  background: var(--navy-hover);
+  background: #24365a;
   transform: translateY(-1px);
 }
 
@@ -413,32 +427,31 @@
   transform: translateY(1px);
 }
 
-/* Botão final "GRAVAR CANDIDATURA" — mesma linguagem de CTA
-   "candidatar-te" (verde-menta) usada no botão lateral fixo do site. */
+/* Botão final "GRAVAR CANDIDATURA" — usa a cor de sucesso (--valid) */
 .btn-finalizar-submit {
-  background-color: #83e1b2;
-  color: #182439;
+  background-color: var(--valid);
+  color: var(--white);
 }
 
 .btn-finalizar-submit:hover {
-  background: #2ce387;
+  background: #24803e;
 }
 
-/* Habilitações — caixas com contorno tracejado, cor de sistema */
+/* Habilitações — caixas com contorno tracejado */
 .dashed-box {
-  border: 1px dashed var(--border);
-  border-radius: 3px;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
-  background: #ffffff;
+  background: var(--white);
 }
 
 .box-title {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--navy-blue);
+  color: var(--navy);
   margin: 0;
 }
 
@@ -448,7 +461,7 @@
 
 .box-subtitle {
   font-size: 0.8rem;
-  color: #666;
+  color: var(--label);
   margin: -8px 0 0;
 }
 
@@ -458,23 +471,23 @@
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 3px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
   padding: 16px 14px;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-color);
+  color: var(--text);
 }
 
 .mil-select {
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  background: #ffffff;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
   padding: 8px 12px;
   font-family: var(--font-body);
   font-size: 0.85rem;
-  color: var(--text-color);
+  color: var(--text);
   cursor: pointer;
 }
 

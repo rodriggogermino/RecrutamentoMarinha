@@ -291,7 +291,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </main>
 
   <!-- FOOTER -->
-  <footer style="position:sticky;">
+  <footer style="position:;">
     <div id="topFooter">
       <div id="logotiposFooter">
         <a href=""><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>

@@ -1,3 +1,8 @@
+<?php
+// Exemplo: No futuro, este valor virá de uma consulta à Base de Dados
+// $totalCandidaturas = $row['total']; 
+$totalCandidaturas = 0; 
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -35,8 +40,15 @@
 <body>
     <main class="pagina-status">
         <h1>Candidaturas Submetidas</h1>
-        <p>Atualmente tens <strong>0 candidaturas</strong> submetidas.</p>
-        <a class="voltar-link" href="homepage.html">← Voltar à homepage</a>
+        
+        <p>
+            Atualmente tens 
+            <strong><?php echo $totalCandidaturas; ?> 
+            <?php echo ($totalCandidaturas === 1) ? 'candidatura' : 'candidaturas'; ?></strong> 
+            submetidas.
+        </p>
+        
+        <a class="voltar-link" href="homepage.php">← Voltar à homepage</a>
     </main>
 </body>
 </html>

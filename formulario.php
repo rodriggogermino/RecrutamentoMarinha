@@ -165,8 +165,8 @@ $opcoesGenero = [
         </div>
 
         <div class="form-footer">
-            <button type="submit" class="btn-submit">Entrar</button>
-        </div>
+    <button type="button" class="btn-submit" onclick="window.location.href='login.php'">Entrar</button>
+</div>
     </form>
 
     <script>
