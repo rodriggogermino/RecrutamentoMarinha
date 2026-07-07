@@ -1,6 +1,7 @@
 <?php
 // Configurações e Arrays de Dados para renderização dinâmica
 $opcoesHabilitacoes = [
+    "",    
     "Mestrado",
     "Licenciatura",
     "Ensino Secundário",
@@ -9,6 +10,7 @@ $opcoesHabilitacoes = [
 ];
 
 $opcoesGenero = [
+     "",   
     "Masculino",
     "Feminino",
     "Outro",
@@ -32,7 +34,7 @@ $opcoesGenero = [
 
     <nav>
         <a href="index.php" id="navLogoS"><img src="Utilities/Images/LogoBlackXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
-        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/LogoBlackXXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
         
         <div id="rightNav">
             <form action="pesquisa.php" method="GET">

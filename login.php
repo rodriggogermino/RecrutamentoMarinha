@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <nav>
         <a href="index.php" id="navLogoS"><img src="Utilities/Images/LogoBlackXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
-        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/LogoBlackXXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
         <div id="rightNav">
             <form action="/">
                 <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">

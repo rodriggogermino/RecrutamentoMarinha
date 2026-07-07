@@ -20,7 +20,7 @@
 
     <nav>
         <a href="index.php" id="navLogoS"><img src="Utilities/Images/LogoBlackXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
-        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/LogoBlackXXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
         <div id="rightNav">
             <form action="/">
                 <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
@@ -92,7 +92,7 @@
     <footer>
         <div id="topFooter">
             <div id="logotiposFooter">
-                <a href=""><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+                <a href=""><img src="Utilities/Images/logoBlackXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
                 <a href=""><img src="Utilities/Images/govLogo.png" alt="Logotipo Républica Portuguesa"></a>
             </div>
             <div id="logotiposRedes">

@@ -71,6 +71,7 @@ img {
 
   #navLogoXS {
     display: block;
+    
   }
 
   .barraPesquisa {
@@ -222,8 +223,10 @@ img {
 
   .hero-icons-grid {
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
+
 
   .icon-nav {
     flex-wrap: wrap;
