@@ -1,286 +1,497 @@
-/* Candidatar-me (layout compatível com homepage.css + design de formulário) */
+/* =========================================
+   Marinha Recrutamento – candidatar-me.css
+   (alinhado com a linguagem visual de formulario.css)
+   ========================================= */
 
 .cand-main {
+  /* Tokens copiados de formulario.css, para consistência visual */
+  --navy:       #1a2b45;
+  --light-bg:   #f4f4f4;
+  --white:      #ffffff;
+  --border:     #cccccc;
+  --text:       #222222;
+  --label:      #444444;
+  --valid:      #2e9e4f;
+  --radius:     6px;
+  --font-body:  'Noto Sans', sans-serif;
+  --font-title: 'Noto Sans', sans-serif;
+
   padding-top: 110px;
   min-height: 100vh;
-  padding-bottom: 240px;
+  padding-bottom: 100px;
+  background: var(--light-bg);
+  color: var(--text);
+  font-family: var(--font-body);
 }
 
-.cand-hero {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto 24px;
-}
-
-.cand-hero-inner {
-  color: white;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  align-items: flex-start;
+/* Título */
+.cand-title-row {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto 18px;
 }
 
 .cand-title {
-  font-size: clamp(2rem, 4vw, 3.5rem);
-  background: #78849d;
-  background: linear-gradient(to right, #78849d 0%, #000000 100%);
-  filter: drop-shadow(0 0 8px rgba(0,0,0,0.1)) drop-shadow(8px 8px 8px rgba(0,0,0,0.1));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-family: var(--font-title);
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--navy);
+  text-transform: uppercase;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--light-bg);
 }
 
-.cand-subtitle {
-  font-size: clamp(1rem, 2vw, 1.3rem);
-  font-weight: 200;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-/* progresso */
-.cand-progress {
-  width: 100%;
-  max-width: 700px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.cand-progress-bar {
-  width: 100%;
-  height: 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  overflow: hidden;
-}
-
-.cand-progress-fill {
-  display: block;
-  height: 100%;
-  width: 25%;
-  background: linear-gradient(90deg, #83e1b2, #2ce387);
-  border-radius: 999px;
-}
-
-.cand-progress-steps {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.cand-progress-steps .step {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 700;
-  font-size: 0.9rem;
-}
-
-.cand-progress-steps .step.active {
-  background: rgba(131, 225, 178, 0.18);
-  border-color: #83e1b2;
-  color: #000000;
-}
-
-/* shell */
+/* Shell — cartão com fundo e sombra, como .form-wrapper */
 .cand-form-shell {
-  width: 90%;
-  max-width: 1100px;
+  width: 92%;
+  max-width: 1200px;
   margin: 0 auto;
-  background-color: rgb(131, 129, 129);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  
-  padding: 26px 24px;
-  color: white;
+  background: #f3f6fc;
+  border-radius: 10px;
+  padding: 24px;
+  color: var(--text);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
 }
 
 .cand-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 0;
 }
 
-/* tabs */
+/* Tabs */
 .cand-tabs {
+  position: sticky;
+  top: 0;
+  z-index: 5;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  align-items: stretch;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius) var(--radius) 0 0;
+  overflow-x: auto;
 }
 
 .cand-tabs .tab {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.25);
-  color: rgba(255,255,255,0.85);
-  padding: 10px 16px;
-  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 16px 20px;
   cursor: pointer;
-  font-weight: 700;
-  transition: 0.25s;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--label);
+  white-space: nowrap;
+  transition: 0.2s ease;
 }
 
-.cand-tabs .tab:hover {
-  background: rgba(255, 255, 255, 0.14);
+.cand-tabs .tab .tab-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--label);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
 }
 
 .cand-tabs .tab.active {
-  background: rgba(131, 225, 178, 0.25);
-  border-color: #83e1b2;
-  color: #fff;
+  color: var(--navy);
+  font-weight: 700;
+  border-bottom-color: var(--navy);
 }
 
-/* panels */
+.cand-tabs .tab.active .tab-num {
+  background: var(--navy);
+}
+
+/* Botão "Finalizar" — usa a cor de sucesso (--valid) definida em formulario.css */
+.cand-tabs .tab-finalizar {
+  margin-left: auto;
+  background-color: #004ecc;
+  color: var(--white);
+  font-weight: 700;
+  border-bottom: none;
+}
+
+.cand-tabs .tab-finalizar .tab-num {
+  background: var(--white);
+  color: black;
+}
+
+.cand-tabs .tab-finalizar:hover {
+  background: var(--navy);
+}
+
+/* Banner informativo */
+.cand-info-banner {
+  background: rgba(26, 43, 69, 0.06);
+  color: var(--navy);
+  padding: 14px 20px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  border: 1.5px solid var(--border);
+  border-top: none;
+}
+
+.cand-info-banner p {
+  margin: 0;
+}
+
+/* Panels */
 .cand-panels {
-  width: 100%;
+  padding: 24px 4px 10px;
 }
 
 .panel {
   display: none;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .panel.active {
-  display: block;
-}
-
-.panel-head {
   display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 18px;
 }
 
-.panel-head img {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.25);
+.section-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--label);
+  margin: 4px 0 -6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
-.panel-head h2 {
-  font-size: clamp(1.2rem, 2.4vw, 1.8rem);
-  font-weight: 800;
+.section-label.plain {
+  font-weight: 600;
+  text-transform: none;
+  color: var(--label);
+  margin-bottom: 0;
 }
 
-/* grid / fields */
+/* Grid */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px 26px;
+  gap: 16px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 @media (max-width: 900px) {
-  .grid {
+  .grid-2,
+  .grid-3 {
     grid-template-columns: 1fr;
   }
 }
 
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+.email-row {
+  align-items: stretch;
 }
 
-.field label {
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.88);
+/* Linha "Cod. Postal / Aux / Localidade / País de Residência" (painel Morada) */
+.morada-cp-row {
+  grid-template-columns: 0.6fr 0.4fr 1.6fr 1.6fr;
 }
 
-.field input,
-.field select {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(255,255,255,0.28);
-  background: rgba(255,255,255,0.08);
-  color: rgb(0, 0, 0);
-  outline: none;
+@media (max-width: 900px) {
+  .morada-cp-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-.field input::placeholder {
-  color: rgba(255,255,255,0.55);
+@media (max-width: 520px) {
+  .morada-cp-row {
+    grid-template-columns: 1fr;
+  }
 }
 
-.field input:focus,
-.field select:focus {
-  border-color: #83e1b2;
-  box-shadow: 0 0 0 3px rgba(131,225,178,0.18);
-}
-
-.field select {
-  appearance: none;
-}
-
-/* password icon */
-.input-icon {
+/* Inputs — mesmo tratamento visual dos inputs de formulario.css
+   (borda 1.5px, --radius, foco com glow em vez de inset shadow) */
+.fdInput {
   position: relative;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.input-icon .icon {
+.fdInput input {
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.fdInput input::placeholder {
+  color: var(--label);
+  font-size: 0.88rem;
+}
+
+.fdInput:focus-within {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26, 43, 69, 0.12);
+}
+
+.fdInput.tall input {
+  height: 64px;
+}
+
+/* Inputs com valor pré-preenchido / label flutuante */
+.fdInput.fdFilled input {
+  padding: 16px 12px 4px;
+}
+
+.fdInput.fdFilled label {
+  position: absolute;
+  left: 12px;
+  top: 6px;
+  font-size: 0.65rem;
+  color: var(--label);
+  pointer-events: none;
+}
+
+/* Ícone (ex: calendário) */
+.fdInput.fdIcon input {
+  padding-right: 36px;
+}
+
+.fdInput.fdIcon i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--navy);
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.fdInput.fdFilled.fdIcon input {
+  padding: 16px 36px 4px 12px;
+}
+
+/* Esconde o ícone nativo do calendário no Chrome, tal como em formulario.css */
+.fdInput input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  width: 36px;
+  cursor: pointer;
+}
+
+/* IBAN */
+.iban-row {
+  display: grid;
+  grid-template-columns: 0.9fr 1fr 1fr 1.6fr 0.7fr;
+  gap: 12px;
+}
+
+.iban-fixed input {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+@media (max-width: 700px) {
+  .iban-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Selects — mesmo padrão dos inputs */
+.fdSelect {
+  position: relative;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.fdSelect select {
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.fdSelect:focus-within {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26, 43, 69, 0.12);
+}
+
+.fdSelect::after {
+  content: '▼';
   position: absolute;
   right: 14px;
   top: 50%;
   transform: translateY(-50%);
-  opacity: 0.75;
-  cursor: pointer;
-  user-select: none;
+  font-size: 0.65rem;
+  color: var(--label);
+  pointer-events: none;
 }
 
-/* actions */
-.cand-actions {
+.fdSelect.fdPlaceholder select {
+  color: var(--label);
+}
+
+.fdSelect.fdPlaceholder.has-value select {
+  color: var(--text);
+}
+
+.fdSelect.full-width {
+  width: 100%;
+}
+
+/* Checkbox rows */
+.checkbox-box {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 16px;
-  margin-top: 18px;
-}
-
-.btn {
-  padding: 12px 18px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.35);
-  background: rgba(131, 225, 178, 0.22);
-  color: #fff;
-  font-weight: 800;
+  gap: 10px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 12px;
+  font-size: 0.88rem;
+  color: var(--text);
   cursor: pointer;
-  transition: 0.25s;
-  display: inline-flex;
+}
+
+.checkbox-box input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  accent-color: var(--navy);
+}
+
+.link-red {
+  color: var(--navy);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.link-red:hover {
+  color: var(--navy);
+  text-decoration: underline;
+}
+
+/* Botões de acção secundária — cor navy sólida, no espírito dos
+   inputs/focus de formulario.css */
+.btn-teal {
+  align-self: flex-start;
+  background-color: #004ecc;
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius);
+  padding: 11px 22px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-teal:hover {
+  background: var(--navy);
+  transform: translateY(-1px);
+}
+
+.btn-teal:active {
+  transform: translateY(1px);
+}
+
+/* Botão final "GRAVAR CANDIDATURA" — usa a cor de sucesso (--valid) */
+.btn-finalizar-submit {
+  background-color: var(--valid);
+  color: var(--white);
+}
+
+.btn-finalizar-submit:hover {
+  background: #148534;
+}
+
+/* Habilitações — caixas com contorno tracejado */
+.dashed-box {
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--white);
+}
+
+.box-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0;
+}
+
+.box-title.small-top {
+  margin-top: 4px;
+}
+
+.box-subtitle {
+  font-size: 0.8rem;
+  color: var(--label);
+  margin: -8px 0 0;
+}
+
+/* Situação Militar */
+.mil-question {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
 }
 
-.btn:hover {
-  background: rgba(131, 225, 178, 0.35);
-}
-
-.btn.ghost {
-  background: rgba(255,255,255,0.08);
-}
-
-.btn.submit {
-  background: #83e1b2;
-  border-color: #83e1b2;
-}
-
-.btn.submit:hover {
-  background: #2ce387;
+.mil-select {
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+  padding: 8px 12px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text);
+  cursor: pointer;
 }
 
 @media (max-width: 650px) {
-  .cand-form-shell {
-    padding: 18px 14px;
-  }
-  .cand-actions {
+  .mil-question {
     flex-direction: column;
-    align-items: stretch;
-  }
-  .cand-actions .btn {
-    width: 100%;
+    align-items: flex-start;
   }
 }
-

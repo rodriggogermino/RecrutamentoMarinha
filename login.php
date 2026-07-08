@@ -1,3 +1,13 @@
+<?php
+// Se o formulário for enviado via POST (quando clicam no botão submit)
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    
+    // Aqui farás a validação de email/password no futuro.
+    // Por agora, redireciona diretamente para a homepage.php
+    header("Location: homepage.php");
+    exit(); // Garante que o script para de ser executado aqui
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-pt">
 
@@ -7,80 +17,74 @@
     <title>Login | Marinha Portuguesa</title>
     <link rel="icon" type="image/x-icon" href="Utilities/Images/icone.ico">
     <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="responsive.css"> 
 </head>
 
 <body>
 
     <nav>
         <a href="index.php" id="navLogoS"><img src="Utilities/Images/LogoBlackXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
-        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/logoWhiteXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
+        <a href="index.php" id="navLogoXS"><img src="Utilities/Images/LogoBlackXXS.png" alt="Logotipo Branco | Marinha Portuguesa"></a>
         <div id="rightNav">
             <form action="/">
                 <input id="barraPesquisa" class="barraPesquisa" type="search" placeholder="Pesquise Aqui">
             </form>
             <span id="searchIconMobile" onclick="openNav()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z"
-                            fill="white" />
-                    </svg>
-                </span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z" fill="white" />
+                </svg>
+            </span>
             <div id="searchIcons">
                 <span id="searchIcon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z" fill="black"/>
-                        </svg>
-                    </span>
-                <span id="searchIconHover">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0977 20.6834 22.0977 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11Z"
-                                fill="white" />
-                        </svg>
-                    </span>
-            </div>
-            <span id="barsIcon">
-                    <svg width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9.33333C0 8.59695 0.614318 8 1.37212 8H26.0702C26.828 8 27.4423 8.59695 27.4423 9.33333C27.4423 10.0697 26.828 10.6667 26.0702 10.6667H1.37212C0.614318 10.6667 0 10.0697 0 9.33333Z" fill="black"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.33333C0 0.596954 0.614318 0 1.37212 0H26.0702C26.828 0 27.4423 0.596954 27.4423 1.33333C27.4423 2.06971 26.828 2.66667 26.0702 2.66667H1.37212C0.614318 2.66667 0 2.06971 0 1.33333Z" fill="black"/>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 17.3333C0 16.597 0.614318 16 1.37212 16H26.0702C26.828 16 27.4423 16.597 27.4423 17.3333C27.4423 18.0697 26.828 18.6667 26.0702 18.6667H1.37212C0.614318 18.6667 0 18.0697 0 17.3333Z" fill="black"/>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0976 20.6834 22.0976 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319ZM4 11C4 7.13401 7.13401 4 11 4C14.866 4 18 7.13401 18 11C18 12.886 17.2541 14.5978 16.0413 15.8565C16.0071 15.8828 15.9742 15.9116 15.9429 15.9429C15.9116 15.9742 15.8827 16.0071 15.8564 16.0413C14.5977 17.2542 12.886 18 11 18C7.13401 18 4 14.866 4 11Z" fill="black"/>
                     </svg>
                 </span>
+                <span id="searchIconHover">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11C20 13.125 19.2635 15.078 18.0319 16.6177L21.7071 20.2929C22.0977 20.6834 22.0977 21.3166 21.7071 21.7071C21.3166 22.0977 20.6834 22.0977 20.2929 21.7071L16.6177 18.0319C15.078 19.2635 13.125 20 11 20C6.02944 20 2 15.9706 2 11Z" fill="white" />
+                    </svg>
+                </span>
+            </div>
+            <span id="barsIcon">
+                <svg width="28" height="19" viewBox="0 0 28 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9.33333C0 8.59695 0.614318 8 1.37212 8H26.0702C26.828 8 27.4423 8.59695 27.4423 9.33333C27.4423 10.0697 26.828 10.6667 26.0702 10.6667H1.37212C0.614318 10.6667 0 10.0697 0 9.33333Z" fill="black"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 1.33333C0 0.596954 0.614318 0 1.37212 0H26.0702C26.828 0 27.4423 0.596954 27.4423 1.33333C27.4423 2.06971 26.828 2.66667 26.0702 2.66667H1.37212C0.614318 2.66667 0 2.06971 0 1.33333Z" fill="black"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 17.3333C0 16.597 0.614318 16 1.37212 16H26.0702C26.828 16 27.4423 16.597 27.4423 17.3333C27.4423 18.0697 26.828 18.6667 26.0702 18.6667H1.37212C0.614318 18.6667 0 18.0697 0 17.3333Z" fill="black"/>
+                </svg>
+            </span>
             <div id="sideMenu" class="side-menu">
                 <ul>
                     <li><a href="#">Profissões</a></li>
                     <li><a href="#">Concursos</a></li>
                     <li><a href="#">Prepara-te</a></li>
                     <li><a href="#">A tua Carreira</a></li>
-                    <li><a href="login.html">Candidata-te</a></li>
+                    <li><a href="login.php">Candidata-te</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-
-
     <div class="login-card">
         <main class="login-container">
             <h1>Login</h1>
 
-            <form class="login-form">
+            <form class="login-form" method="POST" action="login.php">
                 <div class="input-box">
-                    <input type="email" placeholder="Email" required>
+                    <input type="email" name="email" placeholder="Email" required>
                 </div>
                 <div class="input-box">
                     <div class="login-links-row"></div>
-                    <input type="password" placeholder="Password" required>
+                    <input type="password" name="password" placeholder="Password" required>
                 </div>
-                <a href="recoverpassword.html" class="link-text">Esqueci-me da password</a>
-                <button type="submit" onclick="window.location='homepage.html'" class="btn-submit">Entrar</button>
+                <a href="recoverpassword.php" class="link-text">Esqueci-me da password</a>
+                
+                <!-- O botão mantém-se como type="submit" para acionar o bloco PHP acima -->
+                <button type="submit" class="btn-submit">Entrar</button>
 
-
-
-                <a href="formulario.html" class="link-text">Registar-me</a>
-    </div>
-    </form>
-    </main>
+                <a href="formulario.php" class="link-text">Registar-me</a>
+            </form>
+        </main>
     </div>
 
     <!--#### FOOTER ####-->
@@ -118,21 +122,16 @@
                     </span>
                 </a>
                 <a href="https://x.com/marinhapt" target="_blank">
-                    <span id="xIcon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <mask id="path-1-inside-1_707_1928" fill="white">
-                                <path d="M13.9761 10.1624L22.7186 0H20.6469L13.0558 8.82384L6.99289 0H0L9.16837 13.3432L0 24H2.07179L10.0881 14.6817L16.491 24H23.4839L13.9761 10.1624ZM2.81829 1.55962H6.00044L20.6479 22.5113H17.4657L2.81829 1.55962Z" />
-                            </mask>
-                            <path d="M13.9761 10.1624L22.7186 0H20.6469L13.0558 8.82384L6.99289 0H0L9.16837 13.3432L0 24H2.07179L10.0881 14.6817L16.491 24H23.4839L13.9761 10.1624ZM2.81829 1.55962H6.00044L20.6479 22.5113H17.4657L2.81829 1.55962Z" fill="white" />
-                            <path d="M13.9761 10.1624L22.7186 0H20.6469L13.0558 8.82384L6.99289 0H0L9.16837 13.3432L0 24H2.07179L10.0881 14.6817L16.491 24H23.4839L13.9761 10.1624ZM2.81829 1.55962H6.00044L20.6479 22.5113H17.4657L2.81829 1.55962Z" fill="white" mask="url(#path-1-inside-1_707_1928)" />
-                        </svg>
-                    </span>
+                    <mask id="path-1-inside-1_707_1928" fill="white">
+                        <path d="M13.9761 10.1624L22.7186 0H20.6469L13.0558 8.82384L6.99289 0H0L9.16837 13.3432L0 24H2.07179L10.0881 14.6817L16.491 24H23.4839L13.9761 10.1624ZM2.81829 1.55962H6.00044L20.6479 22.5113H17.4657L2.81829 1.55962Z" />
+                    </mask>
+                    <path d="M13.9761 10.1624L22.7186 0H20.6469L13.0558 8.82384L6.99289 0H0L9.16837 13.3432L0 24H2.07179L10.0881 14.6817L16.491 24H23.4839L13.9761 10.1624ZM2.81829 1.55962H6.00044L20.6479 22.5113H17.4657L2.81829 1.55962Z" fill="white" />
+                    <path d="M13.9761 10.1624L22.7186 0H20.6469L13.0558 8.82384L6.99289 0H0L9.16837 13.3432L0 24H2.07179L10.0881 14.6817L16.491 24H23.4839L13.9761 10.1624ZM2.81829 1.55962H6.00044L20.6479 22.5113H17.4657L2.81829 1.55962Z" fill="white" mask="url(#path-1-inside-1_707_1928)" />
                 </a>
                 <a href="https://www.youtube.com/@MarinhaPortuguesa" target="_blank">
                     <span id="youtubeIcon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0004 3C12.0004 3 12.0006 3 12.0006 4L12.0006 5L11.9251 5.00011C11.8751 5.00022 11.8011 5.00044 11.7063 5.00089C11.5165 5.00178 11.2431 5.00356 10.9094 5.00713C10.2416 5.01427 9.33455 5.02855 8.37527 5.05706C7.4144 5.08561 6.40917 5.12821 5.54269 5.19141C4.65458 5.25619 3.99469 5.33761 3.66592 5.42419C3.36722 5.51 3.09615 5.67253 2.87971 5.89566C2.66858 6.11333 2.51667 6.38119 2.43818 6.67375C2.13864 8.34737 1.99216 10.0448 2.00056 11.7451L2.00061 11.7563C1.9899 13.4635 2.13528 15.1681 2.43505 16.8487C2.52167 17.1264 2.6751 17.3788 2.88215 17.5837C3.09906 17.7984 3.36751 17.9537 3.66171 18.0347C3.98903 18.1217 4.65077 18.2035 5.54269 18.2686C6.40917 18.3318 7.4144 18.3744 8.37527 18.4029C9.33455 18.4314 10.2416 18.4457 10.9094 18.4529C11.2431 18.4564 11.5165 18.4582 11.7063 18.4591C11.8011 18.4596 11.8751 18.4598 11.9251 18.4599H12.076C12.1261 18.4598 12.2 18.4596 12.2949 18.4591C12.4846 18.4582 12.7581 18.4564 13.0917 18.4529C13.7595 18.4457 14.6666 18.4314 15.6259 18.4029C16.5867 18.3744 17.592 18.3318 18.4585 18.2686C19.3466 18.2038 20.0065 18.1224 20.3352 18.0358C20.6339 17.95 20.905 17.7875 21.1214 17.5643C21.3326 17.3467 21.4845 17.0788 21.563 16.7863C21.8602 15.1253 22.0066 13.4409 22.0006 11.7536L22.0005 11.7437C22.0113 10.0306 21.8649 8.32008 21.563 6.63377C21.4845 6.3412 21.3326 6.07333 21.1214 5.85566C20.9075 5.63509 20.6401 5.47373 20.3455 5.38717C20.0055 5.3072 19.3432 5.23348 18.4647 5.17498C17.5965 5.11716 16.5899 5.07822 15.6285 5.05213C14.6685 5.02609 13.7608 5.01304 13.0927 5.00651C12.7588 5.00325 12.4852 5.00162 12.2953 5.00081L12.0762 5.0001L12.0006 5L12.0006 4C12.0006 3 12.0004 3 12.0004 3Z" fill="white" />
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.24775 7.61559C9.55556 7.43653 9.93537 7.43468 10.2449 7.61072L15.9949 10.8807C16.3075 11.0585 16.5006 11.3904 16.5006 11.75C16.5006 12.1096 16.3075 12.4415 15.9949 12.6192L10.2449 15.8892C9.93537 16.0653 9.55556 16.0634 9.24775 15.8844C8.93993 15.7053 8.75056 15.3761 8.75056 15.02V8.47998C8.75056 8.12388 8.93993 7.79464 9.24775 7.61559ZM10.7506 10.1991V13.3009L13.4777 11.75L10.7506 10.1991Z" fill="white" />
                         </svg>
                     </span>
                     <span id="youtubeIconHover">

@@ -1,3 +1,8 @@
+<?php
+// No futuro, este valor virá da tua base de dados ou sistema de ficheiros
+// Exemplo: $documentosPendentes = obterDocumentosEmFalta($idUtilizador);
+$documentosPendentes = 0; 
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -35,8 +40,17 @@
 <body>
     <main class="pagina-status">
         <h1>Documentos para Entregar</h1>
-        <p>Atualmente tens <strong>0 documentos</strong> por entregar.</p>
-        <a class="voltar-link" href="homepage.html">← Voltar à homepage</a>
+        
+        <p>
+            Atualmente tens 
+            <strong>
+                <?php echo $documentosPendentes; ?> 
+                <?php echo ($documentosPendentes === 1) ? 'documento' : 'documentos'; ?>
+            </strong> 
+            <?php echo ($documentosPendentes === 1) ? 'por entregar' : 'por entregar'; ?>.
+        </p>
+        
+        <a class="voltar-link" href="homepage.php">← Voltar à homepage</a>
     </main>
 </body>
 </html>

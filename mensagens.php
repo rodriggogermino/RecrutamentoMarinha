@@ -1,3 +1,8 @@
+<?php
+// No futuro, este valor virá da tua base de dados (ex: contagem de mensagens não lidas)
+// $novasMensagens = obterMensagensNaoLidas($idUtilizador);
+$novasMensagens = 0; 
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -35,8 +40,17 @@
 <body>
     <main class="pagina-status">
         <h1>Mensagens para Ler</h1>
-        <p>Atualmente tens <strong>0 mensagens</strong> por ler.</p>
-        <a class="voltar-link" href="homepage.html">← Voltar à homepage</a>
+        
+        <p>
+            Atualmente tens 
+            <strong>
+                <?php echo $novasMensagens; ?> 
+                <?php echo ($novasMensagens === 1) ? 'mensagem' : 'mensagens'; ?>
+            </strong> 
+            por ler.
+        </p>
+        
+        <a class="voltar-link" href="homepage.php">← Voltar à homepage</a>
     </main>
 </body>
 </html>

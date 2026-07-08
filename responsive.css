@@ -1,0 +1,444 @@
+/* ==========================================================================
+   RESPONSIVE.CSS
+   Ficheiro único de responsividade para TODAS as páginas do site
+   (login, homepage/index, candidatar-me, etc.)
+
+   COMO USAR
+   ---------
+   Adiciona este <link> a seguir a TODOS os outros CSS da página,
+   sempre por ÚLTIMO no <head>, para que estas regras tenham prioridade
+   sobre as regras "base" (que são pensadas para desktop):
+
+     <link rel="stylesheet" href="login.css">
+     <link rel="stylesheet" href="homepage.css">
+     <link rel="stylesheet" href="candidatar-me.css">   (só na pág. do formulário)
+     <link rel="stylesheet" href="responsive.css">      <-- SEMPRE NO FIM
+
+   Este ficheiro é seguro de incluir em qualquer página: cada bloco só
+   atua sobre as classes/IDs que existem nessa página específica.
+
+   BREAKPOINTS (mantidos consistentes com os que já usavas no código)
+     1200px → desktop grande
+     1024px → laptop pequeno / tablet paisagem
+      900px → tablet (já usado em candidatar-me.css)
+      768px → tablet retrato
+      650px → phablet (já usado em candidatar-me.css)
+      520px → telemóvel grande (já usado em login.css)
+      380px → telemóvel pequeno
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. BASE GLOBAL — aplica-se a qualquer página
+   -------------------------------------------------------------------------- */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  overflow-y: auto;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   1. NAVBAR (login.css / homepage.css / candidatar-me.css)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  nav {
+    padding: 3vh 4vw;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    padding: 2.2vh 5vw;
+  }
+
+  /* troca o logótipo preto (desktop) pelo branco (mobile), como o HTML já prevê */
+  #navLogoS {
+    display: none;
+  }
+
+  #navLogoXS {
+    display: block;
+    
+  }
+
+  .barraPesquisa {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .user-icons-menu {
+    gap: 10px;
+    margin-right: 10px;
+  }
+
+  .user-icons-menu a svg {
+    width: 19px;
+    height: 19px;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-icons-menu {
+    gap: 6px;
+    margin-right: 6px;
+  }
+
+  /* em ecrãs muito pequenos mantém só o essencial: pesquisa + hambúrguer */
+  .user-icons-menu a:not(:last-child) {
+    display: none;
+  }
+}
+
+/* Menu lateral (dropdown do hambúrguer) */
+@media (max-width: 480px) {
+  .side-menu {
+    left: 4vw;
+    right: 4vw;
+    width: auto;
+    padding: 24px;
+    text-wrap: wrap;
+  }
+
+  .side-menu a {
+    text-align: left;
+    font-size: 15px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. BOTÕES/ETIQUETAS FLUTUANTES LATERAIS
+      (#sideButtons, .side-chat, .floating-chat, .chat-tab)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  #sideButtons a {
+    font-size: 1.4vh;
+    padding: 1.4vh 0.6vh;
+  }
+}
+
+@media (max-width: 480px) {
+  #sideButtons {
+    top: auto;
+    bottom: 90px;
+  }
+
+  #sideButtons a,
+  .side-chat,
+  .floating-chat,
+  .chat-tab {
+    font-size: 11px;
+    padding: 10px 6px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. PÁGINA DE LOGIN (login.css)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .login-container {
+    padding: 24px;
+  }
+
+  .login-card {
+    padding: 1.6rem 1.8rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .login-container {
+    padding: 16px;
+  }
+
+  .login-card {
+    padding: 1.4rem 1.2rem;
+  }
+
+  .login-container h1 {
+    font-size: 1.3rem;
+    max-width: 100%;
+  }
+
+  .login-form {
+    max-width: 100%;
+  }
+
+  .btn-submit,
+  .login-form .link-text:first-of-type {
+    width: 100%;
+  }
+
+  .login-links-row {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. HOMEPAGE — cabeçalho, ícones, estados (homepage.css)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .container {
+    padding: 20px;
+    padding-top: 80px;
+  }
+
+  .status-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .status-buttons {
+    flex-wrap: wrap;
+  }
+
+  .status-btn {
+    width: 100%;
+  }
+
+  .icon-bar {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .status-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-icons-grid {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+
+  .icon-nav {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    padding: 8px 14px;
+  }
+
+  .logo img {
+    margin-top: 16px;
+    height: 24px;
+  }
+
+  .concursos h2 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Acordeão */
+@media (max-width: 600px) {
+  .accordion-header {
+    padding: 12px;
+    font-size: 0.85rem;
+  }
+
+  .accordion-body {
+    padding: 0 12px;
+  }
+
+  .accordion-item.open .accordion-body {
+    padding: 10px 12px 12px;
+  }
+}
+
+/* Caixa de contactos */
+@media (max-width: 768px) {
+  .contact-box {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 20px;
+  }
+}
+
+/* Linha "Candidatar-te" / download por baixo do acordeão */
+@media (max-width: 520px) {
+  .incorporacao-row,
+  .candidatar-me-row {
+    justify-content: flex-start;
+  }
+
+  .candidatarBtn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. RODAPÉ — as duas variantes existentes no site
+      (footer { } de login.css/candidatar-me.css e .footer de homepage.css)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  footer {
+    position: static !important;
+    padding: 20px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  #topFooter {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  #logotiposFooter,
+  #logotiposRedes {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #bottomFooter {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  #barraFooter {
+    display: none;
+  }
+
+  #linksFooter {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 16px;
+  }
+
+  .footer {
+    padding: 16px;
+  }
+
+  .social-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 380px) {
+  #linksFooter a,
+  #bottomFooter a {
+    font-size: 11px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. FORMULÁRIO "CANDIDATAR-ME" (candidatar-me.css)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .cand-main {
+    padding-top: 90px;
+  }
+}
+
+@media (max-width: 900px) {
+  .cand-title {
+    font-size: 1.35rem;
+  }
+
+  .cand-tabs .tab {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+  }
+
+  .cand-tabs .tab .tab-label {
+    display: none;
+  }
+
+  .cand-tabs .tab-finalizar .tab-label {
+    display: inline;
+  }
+}
+
+@media (max-width: 768px) {
+  .cand-form-shell,
+  .cand-title-row {
+    width: 95%;
+  }
+
+  .cand-panels {
+    padding: 18px 2px 6px;
+  }
+
+  .fdInput input,
+  .fdSelect select {
+    height: 48px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .mil-question {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .cand-title {
+    font-size: 1.15rem;
+  }
+
+  .cand-info-banner {
+    padding: 12px 14px;
+    font-size: 0.82rem;
+  }
+
+  .grid {
+    gap: 12px;
+  }
+
+  .iban-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .checkbox-box {
+    flex-wrap: wrap;
+  }
+
+  .dashed-box {
+    padding: 14px;
+  }
+
+  .btn-teal {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  .cand-tabs .tab {
+    padding: 10px 10px;
+  }
+
+  .cand-tabs .tab .tab-num {
+    width: 18px;
+    height: 18px;
+    font-size: 0.65rem;
+  }
+
+  .iban-row {
+    grid-template-columns: 1fr;
+  }
+}
