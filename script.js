@@ -804,8 +804,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (cartao.getAttribute('data-status') === status) {
                 cartao.style.display = 'block';
-
-                // Só incrementa o contador se o cartão for um concurso vindo da Base de Dados
                 if (cartao.classList.contains('concurso-real')) {
                     contador++;
                 }
